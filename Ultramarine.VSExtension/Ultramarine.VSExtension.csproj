@@ -54,7 +54,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="GeneratorCommand.cs" />
+    <Compile Include="Commands\ProjectGeneratorCommand.cs" />
+    <Compile Include="Commands\SolutionGeneratorCommand.cs" />
     <Compile Include="GeneratorsPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +70,7 @@
     <VSCTCompile Include="GeneratorsPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
+    <Content Include="Resources\SolutionGeneratorCommand.png" />
     <Content Include="index.html" />
     <Content Include="Resources\GeneratorCommand.png" />
     <Content Include="Resources\GeneratorsPackage.ico" />

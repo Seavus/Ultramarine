@@ -15,10 +15,10 @@
         defining some of the constants that we will use inside the file. -->
 
   <!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
-  <Extern href="stdidcmd.h"/>
+  <Extern href="stdidcmd.h" />
 
   <!--This header contains the command ids for the menus provided by the shell. -->
-  <Extern href="vsshlids.h"/>
+  <Extern href="vsshlids.h" />
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
@@ -36,10 +36,41 @@
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
     <Groups>
-      <Group guid="guidGeneratorsPackageCmdSet" id="MyMenuGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+      <Group guid="guidGeneratorsPackageCmdSet" id="UltramarineProjectMenuGroup" priority="0x0800">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_PROJNODE" />
       </Group>
+
+      <Group guid="guidGeneratorsPackageCmdSet" id="UltramarineSolutionMenuGroup" priority="0x0800">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_SOLNNODE" />
+      </Group>
+
+      <Group guid="guidGeneratorsPackageCmdSet" id="ProjectLevelMenuGroup" priority="0x1000">
+        <Parent guid="guidGeneratorsPackageCmdSet" id="ProjectLevelMenu" />
+      </Group>
+
+      <Group guid="guidGeneratorsPackageCmdSet" id="SolutionLevelMenuGroup" priority="0x1000">
+        <Parent guid="guidGeneratorsPackageCmdSet" id="SolutionLevelMenu" />
+      </Group>
+      
     </Groups>
+
+    <Menus>
+      <Menu guid="guidGeneratorsPackageCmdSet" id="ProjectLevelMenu" type="Menu" priority="0x1000">
+        <Parent guid="guidGeneratorsPackageCmdSet" id="UltramarineProjectMenuGroup" />
+        <Strings>
+          <ButtonText>Ultramarine</ButtonText>
+          <CommandName>Ultramarine</CommandName>
+        </Strings>
+      </Menu>
+
+      <Menu guid="guidGeneratorsPackageCmdSet" id="SolutionLevelMenu" type="Menu" priority="0x1000">
+        <Parent guid="guidGeneratorsPackageCmdSet" id="UltramarineSolutionMenuGroup" />
+        <Strings>
+          <ButtonText>Ultramarine</ButtonText>
+          <CommandName>Ultramarine</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
 
     <!--Buttons section. -->
     <!--This section defines the elements the user can interact with, like a menu command or a button
@@ -51,14 +82,22 @@
           You can add more than one CommandFlag node e.g.:
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
-          If you do not want an image next to your command, remove the Icon node /> -->
-      <Button guid="guidGeneratorsPackageCmdSet" id="GeneratorCommandId" priority="0x0100" type="Button">
-        <Parent guid="guidGeneratorsPackageCmdSet" id="MyMenuGroup" />
+          If you do not want an image next to your command, remove the Icon node /> -->      
+      <Button guid="guidGeneratorsPackageCmdSet" id="CmdIdGenerateFromProject" priority="0x0100" type="Button">
+        <Parent guid="guidGeneratorsPackageCmdSet" id="ProjectLevelMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>Invoke GeneratorCommand</ButtonText>
+          <ButtonText>Generate from project</ButtonText>
         </Strings>
       </Button>
+      
+      <Button guid="guidGeneratorsPackageCmdSet" id="CmdIdGenerateFromSolution" priority="0x0103" type="Button">
+        <Parent guid="guidGeneratorsPackageCmdSet" id="SolutionLevelMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Generate from solution</ButtonText>
+        </Strings>
+      </Button>      
     </Buttons>
 
     <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
@@ -68,8 +107,8 @@
             bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
             inside a button definition. An important aspect of this declaration is that the element id
             must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\GeneratorCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
-    </Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\GeneratorCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      </Bitmaps>
   </Commands>
 
   <Symbols>
@@ -78,11 +117,20 @@
 
     <!-- This is the guid used to group the menu commands together -->
     <GuidSymbol name="guidGeneratorsPackageCmdSet" value="{97179d86-fae6-42ba-bb5f-f746f3ba384b}">
-      <IDSymbol name="MyMenuGroup" value="0x1020" />
-      <IDSymbol name="GeneratorCommandId" value="0x0100" />
+      
+      <IDSymbol name="UltramarineProjectMenuGroup" value="0x1020" />
+      <IDSymbol name="ProjectLevelMenu" value="0x1021" />
+      <IDSymbol name="ProjectLevelMenuGroup" value="0x1022" />      
+
+      <IDSymbol name="UltramarineSolutionMenuGroup" value="0x1030" />
+      <IDSymbol name="SolutionLevelMenu" value="0x1031" />
+      <IDSymbol name="SolutionLevelMenuGroup" value="0x1032" />
+
+      <IDSymbol name="CmdIdGenerateFromProject" value="0x0100" />
+      <IDSymbol name="CmdIdGenerateFromSolution" value="0x0103" />      
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{2e0d60c6-8e17-431d-9c33-58e84a62e94f}" >
+    <GuidSymbol name="guidImages" value="{2e0d60c6-8e17-431d-9c33-58e84a62e94f}">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
