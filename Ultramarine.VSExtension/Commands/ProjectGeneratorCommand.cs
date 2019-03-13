@@ -118,7 +118,7 @@ namespace Ultramarine.VSExtension.Commands
             var projectPath = project.Properties.Item("FullPath").Value.ToString();
             
 
-            var generator = GeneratorSerializer.Instance.Load(Path.Combine(projectPath, "Project.gen.config"));
+            var generator = GeneratorSerializer.Instance.Load(Path.Combine(projectPath, "Project.gen.json"));
             // Show a message box to prove we were here
             //VsShellUtilities.ShowMessageBox(
             //    this.package,
