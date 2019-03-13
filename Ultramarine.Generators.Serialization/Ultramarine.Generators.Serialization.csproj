@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Ultramarine.Generators.LanguageDefinitions\Ultramarine.Generators.LanguageDefinitions.csproj" />
     <ProjectReference Include="..\Ultramarine.Generators.Serialization.Contracts\Ultramarine.Generators.Serialization.Contracts.csproj" />
   </ItemGroup>

@@ -58,6 +58,7 @@
     <Compile Include="Commands\ProjectGeneratorCommand.cs" />
     <Compile Include="Commands\SolutionGeneratorCommand.cs" />
     <Compile Include="GeneratorsPackage.cs" />
+    <Compile Include="Helpers\DteExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,9 +179,21 @@
       <Project>{D4D44D12-C288-4496-BABF-1EC7FDB43AAB}</Project>
       <Name>Ultramarine.Generators.LanguageDefinitions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ultramarine.Generators.Serialization.Contracts\Ultramarine.Generators.Serialization.Contracts.csproj">
+      <Project>{53d1ae9b-2936-45eb-9bac-255a03267bf0}</Project>
+      <Name>Ultramarine.Generators.Serialization.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ultramarine.Generators.Serialization.Providers\Ultramarine.Generators.Serialization.Providers.csproj">
       <Project>{C64D9F59-1DCC-429F-A90D-9514BA1F543F}</Project>
       <Name>Ultramarine.Generators.Serialization.Providers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ultramarine.Generators.Serialization\Ultramarine.Generators.Serialization.csproj">
+      <Project>{89047a1d-c0f6-4fcb-a77d-798a30c424ea}</Project>
+      <Name>Ultramarine.Generators.Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ultramarine.Generators.Task.Library\Ultramarine.Generators.Task.Library.csproj">
+      <Project>{ae11865f-a225-496f-aa03-1d9cc4cf0440}</Project>
+      <Name>Ultramarine.Generators.Task.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

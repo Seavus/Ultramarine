@@ -1,8 +1,11 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Globalization;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Ultramarine.Generators.Serialization.Providers;
@@ -30,6 +33,7 @@ namespace Ultramarine.VSExtension.Commands
         /// </summary>
         private readonly AsyncPackage package;
 
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectGeneratorCommand"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
@@ -75,7 +79,7 @@ namespace Ultramarine.VSExtension.Commands
             // Switch to the main thread - the call to AddCommand in GeneratorCommand's constructor requires
             // the UI thread.
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
-
+            
             OleMenuCommandService commandService = await package.GetServiceAsync((typeof(IMenuCommandService))) as OleMenuCommandService;
             Instance = new ProjectGeneratorCommand(package, commandService);
         }
@@ -90,17 +94,39 @@ namespace Ultramarine.VSExtension.Commands
         private void Execute(object sender, EventArgs e)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            string title = "GeneratorCommand";
-            var generator = GeneratorSerializer.Instance.Load();
+            //string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
+            //string title = "GeneratorCommand";
+            var host = ServiceProvider.GetServiceAsync(typeof(SDTE)).Result as DTE;
+            if (host.SelectedItems.MultiSelect)
+            {
+                VsShellUtilities.ShowMessageBox(
+                    this.package,
+                    "Multiple selected items are currently not supported.",
+                    "Information",
+                    OLEMSGICON.OLEMSGICON_INFO,
+                    OLEMSGBUTTON.OLEMSGBUTTON_OK,
+                    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+                MessageBox.Show("Multiple selected items are currently not supported", "Information");
+                return;
+            }
+
+            var selectedItem = host.SelectedItems.Item(1);
+            if (selectedItem == null)
+                return;
+            var project = selectedItem.Project;
+
+            var projectPath = project.Properties.Item("FullPath").Value.ToString();
+            
+
+            var generator = GeneratorSerializer.Instance.Load(Path.Combine(projectPath, "Project.gen.config"));
             // Show a message box to prove we were here
-            VsShellUtilities.ShowMessageBox(
-                this.package,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            //VsShellUtilities.ShowMessageBox(
+            //    this.package,
+            //    message,
+            //    title,
+            //    OLEMSGICON.OLEMSGICON_INFO,
+            //    OLEMSGBUTTON.OLEMSGBUTTON_OK,
+            //    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
         }
     }
 }

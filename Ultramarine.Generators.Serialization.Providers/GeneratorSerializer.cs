@@ -17,9 +17,12 @@ namespace Ultramarine.Generators.Serialization.Providers
 
         }
         
-        public IGenerator Load()
+        public IGenerator Load(string path)
         {
-            throw new NotImplementedException();
+            var serializer = SerializationInitializer.Initialize(path);
+            return serializer.Load();
         }
     }
+
+
 }
