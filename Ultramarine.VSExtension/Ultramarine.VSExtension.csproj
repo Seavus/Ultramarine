@@ -7,6 +7,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <UseCodebase>true</UseCodebase>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -25,7 +26,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ultramarine.VSExtension</RootNamespace>
     <AssemblyName>Ultramarine.VSExtension</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
@@ -171,6 +172,16 @@
       <MergeWithCTO>true</MergeWithCTO>
       <ManifestResourceName>VSPackage</ManifestResourceName>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ultramarine.Generators.LanguageDefinitions\Ultramarine.Generators.LanguageDefinitions.csproj">
+      <Project>{D4D44D12-C288-4496-BABF-1EC7FDB43AAB}</Project>
+      <Name>Ultramarine.Generators.LanguageDefinitions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ultramarine.Generators.Serialization.Providers\Ultramarine.Generators.Serialization.Providers.csproj">
+      <Project>{C64D9F59-1DCC-429F-A90D-9514BA1F543F}</Project>
+      <Name>Ultramarine.Generators.Serialization.Providers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

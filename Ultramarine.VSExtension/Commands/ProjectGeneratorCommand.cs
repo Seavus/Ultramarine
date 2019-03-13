@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using Ultramarine.Generators.Serialization.Providers;
 using Task = System.Threading.Tasks.Task;
 
 namespace Ultramarine.VSExtension.Commands
@@ -91,7 +92,7 @@ namespace Ultramarine.VSExtension.Commands
             ThreadHelper.ThrowIfNotOnUIThread();
             string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
             string title = "GeneratorCommand";
-
+            var generator = GeneratorSerializer.Instance.Load();
             // Show a message box to prove we were here
             VsShellUtilities.ShowMessageBox(
                 this.package,
