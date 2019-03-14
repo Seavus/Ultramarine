@@ -8,4 +8,8 @@
     <PackageReference Include="Antlr4.Runtime" Version="4.6.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ultramarine.QueryLanguage.Grammars\Ultramarine.QueryLanguage.Grammars.csproj" />
+  </ItemGroup>
+
 </Project>

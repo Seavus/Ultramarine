@@ -19,5 +19,23 @@ namespace Ultramarine.QueryLanguage.Tests
             var context = parser.conditioner();
             Assert.IsNull(context.exception);
         }
+
+        [TestMethod]
+        public void ShouldProvideCondition()
+        {
+            var expression = "Test1 equals Test2";
+            var input = new AntlrInputStream(expression);
+            var lexer = new QueryLanguageLexer(input);
+            var tokens = new CommonTokenStream(lexer);
+            var parser = new QueryLanguageParser(tokens);
+
+            var conditioner = parser.conditioner();
+            ConditionVisitor visitor = new ConditionVisitor();
+            var condition = visitor.Visit(conditioner.condition());
+
+            Assert.IsNotNull(condition.LeftOperand);
+            Assert.IsNotNull(condition.RightOperand);
+            Assert.IsNotNull(condition.Operator);
+        }
     }
 }

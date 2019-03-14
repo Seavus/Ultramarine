@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ultramarine.QueryLanguage.Grammars\Ultramarine.QueryLanguage.Grammars.csproj" />
+    <ProjectReference Include="..\Ultramarine.QueryLanguage\Ultramarine.QueryLanguage.csproj" />
   </ItemGroup>
 
 </Project>
