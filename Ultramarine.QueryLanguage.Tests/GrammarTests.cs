@@ -62,6 +62,34 @@ namespace Ultramarine.QueryLanguage.Tests
             Assert.IsTrue(result);
         }
 
+        [TestMethod]
+        public void ShouldEvalueConditionsContainingFalseKeyword()
+        {
+            var expression = "false equals false";
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
 
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ShouldEvalueConditionsContainingTrueKeyword()
+        {
+            var expression = "true equals true";
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ShouldEvalueConditionsContainingCombinedKeyword()
+        {
+            var expression = "true equals false";
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
+
+            Assert.IsFalse(result);
+        }
     }
 }

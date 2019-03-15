@@ -14,17 +14,11 @@ namespace Ultramarine.QueryLanguage
 
         public override Condition VisitComparison_expression([NotNull] QueryLanguageParser.Comparison_expressionContext context)
         {
-            var operands = context.comparison_operand();
-            var comparisonOperator = context.comparison_operator();
-
-            var condition = new Condition(comparisonOperator.GetText(), operands[0].GetText(), operands[1].GetText());
+            var condition = new Condition(context.Operator.GetText(), context.LeftOperand.GetText(), context.RightOperand.GetText());
 
             Conditions.Add(condition);
 
             return condition;
-            //return base.VisitComparison_expression(context);
-        }
+        }        
     }
-
-
 }
