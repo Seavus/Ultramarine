@@ -23,9 +23,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QueryLanguage", "QueryLangu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.QueryLanguage.Grammars", "Ultramarine.QueryLanguage.Grammars\Ultramarine.QueryLanguage.Grammars.csproj", "{85AFD823-3966-4C16-B02C-699AA8F8D695}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.QueryLanguage", "Ultramarine.QueryLanguage\Ultramarine.QueryLanguage.csproj", "{C501F3E8-D750-4E12-A020-4748008B2AF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.QueryLanguage", "Ultramarine.QueryLanguage\Ultramarine.QueryLanguage.csproj", "{C501F3E8-D750-4E12-A020-4748008B2AF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.QueryLanguage.Tests", "Ultramarine.QueryLanguage.Tests\Ultramarine.QueryLanguage.Tests.csproj", "{9D757EB8-555D-437C-8D9D-C13509F8AC8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.QueryLanguage.Tests", "Ultramarine.QueryLanguage.Tests\Ultramarine.QueryLanguage.Tests.csproj", "{9D757EB8-555D-437C-8D9D-C13509F8AC8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.QueryLanguage.Cli", "Ultramarine.QueryLanguage.Cli\Ultramarine.QueryLanguage.Cli.csproj", "{7D6C3800-E1E7-4427-A794-3DA54213C61E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{9D757EB8-555D-437C-8D9D-C13509F8AC8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D757EB8-555D-437C-8D9D-C13509F8AC8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D757EB8-555D-437C-8D9D-C13509F8AC8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D6C3800-E1E7-4427-A794-3DA54213C61E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D6C3800-E1E7-4427-A794-3DA54213C61E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D6C3800-E1E7-4427-A794-3DA54213C61E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D6C3800-E1E7-4427-A794-3DA54213C61E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{85AFD823-3966-4C16-B02C-699AA8F8D695} = {8AE1A11C-5430-4DC7-870F-7B21CF5C94A0}
 		{C501F3E8-D750-4E12-A020-4748008B2AF3} = {8AE1A11C-5430-4DC7-870F-7B21CF5C94A0}
 		{9D757EB8-555D-437C-8D9D-C13509F8AC8A} = {8AE1A11C-5430-4DC7-870F-7B21CF5C94A0}
+		{7D6C3800-E1E7-4427-A794-3DA54213C61E} = {8AE1A11C-5430-4DC7-870F-7B21CF5C94A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A86E2D6F-253D-4A78-955E-7A75E9CE4EBA}
