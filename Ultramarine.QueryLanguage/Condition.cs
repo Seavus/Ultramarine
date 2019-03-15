@@ -13,10 +13,10 @@ namespace Ultramarine.QueryLanguage
             LeftOperand = leftOperand;
             RightOperand = rightOperand;            
         }
-        private StringComparer _comparer { get; set; }
-        public OperatorType OperatorType { get; set; }
-        public string LeftOperand { get; set; }
-        public string RightOperand { get; set; }
+        private StringComparer _comparer;
+        public OperatorType OperatorType { get; private set; }
+        public string LeftOperand { get; private set; }
+        public string RightOperand { get; private set; }
 
         public bool Evaluate()
         {
