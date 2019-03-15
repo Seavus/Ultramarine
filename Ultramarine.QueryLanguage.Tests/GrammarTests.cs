@@ -21,7 +21,7 @@ namespace Ultramarine.QueryLanguage.Tests
         }
 
         [TestMethod]
-        public void ShouldProvideCondition()
+        public void ShouldEvaluateEqualsConditionAsFalse()
         {
             var expression = "Test1 equals Test2";
             var input = new AntlrInputStream(expression);
@@ -32,10 +32,36 @@ namespace Ultramarine.QueryLanguage.Tests
             var conditioner = parser.conditioner();
             ConditionVisitor visitor = new ConditionVisitor();
             var condition = visitor.Visit(conditioner.condition());
+            var result = condition.Evaluate();
 
             Assert.IsNotNull(condition.LeftOperand);
             Assert.IsNotNull(condition.RightOperand);
-            Assert.IsNotNull(condition.Operator);
+            Assert.IsNotNull(condition.OperatorType);
+
+            Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void ShouldEvaluateEqualsConditionAsTrue()
+        {
+            var expression = "Test1 equals Test1";
+            var input = new AntlrInputStream(expression);
+            var lexer = new QueryLanguageLexer(input);
+            var tokens = new CommonTokenStream(lexer);
+            var parser = new QueryLanguageParser(tokens);
+
+            var conditioner = parser.conditioner();
+            ConditionVisitor visitor = new ConditionVisitor();
+            var condition = visitor.Visit(conditioner.condition());
+            var result = condition.Evaluate();
+
+            Assert.IsNotNull(condition.LeftOperand);
+            Assert.IsNotNull(condition.RightOperand);
+            Assert.IsNotNull(condition.OperatorType);
+
+            Assert.IsTrue(result);
+        }
+
+
     }
 }
