@@ -14,13 +14,22 @@ namespace Ultramarine.QueryLanguage.Cli
             
             while (true)
             {
+                Console.Write('>');
                 var input = Console.ReadLine();
                 if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
                 {
                     break;
                 }
-                var compiler = new ConditionCompiler(input);
-                Console.WriteLine(compiler.Execute());
+                try
+                {
+                    var compiler = new ConditionCompiler(input);
+                    Console.WriteLine(compiler.Execute());
+                }
+                catch
+                {
+                    //TODO: proper parsing error
+                    Console.WriteLine("Can't understand that expression. Yet!");
+                }
             }
 
         }

@@ -7,36 +7,13 @@ namespace Ultramarine.QueryLanguage.Tests
     [TestClass]
     public class GrammarTests
     {
-        [TestMethod]
-        public void ShouldParseSimpleEqualsExpression()
-        {
-            var expression = "Test1 equals Test2";
-            var input = new AntlrInputStream(expression);
-            var lexer = new QueryLanguageLexer(input);
-            var tokens = new CommonTokenStream(lexer);
-            var parser = new QueryLanguageParser(tokens);
-
-            var context = parser.conditioner();
-            Assert.IsNull(context.exception);
-        }
-
+        
         [TestMethod]
         public void ShouldEvaluateEqualsConditionAsFalse()
         {
             var expression = "Test1 equals Test2";
-            var input = new AntlrInputStream(expression);
-            var lexer = new QueryLanguageLexer(input);
-            var tokens = new CommonTokenStream(lexer);
-            var parser = new QueryLanguageParser(tokens);
-
-            var conditioner = parser.conditioner();
-            ConditionVisitor visitor = new ConditionVisitor();
-            var condition = visitor.Visit(conditioner.condition());
-            var result = condition.Evaluate();
-
-            Assert.IsNotNull(condition.LeftOperand);
-            Assert.IsNotNull(condition.RightOperand);
-            Assert.IsNotNull(condition.OperatorType);
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
 
             Assert.IsFalse(result);
         }
@@ -45,25 +22,24 @@ namespace Ultramarine.QueryLanguage.Tests
         public void ShouldEvaluateEqualsConditionAsTrue()
         {
             var expression = "Test1 equals Test1";
-            var input = new AntlrInputStream(expression);
-            var lexer = new QueryLanguageLexer(input);
-            var tokens = new CommonTokenStream(lexer);
-            var parser = new QueryLanguageParser(tokens);
-
-            var conditioner = parser.conditioner();
-            ConditionVisitor visitor = new ConditionVisitor();
-            var condition = visitor.Visit(conditioner.condition());
-            var result = condition.Evaluate();
-
-            Assert.IsNotNull(condition.LeftOperand);
-            Assert.IsNotNull(condition.RightOperand);
-            Assert.IsNotNull(condition.OperatorType);
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
 
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        public void ShouldEvalueConditionsContainingFalseKeyword()
+        public void ShouldEvaluateEqualsConditionAsTrueWrappedInParens()
+        {
+            var expression = "(Test1 equals Test1)";
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ShouldEvaluateConditionsContainingFalseKeyword()
         {
             var expression = "false equals false";
             var compiler = new ConditionCompiler(expression);
@@ -73,7 +49,7 @@ namespace Ultramarine.QueryLanguage.Tests
         }
 
         [TestMethod]
-        public void ShouldEvalueConditionsContainingTrueKeyword()
+        public void ShouldEvaluateConditionsContainingTrueKeyword()
         {
             var expression = "true equals true";
             var compiler = new ConditionCompiler(expression);
@@ -83,13 +59,64 @@ namespace Ultramarine.QueryLanguage.Tests
         }
 
         [TestMethod]
-        public void ShouldEvalueConditionsContainingCombinedKeyword()
+        public void ShouldEvaluateConditionsContainingCombinedKeyword()
         {
             var expression = "true equals false";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
             Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void ShouldEvaluateAndTruthyComplexConditions()
+        {
+            var expression = "Test1 equals Test1 and Test2 equals Test2";
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
+
+            Assert.IsTrue(result);
+        }
+
+       
+        [TestMethod]
+        public void ShouldEvaluateAndTruthyComplexConditionsWrappedInParens()
+        {
+            var expression = "(Test1 equals Test1) and (Test2 equals Test2)";
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ShouldEvaluateFalsyComplexConditions()
+        {
+            var expression = "Test2 equals Test1 and Test2 equals Test2";
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
+
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void ShouldEvaluateFalseComplexConditions()
+        {
+            var expression = "Test2 equals Test1 and Test1 equals Test2";
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
+
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void ShouldEvaluateOrTruthyComplexConditions()
+        {
+            var expression = "Test1 equals Test1 or Test2 equals Test2";
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
+
+            Assert.IsTrue(result);
         }
     }
 }

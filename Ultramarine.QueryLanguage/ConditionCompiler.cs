@@ -10,13 +10,12 @@ namespace Ultramarine.QueryLanguage
             var input = new AntlrInputStream(expression);
             var lexer = new QueryLanguageLexer(input);
             var tokens = new CommonTokenStream(lexer);
-            var parser = new QueryLanguageParser(tokens);
-            var conditioner = parser.conditioner();
-            ConditionVisitor visitor = new ConditionVisitor();
-            _condition = visitor.Visit(conditioner.condition());
+            var parser = new QueryLanguageParser(tokens);            
+            var visitor = new LogicalExpressionVisitor();
+            _condition = visitor.Visit(parser.condition().LogicalExpression);
         }
 
-        private Condition _condition;
+        private LogicalExpression _condition;
 
         public object Execute()
         {

@@ -5,13 +5,13 @@ using StringComparison = Ultramarine.QueryLanguage.Comparers.StringComparison;
 
 namespace Ultramarine.QueryLanguage
 {
-    public class Condition
+    public class ComparisonExpression
     {
-        public Condition(string @operator, string leftOperand, string rightOperand)
+        public ComparisonExpression(string @operator, string leftOperand, string rightOperand)
         {
             _comparer = ParseComparisonType(@operator);
             LeftOperand = leftOperand;
-            RightOperand = rightOperand;            
+            RightOperand = rightOperand;
         }
         private StringComparer _comparer;
         public OperatorType OperatorType { get; private set; }
@@ -29,4 +29,5 @@ namespace Ultramarine.QueryLanguage
             return StringComparison.Instance.GetComparer(OperatorType);
         }
     }
+
 }

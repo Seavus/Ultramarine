@@ -4,21 +4,17 @@ using Ultramarine.QueryLanguage.Grammars;
 
 namespace Ultramarine.QueryLanguage
 {
-    public class ConditionVisitor : QueryLanguageBaseVisitor<Condition>
+    public class ComparisonExpressionVisitor : QueryLanguageBaseVisitor<ComparisonExpression>
     {
-        public ConditionVisitor()
+        public override ComparisonExpression VisitComparisonExpressionWithOperators([NotNull] QueryLanguageParser.ComparisonExpressionWithOperatorsContext context)
         {
-            Conditions = new List<Condition>();
-        }
-        public List<Condition> Conditions { get; set; }
-
-        public override Condition VisitComparison_expression([NotNull] QueryLanguageParser.Comparison_expressionContext context)
-        {
-            var condition = new Condition(context.Operator.GetText(), context.LeftOperand.GetText(), context.RightOperand.GetText());
-
-            Conditions.Add(condition);
-
+            var condition = new ComparisonExpression(context.Operator.GetText(), context.LeftOperand.GetText(), context.RightOperand.GetText());
             return condition;
-        }        
+        }
+
+        public override ComparisonExpression VisitComparisonExpressionInParens([NotNull] QueryLanguageParser.ComparisonExpressionInParensContext context)
+        {
+            return Visit(context.comparison_expression());
+        }
     }
 }
