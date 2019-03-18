@@ -1,11 +1,9 @@
-using Antlr4.Runtime;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Ultramarine.QueryLanguage.Grammars;
 
 namespace Ultramarine.QueryLanguage.Tests
 {
     [TestClass]
-    public class GrammarTests
+    public class EqualityTests
     {
         
         [TestMethod]
@@ -118,5 +116,6 @@ namespace Ultramarine.QueryLanguage.Tests
 
             Assert.IsTrue(result);
         }
+
     }
 }

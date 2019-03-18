@@ -21,7 +21,10 @@ namespace Ultramarine.QueryLanguage.Comparers
         {
             return new List<StringComparer>()
             {
-                new StringComparerEquals()
+                new StringComparerEquals(),
+                new StringComparerStartsWith(),
+                new StringComparerEndsWith(),
+                new StringComparerContains()
             };
         }
 
