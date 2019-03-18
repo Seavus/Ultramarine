@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Ultramarine.Generators.Task.Library.Contracts
+namespace Ultramarine.Generators.Tasks.Library.Contracts
 {
     public class ValidationResult: Dictionary<string, string>
     {

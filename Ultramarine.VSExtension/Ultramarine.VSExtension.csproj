@@ -191,9 +191,9 @@
       <Project>{89047a1d-c0f6-4fcb-a77d-798a30c424ea}</Project>
       <Name>Ultramarine.Generators.Serialization</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ultramarine.Generators.Task.Library\Ultramarine.Generators.Task.Library.csproj">
-      <Project>{ae11865f-a225-496f-aa03-1d9cc4cf0440}</Project>
-      <Name>Ultramarine.Generators.Task.Library</Name>
+    <ProjectReference Include="..\Ultramarine.Generators.Tasks.Library\Ultramarine.Generators.Tasks.Library.csproj">
+      <Project>{4CD4FF45-5D29-459A-BB2E-CD760A95AAF5}</Project>
+      <Name>Ultramarine.Generators.Tasks.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

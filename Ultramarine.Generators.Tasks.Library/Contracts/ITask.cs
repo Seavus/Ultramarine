@@ -1,4 +1,4 @@
-﻿namespace Ultramarine.Generators.Task.Library.Contracts
+﻿namespace Ultramarine.Generators.Tasks.Library.Contracts
 {
     public interface ITask
     {

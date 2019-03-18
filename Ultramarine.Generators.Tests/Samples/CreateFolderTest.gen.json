@@ -1,0 +1,11 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "createFolder": {
+        "folderName": "test1"
+      }
+    }
+  ]
+}

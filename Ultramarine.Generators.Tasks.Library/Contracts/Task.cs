@@ -1,4 +1,4 @@
-﻿namespace Ultramarine.Generators.Task.Library.Contracts
+﻿namespace Ultramarine.Generators.Tasks.Library.Contracts
 {
     public abstract class Task : ITask
     {
@@ -10,8 +10,12 @@
         {
             Name = name;
         }
+
         public string Name { get; set; }
+
         public string Description { get; set; }
+
+        public Task Parent { get; set; }
         protected virtual ValidationResult Validate()
         {
             var validationResult = new ValidationResult();

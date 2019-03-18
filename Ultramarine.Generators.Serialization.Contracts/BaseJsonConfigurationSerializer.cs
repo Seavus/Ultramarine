@@ -6,8 +6,8 @@ namespace Ultramarine.Generators.Serialization.Contracts
 {
     public abstract class BaseJsonConfigurationSerializer<T> : JsonSerializer, IConfigurationSerializer<T>
     {
-        public string Path { get; set; }
-        public JsonConverter[] ConverterCollection { get; set; }
+        public string Path { get; private set; }
+        public JsonConverter[] ConverterCollection { get; private set; }
 
         public BaseJsonConfigurationSerializer(string path, JsonConverter[] converters)
         {
@@ -17,7 +17,7 @@ namespace Ultramarine.Generators.Serialization.Contracts
         public T Load()
         {
             var file = File.ReadAllText(Path);
-            var generator = JsonConvert.DeserializeObject<T>(file);
+            var generator = JsonConvert.DeserializeObject<T>(file, ConverterCollection);
             return generator;
         }
     }
