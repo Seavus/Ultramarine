@@ -36,8 +36,10 @@ namespace Ultramarine.Generators.Tests
             var generatorPath = "Samples\\CreateFolderTest.gen.json";
             var generator = GeneratorSerializer.Instance.Load(generatorPath);
             Assert.IsNotNull(generator.Tasks.FirstOrDefault());
-            Assert.IsInstanceOfType(generator.Tasks.First(), typeof(CreateFolder));
-            Assert.IsNotNull(generator.Tasks);
+            var createFolderTask = generator.Tasks.First();
+            Assert.IsInstanceOfType(createFolderTask, typeof(CreateFolder));
+            Assert.AreEqual(createFolderTask.Name, "createFolderTask1");
+            Assert.AreEqual(createFolderTask.Description, "createFolderTask1description");
         }
 
 

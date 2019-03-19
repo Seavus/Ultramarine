@@ -4,6 +4,8 @@
   "tasks": [
     {
       "createFolder": {
+        "name": "createFolderTask1",
+        "description":  "createFolderTask1description",
         "folderName": "test1"
       }
     }
