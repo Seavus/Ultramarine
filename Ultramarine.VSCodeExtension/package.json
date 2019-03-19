@@ -10,14 +10,23 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:ugenflow.generate"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [{
-            "command": "extension.helloWorld",
-			"title": "Hello World"
-		}]
+            "command": "ugenflow.generate",
+			"title": "Run generator"
+		}],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "resourceFilename == project.gen.json",
+					"command": "ugenflow.generate",
+					"group": "7_modification"					
+				}
+			]
+		}
 	},
 	"scripts": {
 		"postinstall": "node ./node_modules/vscode/bin/install",
