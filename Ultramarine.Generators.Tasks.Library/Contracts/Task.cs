@@ -17,6 +17,8 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
 
         public string Description { get; set; }
 
+        public object Input { get; set; }
+        public object Output { get; set; }
         public Task Parent { get; set; }
         protected virtual ValidationResult Validate()
         {
@@ -27,14 +29,20 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
             return validationResult;
         }
 
-        protected abstract object Run();
+        protected abstract object OnExecute();
 
         public IProjectModel ExecutionContext { get; private set; }
 
         public virtual void SetExecutionContext(IProjectModel executionContext)
         {
             ExecutionContext = executionContext;
-        } 
+        }
+
+        public virtual void Execute()
+        {
+            Validate();
+            Output = OnExecute(); 
+        }
 
     }
 

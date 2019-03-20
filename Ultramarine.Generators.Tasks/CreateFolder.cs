@@ -10,7 +10,7 @@ namespace Ultramarine.Generators.Tasks
     {
         public string FolderPath { get; set; }
         public DirectoryInfo BasePath => Directory.GetParent(ExecutionContext.FilePath);
-        protected override object Run()
+        protected override object OnExecute()
         {
             return ExecutionContext.CreateDirectory(FolderPath);
         }

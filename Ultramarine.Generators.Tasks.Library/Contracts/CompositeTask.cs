@@ -13,7 +13,7 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
             Tasks = new TaskCollection(this);
         }
 
-        protected override object Run()
+        protected override object OnExecute()
         {
             throw new System.NotImplementedException();
         }
