@@ -5,11 +5,11 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
-    <AssemblyName>Ultramarine.Generators.Tasks.Contracts</AssemblyName>
+    <AssemblyName>Ultramarine.Generators.Tasks.Library</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.ComponentModel.Composition" Version="4.5.0" />
+    <PackageReference Include="System.Composition" Version="1.2.0" />
   </ItemGroup>
 
   <ItemGroup>

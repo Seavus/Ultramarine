@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.Composition;
+﻿using System.Composition;
 using Ultramarine.Generators.LanguageDefinitions;
 using Ultramarine.Generators.Tasks.Library.Contracts;
 

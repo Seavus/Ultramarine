@@ -1,5 +1,5 @@
 ﻿using System;
-using System.ComponentModel.Composition.Hosting;
+using System.Composition.Hosting;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -10,12 +10,23 @@ namespace Ultramarine.Generators.Serialization.Providers
     {
         public static Type[] GetAllExportedTypes<T>()
         {
-            var catalog = new AggregateCatalog();
-            var currentDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            catalog.Catalogs.Add(new DirectoryCatalog(currentDir));
-            var container = new CompositionContainer(catalog);
-            var taskTypes = container.GetExports<T>().Where(c => c.Value != null).Select(c => c.Value.GetType()).ToArray();
-
+            var containerConfiguration = new ContainerConfiguration();
+            var currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var taskLibraries = Directory.EnumerateFiles(currentPath, "*Tasks*.dll", SearchOption.AllDirectories);
+            foreach (var taskLibrary in taskLibraries)
+            {
+                try
+                {
+                    var assembly = Assembly.LoadFrom(taskLibrary);
+                    containerConfiguration.WithAssembly(assembly);
+                }
+                catch
+                {
+                    //TODO: logger
+                }
+            }
+            var container = containerConfiguration.CreateContainer();
+            var taskTypes = container.GetExports<T>().Select(c => c.GetType()).ToArray();
             return taskTypes;
         }
     }
