@@ -1,4 +1,6 @@
-﻿namespace Ultramarine.Generators.Tasks.Library.Contracts
+﻿using Ultramarine.Workspaces;
+
+namespace Ultramarine.Generators.Tasks.Library.Contracts
 {
     public abstract class Task : ITask
     {
@@ -26,6 +28,13 @@
         }
 
         protected abstract object Run();
+
+        public IProjectModel ExecutionContext { get; private set; }
+
+        public virtual void SetExecutionContext(IProjectModel executionContext)
+        {
+            ExecutionContext = executionContext;
+        } 
 
     }
 

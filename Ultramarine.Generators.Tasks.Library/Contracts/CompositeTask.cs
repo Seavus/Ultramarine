@@ -1,4 +1,6 @@
-﻿namespace Ultramarine.Generators.Tasks.Library.Contracts
+﻿using Ultramarine.Workspaces;
+
+namespace Ultramarine.Generators.Tasks.Library.Contracts
 {
     public abstract class CompositeTask : Task
     {
@@ -17,5 +19,14 @@
         }
 
         public TaskCollection Tasks { get; set; }
+
+        public override void SetExecutionContext(IProjectModel executionContext)
+        {
+            base.SetExecutionContext(executionContext);
+            foreach(var task in Tasks)
+            {
+                task.SetExecutionContext(executionContext);
+            }
+        }
     }
 }

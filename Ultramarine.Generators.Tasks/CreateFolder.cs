@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Composition;
+using System.IO;
 using Ultramarine.Generators.Tasks.Library.Contracts;
 
 namespace Ultramarine.Generators.Tasks
@@ -7,11 +8,11 @@ namespace Ultramarine.Generators.Tasks
     [Export(typeof(Task))]
     public class CreateFolder : Task
     {
-        public string BasePath { get; set; }
         public string FolderPath { get; set; }
+        public DirectoryInfo BasePath => Directory.GetParent(ExecutionContext.FilePath);
         protected override object Run()
         {
-            throw new NotImplementedException();
+            return ExecutionContext.CreateDirectory(FolderPath);
         }
     }
 }
