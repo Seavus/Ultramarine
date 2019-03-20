@@ -12,8 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ultramarine.Generators.LanguageDefinitions\Ultramarine.Generators.LanguageDefinitions.csproj" />
     <ProjectReference Include="..\Ultramarine.Generators.Serialization.Contracts\Ultramarine.Generators.Serialization.Contracts.csproj" />
+    <ProjectReference Include="..\Ultramarine.Generators.Tasks.Library\Ultramarine.Generators.Tasks.Library.csproj" />
+    <ProjectReference Include="..\Ultramarine.Workspaces\Ultramarine.Workspaces.csproj" />
   </ItemGroup>
 
 </Project>

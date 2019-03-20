@@ -2,12 +2,13 @@
 using System.IO;
 using Ultramarine.Generators.Serialization.Contracts;
 using Ultramarine.Generators.Tasks.Library;
+using Ultramarine.Workspaces;
 
 namespace Ultramarine.Generators.Serialization.Providers
 {
     public static class SerializationInitializer
     {
-        public static IConfigurationSerializer<Generator> Initialize(string refGeneratorPath) //, Project executionContext)
+        public static IConfigurationSerializer<Generator> Initialize(string refGeneratorPath, IProjectModel executionContext)
         {
             var extension = Path.GetExtension(refGeneratorPath);
             switch (extension)
@@ -17,7 +18,7 @@ namespace Ultramarine.Generators.Serialization.Providers
                     //ConfigurationOverrides.FindTaskOverrides());
                     throw new NotImplementedException();
                 case SerializatorFileTypes.Json:
-                    return new JsonConfigurationSerializer<Generator>(refGeneratorPath, Converters.ScanTaskConverters());
+                    return new JsonConfigurationSerializer<Generator>(refGeneratorPath, executionContext, Converters.ScanTaskConverters());
                 default:
                     throw new ArgumentException("Unsupported config file type.");
             }

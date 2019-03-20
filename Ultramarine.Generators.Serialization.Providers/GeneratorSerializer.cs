@@ -1,5 +1,6 @@
 ﻿using System;
 using Ultramarine.Generators.Tasks.Library;
+using Ultramarine.Workspaces;
 
 namespace Ultramarine.Generators.Serialization.Providers
 {
@@ -17,9 +18,9 @@ namespace Ultramarine.Generators.Serialization.Providers
 
         }
         
-        public Generator Load(string path)
+        public Generator Load(string path, IProjectModel executionContext)
         {
-            var serializer = SerializationInitializer.Initialize(path);
+            var serializer = SerializationInitializer.Initialize(path, executionContext);
             return serializer.Load();
         }
     }

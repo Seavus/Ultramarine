@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.VSExtension", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generators", "Generators", "{BCDC8113-7331-4D96-A091-D91E3D4452A8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.Generators.LanguageDefinitions", "Ultramarine.Generators.LanguageDefinitions\Ultramarine.Generators.LanguageDefinitions.csproj", "{D4D44D12-C288-4496-BABF-1EC7FDB43AAB}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.Generators.Serialization.Contracts", "Ultramarine.Generators.Serialization.Contracts\Ultramarine.Generators.Serialization.Contracts.csproj", "{53D1AE9B-2936-45EB-9BAC-255A03267BF0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.Generators.Serialization.Providers", "Ultramarine.Generators.Serialization.Providers\Ultramarine.Generators.Serialization.Providers.csproj", "{C64D9F59-1DCC-429F-A90D-9514BA1F543F}"
@@ -49,10 +47,6 @@ Global
 		{2203EBE1-86F6-4605-A231-1FADB52ACC19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2203EBE1-86F6-4605-A231-1FADB52ACC19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2203EBE1-86F6-4605-A231-1FADB52ACC19}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4D44D12-C288-4496-BABF-1EC7FDB43AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4D44D12-C288-4496-BABF-1EC7FDB43AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4D44D12-C288-4496-BABF-1EC7FDB43AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4D44D12-C288-4496-BABF-1EC7FDB43AAB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{53D1AE9B-2936-45EB-9BAC-255A03267BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{53D1AE9B-2936-45EB-9BAC-255A03267BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53D1AE9B-2936-45EB-9BAC-255A03267BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -106,7 +100,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D4D44D12-C288-4496-BABF-1EC7FDB43AAB} = {BCDC8113-7331-4D96-A091-D91E3D4452A8}
 		{53D1AE9B-2936-45EB-9BAC-255A03267BF0} = {BCDC8113-7331-4D96-A091-D91E3D4452A8}
 		{C64D9F59-1DCC-429F-A90D-9514BA1F543F} = {BCDC8113-7331-4D96-A091-D91E3D4452A8}
 		{89047A1D-C0F6-4FCB-A77D-798A30C424EA} = {BCDC8113-7331-4D96-A091-D91E3D4452A8}

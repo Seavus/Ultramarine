@@ -175,10 +175,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ultramarine.Generators.LanguageDefinitions\Ultramarine.Generators.LanguageDefinitions.csproj">
-      <Project>{D4D44D12-C288-4496-BABF-1EC7FDB43AAB}</Project>
-      <Name>Ultramarine.Generators.LanguageDefinitions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ultramarine.Generators.Serialization.Contracts\Ultramarine.Generators.Serialization.Contracts.csproj">
       <Project>{53d1ae9b-2936-45eb-9bac-255a03267bf0}</Project>
       <Name>Ultramarine.Generators.Serialization.Contracts</Name>
@@ -194,6 +190,10 @@
     <ProjectReference Include="..\Ultramarine.Generators.Tasks.Library\Ultramarine.Generators.Tasks.Library.csproj">
       <Project>{4CD4FF45-5D29-459A-BB2E-CD760A95AAF5}</Project>
       <Name>Ultramarine.Generators.Tasks.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ultramarine.Workspaces\Ultramarine.Workspaces.csproj">
+      <Project>{B4452945-98EB-4E75-B77C-30083D57BB43}</Project>
+      <Name>Ultramarine.Workspaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

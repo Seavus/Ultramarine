@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ultramarine.Generators.LanguageDefinitions\Ultramarine.Generators.LanguageDefinitions.csproj" />
     <ProjectReference Include="..\Ultramarine.Workspaces\Ultramarine.Workspaces.csproj" />
   </ItemGroup>
 

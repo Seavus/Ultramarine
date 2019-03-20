@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.IO;
 
 namespace Ultramarine.Generators.Serialization.Contracts
@@ -18,7 +17,13 @@ namespace Ultramarine.Generators.Serialization.Contracts
         {
             var file = File.ReadAllText(Path);
             var generator = JsonConvert.DeserializeObject<T>(file, ConverterCollection);
+            OnConfigurationDeserialized(generator);
             return generator;
+        }
+
+        public virtual void OnConfigurationDeserialized(T generator)
+        {
+
         }
     }
 }
