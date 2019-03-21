@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.Roslyn", "Ultra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.Workspaces", "Ultramarine.Workspaces\Ultramarine.Workspaces.csproj", "{B4452945-98EB-4E75-B77C-30083D57BB43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.Workspaces.VisualStudio", "Ultramarine.Workspaces.VisualStudio\Ultramarine.Workspaces.VisualStudio.csproj", "{596E2E43-B431-456B-9537-63570CCA0807}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{B4452945-98EB-4E75-B77C-30083D57BB43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4452945-98EB-4E75-B77C-30083D57BB43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4452945-98EB-4E75-B77C-30083D57BB43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{596E2E43-B431-456B-9537-63570CCA0807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{596E2E43-B431-456B-9537-63570CCA0807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{596E2E43-B431-456B-9537-63570CCA0807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{596E2E43-B431-456B-9537-63570CCA0807}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,6 +119,7 @@ Global
 		{E2769337-93AD-4EE4-8675-71B8CB63771C} = {BCDC8113-7331-4D96-A091-D91E3D4452A8}
 		{0D77F6F4-776E-4ED2-B721-AF27A37F8485} = {29587005-ABB1-4619-A9C6-794CA0093CB1}
 		{B4452945-98EB-4E75-B77C-30083D57BB43} = {29587005-ABB1-4619-A9C6-794CA0093CB1}
+		{596E2E43-B431-456B-9537-63570CCA0807} = {29587005-ABB1-4619-A9C6-794CA0093CB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A86E2D6F-253D-4A78-955E-7A75E9CE4EBA}
