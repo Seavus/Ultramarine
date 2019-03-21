@@ -20,6 +20,7 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
         public object Input { get; set; }
         public object Output { get; set; }
         public Task Parent { get; set; }
+        public string ConnectedWith { get; set; }
         protected virtual ValidationResult Validate()
         {
             var validationResult = new ValidationResult();
