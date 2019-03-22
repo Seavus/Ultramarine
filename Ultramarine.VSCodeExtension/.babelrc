@@ -1,0 +1,5 @@
+{
+  "sourceRoot": "inline",
+  "retainLines": true,
+  "presets": ["@babel/preset-react"]
+}

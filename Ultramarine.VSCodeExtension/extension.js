@@ -32,21 +32,9 @@ function activate(context) {
         }
       );
 
-      const manifest = require(path.join(
-        context.extensionPath,
-        "build",
-        "asset-manifest.json"
-      ));
-      const mainScript = manifest["main.js"];
-      // const mainStyle = manifest["main.css"];
-
-      const scriptPathOnDisk = vscode.Uri.file(
-        path.join(context.extensionPath, "build", mainScript)
-      );
-      const scriptUri = scriptPathOnDisk.with({ scheme: "vscode-resource" });
-
-      panel.webview.html = getWebviewContent(scriptUri);
-      console.log(panel.webview.html);
+      const bundleScript = buildScriptsUri(context, "bundle.js");
+      const vendorScripts = buildScriptsUri(context, "vendor.js");
+      panel.webview.html = getWebviewContent(bundleScript, vendorScripts);
       // Display a message box to the user
       vscode.window.showInformationMessage("Hello World!");
     }
@@ -54,6 +42,11 @@ function activate(context) {
 
   context.subscriptions.push(disposable);
 }
+const buildScriptsUri = (context, scriptName) =>
+  vscode.Uri.file(path.join(context.extensionPath, "build", scriptName)).with({
+    scheme: "vscode-resource"
+  });
+
 exports.activate = activate;
 
 // this method is called when your extension is deactivated
@@ -64,7 +57,7 @@ module.exports = {
   deactivate
 };
 
-function getWebviewContent(scriptUri) {
+function getWebviewContent(scriptUri, vendorScripts) {
   //const nonce = getNonce();
   return `<!DOCTYPE html>
 <html lang="en">
@@ -77,18 +70,8 @@ function getWebviewContent(scriptUri) {
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <p>boza</p>
+    <script src="${vendorScripts}"></script>
     <script src="${scriptUri}" ></script>
   </body>
 </html>`;
 }
-
-// function getNonce() {
-//   let text = "";
-//   const possible =
-//     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-//   for (let i = 0; i < 32; i++) {
-//     text += possible.charAt(Math.floor(Math.random() * possible.length));
-//   }
-//   return text;
-// }

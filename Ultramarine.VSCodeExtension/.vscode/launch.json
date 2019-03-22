@@ -9,6 +9,7 @@
       "name": "Extension",
       "type": "extensionHost",
       "request": "launch",
+      "preLaunchTask": "build",
       "runtimeExecutable": "${execPath}",
       "args": ["--extensionDevelopmentPath=${workspaceFolder}"]
     },
