@@ -182,14 +182,14 @@ namespace Ultramarine.VSExtension.Commands
                 return;
             var selectedProject = selectedItem.Project;
 
-            //var projectPath = project.Properties.Item("FullPath").Value.ToString();
+            var projectPath = selectedProject.Properties.Item("FullPath").Value.ToString();
 
-            //TODO: test purposes only
-            var componentModel = (IComponentModel)ServiceProvider.GetServiceAsync(typeof(SComponentModel)).Result;
-            var workspace = componentModel.GetService<Microsoft.VisualStudio.LanguageServices.VisualStudioWorkspace>();
+            ////TODO: test purposes only
+            //var componentModel = (IComponentModel)ServiceProvider.GetServiceAsync(typeof(SComponentModel)).Result;
+            //var workspace = componentModel.GetService<Microsoft.VisualStudio.LanguageServices.VisualStudioWorkspace>();
 
-            var project = workspace.CurrentSolution.Projects.First(c => c.Name == selectedProject.Name);
-            var generator = GeneratorSerializer.Instance.Load(Path.Combine(Path.GetDirectoryName(project.FilePath), "Project.gen.json"), new ProjectModel(project));
+            //var project = workspace.CurrentSolution.Projects.First(c => c.Name == selectedProject.Name);
+            var generator = GeneratorSerializer.Instance.Load(Path.Combine(Path.GetDirectoryName(projectPath), "Project.gen.json"), new ProjectModel(selectedProject));
             generator.Execute();
             // Show a message box to prove we were here
             //VsShellUtilities.ShowMessageBox(
