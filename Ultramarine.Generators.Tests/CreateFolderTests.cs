@@ -41,8 +41,5 @@ namespace Ultramarine.Generators.Tests
             Assert.AreEqual(createFolderTask.Name, "createFolderTask1");
             Assert.AreEqual(createFolderTask.Description, "createFolderTask1description");
         }
-
-
-
     }
 }

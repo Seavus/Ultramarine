@@ -11,5 +11,7 @@ namespace Ultramarine.Workspaces
         List<IProjectItemModel> ProjectItems { get; set; }
 
         IProjectItemModel CreateDirectory(string folderPath);
+
+        IProjectItemModel CreateProjectItem(string path, string content, bool overwrite);
     }
 }

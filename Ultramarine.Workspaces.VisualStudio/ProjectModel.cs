@@ -12,12 +12,18 @@ namespace Ultramarine.Workspaces.VisualStudio
         private readonly Project _project;
         public ProjectModel(Project project)
         {
-            FilePath = project.Properties.Item("FullPath").Value;
+            FilePath = project.Properties.Item("FullPath").Value.ToString();
             Name = project.Name;
             Language = project.CodeModel.Language;
             ProjectItems = new List<IProjectItemModel>();
             _project = project;
         }
+
+        public ProjectModel(string projectName): this(Dte.Instance.GetProject(projectName))
+        {
+
+        }
+
         public string FilePath { get; set; }
         public string Name { get; set; }
         public string Language { get; set; }
@@ -36,12 +42,32 @@ namespace Ultramarine.Workspaces.VisualStudio
             return new ProjectItemModel(projectItem);
         }
 
+        public IProjectItemModel CreateProjectItem(string path, string content, bool overwrite)
+        {
+            if(!overwrite)
+                if(File.Exists(path))
+                    throw new Exception(string.Format("Failed to create project item. File '{0}' already exist on file system.", path));
+
+            var directoryPath = Path.GetDirectoryName(path);
+            Directory.CreateDirectory(directoryPath);
+            File.WriteAllText(path, content);
+            var projectItem = _project.ProjectItems.AddFromFile(path);
+
+            return new ProjectItemModel(projectItem);
+        }
+
         private ProjectItem EnsureDirectoryExists(ProjectItems projectItems, string folderName)
         {
             ProjectItem projectItem;
             try
             {
-                projectItem = projectItems.AddFolder(folderName);
+                var projectPath = projectItems.ContainingProject.Properties.Item("FullPath").Value.ToString();
+                var directoryPath = Path.Combine(projectPath, folderName);
+                if (Directory.Exists(directoryPath))
+                    projectItem = projectItems.AddFromDirectory(directoryPath);
+                else
+                    projectItem = projectItems.AddFolder(folderName);
+                
             }
             catch (Exception ex)
             {
