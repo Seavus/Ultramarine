@@ -26,6 +26,9 @@ comparison_operand
 	;
 comparison_operator
 	: EQ
+	| STARTSWITH
+	| ENDSWITH
+	| CONTAINS
 	;
 
 logical_entity
@@ -41,10 +44,13 @@ logical_entity
 AND : 'and';
 OR  : 'or';
 
-EQ	: 'equals';
+EQ:			'equals';
+STARTSWITH: 'startsWith';
+ENDSWITH:	'endsWith';
+CONTAINS:	'contains';
 
-TRUE: 'true';
-FALSE: 'false';
+TRUE:	'true';
+FALSE:	'false';
 
 LPAREN: '(';
 RPAREN: ')';

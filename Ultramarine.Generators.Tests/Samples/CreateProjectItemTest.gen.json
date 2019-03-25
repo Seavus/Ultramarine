@@ -1,0 +1,12 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "createProjectItem": {
+        "name": "createProjectItemTask1",
+        "description": "createProjectItemTask1description"
+      }
+    }
+  ]
+}

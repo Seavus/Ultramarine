@@ -8,8 +8,14 @@ namespace Ultramarine.QueryLanguage
     public class ComparisonExpression
     {
         public ComparisonExpression(string @operator, string leftOperand, string rightOperand)
+            : this((OperatorType)Enum.Parse(typeof(OperatorType), @operator, true), leftOperand, rightOperand)
         {
-            _comparer = ParseComparisonType(@operator);
+            
+        }
+
+        public ComparisonExpression(OperatorType operatorType, string leftOperand, string rightOperand)
+        {
+            _comparer = StringComparison.Instance.GetComparer(operatorType);
             LeftOperand = leftOperand;
             RightOperand = rightOperand;
         }
@@ -22,12 +28,13 @@ namespace Ultramarine.QueryLanguage
         {
             return _comparer.Evaluate(LeftOperand, RightOperand);
         }
+        
 
-        private StringComparer ParseComparisonType(string @operator)
-        {
-            OperatorType = (OperatorType)Enum.Parse(typeof(OperatorType), @operator, true);
-            return StringComparison.Instance.GetComparer(OperatorType);
-        }
+        //private StringComparer ParseComparisonType(string @operator)
+        //{
+        //    OperatorType = (OperatorType)Enum.Parse(typeof(OperatorType), @operator, true);
+        //    return StringComparison.Instance.GetComparer(OperatorType);
+        //}
     }
 
 }
