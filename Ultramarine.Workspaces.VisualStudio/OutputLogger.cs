@@ -5,6 +5,12 @@ namespace Ultramarine.Workspaces.VisualStudio
 {
     public class OutputLogger : ILogger
     {
+        public OutputLogger()
+        {
+            var outputWindowPane = GetOutputWindow();
+            outputWindowPane.Clear();
+        }
+
         public const string LoggerPaneName = "Ultramarine - Log";
 
         public void Info(string messageFormat, params string[] parameters)
@@ -19,6 +25,7 @@ namespace Ultramarine.Workspaces.VisualStudio
             var message = string.Format(messageFormat, parameters);
             var outputWindowPane = GetOutputWindow();
             outputWindowPane.OutputString($"{DateTime.Now.ToString("T")}\nWARNING: { message}\n");
+            
         }
 
         private OutputWindowPane GetOutputWindow()
