@@ -62,18 +62,19 @@ namespace Ultramarine.VSExtension.Commands
         private async void OnProjectGeneratorReady(object sender, EventArgs e)
         {
             var menuCommand = (OleMenuCommand)sender;            
-            menuCommand.Enabled = await HasConfiguration(ProjectGeneratorXmlConfigurationFileName) || await HasConfiguration(ProjectGeneratorJsonConfigurationFileName);
+            menuCommand.Enabled = await HasConfigurationAsync(ProjectGeneratorXmlConfigurationFileName) || await HasConfigurationAsync(ProjectGeneratorJsonConfigurationFileName);
 
         }
 
-        private async Task<bool> HasConfiguration(string configurationName)
+        private async Task<bool> HasConfigurationAsync(string configurationName)
         {
-            var selectedProjects = await GetSelectedProjects();
-            var selectedProjectItems = await FindProjectConfigurationItems(selectedProjects, configurationName);
+            var selectedProjects = await GetSelectedProjectsAsync();
+            var selectedProjectItems = await FindProjectConfigurationItemsAsync(selectedProjects, configurationName);
             return selectedProjectItems.Any();
         }
-        private async Task<List<ProjectItem>> FindProjectConfigurationItems(List<Project> projects, string configurationName)
+        private async Task<List<ProjectItem>> FindProjectConfigurationItemsAsync(List<Project> projects, string configurationName)
         {
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             var projectItems = new List<ProjectItem>();
             foreach (var project in projects)
             {
@@ -90,7 +91,7 @@ namespace Ultramarine.VSExtension.Commands
             return projectItems;
         }
 
-        private async Task<List<Project>> GetSelectedProjects()
+        private async Task<List<Project>> GetSelectedProjectsAsync()
         {
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
 
@@ -148,7 +149,7 @@ namespace Ultramarine.VSExtension.Commands
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
             OleMenuCommandService commandService = await package.GetServiceAsync((typeof(IMenuCommandService))) as OleMenuCommandService;
             Instance = new ProjectGeneratorCommand(package, commandService);
-
+            await Dte.Instance.InitializeAsync(package);
         }
 
         /// <summary>
@@ -189,7 +190,12 @@ namespace Ultramarine.VSExtension.Commands
             //var workspace = componentModel.GetService<Microsoft.VisualStudio.LanguageServices.VisualStudioWorkspace>();
 
             //var project = workspace.CurrentSolution.Projects.First(c => c.Name == selectedProject.Name);
-            var generator = GeneratorSerializer.Instance.Load(Path.Combine(Path.GetDirectoryName(projectPath), "Project.gen.json"), new ProjectModel(selectedProject));
+            
+            var generatorPath = Path.Combine(Path.GetDirectoryName(projectPath), "Project.gen.json");
+            var generator = GeneratorSerializer.Instance.Load(generatorPath);
+            generator.SetExecutionContext(new ProjectModel(selectedProject));
+            generator.SetLogger(new OutputLogger());
+            
             generator.Execute();
             // Show a message box to prove we were here
             //VsShellUtilities.ShowMessageBox(

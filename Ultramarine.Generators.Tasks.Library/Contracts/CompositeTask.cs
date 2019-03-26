@@ -60,5 +60,14 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
                 task.SetExecutionContext(executionContext);
             }
         }
+
+        public override void SetLogger(ILogger logger)
+        {
+            base.SetLogger(logger);
+            foreach(var task in Tasks)
+            {
+                task.SetLogger(logger);
+            }
+        }
     }
 }

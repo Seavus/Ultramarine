@@ -18,9 +18,9 @@ namespace Ultramarine.Generators.Serialization.Providers
 
         }
         
-        public Generator Load(string path, IProjectModel executionContext)
+        public Generator Load(string path)
         {
-            var serializer = SerializationInitializer.Initialize(path, executionContext);
+            var serializer = SerializationInitializer.Initialize(path);
             return serializer.Load();
         }
     }
