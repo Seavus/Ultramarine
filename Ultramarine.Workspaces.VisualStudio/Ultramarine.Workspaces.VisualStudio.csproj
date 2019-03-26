@@ -289,6 +289,7 @@
   <ItemGroup>
     <Compile Include="Comparer.cs" />
     <Compile Include="Dte.cs" />
+    <Compile Include="OutputLogger.cs" />
     <Compile Include="ProjectItemModel.cs" />
     <Compile Include="ProjectModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

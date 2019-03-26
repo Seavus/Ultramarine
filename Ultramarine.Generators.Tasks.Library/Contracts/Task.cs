@@ -4,7 +4,7 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
 {
     public abstract class Task : ITask
     {
-        protected Task(): this(null)
+        protected Task() : this(null)
         {
 
         }
@@ -34,15 +34,26 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
 
         public IProjectModel ExecutionContext { get; private set; }
 
+        public ILogger Logger { get; private set; }
+
         public virtual void SetExecutionContext(IProjectModel executionContext)
         {
             ExecutionContext = executionContext;
         }
 
+        public virtual void SetLogger(ILogger logger)
+        {
+            Logger = logger;
+        }
+
         public virtual void Execute()
         {
+            Logger.Info($"Starting {GetType()} execution: {Name}");
+
             Validate();
-            Output = OnExecute(); 
+            Output = OnExecute();
+
+            Logger.Info($"Ending {GetType()} execution: {Name}");
         }
 
     }

@@ -13,7 +13,7 @@ namespace Ultramarine.Generators.Tests
         public void ShouldDeserializeGeneratorConfig()
         {
             var generatorPath = "Samples\\CreateFolderTest.gen.json";
-            var generator = GeneratorSerializer.Instance.Load(generatorPath, null);
+            var generator = GeneratorSerializer.Instance.Load(generatorPath);
 
             Assert.IsNotNull(generator);
             Assert.AreEqual(generator.Name, "generator1");
@@ -25,7 +25,7 @@ namespace Ultramarine.Generators.Tests
         public void ShouldDeserializeTaskCollection()
         {
             var generatorPath = "Samples\\CreateFolderTest.gen.json";
-            var generator = GeneratorSerializer.Instance.Load(generatorPath, null);
+            var generator = GeneratorSerializer.Instance.Load(generatorPath);
             Assert.IsNotNull(generator.Tasks);
         }
 
@@ -34,7 +34,7 @@ namespace Ultramarine.Generators.Tests
         public void TaskCollectionShouldHaveCreateFolderTest()
         {
             var generatorPath = "Samples\\CreateFolderTest.gen.json";
-            var generator = GeneratorSerializer.Instance.Load(generatorPath, null);
+            var generator = GeneratorSerializer.Instance.Load(generatorPath);
             Assert.IsNotNull(generator.Tasks.FirstOrDefault());
             var createFolderTask = generator.Tasks.First();
             Assert.IsInstanceOfType(createFolderTask, typeof(CreateFolder));
