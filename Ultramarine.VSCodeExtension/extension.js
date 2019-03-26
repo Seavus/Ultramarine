@@ -34,7 +34,7 @@ function activate(context) {
 
       const bundleScript = buildScriptsUri(context, "bundle.js");
       const vendorScripts = buildScriptsUri(context, "vendor.js");
-      panel.webview.html = getWebviewContent(bundleScript, vendorScripts);
+      panel.webview.html = getWebviewContentDebug(); //getWebviewContent(bundleScript, vendorScripts);
       // Display a message box to the user
       vscode.window.showInformationMessage("Hello World!");
     }
@@ -72,6 +72,24 @@ function getWebviewContent(scriptUri, vendorScripts) {
     <div id="root"></div>
     <script src="${vendorScripts}"></script>
     <script src="${scriptUri}" ></script>
+  </body>
+</html>`;
+}
+
+function getWebviewContentDebug() {
+  //const nonce = getNonce();
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+				<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+				<meta name="theme-color" content="#000000">
+				<title>React App Boza</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script src="http://localhost:64825/assets/bundle.js"></script>
   </body>
 </html>`;
 }
