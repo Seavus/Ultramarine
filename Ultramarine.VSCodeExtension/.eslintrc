@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "extends": ["airbnb", "prettier", "prettier/react"],
   "env": {
     "browser": true,
@@ -26,7 +27,11 @@
       {
         "extensions": [".js", ".jsx"]
       }
-    ]
+    ],
+    "jsx-a11y/label-has-associated-control": "warn",
+    "jsx-a11y/label-has-for": "warn",
+    "arrow-parens": ["off"],
+    "arrow-body-style": "warn"
   },
   "plugins": ["import", "react", "prettier"]
 }
