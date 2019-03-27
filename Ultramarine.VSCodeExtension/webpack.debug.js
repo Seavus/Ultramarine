@@ -44,13 +44,9 @@ module.exports = {
         enforce: 'pre'
       },
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       {
-        test: /\.scss$/,
-        loader: 'sass-loader',
-        options: {
-          implementation: sass
-        }
+        test: /\.(css|scss)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       { test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/, use: 'url-loader' }
     ]

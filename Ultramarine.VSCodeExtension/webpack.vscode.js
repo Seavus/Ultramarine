@@ -25,7 +25,10 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       },
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      {
+        test: /\.(css|scss)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
       { test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/, use: 'url-loader' }
     ]
   },

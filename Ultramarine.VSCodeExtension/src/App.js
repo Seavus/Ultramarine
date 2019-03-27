@@ -1,7 +1,7 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
 import './App.css'
-import Composer, { Task } from './vivaldi'
+import Composer from './vivaldi'
 
 const app = () => (
   <div>
