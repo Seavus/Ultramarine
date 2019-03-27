@@ -1,8 +1,5 @@
 var path = require('path') // eslint-disable-line
 var webpack = require('webpack') // eslint-disable-line
-var sass = require('node-sass') //eslint-disable-line
-// var HtmlWebpackPlugin = require('html-webpack-plugin')
-// var paths = require('./configs/paths')
 
 module.exports = {
   mode: 'development',
