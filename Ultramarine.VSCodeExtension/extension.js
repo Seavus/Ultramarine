@@ -1,10 +1,21 @@
+// eslint-disable-next-line prefer-destructuring
+const NODE_ENV = process.env.NODE_ENV
+
 const path = require('path')
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-const vscode = require('vscode')
+const vscode = require('vscode') //eslint-disable-line
 
+const webViewBuilder =
+  NODE_ENV === 'production'
+    ? require('./webview.production')
+    : require('./webview.develop')
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
+const buildScriptsUri = (context, scriptName) =>
+  vscode.Uri.file(path.join(context.extensionPath, 'build', scriptName)).with({
+    scheme: 'vscode-resource'
+  })
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -33,7 +44,7 @@ function activate(context) {
       // eslint-disable-next-line no-use-before-define
       const bundleScript = buildScriptsUri(context, 'bundle.js')
       const vendorScripts = buildScriptsUri(context, 'vendor.js')
-      panel.webview.html = getWebviewContentDebug() //getWebviewContent(bundleScript, vendorScripts);
+      panel.webview.html = webViewBuilder(bundleScript, vendorScripts)
       // Display a message box to the user
       vscode.window.showInformationMessage('Hello World!')
     }
@@ -41,10 +52,6 @@ function activate(context) {
 
   context.subscriptions.push(disposable)
 }
-const buildScriptsUri = (context, scriptName) =>
-  vscode.Uri.file(path.join(context.extensionPath, 'build', scriptName)).with({
-    scheme: 'vscode-resource'
-  })
 
 exports.activate = activate
 
@@ -54,41 +61,4 @@ function deactivate() {}
 module.exports = {
   activate,
   deactivate
-}
-
-function getWebviewContent(scriptUri, vendorScripts) {
-  //const nonce = getNonce();
-  return `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-				<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-				<meta name="theme-color" content="#000000">
-				<title>React App Boza</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script src="${vendorScripts}"></script>
-    <script src="${scriptUri}" ></script>
-  </body>
-</html>`
-}
-
-function getWebviewContentDebug() {
-  return `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-				<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-				<meta name="theme-color" content="#000000">
-        <title>React App Boza</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script src="http://localhost:64825/assets/bundle.js"></script>
-  </body>
-</html>`
 }

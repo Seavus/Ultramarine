@@ -78,7 +78,6 @@ class Composer extends Component {
   }
 
   handleTaskAdded = task => {
-    console.log('task added', task)
     const { items } = this.state
     const newId = Common.newId(items)
     const newItem = {
@@ -88,9 +87,9 @@ class Composer extends Component {
     let newItems = [...items]
     const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)
     landingZone.typeLanded = null
-    newItems = newItems.map(item => {
-      return item.type === TaskTypes.LANDING_ZONE ? newItem : item
-    })
+    newItems = newItems.map(item =>
+      item.type === TaskTypes.LANDING_ZONE ? newItem : item
+    )
     newItems.push(landingZone)
     this.setState({ items: newItems })
   }
@@ -98,7 +97,6 @@ class Composer extends Component {
   handleTaskLanded = e => {
     const { items } = this.state
     const type = e.dataTransfer.getData('taskType')
-    console.log('task landed', type)
     const newItems = [...items]
     const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)
     landingZone.typeLanded = type
@@ -106,7 +104,6 @@ class Composer extends Component {
   }
 
   handleLandingCancelled = () => {
-    console.log('landing cancelled')
     const { items } = this.state
     const newItems = [...items]
     const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)

@@ -3,11 +3,10 @@ import { hot } from 'react-hot-loader'
 import './App.css'
 import Composer from './vivaldi'
 
-const app = () => (
+const App = () => (
   <div>
-    <p>Hello Bozidar !!111 </p>
     <Composer />
   </div>
 )
 
-export default hot(module)(app)
+export default hot(module)(App)
