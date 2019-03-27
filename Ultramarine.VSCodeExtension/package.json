@@ -1,5 +1,7 @@
 {
-  "name": "newapp",
+  "name": "ultramarine-vscodeextension",
+  "displayName": "ultramarine.vscodeextension",
+  "description": "code analyzers and generator platform",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -9,14 +11,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.helloWorld"
+    "onCommand:ultramarine.showGeneratorEditor"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.helloWorld",
-        "title": "Hello World"
+        "command": "ultramarine.showGeneratorEditor",
+        "title": "Show Generator Editor"
       }
     ]
   },

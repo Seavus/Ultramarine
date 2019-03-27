@@ -28,13 +28,13 @@ function activate(context) {
   // Now provide the implementation of the command with  registerCommand
   // The commandId parameter must match the command field in package.json
   const disposable = vscode.commands.registerCommand(
-    'extension.helloWorld',
+    'ultramarine.showGeneratorEditor',
     // eslint-disable-next-line func-names
     function() {
       // The code you place here will be executed every time your command is executed
       const panel = vscode.window.createWebviewPanel(
-        'reactComponent', // Identifies the type of the webview. Used internally
-        'React component', // Title of the panel displayed to the user
+        'generatorEditor', // Identifies the type of the webview. Used internally
+        'Project generator', // Title of the panel displayed to the user
         vscode.ViewColumn.One, // Editor column to show the new webview panel in.
         {
           enableScripts: true
@@ -46,7 +46,7 @@ function activate(context) {
       const vendorScripts = buildScriptsUri(context, 'vendor.js')
       panel.webview.html = webViewBuilder(bundleScript, vendorScripts)
       // Display a message box to the user
-      vscode.window.showInformationMessage('Hello World!')
+      // vscode.window.showInformationMessage('Hello World!')
     }
   )
 
