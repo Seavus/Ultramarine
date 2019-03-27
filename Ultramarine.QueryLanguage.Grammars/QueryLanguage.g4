@@ -4,11 +4,39 @@ grammar QueryLanguage;
  * Parser Rules
  */
 
-conditioner
-	: condition EOF
+condition
+	: LogicalExpression=logical_expression EOF
 	;
 
-condition: logical_expression;
+logical_expression 
+	: LeftExpression=logical_expression AND RightExpression=logical_expression	#LogicalAndExpression
+	| LeftExpression=logical_expression OR RightExpression=logical_expression	#LogicalOrExpression
+	| Comparison=comparison_expression											#ComparisonExpression
+	| LPAREN logical_expression RPAREN											#LogicalExpressionInParen
+	| logical_entity															#LogicalEntity
+	;
+
+comparison_expression
+	: LeftOperand=comparison_operand Operator=comparison_operator RightOperand=comparison_operand	#ComparisonExpressionWithOperators
+	| LPAREN comparison_expression RPAREN															#ComparisonExpressionInParens
+	;
+
+comparison_operand
+	: logical_entity
+	;
+comparison_operator
+	: EQ
+	| STARTSWITH
+	| ENDSWITH
+	| CONTAINS
+	;
+
+logical_entity
+	: BooleanEntity=(TRUE | FALSE)	#LogicalConst
+	| StringEntity=IDENTIFIER		#LogicalVariable
+	;
+
+
 
 /*
  * Lexer Rules
@@ -16,35 +44,18 @@ condition: logical_expression;
 AND : 'and';
 OR  : 'or';
 
-EQ	: 'equals';
+EQ:			'equals';
+STARTSWITH: 'startsWith';
+ENDSWITH:	'endsWith';
+CONTAINS:	'contains';
 
-TRUE: 'true';
-FALSE: 'false';
+TRUE:	'true';
+FALSE:	'false';
+
+LPAREN: '(';
+RPAREN: ')';
 
 IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9]* ;
-
-
-logical_expression 
-	: logical_expression AND logical_expression
-	| logical_expression OR logical_expression
-	| comparison_expression
-	| logical_entity;
-
-comparison_expression
-	: comparison_operand comparison_operator comparison_operand
-	;
-
-comparison_operand
-	: IDENTIFIER
-	;
-comparison_operator
-	: EQ
-	;
-
-logical_entity
-	: (TRUE | FALSE)
-	| IDENTIFIER
-	;
 
 WS
 	:	' ' -> channel(HIDDEN)

@@ -8,10 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ultramarine.Generators.LanguageDefinitions\Ultramarine.Generators.LanguageDefinitions.csproj" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="System.Composition" Version="1.0.31" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Ultramarine.Generators.Serialization.Contracts\Ultramarine.Generators.Serialization.Contracts.csproj" />
     <ProjectReference Include="..\Ultramarine.Generators.Serialization\Ultramarine.Generators.Serialization.csproj" />
-    <ProjectReference Include="..\Ultramarine.Generators.Task.Library\Ultramarine.Generators.Task.Library.csproj" />
+    <ProjectReference Include="..\Ultramarine.Generators.Tasks.Library\Ultramarine.Generators.Tasks.Library.csproj" />
+    <ProjectReference Include="..\Ultramarine.Generators.Tasks\Ultramarine.Generators.Tasks.csproj" />
   </ItemGroup>
 
 </Project>

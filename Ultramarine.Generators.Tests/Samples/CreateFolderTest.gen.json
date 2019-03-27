@@ -1,0 +1,13 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "createFolder": {
+        "name": "createFolderTask1",
+        "description":  "createFolderTask1description",
+        "folderName": "test1"
+      }
+    }
+  ]
+}

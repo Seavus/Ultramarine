@@ -8,5 +8,10 @@ namespace Ultramarine.Generators.Serialization.Contracts
         {
             throw new System.NotImplementedException();
         }
+
+        public void OnConfigurationDeserialized(T generator)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
