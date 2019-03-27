@@ -30,7 +30,7 @@ function activate(context) {
   const disposable = vscode.commands.registerCommand(
     'ultramarine.showGeneratorEditor',
     // eslint-disable-next-line func-names
-    function() {
+    function(uri) {
       // The code you place here will be executed every time your command is executed
       const panel = vscode.window.createWebviewPanel(
         'generatorEditor', // Identifies the type of the webview. Used internally
@@ -47,6 +47,13 @@ function activate(context) {
       panel.webview.html = webViewBuilder(bundleScript, vendorScripts)
       // Display a message box to the user
       // vscode.window.showInformationMessage('Hello World!')
+      vscode.workspace.openTextDocument(uri).then(document => {
+        const generatorContent = JSON.parse(document.getText())
+        setTimeout(
+          () => panel.webview.postMessage({ generator: generatorContent }),
+          2000
+        )
+      })
     }
   )
 

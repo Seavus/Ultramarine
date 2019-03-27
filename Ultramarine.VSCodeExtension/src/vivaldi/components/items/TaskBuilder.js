@@ -4,12 +4,13 @@ import TaskTypes from '../../model/TaskTypes'
 import CreateFolder from './CreateFolder'
 import WebDownload from './WebDownload'
 import SqlExecute from './SqlExecute'
+import CreateProjectItem from './CreateProjectItem'
 
 // export { default as CreateFolder } from './CreateFolder'
 // export { default as WebDownload } from './WebDownload'
 // export { default as SqlExecute } from './SqlExecute'
 
-const components = [CreateFolder, WebDownload, SqlExecute]
+const components = [CreateFolder, WebDownload, SqlExecute, CreateProjectItem]
 
 class TaskBuilder extends Component {
   state = {}
@@ -45,11 +46,12 @@ class TaskBuilder extends Component {
 
 TaskBuilder.propTypes = {
   type: PropTypes.oneOf([
+    TaskTypes.COMPOSITE,
     TaskTypes.CREATE_FOLDER,
-    TaskTypes.SQL_EXECUTE,
-    TaskTypes.WEB_DOWNLOAD,
+    TaskTypes.CreateProjectItem,
     TaskTypes.GENERATE_CODE_FROM_T4_TEMPLATE,
-    TaskTypes.COMPOSITE
+    TaskTypes.SQL_EXECUTE,
+    TaskTypes.WEB_DOWNLOAD
   ]),
   onTaskAdded: PropTypes.func
 }

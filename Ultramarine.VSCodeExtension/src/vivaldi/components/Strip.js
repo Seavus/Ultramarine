@@ -5,7 +5,6 @@ import TaskBuilder from './items/TaskBuilder'
 import LandingZone from './items/LandingZone'
 
 const Strip = props => {
-  console.log(props)
   const { items, onTaskAdded, onTaskLanded, onLandingCancelled } = props
   return (
     <div className="strip p-small">

@@ -77,6 +77,31 @@ class Composer extends Component {
     this.state = initialState
   }
 
+  componentDidMount() {
+    window.addEventListener('message', this.handleFileOpen)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('message', this.handleFileOpen)
+  }
+
+  handleFileOpen = event => {
+    const { generator } = event.data
+    const { items } = this.state
+    const tasks = generator.tasks.map((task, index) => {
+      const type = Object.keys(task)[0]
+      return {
+        ...task[type],
+        id: index,
+        type
+      }
+    })
+    const landingZone = items.find(x => x.type === TaskTypes.LANDING_ZONE)
+
+    tasks.push(landingZone)
+    this.setState({ items: tasks })
+  }
+
   handleTaskAdded = task => {
     const { items } = this.state
     const newId = Common.newId(items)

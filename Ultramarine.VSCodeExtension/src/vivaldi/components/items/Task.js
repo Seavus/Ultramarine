@@ -57,7 +57,7 @@ const Task = ({
 }
 
 Task.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   description: PropTypes.string,
   isEditable: PropTypes.bool,
   children: PropTypes.oneOfType([
@@ -70,6 +70,7 @@ Task.propTypes = {
 }
 
 Task.defaultProps = {
+  name: '',
   description: '',
   isEditable: false,
   children: null,

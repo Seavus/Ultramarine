@@ -20,7 +20,16 @@
         "command": "ultramarine.showGeneratorEditor",
         "title": "Show Generator Editor"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceFilename == project.gen.json",
+          "command": "ultramarine.showGeneratorEditor",
+          "group": "7_modification"
+        }
+      ]
+    }
   },
   "dependencies": {
     "materialize-css": "^1.0.0-rc.2",
