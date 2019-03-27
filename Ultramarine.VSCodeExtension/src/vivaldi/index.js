@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   M.Tooltip.init(elems, options)
 })
 
-export { default as SuperComposer } from './components/composer'
-export { default as Task } from './components/items/Task'
+// export { default as Composer } from './components/composer'
+// export { default as Task } from './components/items/Task'
 
 export default Composer
