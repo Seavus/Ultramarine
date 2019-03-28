@@ -106,7 +106,8 @@
     "webpack-dev-server": "3.1.14",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "concurrently": "^4.1.0"
   },
   "scripts": {
     "build": "npm run clean && npm run release",
@@ -114,7 +115,7 @@
     "postinstall": "node ./node_modules/vscode/bin/install",
     "clean": "rimraf ./build",
     "release": "set NODE_ENV=\"production\" && webpack --config ./webpack.production.js -p --progress --color",
-    "web": "node server.js",
+    "web": "concurrently \"node server.js\" \"npm run start\"",
     "test": "node scripts/test.js",
     "pretty": "prettier --check src/**/*.js"
   },
