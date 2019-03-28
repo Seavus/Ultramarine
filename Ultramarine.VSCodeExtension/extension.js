@@ -27,7 +27,7 @@ function activate(context) {
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with  registerCommand
   // The commandId parameter must match the command field in package.json
-  const disposable = vscode.commands.registerCommand(
+  const generatorEditorDisposable = vscode.commands.registerCommand(
     'ultramarine.showGeneratorEditor',
     // eslint-disable-next-line func-names
     function(uri) {
@@ -57,7 +57,15 @@ function activate(context) {
     }
   )
 
-  context.subscriptions.push(disposable)
+  const runGeneratorDisposable = vscode.commands.registerCommand(
+    'ultramarine.runProjectGenerator',
+    uri => {
+      console.log('Run generator')
+    }
+  )
+
+  context.subscriptions.push(generatorEditorDisposable)
+  context.subscriptions.push(runGeneratorDisposable)
 }
 
 exports.activate = activate

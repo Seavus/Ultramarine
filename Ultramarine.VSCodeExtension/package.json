@@ -11,7 +11,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:ultramarine.showGeneratorEditor"
+    "onCommand:ultramarine.showGeneratorEditor",
+    "onCommand:ultramarine.runProjectGenerator"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -19,6 +20,10 @@
       {
         "command": "ultramarine.showGeneratorEditor",
         "title": "Show Generator Editor"
+      },
+      {
+        "command": "ultramarine.runProjectGenerator",
+        "title": "Run Generator"
       }
     ],
     "menus": {
@@ -26,6 +31,11 @@
         {
           "when": "resourceFilename == project.gen.json",
           "command": "ultramarine.showGeneratorEditor",
+          "group": "7_modification"
+        },
+        {
+          "when": "resourceFilename == project.gen.json",
+          "command": "ultramarine.runProjectGenerator",
           "group": "7_modification"
         }
       ]
@@ -95,7 +105,8 @@
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "3.1.14",
     "webpack-manifest-plugin": "2.0.4",
-    "workbox-webpack-plugin": "3.6.3"
+    "workbox-webpack-plugin": "3.6.3",
+    "express": "^4.16.4"
   },
   "scripts": {
     "build": "npm run clean && npm run release",
@@ -103,6 +114,7 @@
     "postinstall": "node ./node_modules/vscode/bin/install",
     "clean": "rimraf ./build",
     "release": "set NODE_ENV=\"production\" && webpack --config ./webpack.production.js -p --progress --color",
+    "web": "node server.js",
     "test": "node scripts/test.js",
     "pretty": "prettier --check src/**/*.js"
   },
