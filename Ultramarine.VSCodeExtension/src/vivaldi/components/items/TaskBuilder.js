@@ -48,7 +48,7 @@ TaskBuilder.propTypes = {
   type: PropTypes.oneOf([
     TaskTypes.COMPOSITE,
     TaskTypes.CREATE_FOLDER,
-    TaskTypes.CreateProjectItem,
+    TaskTypes.CREATE_PROJECT_ITEM,
     TaskTypes.GENERATE_CODE_FROM_T4_TEMPLATE,
     TaskTypes.SQL_EXECUTE,
     TaskTypes.WEB_DOWNLOAD

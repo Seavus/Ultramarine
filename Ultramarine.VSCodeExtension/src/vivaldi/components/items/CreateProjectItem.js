@@ -7,9 +7,17 @@ const CreateProjectItem = props => {
   // console.log('create folder', this.props);
   const { isEditable } = props
   if (isEditable) {
-    return <Task {...props} />
+    return (
+      <Task {...props}>
+        <div />
+      </Task>
+    )
   }
-  return <Task {...props} />
+  return (
+    <Task {...props}>
+      <p />
+    </Task>
+  )
 }
 
 CreateProjectItem.propTypes = {
@@ -24,6 +32,6 @@ CreateProjectItem.defaultProps = {
   onChange: () => {}
 }
 
-CreateProjectItem.type = TaskTypes.CreateProjectItem
+CreateProjectItem.type = TaskTypes.CREATE_PROJECT_ITEM
 
 export default CreateProjectItem

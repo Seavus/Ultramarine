@@ -5,7 +5,7 @@ const TaskTypes = {
   WEB_DOWNLOAD: 'webDownload',
   GENERATE_CODE_FROM_T4_TEMPLATE: 't4',
   COMPOSITE: 'composite',
-  CreateProjectItem: 'createProjectItem'
+  CREATE_PROJECT_ITEM: 'createProjectItem'
 }
 
 export default TaskTypes
