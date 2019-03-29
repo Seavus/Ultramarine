@@ -1,37 +1,40 @@
-var path = require("path"); // eslint-disable-line
+var path = require('path') // eslint-disable-line
 
 module.exports = {
-  mode: "production",
-  entry: "./src/index",
-  devtool: "source-maps",
+  mode: 'production',
+  entry: './src/index',
+  devtool: 'source-maps',
   //   resolve: {
   //     alias: { '~': path.resolve(__dirname) }
   //   },
   output: {
-    filename: "bundle.js",
-    path: path.join(__dirname, "./build/"),
-    publicPath: "/"
+    filename: 'bundle.js',
+    path: path.join(__dirname, './build/'),
+    publicPath: '/'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: "eslint-loader",
+        loader: 'eslint-loader',
         exclude: /node_modules/,
-        enforce: "pre"
+        enforce: 'pre'
       },
       {
         test: /\.jsx?$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
-      { test: /\.css$/, use: ["style-loader", "css-loader"] },
-      { test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/, use: "url-loader" }
+      {
+        test: /\.(css|scss)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      { test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/, use: 'url-loader' }
     ]
   },
   optimization: {
     splitChunks: {
-      chunks: "async",
+      chunks: 'async',
       minSize: 30000,
       minChunks: 1,
       maxAsyncRequests: 5,
@@ -39,10 +42,10 @@ module.exports = {
       name: true,
       cacheGroups: {
         vendors: {
-          chunks: "all",
+          chunks: 'all',
           test: /[\\/]node_modules[\\/]/,
-          name: "vendor",
-          filename: "vendor.js",
+          name: 'vendor',
+          filename: 'vendor.js',
           priority: -10
         }
       }
@@ -68,4 +71,4 @@ module.exports = {
     //     }
     // })
   ]
-};
+}

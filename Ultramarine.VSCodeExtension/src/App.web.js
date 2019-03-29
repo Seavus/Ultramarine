@@ -5,6 +5,7 @@ import Composer from './vivaldi'
 
 const App = () => (
   <div>
+    <span>web</span>
     <Composer />
   </div>
 )

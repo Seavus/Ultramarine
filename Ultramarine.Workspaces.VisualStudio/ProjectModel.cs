@@ -15,7 +15,7 @@ namespace Ultramarine.Workspaces.VisualStudio
             FilePath = project.Properties.Item("FullPath").Value.ToString();
             Name = project.Name;
             Language = project.CodeModel.Language;
-            ProjectItems = new List<IProjectItemModel>();
+            ProjectItems = MapProjectItems(project.ProjectItems);
             _project = project;
         }
 
@@ -56,6 +56,11 @@ namespace Ultramarine.Workspaces.VisualStudio
             return new ProjectItemModel(projectItem);
         }
 
+        public IProjectModel GetProject(string projectName)
+        {
+            return new ProjectModel(projectName);
+        }
+
         private ProjectItem EnsureDirectoryExists(ProjectItems projectItems, string folderName)
         {
             ProjectItem projectItem;
@@ -79,6 +84,19 @@ namespace Ultramarine.Workspaces.VisualStudio
             return projectItem;
         }
 
+        public IProjectItemModel FindProjectItem(string itemName)
+        {
+            foreach(var item in ProjectItems)
+            {
+                if (item.Name == itemName)
+                    return item;
+
+                var subItem = item.FindProjectItem(itemName);
+                if (subItem != null)
+                    return subItem;
+            }
+            return null;
+        }
         private List<ProjectItem> GetProjectItems(ProjectItems projectItems, Comparer comparer, string propertyName = null)
         {
             var result = new List<ProjectItem>();
@@ -115,6 +133,18 @@ namespace Ultramarine.Workspaces.VisualStudio
             {
                 return string.Empty;
             }
+        }
+
+        private List<IProjectItemModel> MapProjectItems(ProjectItems projectItems)
+        {
+            var result = new List<IProjectItemModel>();
+
+            for (int i = 1; i <= projectItems.Count; i++)
+            {
+                result.Add(new ProjectItemModel(projectItems.Item(i)));
+            }
+
+            return result;
         }
     }
 

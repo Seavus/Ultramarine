@@ -1,0 +1,98 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@import "~materialize-css/sass/components/color-variables";
+$card-bg-color: color("blue-grey", "lighten-5");
+@import "~materialize-css/sass/materialize.scss";
+
+
+body {
+  background-color: color("blue-grey", "darken-4")
+}
+
+.strip {
+  min-height: 100vh;
+}
+
+.strip {
+  background-color: color("blue-grey", "darken-2");
+}
+
+$title-color: color("grey", "darken-1");
+$negative-text-color: color("blue-grey", "lighten-2");
+$task-bg-color: color("blue-grey", "base");
+
+.card {
+  border-radius: 10px;
+  .card-title {
+    color: $title-color;
+    font-weight: 400;
+  }
+  .card-action:last-child {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+.toolbar {
+  .container {
+    color: color("blue-grey", "darken-1");
+  }
+}
+
+.note {
+  color: $negative-text-color;
+}
+
+.x-small {
+  height: 160px;
+}
+
+.task-landing-zone {
+  background-color: transparent;
+  border: dashed $task-bg-color 4px;
+}
+
+.p-small {
+  padding: 8px;
+}
+
+.plr-small {
+  padding: 0 8px;
+}
+
+.mlr-small {
+  margin: 0 8px;
+}
+
+.mt-small {
+  margin: 8px 0 0 0 !important;
+}
+
+.mb-small {
+  margin: 0 0 8px 0 !important;
+}
+
+.d-ib {
+  display: inline-block;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
