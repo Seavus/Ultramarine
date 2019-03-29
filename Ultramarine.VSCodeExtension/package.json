@@ -115,7 +115,8 @@
     "postinstall": "node ./node_modules/vscode/bin/install",
     "clean": "rimraf ./build",
     "release": "set NODE_ENV=\"production\" && webpack --config ./webpack.production.js -p --progress --color",
-    "web": "concurrently \"node server.js\" \"npm run start\"",
+    "web": "concurrently \"node server.js\" \"npm run web:start\"",
+    "web:start": "webpack-dev-server --config webpack.web.js",
     "test": "node scripts/test.js",
     "pretty": "prettier --check src/**/*.js"
   },
