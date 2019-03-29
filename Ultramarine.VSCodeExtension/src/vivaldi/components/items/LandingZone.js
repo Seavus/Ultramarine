@@ -14,7 +14,7 @@ const LandingZone = props => {
     return (
       <TaskBuilder
         type={typeLanded}
-        isEditable="true"
+        isEditable
         onTaskAdded={onTaskAdded}
         onLandingCancelled={onLandingCancelled}
       />

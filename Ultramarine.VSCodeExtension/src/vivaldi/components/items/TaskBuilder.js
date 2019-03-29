@@ -16,7 +16,7 @@ class TaskBuilder extends Component {
   state = {}
 
   handleChange = e => {
-    // console.log(this.state);
+    // console.log(this.state)
     this.setState({
       [e.target.id]: e.target.value
     })
