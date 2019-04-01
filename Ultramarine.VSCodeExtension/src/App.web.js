@@ -1,11 +1,11 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
 import './App.css'
-import Composer from './vivaldi'
+import Composer, { Toolbar } from './vivaldi'
 
 const App = () => (
   <div>
-    <span>web</span>
+    {/* <Toolbar /> */}
     <Composer />
   </div>
 )

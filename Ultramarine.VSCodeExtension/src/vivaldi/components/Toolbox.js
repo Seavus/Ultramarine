@@ -8,7 +8,7 @@ const handleDragStart = (e, t) => {
 const Toolbox = props => {
   const { taskTypes } = props
   return (
-    <div className="toolbar">
+    <div className="toolbox">
       <div className="card z-depth-0">
         <div className="card-content">
           <span className="card-title">Toolbox</span>

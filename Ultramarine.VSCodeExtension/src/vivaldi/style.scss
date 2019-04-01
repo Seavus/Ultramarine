@@ -1,26 +1,29 @@
-
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-@import "~materialize-css/sass/components/color-variables";
-$card-bg-color: color("blue-grey", "lighten-5");
-@import "~materialize-css/sass/materialize.scss";
-
+@import '~materialize-css/sass/components/color-variables';
+$card-bg-color: color('blue-grey', 'lighten-5');
+@import '~materialize-css/sass/materialize.scss';
 
 body {
-  background-color: color("blue-grey", "darken-4")
+  background-color: color('blue-grey', 'darken-4');
+}
+
+.toolbar {
+  padding-top: 8px;
+  background-color: color('blue-grey', 'darken-2');
 }
 
 .strip {
@@ -28,12 +31,12 @@ body {
 }
 
 .strip {
-  background-color: color("blue-grey", "darken-2");
+  background-color: color('blue-grey', 'darken-2');
 }
 
-$title-color: color("grey", "darken-1");
-$negative-text-color: color("blue-grey", "lighten-2");
-$task-bg-color: color("blue-grey", "base");
+$title-color: color('grey', 'darken-1');
+$negative-text-color: color('blue-grey', 'lighten-2');
+$task-bg-color: color('blue-grey', 'base');
 
 .card {
   border-radius: 10px;
@@ -46,9 +49,9 @@ $task-bg-color: color("blue-grey", "base");
   }
 }
 
-.toolbar {
+.toolbox {
   .container {
-    color: color("blue-grey", "darken-1");
+    color: color('blue-grey', 'darken-1');
   }
 }
 
