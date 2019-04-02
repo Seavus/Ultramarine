@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ultramarine.Workspaces.VisualStudio
 {
-    public class Dte
+    public partial class Dte
     {
         #region Ctor
         private static readonly Lazy<Dte> _instance = new Lazy<Dte>(() => new Dte());
@@ -35,6 +35,7 @@ namespace Ultramarine.Workspaces.VisualStudio
             }
             return null;
         }
+        
 
         public ProjectModel GetProjectModel(string projectName)
         {
