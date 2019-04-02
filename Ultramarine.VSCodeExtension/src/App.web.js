@@ -8,7 +8,8 @@ class App extends Component {
 
   handleFileRead = e => {
     const content = e.target.result
-    // set state
+    const generatorContent = JSON.parse(content)
+    window.postMessage({ generator: generatorContent })
   }
 
   handleFileChoosen = e => {
@@ -18,6 +19,7 @@ class App extends Component {
   }
 
   render() {
+    const { tasks } = this.state
     return (
       <div>
         <Navbar handleFileChoosen={this.handleFileChoosen} />

@@ -87,6 +87,7 @@ class Composer extends Component {
 
   handleFileOpen = event => {
     const { generator } = event.data
+    if (!generator) return
     const { items } = this.state
     const tasks = generator.tasks.map((task, index) => {
       const type = Object.keys(task)[0]
