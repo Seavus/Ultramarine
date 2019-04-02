@@ -13,6 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 // export { default as Composer } from './components/composer'
-export { default as Toolbar } from './components/Toolbar'
+export { default as Navbar } from './components/Navbar'
 
 export default Composer

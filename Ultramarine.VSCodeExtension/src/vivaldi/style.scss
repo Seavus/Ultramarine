@@ -15,15 +15,11 @@ code {
 
 @import '~materialize-css/sass/components/color-variables';
 $card-bg-color: color('blue-grey', 'lighten-5');
+$primary-color: color('teal', 'lighten-2');
 @import '~materialize-css/sass/materialize.scss';
 
 body {
   background-color: color('blue-grey', 'darken-4');
-}
-
-.toolbar {
-  padding-top: 8px;
-  background-color: color('blue-grey', 'darken-2');
 }
 
 .strip {

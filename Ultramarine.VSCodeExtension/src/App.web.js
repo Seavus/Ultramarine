@@ -1,13 +1,30 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
 import './App.css'
-import Composer, { Toolbar } from './vivaldi'
+import Composer, { Navbar } from './vivaldi'
 
-const App = () => (
-  <div>
-    {/* <Toolbar /> */}
-    <Composer />
-  </div>
-)
+class App extends Component {
+  state = {}
+
+  handleFileRead = e => {
+    const content = e.target.result
+    // set state
+  }
+
+  handleFileChoosen = e => {
+    const fileReader = new FileReader()
+    fileReader.onload = this.handleFileRead
+    fileReader.readAsText(e.target.files[0])
+  }
+
+  render() {
+    return (
+      <div>
+        <Navbar handleFileChoosen={this.handleFileChoosen} />
+        <Composer />
+      </div>
+    )
+  }
+}
 
 export default hot(module)(App)
