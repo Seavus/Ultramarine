@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   render() {
-    const { tasks } = this.state
     return (
       <div>
         <Navbar handleFileChoosen={this.handleFileChoosen} />
