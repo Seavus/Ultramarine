@@ -10,6 +10,12 @@ const LandingZone = props => {
   const allowDragOver = e => {
     e.preventDefault()
   }
+
+  const handleTaskLanded = e => {
+    const type = e.dataTransfer.getData('taskType')
+    onTaskLanded(e, type)
+  }
+
   if (typeLanded) {
     return (
       <TaskBuilder
@@ -24,7 +30,7 @@ const LandingZone = props => {
   return (
     <div
       className="card z-depth-0 x-small task-landing-zone"
-      onDrop={onTaskLanded}
+      onDrop={handleTaskLanded}
       onDragOver={allowDragOver}
     >
       <div className="card-content">

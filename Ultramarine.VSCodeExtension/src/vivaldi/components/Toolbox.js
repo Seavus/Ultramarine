@@ -6,7 +6,8 @@ const handleDragStart = (e, t) => {
 }
 
 const Toolbox = props => {
-  const { taskTypes } = props
+  const { taskTypes, onTaskLanded } = props
+
   return (
     <div className="toolbox">
       <div className="card z-depth-0">
@@ -27,10 +28,13 @@ const Toolbox = props => {
                 </span>
               )
               return (
+                // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/interactive-supports-focus
                 <div
                   className="d-ib plr-small"
-                  draggable
                   key={type.abbr}
+                  role="button"
+                  draggable
+                  onClick={e => onTaskLanded(e, type.type)}
                   onDragStart={e => {
                     handleDragStart(e, type)
                   }}
@@ -47,11 +51,13 @@ const Toolbox = props => {
 }
 
 Toolbox.propTypes = {
-  taskTypes: PropTypes.arrayOf(PropTypes.any)
+  taskTypes: PropTypes.arrayOf(PropTypes.any),
+  onTaskLanded: PropTypes.func
 }
 
 Toolbox.defaultProps = {
-  taskTypes: []
+  taskTypes: [],
+  onTaskLanded: () => {}
 }
 
 export default Toolbox

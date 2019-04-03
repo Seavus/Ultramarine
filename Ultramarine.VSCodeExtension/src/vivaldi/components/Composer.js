@@ -135,9 +135,8 @@ class Composer extends Component {
     this.setState({ items: newItems })
   }
 
-  handleTaskLanded = e => {
+  handleTaskLanded = (e, type) => {
     const { items } = this.state
-    const type = e.dataTransfer.getData('taskType')
     const newItems = [...items]
     const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)
     landingZone.typeLanded = type
@@ -183,7 +182,10 @@ class Composer extends Component {
             />
           </div>
           <div className="col s5 m4 l4 xl3">
-            <Toolbox taskTypes={taskTypes} />
+            <Toolbox
+              taskTypes={taskTypes}
+              onTaskLanded={this.handleTaskLanded}
+            />
           </div>
         </div>
       </div>
