@@ -1,11 +1,38 @@
 ﻿using EnvDTE;
+using System;
 using System.Collections.Generic;
+using Ultramarine.QueryLanguage;
 
 namespace Ultramarine.Workspaces.VisualStudio
 {
     public partial class Dte
     {
-        
+        /// <summary>
+        /// Gets all the projects which satisfy given expression
+        /// </summary>
+        /// <param name="projectNameExpression">Expression given in the QueryLanguage form</param>
+        /// <returns>List of Visual Studio projects</returns>
+        public List<Project> GetProjects(string projectNameExpression)
+        {
+            var result = new List<Project>();
+            var projects = GetProjects();
+            foreach(var project in projects)
+            {
+                var projectName = project.Properties.Item("Name").Value.ToString();
+                var expression = projectNameExpression.Replace("${this}", projectName);
+                var condition = new ConditionCompiler(expression);
+                if ((bool)condition.Execute())
+                    result.Add(project);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Gets all project which satisfy comparer
+        /// </summary>
+        /// <param name="comparer"></param>
+        /// <returns></returns>
+        [Obsolete("Comparer is going to be removed in the future. Use expression parser overload.")]
         public List<Project> GetProjects(Comparer comparer)
         {
             var result = new List<Project>();

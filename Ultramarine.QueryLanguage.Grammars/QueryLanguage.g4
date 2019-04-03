@@ -34,6 +34,7 @@ comparison_operator
 logical_entity
 	: BooleanEntity=(TRUE | FALSE)	#LogicalConst
 	| StringEntity=IDENTIFIER		#LogicalVariable
+	| THIS							#AliasedVariable
 	;
 
 
@@ -54,6 +55,8 @@ FALSE:	'false';
 
 LPAREN: '(';
 RPAREN: ')';
+
+THIS: '$this';
 
 IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9]* ;
 

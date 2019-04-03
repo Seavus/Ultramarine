@@ -1,5 +1,6 @@
 ﻿using EnvDTE;
 using System.Collections.Generic;
+using Ultramarine.QueryLanguage;
 
 namespace Ultramarine.Workspaces.VisualStudio
 {
@@ -20,19 +21,21 @@ namespace Ultramarine.Workspaces.VisualStudio
         public string Language { get; set; }
         public List<IProjectItemModel> ProjectItems { get; set; }
 
-        public IProjectItemModel FindProjectItem(string itemName)
+        public List<IProjectItemModel> FindProjectItems(string itemNameExpression)
         {
-            if (Name == itemName)
-                return this;
-            foreach (var item in ProjectItems)
+            var result = new List<IProjectItemModel>();
+            var expression = itemNameExpression.Replace("${this}", Name);
+            var condition = new ConditionCompiler(expression);
+            if ((bool)condition.Execute())
+                result.Add(this);
+
+            foreach(var item in ProjectItems)
             {
-                if (item.Name == itemName)
-                    return item;
-                var subItem = item.FindProjectItem(itemName);
-                if (subItem != null)
-                    return subItem;
+                var subItems = item.FindProjectItems(itemNameExpression);
+                if (subItems != null)
+                    result.AddRange(subItems);
             }
-            return null;
+            return result;
         }
         private List<IProjectItemModel> MapProjectItems(ProjectItems projectItems)
         {

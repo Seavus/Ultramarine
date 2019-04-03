@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Ultramarine.QueryLanguage;
 using Ultramarine.QueryLanguage.Comparers;
 
 namespace Ultramarine.Workspaces.VisualStudio
@@ -56,6 +57,12 @@ namespace Ultramarine.Workspaces.VisualStudio
             return new ProjectItemModel(projectItem);
         }
 
+        public IEnumerable<IProjectModel> GetProjects(string projectNameExpression)
+        {
+            var projects = Dte.Instance.GetProjects(projectNameExpression);
+            return projects.Select(proj => new ProjectModel(proj)).ToList();
+        }
+
         public IProjectModel GetProject(string projectName)
         {
             return new ProjectModel(projectName);
@@ -84,18 +91,21 @@ namespace Ultramarine.Workspaces.VisualStudio
             return projectItem;
         }
 
-        public IProjectItemModel FindProjectItem(string itemName)
+        public IEnumerable<IProjectItemModel> FindProjectItems(string itemNameExpression)
         {
+            var result = new List<IProjectItemModel>();
             foreach(var item in ProjectItems)
             {
-                if (item.Name == itemName)
-                    return item;
-
-                var subItem = item.FindProjectItem(itemName);
-                if (subItem != null)
-                    return subItem;
+                var expression = itemNameExpression.Replace("${this}", item.Name);
+                var condition = new ConditionCompiler(expression);
+                if ((bool)condition.Execute())
+                    result.Add(item);
+                
+                var subItems = item.FindProjectItems(itemNameExpression);
+                if (subItems != null)
+                    result.AddRange(subItems);
             }
-            return null;
+            return result;
         }
         private List<ProjectItem> GetProjectItems(ProjectItems projectItems, Comparer comparer, string propertyName = null)
         {

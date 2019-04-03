@@ -33,9 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.Generators.Test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workspaces", "Workspaces", "{29587005-ABB1-4619-A9C6-794CA0093CB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.Roslyn", "Ultramarine.Roslyn\Ultramarine.Roslyn.csproj", "{0D77F6F4-776E-4ED2-B721-AF27A37F8485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.Roslyn", "Ultramarine.Roslyn\Ultramarine.Roslyn.csproj", "{0D77F6F4-776E-4ED2-B721-AF27A37F8485}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.Workspaces", "Ultramarine.Workspaces\Ultramarine.Workspaces.csproj", "{B4452945-98EB-4E75-B77C-30083D57BB43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.Workspaces", "Ultramarine.Workspaces\Ultramarine.Workspaces.csproj", "{B4452945-98EB-4E75-B77C-30083D57BB43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.Workspaces.VisualStudio", "Ultramarine.Workspaces.VisualStudio\Ultramarine.Workspaces.VisualStudio.csproj", "{596E2E43-B431-456B-9537-63570CCA0807}"
 EndProject

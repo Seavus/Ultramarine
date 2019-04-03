@@ -16,6 +16,17 @@ namespace Ultramarine.QueryLanguage.Tests
         }
 
         [TestMethod]
+        public void ShouldEvaluateContainsConditionWithAliasAsFalse()
+        {
+            var expression = "this contains Test2";
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
+
+            Assert.IsFalse(result);
+
+        }
+
+        [TestMethod]
         public void ShouldEvaluateContainsConditionAsTrue()
         {
             var expression = "Test1 contains Test1";
@@ -125,6 +136,8 @@ namespace Ultramarine.QueryLanguage.Tests
 
             Assert.IsTrue(result);
         }
+
+        
     }
 
 }

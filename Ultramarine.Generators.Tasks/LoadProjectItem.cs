@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Composition;
+using System.Linq;
 using System.Text;
 using Ultramarine.Generators.Tasks.Library.Contracts;
 using Ultramarine.Workspaces;
@@ -16,14 +17,20 @@ namespace Ultramarine.Generators.Tasks
 
         protected override object OnExecute()
         {
-            var project = ExecutionContext.GetProject(ProjectName);
-            if (project == null)
+            var result = new List<IProjectItemModel>();
+            var projects = (List<IProjectModel>)ExecutionContext.GetProjects(ProjectName);
+            if (projects == null || projects.Any())
                 throw new ArgumentException($"There is no project named {ProjectName}");
 
-            var item = project.FindProjectItem(ItemName);
-            if (item == null)
+            foreach (var project in projects)
+            {
+                var items = project.FindProjectItems(ItemName);
+                result.AddRange(items);
+            }
+
+            if (result.Any())
                 throw new ArgumentException($"There is no project item named {ItemName} in project {ProjectName}");
-            return item;
+            return result;
         }
     }
 }
