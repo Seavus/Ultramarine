@@ -137,7 +137,16 @@ namespace Ultramarine.QueryLanguage.Tests
             Assert.IsTrue(result);
         }
 
-        
+        [TestMethod]
+        public void ShouldEvaluateOrTruthyComplexConditionsWithSpecialOperands()
+        {
+            var expression = "Test1.Test1 contains Test1 or Test2 contains Test2";
+            var compiler = new ConditionCompiler(expression);
+            var result = (bool)compiler.Execute();
+
+            Assert.IsTrue(result);
+        }
+
     }
 
 }

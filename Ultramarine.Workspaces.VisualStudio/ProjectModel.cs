@@ -96,7 +96,7 @@ namespace Ultramarine.Workspaces.VisualStudio
             var result = new List<IProjectItemModel>();
             foreach(var item in ProjectItems)
             {
-                var expression = itemNameExpression.Replace("${this}", item.Name);
+                var expression = itemNameExpression.Replace("$this", item.Name);
                 var condition = new ConditionCompiler(expression);
                 if ((bool)condition.Execute())
                     result.Add(item);

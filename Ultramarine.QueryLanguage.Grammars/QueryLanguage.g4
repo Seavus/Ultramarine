@@ -58,7 +58,7 @@ RPAREN: ')';
 
 THIS: '$this';
 
-IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9]* ;
+IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9.]* ;
 
 WS
 	:	' ' -> channel(HIDDEN)

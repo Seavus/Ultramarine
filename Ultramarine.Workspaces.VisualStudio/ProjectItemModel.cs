@@ -24,7 +24,7 @@ namespace Ultramarine.Workspaces.VisualStudio
         public List<IProjectItemModel> FindProjectItems(string itemNameExpression)
         {
             var result = new List<IProjectItemModel>();
-            var expression = itemNameExpression.Replace("${this}", Name);
+            var expression = itemNameExpression.Replace("$this", Name);
             var condition = new ConditionCompiler(expression);
             if ((bool)condition.Execute())
                 result.Add(this);

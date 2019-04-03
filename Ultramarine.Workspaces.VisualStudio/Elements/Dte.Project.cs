@@ -7,6 +7,7 @@ namespace Ultramarine.Workspaces.VisualStudio
 {
     public partial class Dte
     {
+        private const string _thisAlias = "$this";
         /// <summary>
         /// Gets all the projects which satisfy given expression
         /// </summary>
@@ -18,8 +19,8 @@ namespace Ultramarine.Workspaces.VisualStudio
             var projects = GetProjects();
             foreach(var project in projects)
             {
-                var projectName = project.Properties.Item("Name").Value.ToString();
-                var expression = projectNameExpression.Replace("${this}", projectName);
+                var projectName = project.Name;
+                var expression = projectNameExpression.Replace("$this", projectName);
                 var condition = new ConditionCompiler(expression);
                 if ((bool)condition.Execute())
                     result.Add(project);
@@ -39,7 +40,7 @@ namespace Ultramarine.Workspaces.VisualStudio
             var projects = GetProjects();
             foreach (var project in projects)
             {
-                var projectProperty = project.Properties.Item("Name").Value.ToString();
+                var projectProperty = project.Name;
                 var checkResult = comparer.Check(projectProperty);
                 if (checkResult)
                     result.Add(project);                
