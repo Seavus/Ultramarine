@@ -48,7 +48,7 @@ const Task = ({
   return (
     <div className="card z-depth-0">
       <div className="card-content">
-        <span className="card-title text-capitalize">{name}</span>
+        <span className="card-title">{name}</span>
         <p className="mb-small">{description}</p>
         {children}
       </div>

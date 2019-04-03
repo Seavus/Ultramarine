@@ -18,7 +18,7 @@ class Navbar extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <a href="." className="brand-logo">
+          <a href="." className="brand-logo text-uppercase plr-small">
             Ultramarine
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">

@@ -12,41 +12,41 @@ const landingZoneItem = {
 
 const initialState = {
   items: [
-    {
-      id: 1,
-      name: 'Create Root Folder',
-      type: TaskTypes.CREATE_FOLDER,
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit placeat laboriosam eveniet esse. ',
-      folderPath: 'C:/Program Files/Ultramarin/'
-    },
-    {
-      id: 2,
-      name: 'Download Application',
-      type: TaskTypes.WEB_DOWNLOAD,
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci beatae in officia distinctio.',
-      url: 'http://ultramarin.com/download'
-    },
-    {
-      id: 3,
-      name: 'Create Database',
-      type: TaskTypes.SQL_EXECUTE,
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis placeat fugit aperiam quaerat recusandae.',
-      connectionString: '10.0.10.1/SQL',
-      query: 'spCreateDatabase'
-    },
-    {
-      id: 4,
-      name: 'Create ManagementService.cs',
-      type: TaskTypes.CREATE_PROJECT_ITEM,
-      description: 'Create ManagementService.cs file as a project item.',
-      itemName: 'ManagementService.cs',
-      folderPath: './',
-      overwrite: true,
-      input: 'public class ManagementService { }'
-    }
+    //   {
+    //     id: 1,
+    //     name: 'Create Root Folder',
+    //     type: TaskTypes.CREATE_FOLDER,
+    //     description:
+    //       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit placeat laboriosam eveniet esse. ',
+    //     folderPath: 'C:/Program Files/Ultramarin/'
+    //   },
+    //   {
+    //     id: 2,
+    //     name: 'Download Application',
+    //     type: TaskTypes.WEB_DOWNLOAD,
+    //     description:
+    //       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci beatae in officia distinctio.',
+    //     url: 'http://ultramarin.com/download'
+    //   },
+    //   {
+    //     id: 3,
+    //     name: 'Create Database',
+    //     type: TaskTypes.SQL_EXECUTE,
+    //     description:
+    //       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis placeat fugit aperiam quaerat recusandae.',
+    //     connectionString: '10.0.10.1/SQL',
+    //     query: 'spCreateDatabase'
+    //   },
+    //   {
+    //     id: 4,
+    //     name: 'Create ManagementService.cs',
+    //     type: TaskTypes.CREATE_PROJECT_ITEM,
+    //     description: 'Create ManagementService.cs file as a project item.',
+    //     itemName: 'ManagementService.cs',
+    //     folderPath: './',
+    //     overwrite: true,
+    //     input: 'public class ManagementService { }'
+    //   }
   ],
   taskTypes: [
     {
@@ -91,6 +91,7 @@ const initialState = {
 class Composer extends Component {
   constructor(props) {
     super(props)
+    console.log('composer constructor')
     const init = { ...initialState }
     init.items.push(landingZoneItem)
     this.state = init
