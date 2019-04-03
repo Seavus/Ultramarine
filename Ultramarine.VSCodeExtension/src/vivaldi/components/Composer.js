@@ -1,14 +1,7 @@
 import React, { Component } from 'react'
 import Strip from './Strip'
 import Toolbox from './Toolbox'
-import TaskTypes from '../model/TaskTypes'
-import Common from '../model/Common'
-
-const landingZoneItem = {
-  id: -1,
-  type: TaskTypes.LANDING_ZONE,
-  typeLanded: null
-}
+import Common, { TaskTypes, LandingZone } from '../model'
 
 const initialState = {
   items: [
@@ -93,7 +86,7 @@ class Composer extends Component {
     super(props)
     console.log('composer constructor')
     const init = { ...initialState }
-    init.items.push(landingZoneItem)
+    init.items.push(new LandingZone())
     this.state = init
   }
 
@@ -121,7 +114,7 @@ class Composer extends Component {
         type
       }
     })
-    tasks.push(landingZoneItem)
+    tasks.push(new LandingZone())
     this.setState({ items: tasks })
   }
 
@@ -153,10 +146,8 @@ class Composer extends Component {
 
   handleLandingCancelled = () => {
     const { items } = this.state
-    const newItems = [...items]
-    const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)
-    landingZone.typeLanded = null
-    this.setState({ items: newItems })
+    const newItems = items.filter(x => x.type !== TaskTypes.LANDING_ZONE)
+    this.setState({ items: [...newItems, new LandingZone()] })
   }
 
   handleFlyOver = (e, id) => {
@@ -164,7 +155,7 @@ class Composer extends Component {
     let newItems = [...items]
     const index = newItems.findIndex(x => x.id === id)
     newItems = newItems.filter(x => x.type !== TaskTypes.LANDING_ZONE)
-    newItems.splice(index, 0, landingZoneItem)
+    newItems.splice(index, 0, new LandingZone())
     this.setState({ items: newItems })
   }
 

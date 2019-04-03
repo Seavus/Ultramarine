@@ -25,6 +25,7 @@ class Navbar extends Component {
             <li>
               <input
                 type="file"
+                accept=".json"
                 style={{ display: 'none' }}
                 ref={this.fileOpen}
                 onChange={e => {
