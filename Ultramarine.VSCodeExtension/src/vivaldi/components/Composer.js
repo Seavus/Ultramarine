@@ -105,6 +105,11 @@ class Composer extends Component {
     window.removeEventListener('message', this.handleFileOpen)
   }
 
+  landingZoneIndex = () => {
+    const { items } = this.state
+    return items.findIndex(x => x.type === TaskTypes.LANDING_ZONE)
+  }
+
   handleFileOpen = event => {
     const { generator } = event.data
     if (!generator) return
@@ -154,6 +159,15 @@ class Composer extends Component {
     this.setState({ items: newItems })
   }
 
+  handleFlyOver = (e, id) => {
+    const { items } = this.state
+    let newItems = [...items]
+    const index = newItems.findIndex(x => x.id === id)
+    newItems = newItems.filter(x => x.type !== TaskTypes.LANDING_ZONE)
+    newItems.splice(index, 0, landingZoneItem)
+    this.setState({ items: newItems })
+  }
+
   render() {
     const { items, taskTypes } = this.state
     return (
@@ -165,6 +179,7 @@ class Composer extends Component {
               onTaskAdded={this.handleTaskAdded}
               onTaskLanded={this.handleTaskLanded}
               onLandingCancelled={this.handleLandingCancelled}
+              onFlyOver={this.handleFlyOver}
             />
           </div>
           <div className="col s5 m4 l4 xl3">

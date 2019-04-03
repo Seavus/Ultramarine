@@ -5,7 +5,13 @@ import TaskBuilder from './items/TaskBuilder'
 import LandingZone from './items/LandingZone'
 
 const Strip = props => {
-  const { items, onTaskAdded, onTaskLanded, onLandingCancelled } = props
+  const {
+    items,
+    onTaskAdded,
+    onTaskLanded,
+    onLandingCancelled,
+    onFlyOver
+  } = props
   return (
     <div className="strip p-small">
       {items &&
@@ -30,6 +36,7 @@ const Strip = props => {
                 onTaskAdded={onTaskAdded}
                 onTaskLanded={onTaskLanded}
                 onLandingCancelled={onLandingCancelled}
+                onFlyOver={onFlyOver}
               />
             )
           }
@@ -44,14 +51,16 @@ Strip.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any),
   onTaskAdded: PropTypes.func,
   onTaskLanded: PropTypes.func,
-  onLandingCancelled: PropTypes.func
+  onLandingCancelled: PropTypes.func,
+  onFlyOver: PropTypes.func
 }
 
 Strip.defaultProps = {
   items: [],
   onTaskAdded: () => {},
   onTaskLanded: () => {},
-  onLandingCancelled: () => {}
+  onLandingCancelled: () => {},
+  onFlyOver: () => {}
 }
 
 export default Strip
