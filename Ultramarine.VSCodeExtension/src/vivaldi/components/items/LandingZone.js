@@ -40,7 +40,8 @@ LandingZone.propTypes = {
     TaskTypes.SQL_EXECUTE,
     TaskTypes.WEB_DOWNLOAD,
     TaskTypes.GENERATE_CODE_FROM_T4_TEMPLATE,
-    TaskTypes.COMPOSITE
+    TaskTypes.COMPOSITE,
+    TaskTypes.CREATE_PROJECT_ITEM
   ]),
   onTaskAdded: PropTypes.func,
   onLandingCancelled: PropTypes.func,

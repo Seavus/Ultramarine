@@ -22,15 +22,19 @@ const Strip = props => {
             )
           }
 
-          return (
-            <TaskBuilder
-              {...item}
-              key={item.id}
-              onTaskAdded={onTaskAdded}
-              onTaskLanded={onTaskLanded}
-              onLandingCancelled={onLandingCancelled}
-            />
-          )
+          if (Object.values(TaskTypes).includes(item.type)) {
+            return (
+              <TaskBuilder
+                {...item}
+                key={item.id}
+                onTaskAdded={onTaskAdded}
+                onTaskLanded={onTaskLanded}
+                onLandingCancelled={onLandingCancelled}
+              />
+            )
+          }
+
+          return <div key={item.id}>{/* task type not found */}</div>
         })}
     </div>
   )

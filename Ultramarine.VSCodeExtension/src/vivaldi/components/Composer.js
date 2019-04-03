@@ -4,6 +4,12 @@ import Toolbox from './Toolbox'
 import TaskTypes from '../model/TaskTypes'
 import Common from '../model/Common'
 
+const landingZoneItem = {
+  id: -1,
+  type: TaskTypes.LANDING_ZONE,
+  typeLanded: null
+}
+
 const initialState = {
   items: [
     {
@@ -12,7 +18,7 @@ const initialState = {
       type: TaskTypes.CREATE_FOLDER,
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit placeat laboriosam eveniet esse. ',
-      path: 'C:/Program Files/Ultramarin/'
+      folderPath: 'C:/Program Files/Ultramarin/'
     },
     {
       id: 2,
@@ -32,9 +38,14 @@ const initialState = {
       query: 'spCreateDatabase'
     },
     {
-      id: 0,
-      type: TaskTypes.LANDING_ZONE,
-      typeLanded: null
+      id: 4,
+      name: 'Create ManagementService.cs',
+      type: TaskTypes.CREATE_PROJECT_ITEM,
+      description: 'Create ManagementService.cs file as a project item.',
+      itemName: 'ManagementService.cs',
+      folderPath: './',
+      overwrite: true,
+      input: 'public class ManagementService { }'
     }
   ],
   taskTypes: [
@@ -60,13 +71,19 @@ const initialState = {
       name: 'Generate Code From T4 Template',
       type: TaskTypes.GENERATE_CODE_FROM_T4_TEMPLATE,
       abbr: 'T4',
-      icon: 'build'
+      icon: 'code'
     },
     {
       name: 'Composite',
       type: TaskTypes.COMPOSITE,
       abbr: 'CM',
       icon: 'local_movies'
+    },
+    {
+      name: 'Create Project Item',
+      type: TaskTypes.CREATE_PROJECT_ITEM,
+      abbr: 'PI',
+      icon: 'library_add'
     }
   ]
 }
@@ -74,7 +91,9 @@ const initialState = {
 class Composer extends Component {
   constructor(props) {
     super(props)
-    this.state = initialState
+    const init = { ...initialState }
+    init.items.push(landingZoneItem)
+    this.state = init
   }
 
   componentDidMount() {
@@ -88,7 +107,6 @@ class Composer extends Component {
   handleFileOpen = event => {
     const { generator } = event.data
     if (!generator) return
-    const { items } = this.state
     const tasks = generator.tasks.map((task, index) => {
       const type = Object.keys(task)[0]
       return {
@@ -97,9 +115,7 @@ class Composer extends Component {
         type
       }
     })
-    const landingZone = items.find(x => x.type === TaskTypes.LANDING_ZONE)
-
-    tasks.push(landingZone)
+    tasks.push(landingZoneItem)
     this.setState({ items: tasks })
   }
 

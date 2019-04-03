@@ -18,7 +18,8 @@ class TaskBuilder extends Component {
   handleChange = e => {
     // console.log(this.state)
     this.setState({
-      [e.target.id]: e.target.value
+      [e.target.id]:
+        e.target.type === 'checkbox' ? e.target.checked : e.target.value
     })
   }
 

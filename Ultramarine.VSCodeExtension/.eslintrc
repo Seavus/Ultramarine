@@ -28,10 +28,27 @@
         "extensions": [".js", ".jsx"]
       }
     ],
-    "jsx-a11y/label-has-associated-control": "warn",
-    "jsx-a11y/label-has-for": "warn",
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ],
+    "jsx-a11y/label-has-for": [
+      "error",
+      {
+        "components": ["Label"],
+        "required": {
+          "some": ["nesting", "id"]
+        },
+        "allowChildren": false
+      }
+    ],
     "arrow-parens": ["off"],
-    "arrow-body-style": "warn"
+    "arrow-body-style": "warn",
+    "no-debugger": "warn"
   },
   "plugins": ["import", "react", "prettier"]
 }

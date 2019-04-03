@@ -4,31 +4,53 @@ import Task from './Task'
 import TaskTypes from '../../model/TaskTypes'
 
 const CreateProjectItem = props => {
-  // console.log('create folder', this.props);
-  const { isEditable } = props
+  const { isEditable, itemName, folderPath, overwrite, onChange } = props
   if (isEditable) {
     return (
       <Task {...props}>
-        <div />
+        <div className="input-field">
+          <input id="itemName" type="text" onChange={onChange} />
+          <label htmlFor="itemName">Item name</label>
+        </div>
+        <div className="input-field">
+          <input id="path" type="text" onChange={onChange} />
+          <label htmlFor="path">Path</label>
+        </div>
+        <label>
+          <input
+            id="overwrite"
+            type="checkbox"
+            className="filled-in"
+            onChange={onChange}
+          />
+          <span>Overwrite</span>
+        </label>
       </Task>
     )
   }
+
   return (
     <Task {...props}>
-      <p />
+      <p>Item name: {itemName}</p>
+      <p>Path: {folderPath}</p>
+      <p>Overwrite: {overwrite.toString()}</p>
     </Task>
   )
 }
 
 CreateProjectItem.propTypes = {
   isEditable: PropTypes.bool,
-  path: PropTypes.string,
+  itemName: PropTypes.string,
+  folderPath: PropTypes.string,
+  overwrite: PropTypes.bool,
   onChange: PropTypes.func
 }
 
 CreateProjectItem.defaultProps = {
   isEditable: false,
-  path: '',
+  itemName: '',
+  folderPath: '',
+  overwrite: false,
   onChange: () => {}
 }
 

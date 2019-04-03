@@ -5,7 +5,7 @@ import TaskTypes from '../../model/TaskTypes'
 
 const CreateFolder = props => {
   // console.log('create folder', this.props);
-  const { isEditable, path, onChange } = props
+  const { isEditable, folderPath, onChange } = props
   if (isEditable) {
     return (
       <Task {...props}>
@@ -18,20 +18,20 @@ const CreateFolder = props => {
   }
   return (
     <Task {...props}>
-      <p>Path: {path}</p>
+      <p>Path: {folderPath}</p>
     </Task>
   )
 }
 
 CreateFolder.propTypes = {
   isEditable: PropTypes.bool,
-  path: PropTypes.string,
+  folderPath: PropTypes.string,
   onChange: PropTypes.func
 }
 
 CreateFolder.defaultProps = {
   isEditable: false,
-  path: '',
+  folderPath: '',
   onChange: () => {}
 }
 
