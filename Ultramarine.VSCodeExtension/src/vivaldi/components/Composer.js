@@ -159,6 +159,15 @@ class Composer extends Component {
     this.setState({ items: newItems })
   }
 
+  handleFlyAway = e => {
+    if (e.target !== e.currentTarget) return
+    console.log('fly away', e.target)
+    const { items } = this.state
+    const newItems = items.filter(x => x.type !== TaskTypes.LANDING_ZONE)
+    newItems.push(new LandingZone())
+    this.setState({ items: newItems })
+  }
+
   render() {
     const { items, taskTypes } = this.state
     return (
