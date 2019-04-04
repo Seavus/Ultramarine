@@ -136,6 +136,7 @@ class Composer extends Component {
   }
 
   handleTaskLanded = (e, type) => {
+    // console.log('task landed')
     const { items } = this.state
     const newItems = [...items]
     const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)
@@ -146,7 +147,8 @@ class Composer extends Component {
   handleLandingCancelled = () => {
     const { items } = this.state
     const newItems = items.filter(x => x.type !== TaskTypes.LANDING_ZONE)
-    this.setState({ items: [...newItems, new LandingZone()] })
+    newItems.push(new LandingZone())
+    this.setState({ items: newItems })
   }
 
   handleFlyOver = (e, id) => {
@@ -158,13 +160,13 @@ class Composer extends Component {
     this.setState({ items: newItems })
   }
 
-  handleFlyAway = e => {
-    if (e.target !== e.currentTarget) return
-    console.log('fly away', e.target)
+  handleLandingCheck = e => {
+    // console.log('landing check')
     const { items } = this.state
-    const newItems = items.filter(x => x.type !== TaskTypes.LANDING_ZONE)
-    newItems.push(new LandingZone())
-    this.setState({ items: newItems })
+    const landingZone = items.find(x => x.type === TaskTypes.LANDING_ZONE)
+    if (!landingZone || !landingZone.typeLanded) {
+      this.handleLandingCancelled()
+    }
   }
 
   render() {
@@ -185,6 +187,7 @@ class Composer extends Component {
             <Toolbox
               taskTypes={taskTypes}
               onTaskLanded={this.handleTaskLanded}
+              onLandingCheck={this.handleLandingCheck}
             />
           </div>
         </div>
