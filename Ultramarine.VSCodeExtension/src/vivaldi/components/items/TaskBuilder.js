@@ -36,7 +36,7 @@ class TaskBuilder extends Component {
 
   handleTaskUpdateCancelled = () => {
     const { id, onTaskUpdateCancelled } = this.props
-    this.setState({ ...this.props })
+    this.setState({ ...this.props, isEditable: false })
     onTaskUpdateCancelled(id)
   }
 
