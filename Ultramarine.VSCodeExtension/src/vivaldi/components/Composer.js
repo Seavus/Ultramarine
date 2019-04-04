@@ -10,7 +10,7 @@ const initialState = {
     //     name: 'Create Root Folder',
     //     type: TaskTypes.CREATE_FOLDER,
     //     description:
-    //       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit placeat laboriosam eveniet esse. ',
+    //       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit placeat laboriosam eveniet esse.',
     //     folderPath: 'C:/Program Files/Ultramarin/'
     //   },
     //   {
