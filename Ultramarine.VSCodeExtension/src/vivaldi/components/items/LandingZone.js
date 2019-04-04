@@ -7,7 +7,7 @@ const LandingZone = props => {
   // debugger;
   // console.log('landing zone', props);
   const {
-    taskLanded,
+    typeLanded,
     onTaskUpdated,
     onTaskUpdateCancelled,
     onTaskLanded
@@ -21,10 +21,11 @@ const LandingZone = props => {
     onTaskLanded(type)
   }
 
-  if (taskLanded) {
+  if (typeLanded) {
     return (
       <TaskBuilder
-        {...taskLanded}
+        type={typeLanded}
+        isEditable
         onTaskUpdated={onTaskUpdated}
         onTaskUpdateCancelled={onTaskUpdateCancelled}
       />
@@ -45,14 +46,14 @@ const LandingZone = props => {
 }
 
 LandingZone.propTypes = {
-  taskLanded: PropTypes.object,
+  typeLanded: PropTypes.string,
   onTaskUpdated: PropTypes.func,
   onTaskUpdateCancelled: PropTypes.func,
   onTaskLanded: PropTypes.func
 }
 
 LandingZone.defaultProps = {
-  taskLanded: null,
+  typeLanded: null,
   onTaskUpdated: () => {},
   onTaskUpdateCancelled: () => {},
   onTaskLanded: () => {}

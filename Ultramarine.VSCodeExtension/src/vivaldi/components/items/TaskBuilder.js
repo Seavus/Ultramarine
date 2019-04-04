@@ -14,6 +14,7 @@ const components = [CreateFolder, WebDownload, SqlExecute, CreateProjectItem]
 
 class TaskBuilder extends Component {
   constructor(props) {
+    // console.log('task builder', props)
     super(props)
     this.state = { ...props }
   }
@@ -33,6 +34,12 @@ class TaskBuilder extends Component {
     onTaskUpdated(item)
   }
 
+  handleTaskUpdateCancelled = () => {
+    const { id, onTaskUpdateCancelled } = this.props
+    this.setState({ ...this.props })
+    onTaskUpdateCancelled(id)
+  }
+
   render() {
     // console.log('task builder', this.props);
     const { type, isEditable } = this.props
@@ -45,12 +52,14 @@ class TaskBuilder extends Component {
         {...values}
         onChange={this.handleChange}
         onTaskUpdated={this.handleTaskUpdated}
+        onTaskUpdateCancelled={this.handleTaskUpdateCancelled}
       />
     )
   }
 }
 
 TaskBuilder.propTypes = {
+  id: PropTypes.number,
   type: PropTypes.oneOf([
     TaskTypes.COMPOSITE,
     TaskTypes.CREATE_FOLDER,
@@ -60,13 +69,16 @@ TaskBuilder.propTypes = {
     TaskTypes.WEB_DOWNLOAD
   ]),
   isEditable: PropTypes.bool,
-  onTaskUpdated: PropTypes.func
+  onTaskUpdated: PropTypes.func,
+  onTaskUpdateCancelled: PropTypes.func
 }
 
 TaskBuilder.defaultProps = {
+  id: null,
   type: null,
   isEditable: false,
-  onTaskUpdated: () => {}
+  onTaskUpdated: () => {},
+  onTaskUpdateCancelled: () => {}
 }
 
 export default TaskBuilder

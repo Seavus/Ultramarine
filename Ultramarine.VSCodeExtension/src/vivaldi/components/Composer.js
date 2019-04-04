@@ -141,7 +141,7 @@ class Composer extends Component {
     const { items } = this.state
     const newItems = [...items]
     const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)
-    landingZone.taskLanded = { type, isEditable: true }
+    landingZone.typeLanded = type
     this.setState({ items: newItems })
   }
 
@@ -150,7 +150,10 @@ class Composer extends Component {
     const { items } = this.state
     const newItems = items.filter(x => x.type !== TaskTypes.LANDING_ZONE)
     if (id !== null) {
-      newItems.find(x => x.id === id).isEditable = false
+      const newItem = newItems.find(x => x.id === id)
+      if (newItem) {
+        newItem.isEditable = false
+      }
     }
     newItems.push(new LandingZone())
     this.setState({ items: newItems })
@@ -169,7 +172,8 @@ class Composer extends Component {
     // console.log('landing check')
     const { items } = this.state
     const landingZone = items.find(x => x.type === TaskTypes.LANDING_ZONE)
-    if (!landingZone || !landingZone.taskLanded) {
+    if (!landingZone || !landingZone.typeLanded) {
+      // console.log('cancel')
       this.handleTaskUpdateCancelled()
     }
   }

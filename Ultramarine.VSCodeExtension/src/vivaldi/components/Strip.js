@@ -20,7 +20,7 @@ const Strip = props => {
           if (item.type === TaskTypes.LANDING_ZONE) {
             return (
               <LandingZone
-                taskLanded={item.taskLanded}
+                typeLanded={item.typeLanded}
                 key={item.id}
                 onTaskUpdated={onTaskUpdated}
                 onTaskLanded={onTaskLanded}
