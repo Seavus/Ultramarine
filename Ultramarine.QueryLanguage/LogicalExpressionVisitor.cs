@@ -36,6 +36,6 @@ namespace Ultramarine.QueryLanguage
         public override LogicalExpression VisitLogicalExpressionInParen([NotNull] QueryLanguageParser.LogicalExpressionInParenContext context)
         {
             return Visit(context.logical_expression());
-        }        
+        }
     }    
 }

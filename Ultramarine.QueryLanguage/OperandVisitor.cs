@@ -5,7 +5,12 @@ namespace Ultramarine.QueryLanguage
 {
     public class OperandVisitor : QueryLanguageBaseVisitor<string>
     {
-        public override string VisitComparison_operand([NotNull] QueryLanguageParser.Comparison_operandContext context)
+        public override string VisitLogicalVariable([NotNull] QueryLanguageParser.LogicalVariableContext context)
+        {
+            return context.IDENTIFIER().GetText();
+        }
+
+        public override string VisitLogicalConst([NotNull] QueryLanguageParser.LogicalConstContext context)
         {
             return context.GetText();
         }

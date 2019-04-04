@@ -8,7 +8,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateEndsWithConditionAsFalse()
         {
-            var expression = "Test1 endsWith Test2";
+            var expression = "'Test1' endsWith 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -18,7 +18,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateEndsWithConditionAsTrue()
         {
-            var expression = "Test1 endsWith Test1";
+            var expression = "'Test1' endsWith 'Test1'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -28,7 +28,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateEndsWithWithNoContainingString()
         {
-            var expression = "test1 endsWith p";
+            var expression = "'test1' endsWith 'p'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -38,7 +38,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateEndsWithConditionAsTrueWrappedInParens()
         {
-            var expression = "(Test1 endsWith t1)";
+            var expression = "('Test1' endsWith 't1')";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -78,7 +78,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateAndTruthyComplexConditions()
         {
-            var expression = "Test1 endsWith Test1 and Test2 endsWith Test2";
+            var expression = "'Test1' endsWith 'Test1' and 'Test2' endsWith 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -89,7 +89,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateAndTruthyComplexConditionsWrappedInParens()
         {
-            var expression = "(Test1 endsWith Test1) and (Test2 endsWith Test2)";
+            var expression = "('Test1' endsWith 'Test1') and ('Test2' endsWith 'Test2')";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -99,7 +99,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateFalsyComplexConditions()
         {
-            var expression = "Test2 endsWith Test1 and Test2 endsWith Test2";
+            var expression = "'Test2' endsWith 'Test1' and 'Test2' endsWith 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -109,7 +109,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateFalseComplexConditions()
         {
-            var expression = "Test2 endsWith Test1 and Test1 endsWith Test2";
+            var expression = "'Test2' endsWith 'Test1' and 'Test1' endsWith 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -119,7 +119,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateOrTruthyComplexConditions()
         {
-            var expression = "Test1 endsWith Test1 or Test2 endsWith Test2";
+            var expression = "'Test1' endsWith 'Test1' or 'Test2' endsWith 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
