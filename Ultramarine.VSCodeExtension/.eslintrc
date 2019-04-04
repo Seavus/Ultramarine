@@ -48,7 +48,8 @@
     ],
     "arrow-parens": ["off"],
     "arrow-body-style": "warn",
-    "no-debugger": "warn"
+    "no-debugger": "warn",
+    "react/forbid-prop-types": "off"
   },
   "plugins": ["import", "react", "prettier"]
 }

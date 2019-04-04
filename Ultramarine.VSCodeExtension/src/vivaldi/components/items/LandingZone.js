@@ -6,21 +6,20 @@ import TaskBuilder from './TaskBuilder'
 const LandingZone = props => {
   // debugger;
   // console.log('landing zone', props);
-  const { typeLanded, onTaskAdded, onLandingCancelled, onTaskLanded } = props
+  const { taskLanded, onTaskAdded, onLandingCancelled, onTaskLanded } = props
   const allowDragOver = e => {
     e.preventDefault()
   }
 
   const handleTaskLanded = e => {
     const type = e.dataTransfer.getData('taskType')
-    onTaskLanded(e, type)
+    onTaskLanded(type)
   }
 
-  if (typeLanded) {
+  if (taskLanded) {
     return (
       <TaskBuilder
-        type={typeLanded}
-        isEditable
+        {...taskLanded}
         onTaskAdded={onTaskAdded}
         onLandingCancelled={onLandingCancelled}
       />
@@ -41,21 +40,14 @@ const LandingZone = props => {
 }
 
 LandingZone.propTypes = {
-  typeLanded: PropTypes.oneOf([
-    TaskTypes.CREATE_FOLDER,
-    TaskTypes.SQL_EXECUTE,
-    TaskTypes.WEB_DOWNLOAD,
-    TaskTypes.GENERATE_CODE_FROM_T4_TEMPLATE,
-    TaskTypes.COMPOSITE,
-    TaskTypes.CREATE_PROJECT_ITEM
-  ]),
+  taskLanded: PropTypes.object,
   onTaskAdded: PropTypes.func,
   onLandingCancelled: PropTypes.func,
   onTaskLanded: PropTypes.func
 }
 
 LandingZone.defaultProps = {
-  typeLanded: null,
+  taskLanded: null,
   onTaskAdded: () => {},
   onLandingCancelled: () => {},
   onTaskLanded: () => {}

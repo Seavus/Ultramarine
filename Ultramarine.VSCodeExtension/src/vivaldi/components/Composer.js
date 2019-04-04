@@ -10,7 +10,7 @@ const initialState = {
     //     name: 'Create Root Folder',
     //     type: TaskTypes.CREATE_FOLDER,
     //     description:
-    //       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit placeat laboriosam eveniet esse. ',
+    //       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit placeat laboriosam eveniet esse.',
     //     folderPath: 'C:/Program Files/Ultramarin/'
     //   },
     //   {
@@ -127,7 +127,7 @@ class Composer extends Component {
     }
     let newItems = [...items]
     const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)
-    landingZone.typeLanded = null
+    landingZone.taskLanded = null
     newItems = newItems.map(item =>
       item.type === TaskTypes.LANDING_ZONE ? newItem : item
     )
@@ -135,21 +135,23 @@ class Composer extends Component {
     this.setState({ items: newItems })
   }
 
-  handleTaskLanded = (e, type) => {
+  handleTaskLanded = type => {
+    // console.log('task landed')
     const { items } = this.state
     const newItems = [...items]
     const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)
-    landingZone.typeLanded = type
+    landingZone.taskLanded = { type, isEditable: true }
     this.setState({ items: newItems })
   }
 
   handleLandingCancelled = () => {
     const { items } = this.state
     const newItems = items.filter(x => x.type !== TaskTypes.LANDING_ZONE)
-    this.setState({ items: [...newItems, new LandingZone()] })
+    newItems.push(new LandingZone())
+    this.setState({ items: newItems })
   }
 
-  handleFlyOver = (e, id) => {
+  handleFlyOver = id => {
     const { items } = this.state
     let newItems = [...items]
     const index = newItems.findIndex(x => x.id === id)
@@ -158,12 +160,22 @@ class Composer extends Component {
     this.setState({ items: newItems })
   }
 
-  handleFlyAway = e => {
-    if (e.target !== e.currentTarget) return
-    console.log('fly away', e.target)
+  handleLandingCheck = () => {
+    // console.log('landing check')
     const { items } = this.state
-    const newItems = items.filter(x => x.type !== TaskTypes.LANDING_ZONE)
-    newItems.push(new LandingZone())
+    const landingZone = items.find(x => x.type === TaskTypes.LANDING_ZONE)
+    if (!landingZone || !landingZone.taskLanded) {
+      this.handleLandingCancelled()
+    }
+  }
+
+  handleTaskEdit = id => {
+    console.log('task edit', id)
+    const { items } = this.state
+    let newItems = [...items]
+    const newItem = newItems.find(x => x.id === id)
+    newItem.isEditable = true
+    newItems = newItems.map(x => (x.id !== id ? x : newItem))
     this.setState({ items: newItems })
   }
 
@@ -179,12 +191,14 @@ class Composer extends Component {
               onTaskLanded={this.handleTaskLanded}
               onLandingCancelled={this.handleLandingCancelled}
               onFlyOver={this.handleFlyOver}
+              onTaskEdit={this.handleTaskEdit}
             />
           </div>
           <div className="col s5 m4 l4 xl3">
             <Toolbox
               taskTypes={taskTypes}
               onTaskLanded={this.handleTaskLanded}
+              onLandingCheck={this.handleLandingCheck}
             />
           </div>
         </div>

@@ -10,7 +10,8 @@ const Task = ({
   onLandingCancelled,
   onChange,
   onTaskAdded,
-  onFlyOver
+  onFlyOver,
+  onTaskEdit
 }) => {
   // debugger;
   // console.log('task', props);
@@ -48,7 +49,14 @@ const Task = ({
     )
   }
   return (
-    <div className="card z-depth-0" onDragOver={e => onFlyOver(e, id)}>
+    <div
+      className="card z-depth-0"
+      onDragOver={() => onFlyOver(id)}
+      role="button"
+      tabIndex="0"
+      onKeyPress={() => {}}
+      onClick={() => onTaskEdit(id)}
+    >
       <div className="card-content">
         <span className="card-title">{name}</span>
         <p className="mb-small">{description}</p>
@@ -70,7 +78,8 @@ Task.propTypes = {
   onLandingCancelled: PropTypes.func,
   onChange: PropTypes.func,
   onTaskAdded: PropTypes.func,
-  onFlyOver: PropTypes.func
+  onFlyOver: PropTypes.func,
+  onTaskEdit: PropTypes.func
 }
 
 Task.defaultProps = {
@@ -82,7 +91,8 @@ Task.defaultProps = {
   onLandingCancelled: () => {},
   onChange: () => {},
   onTaskAdded: () => {},
-  onFlyOver: () => {}
+  onFlyOver: () => {},
+  onTaskEdit: () => {}
 }
 
 export default Task

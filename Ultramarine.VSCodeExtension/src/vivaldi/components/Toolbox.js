@@ -6,7 +6,7 @@ const handleDragStart = (e, t) => {
 }
 
 const Toolbox = props => {
-  const { taskTypes, onTaskLanded } = props
+  const { taskTypes, onTaskLanded, onLandingCheck } = props
 
   return (
     <div className="toolbox">
@@ -34,10 +34,11 @@ const Toolbox = props => {
                   key={type.abbr}
                   role="button"
                   draggable
-                  onClick={e => onTaskLanded(e, type.type)}
+                  onClick={() => onTaskLanded(type.type)}
                   onDragStart={e => {
                     handleDragStart(e, type)
                   }}
+                  onDragEnd={onLandingCheck}
                 >
                   {icon}
                 </div>
@@ -52,12 +53,14 @@ const Toolbox = props => {
 
 Toolbox.propTypes = {
   taskTypes: PropTypes.arrayOf(PropTypes.any),
-  onTaskLanded: PropTypes.func
+  onTaskLanded: PropTypes.func,
+  onLandingCheck: PropTypes.func
 }
 
 Toolbox.defaultProps = {
   taskTypes: [],
-  onTaskLanded: () => {}
+  onTaskLanded: () => {},
+  onLandingCheck: () => {}
 }
 
 export default Toolbox
