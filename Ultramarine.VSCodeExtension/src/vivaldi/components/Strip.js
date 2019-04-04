@@ -9,7 +9,7 @@ const Strip = props => {
     items,
     onTaskAdded,
     onTaskLanded,
-    onLandingCancelled,
+    onTaskUpdateCancelled,
     onFlyOver,
     onTaskEdit
   } = props
@@ -24,7 +24,7 @@ const Strip = props => {
                 key={item.id}
                 onTaskAdded={onTaskAdded}
                 onTaskLanded={onTaskLanded}
-                onLandingCancelled={onLandingCancelled}
+                onTaskUpdateCancelled={onTaskUpdateCancelled}
               />
             )
           }
@@ -36,7 +36,7 @@ const Strip = props => {
                 key={item.id}
                 onTaskAdded={onTaskAdded}
                 onTaskLanded={onTaskLanded}
-                onLandingCancelled={onLandingCancelled}
+                onTaskUpdateCancelled={onTaskUpdateCancelled}
                 onFlyOver={onFlyOver}
                 onTaskEdit={onTaskEdit}
               />
@@ -53,7 +53,7 @@ Strip.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any),
   onTaskAdded: PropTypes.func,
   onTaskLanded: PropTypes.func,
-  onLandingCancelled: PropTypes.func,
+  onTaskUpdateCancelled: PropTypes.func,
   onFlyOver: PropTypes.func,
   onTaskEdit: PropTypes.func
 }
@@ -62,7 +62,7 @@ Strip.defaultProps = {
   items: [],
   onTaskAdded: () => {},
   onTaskLanded: () => {},
-  onLandingCancelled: () => {},
+  onTaskUpdateCancelled: () => {},
   onFlyOver: () => {},
   onTaskEdit: () => {}
 }

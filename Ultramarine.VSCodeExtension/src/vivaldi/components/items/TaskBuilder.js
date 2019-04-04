@@ -13,7 +13,10 @@ import CreateProjectItem from './CreateProjectItem'
 const components = [CreateFolder, WebDownload, SqlExecute, CreateProjectItem]
 
 class TaskBuilder extends Component {
-  state = {}
+  constructor(props) {
+    super(props)
+    this.state = { ...props }
+  }
 
   handleChange = e => {
     // console.log(this.state)
@@ -33,11 +36,14 @@ class TaskBuilder extends Component {
 
   render() {
     // console.log('task builder', this.props);
-    const { type } = this.props
+    const { type, isEditable } = this.props
     const Item = components.find(i => i.type === type)
+    const values = isEditable
+      ? { ...this.state, isEditable }
+      : { ...this.props }
     return (
       <Item
-        {...this.props}
+        {...values}
         onChange={this.handleChange}
         onTaskAdded={this.handleTaskAdded}
       />
@@ -54,11 +60,13 @@ TaskBuilder.propTypes = {
     TaskTypes.SQL_EXECUTE,
     TaskTypes.WEB_DOWNLOAD
   ]),
+  isEditable: PropTypes.bool,
   onTaskAdded: PropTypes.func
 }
 
 TaskBuilder.defaultProps = {
   type: null,
+  isEditable: false,
   onTaskAdded: () => {}
 }
 

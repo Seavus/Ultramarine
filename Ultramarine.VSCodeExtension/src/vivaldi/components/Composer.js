@@ -144,9 +144,13 @@ class Composer extends Component {
     this.setState({ items: newItems })
   }
 
-  handleLandingCancelled = () => {
+  handleTaskUpdateCancelled = id => {
+    // console.log('update cancelled.', id)
     const { items } = this.state
     const newItems = items.filter(x => x.type !== TaskTypes.LANDING_ZONE)
+    if (id !== null) {
+      newItems.find(x => x.id === id).isEditable = false
+    }
     newItems.push(new LandingZone())
     this.setState({ items: newItems })
   }
@@ -165,7 +169,7 @@ class Composer extends Component {
     const { items } = this.state
     const landingZone = items.find(x => x.type === TaskTypes.LANDING_ZONE)
     if (!landingZone || !landingZone.taskLanded) {
-      this.handleLandingCancelled()
+      this.handleTaskUpdateCancelled()
     }
   }
 
@@ -189,7 +193,7 @@ class Composer extends Component {
               items={items}
               onTaskAdded={this.handleTaskAdded}
               onTaskLanded={this.handleTaskLanded}
-              onLandingCancelled={this.handleLandingCancelled}
+              onTaskUpdateCancelled={this.handleTaskUpdateCancelled}
               onFlyOver={this.handleFlyOver}
               onTaskEdit={this.handleTaskEdit}
             />

@@ -6,7 +6,7 @@ import TaskBuilder from './TaskBuilder'
 const LandingZone = props => {
   // debugger;
   // console.log('landing zone', props);
-  const { taskLanded, onTaskAdded, onLandingCancelled, onTaskLanded } = props
+  const { taskLanded, onTaskAdded, onTaskUpdateCancelled, onTaskLanded } = props
   const allowDragOver = e => {
     e.preventDefault()
   }
@@ -21,7 +21,7 @@ const LandingZone = props => {
       <TaskBuilder
         {...taskLanded}
         onTaskAdded={onTaskAdded}
-        onLandingCancelled={onLandingCancelled}
+        onTaskUpdateCancelled={onTaskUpdateCancelled}
       />
     )
   }
@@ -42,14 +42,14 @@ const LandingZone = props => {
 LandingZone.propTypes = {
   taskLanded: PropTypes.object,
   onTaskAdded: PropTypes.func,
-  onLandingCancelled: PropTypes.func,
+  onTaskUpdateCancelled: PropTypes.func,
   onTaskLanded: PropTypes.func
 }
 
 LandingZone.defaultProps = {
   taskLanded: null,
   onTaskAdded: () => {},
-  onLandingCancelled: () => {},
+  onTaskUpdateCancelled: () => {},
   onTaskLanded: () => {}
 }
 

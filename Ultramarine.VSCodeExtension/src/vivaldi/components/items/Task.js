@@ -7,7 +7,7 @@ const Task = ({
   description,
   isEditable,
   children,
-  onLandingCancelled,
+  onTaskUpdateCancelled,
   onChange,
   onTaskAdded,
   onFlyOver,
@@ -20,7 +20,7 @@ const Task = ({
       <div className="card z-depth-0">
         <div className="card-content">
           <div className="input-field">
-            <input id="name" type="text" onChange={onChange} />
+            <input id="name" type="text" onChange={onChange} value={name} />
             <label htmlFor="name">Name</label>
           </div>
           <div className="input-field">
@@ -33,7 +33,7 @@ const Task = ({
           <button
             type="button"
             className="waves-effect waves-light btn grey mlr-small"
-            onClick={onLandingCancelled}
+            onClick={() => onTaskUpdateCancelled(id)}
           >
             Cancel
           </button>
@@ -75,7 +75,7 @@ Task.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]),
-  onLandingCancelled: PropTypes.func,
+  onTaskUpdateCancelled: PropTypes.func,
   onChange: PropTypes.func,
   onTaskAdded: PropTypes.func,
   onFlyOver: PropTypes.func,
@@ -88,7 +88,7 @@ Task.defaultProps = {
   description: '',
   isEditable: false,
   children: null,
-  onLandingCancelled: () => {},
+  onTaskUpdateCancelled: () => {},
   onChange: () => {},
   onTaskAdded: () => {},
   onFlyOver: () => {},
