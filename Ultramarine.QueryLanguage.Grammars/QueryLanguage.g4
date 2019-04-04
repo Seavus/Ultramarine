@@ -33,7 +33,7 @@ comparison_operator
 
 logical_entity
 	: BooleanEntity=(TRUE | FALSE)				#LogicalConst
-	| QUOTE IDENTIFIER QUOTE					#LogicalVariable
+	| STRING									#LogicalVariable
 	| THIS										#AliasedVariable
 	;
 
@@ -61,6 +61,28 @@ THIS: '$this';
 
 IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9.]* ;
 
+STRING
+   : QUOTE (ESC | SAFECODEPOINT)* QUOTE
+;
+
+
+fragment ESC
+   : '\\' (['\\/bfnrt] | UNICODE)
+   ;
+fragment UNICODE
+   : 'u' HEX HEX HEX HEX
+   ;
+fragment HEX
+   : [0-9a-fA-F]
+   ;
+fragment SAFECODEPOINT
+   : ~ ['\\\u0000-\u001F]
+   ;
+
+
 WS
-	:	' ' -> channel(HIDDEN)
-	;
+	: [ \t\n\r] + -> skip
+;
+//WS
+//	:	' ' -> channel(HIDDEN)
+//	;

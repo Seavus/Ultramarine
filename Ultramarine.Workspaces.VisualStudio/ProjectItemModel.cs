@@ -21,17 +21,16 @@ namespace Ultramarine.Workspaces.VisualStudio
         public string Language { get; set; }
         public List<IProjectItemModel> ProjectItems { get; set; }
 
-        public List<IProjectItemModel> FindProjectItems(string itemNameExpression)
+        public List<IProjectItemModel> GetProjectItems(string expression)
         {
             var result = new List<IProjectItemModel>();
-            var expression = itemNameExpression.Replace("$this", Name);
-            var condition = new ConditionCompiler(expression);
-            if ((bool)condition.Execute())
+            var condition = new ConditionCompiler(expression, Name);
+            if (condition.Execute())
                 result.Add(this);
 
             foreach(var item in ProjectItems)
             {
-                var subItems = item.FindProjectItems(itemNameExpression);
+                var subItems = item.GetProjectItems(expression);
                 if (subItems != null)
                     result.AddRange(subItems);
             }

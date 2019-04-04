@@ -10,7 +10,7 @@ namespace Ultramarine.Workspaces
 
         List<IProjectItemModel> ProjectItems { get; set; }
 
-        List<IProjectItemModel> FindProjectItems(string itemNameExpression);
+        List<IProjectItemModel> GetProjectItems(string expression);
 
     }
 }

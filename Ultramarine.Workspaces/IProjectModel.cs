@@ -14,6 +14,6 @@ namespace Ultramarine.Workspaces
 
         IProjectItemModel CreateProjectItem(string path, string content, bool overwrite);
         IEnumerable<IProjectModel> GetProjects(string projectNameExpression);
-        IEnumerable<IProjectItemModel> FindProjectItems(string itemNameExpression);
+        IEnumerable<IProjectItemModel> GetProjectItems(string itemNameExpression);
     }
 }

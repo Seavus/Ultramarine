@@ -7,22 +7,20 @@ namespace Ultramarine.Workspaces.VisualStudio
 {
     public partial class Dte
     {
-        private const string _thisAlias = "$this";
         /// <summary>
         /// Gets all the projects which satisfy given expression
         /// </summary>
         /// <param name="projectNameExpression">Expression given in the QueryLanguage form</param>
         /// <returns>List of Visual Studio projects</returns>
-        public List<Project> GetProjects(string projectNameExpression)
+        public List<Project> GetProjects(string expression)
         {
             var result = new List<Project>();
             var projects = GetProjects();
             foreach(var project in projects)
             {
                 var projectName = project.Name;
-                var expression = projectNameExpression.Replace("$this", projectName);
-                var condition = new ConditionCompiler(expression);
-                if ((bool)condition.Execute())
+                var condition = new ConditionCompiler(expression, projectName);
+                if (condition.Execute())
                     result.Add(project);
             }
             return result;

@@ -7,14 +7,12 @@ namespace Ultramarine.QueryLanguage
     {
         public override string VisitLogicalVariable([NotNull] QueryLanguageParser.LogicalVariableContext context)
         {
-            return context.IDENTIFIER().GetText();
+            return context.STRING().GetText().Replace("\'", string.Empty);
         }
 
         public override string VisitLogicalConst([NotNull] QueryLanguageParser.LogicalConstContext context)
         {
-            return context.GetText();
+            return context.GetText().Replace("\'", string.Empty);
         }
     }
-
-
 }

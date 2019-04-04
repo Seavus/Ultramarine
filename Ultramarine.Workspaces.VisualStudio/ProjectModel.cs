@@ -91,17 +91,16 @@ namespace Ultramarine.Workspaces.VisualStudio
             return projectItem;
         }
 
-        public IEnumerable<IProjectItemModel> FindProjectItems(string itemNameExpression)
+        public IEnumerable<IProjectItemModel> GetProjectItems(string expression)
         {
             var result = new List<IProjectItemModel>();
             foreach(var item in ProjectItems)
             {
-                var expression = itemNameExpression.Replace("$this", item.Name);
-                var condition = new ConditionCompiler(expression);
-                if ((bool)condition.Execute())
+                var condition = new ConditionCompiler(expression, item.Name);
+                if (condition.Execute())
                     result.Add(item);
                 
-                var subItems = item.FindProjectItems(itemNameExpression);
+                var subItems = item.GetProjectItems(expression);
                 if (subItems != null)
                     result.AddRange(subItems);
             }

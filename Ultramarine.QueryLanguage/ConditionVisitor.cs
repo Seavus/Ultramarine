@@ -23,7 +23,7 @@ namespace Ultramarine.QueryLanguage
 
         public override ComparisonExpression VisitLogicalVariable([NotNull] QueryLanguageParser.LogicalVariableContext context)
         {
-            return Visit(context.IDENTIFIER());
+            return Visit(context.STRING());
         }
     }
 }

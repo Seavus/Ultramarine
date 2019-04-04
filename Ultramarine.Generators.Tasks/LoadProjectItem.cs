@@ -18,17 +18,17 @@ namespace Ultramarine.Generators.Tasks
         protected override object OnExecute()
         {
             var result = new List<IProjectItemModel>();
-            var projects = (List<IProjectModel>)ExecutionContext.GetProjects(ProjectName);
-            if (projects == null || projects.Any())
+            var projects = ExecutionContext.GetProjects(ProjectName);
+            if (projects == null || !projects.Any())
                 throw new ArgumentException($"There is no project named {ProjectName}");
 
             foreach (var project in projects)
             {
-                var items = project.FindProjectItems(ItemName);
+                var items = project.GetProjectItems(ItemName);
                 result.AddRange(items);
             }
 
-            if (result.Any())
+            if (!result.Any())
                 throw new ArgumentException($"There is no project item named {ItemName} in project {ProjectName}");
             return result;
         }

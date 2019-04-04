@@ -8,7 +8,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateContainsConditionAsFalse()
         {
-            var expression = "'Test1' contains 'Test2'";
+            var expression = "'TestA' contains 'TestB'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -24,6 +24,16 @@ namespace Ultramarine.QueryLanguage.Tests
 
             Assert.IsFalse(result);
 
+        }
+
+        [TestMethod]
+        public void ShouldEvaluateContainsConditionWithWhitespacesAsFalse()
+        {
+            var expression = "'Solution items' contains 'Test2'";
+            var compiler = new ConditionCompiler(expression);
+            var result = compiler.Execute();
+
+            Assert.IsFalse(result);
         }
 
         [TestMethod]
