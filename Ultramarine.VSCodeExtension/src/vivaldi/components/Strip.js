@@ -7,7 +7,7 @@ import LandingZone from './items/LandingZone'
 const Strip = props => {
   const {
     items,
-    onTaskAdded,
+    onTaskUpdated,
     onTaskLanded,
     onTaskUpdateCancelled,
     onFlyOver,
@@ -22,7 +22,7 @@ const Strip = props => {
               <LandingZone
                 taskLanded={item.taskLanded}
                 key={item.id}
-                onTaskAdded={onTaskAdded}
+                onTaskUpdated={onTaskUpdated}
                 onTaskLanded={onTaskLanded}
                 onTaskUpdateCancelled={onTaskUpdateCancelled}
               />
@@ -34,7 +34,7 @@ const Strip = props => {
               <TaskBuilder
                 {...item}
                 key={item.id}
-                onTaskAdded={onTaskAdded}
+                onTaskUpdated={onTaskUpdated}
                 onTaskLanded={onTaskLanded}
                 onTaskUpdateCancelled={onTaskUpdateCancelled}
                 onFlyOver={onFlyOver}
@@ -51,7 +51,7 @@ const Strip = props => {
 
 Strip.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any),
-  onTaskAdded: PropTypes.func,
+  onTaskUpdated: PropTypes.func,
   onTaskLanded: PropTypes.func,
   onTaskUpdateCancelled: PropTypes.func,
   onFlyOver: PropTypes.func,
@@ -60,7 +60,7 @@ Strip.propTypes = {
 
 Strip.defaultProps = {
   items: [],
-  onTaskAdded: () => {},
+  onTaskUpdated: () => {},
   onTaskLanded: () => {},
   onTaskUpdateCancelled: () => {},
   onFlyOver: () => {},

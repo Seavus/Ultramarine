@@ -9,7 +9,7 @@ const Task = ({
   children,
   onTaskUpdateCancelled,
   onChange,
-  onTaskAdded,
+  onTaskUpdated,
   onFlyOver,
   onTaskEdit
 }) => {
@@ -21,11 +21,23 @@ const Task = ({
         <div className="card-content">
           <div className="input-field">
             <input id="name" type="text" onChange={onChange} value={name} />
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name" className={name ? 'active' : ''}>
+              Name
+            </label>
           </div>
           <div className="input-field">
-            <input id="description" type="text" onChange={onChange} />
-            <label htmlFor="description">Description</label>
+            <input
+              id="description"
+              type="text"
+              onChange={onChange}
+              value={description}
+            />
+            <label
+              htmlFor="description"
+              className={description ? 'active' : ''}
+            >
+              Description
+            </label>
           </div>
           {children}
         </div>
@@ -40,7 +52,7 @@ const Task = ({
           <button
             type="button"
             className="waves-effect waves-light btn"
-            onClick={onTaskAdded}
+            onClick={onTaskUpdated}
           >
             Submit
           </button>
@@ -77,7 +89,7 @@ Task.propTypes = {
   ]),
   onTaskUpdateCancelled: PropTypes.func,
   onChange: PropTypes.func,
-  onTaskAdded: PropTypes.func,
+  onTaskUpdated: PropTypes.func,
   onFlyOver: PropTypes.func,
   onTaskEdit: PropTypes.func
 }
@@ -90,7 +102,7 @@ Task.defaultProps = {
   children: null,
   onTaskUpdateCancelled: () => {},
   onChange: () => {},
-  onTaskAdded: () => {},
+  onTaskUpdated: () => {},
   onFlyOver: () => {},
   onTaskEdit: () => {}
 }

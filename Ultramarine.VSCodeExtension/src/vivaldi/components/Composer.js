@@ -118,20 +118,21 @@ class Composer extends Component {
     this.setState({ items: tasks })
   }
 
-  handleTaskAdded = task => {
+  handleTaskUpdated = task => {
     const { items } = this.state
-    const newId = Common.newId(items)
-    const newItem = {
-      ...task,
-      id: newId
+    const newTask = { ...task, isEditable: false }
+    let newItems
+    if (newTask.id === undefined || newTask.id === null) {
+      // new task
+      newTask.id = Common.newId(items)
+      newItems = items.map(x =>
+        x.type === TaskTypes.LANDING_ZONE ? newTask : x
+      )
+      newItems.push(new LandingZone())
+    } else {
+      // updated task
+      newItems = items.map(x => (x.id === task.id ? task : x))
     }
-    let newItems = [...items]
-    const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)
-    landingZone.taskLanded = null
-    newItems = newItems.map(item =>
-      item.type === TaskTypes.LANDING_ZONE ? newItem : item
-    )
-    newItems.push(landingZone)
     this.setState({ items: newItems })
   }
 
@@ -191,7 +192,7 @@ class Composer extends Component {
           <div className="col s7 m8 offset-l1 l7 offset-xl2 xl7">
             <Strip
               items={items}
-              onTaskAdded={this.handleTaskAdded}
+              onTaskUpdated={this.handleTaskUpdated}
               onTaskLanded={this.handleTaskLanded}
               onTaskUpdateCancelled={this.handleTaskUpdateCancelled}
               onFlyOver={this.handleFlyOver}

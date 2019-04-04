@@ -26,12 +26,11 @@ class TaskBuilder extends Component {
     })
   }
 
-  handleTaskAdded = () => {
-    // debugger;
-    const { type, onTaskAdded } = this.props
+  handleTaskUpdated = () => {
+    const { type, onTaskUpdated } = this.props
     const item = { ...this.state }
     item.type = type
-    onTaskAdded(item)
+    onTaskUpdated(item)
   }
 
   render() {
@@ -45,7 +44,7 @@ class TaskBuilder extends Component {
       <Item
         {...values}
         onChange={this.handleChange}
-        onTaskAdded={this.handleTaskAdded}
+        onTaskUpdated={this.handleTaskUpdated}
       />
     )
   }
@@ -61,13 +60,13 @@ TaskBuilder.propTypes = {
     TaskTypes.WEB_DOWNLOAD
   ]),
   isEditable: PropTypes.bool,
-  onTaskAdded: PropTypes.func
+  onTaskUpdated: PropTypes.func
 }
 
 TaskBuilder.defaultProps = {
   type: null,
   isEditable: false,
-  onTaskAdded: () => {}
+  onTaskUpdated: () => {}
 }
 
 export default TaskBuilder
