@@ -34,7 +34,7 @@ const Toolbox = props => {
                   key={type.abbr}
                   role="button"
                   draggable
-                  onClick={e => onTaskLanded(e, type.type)}
+                  onClick={() => onTaskLanded(type.type)}
                   onDragStart={e => {
                     handleDragStart(e, type)
                   }}

@@ -127,7 +127,7 @@ class Composer extends Component {
     }
     let newItems = [...items]
     const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)
-    landingZone.typeLanded = null
+    landingZone.taskLanded = null
     newItems = newItems.map(item =>
       item.type === TaskTypes.LANDING_ZONE ? newItem : item
     )
@@ -135,12 +135,12 @@ class Composer extends Component {
     this.setState({ items: newItems })
   }
 
-  handleTaskLanded = (e, type) => {
+  handleTaskLanded = type => {
     // console.log('task landed')
     const { items } = this.state
     const newItems = [...items]
     const landingZone = newItems.find(x => x.type === TaskTypes.LANDING_ZONE)
-    landingZone.typeLanded = type
+    landingZone.taskLanded = { type, isEditable: true }
     this.setState({ items: newItems })
   }
 
@@ -151,7 +151,7 @@ class Composer extends Component {
     this.setState({ items: newItems })
   }
 
-  handleFlyOver = (e, id) => {
+  handleFlyOver = id => {
     const { items } = this.state
     let newItems = [...items]
     const index = newItems.findIndex(x => x.id === id)
@@ -160,13 +160,23 @@ class Composer extends Component {
     this.setState({ items: newItems })
   }
 
-  handleLandingCheck = e => {
+  handleLandingCheck = () => {
     // console.log('landing check')
     const { items } = this.state
     const landingZone = items.find(x => x.type === TaskTypes.LANDING_ZONE)
-    if (!landingZone || !landingZone.typeLanded) {
+    if (!landingZone || !landingZone.taskLanded) {
       this.handleLandingCancelled()
     }
+  }
+
+  handleTaskEdit = id => {
+    console.log('task edit', id)
+    const { items } = this.state
+    let newItems = [...items]
+    const newItem = newItems.find(x => x.id === id)
+    newItem.isEditable = true
+    newItems = newItems.map(x => (x.id !== id ? x : newItem))
+    this.setState({ items: newItems })
   }
 
   render() {
@@ -181,6 +191,7 @@ class Composer extends Component {
               onTaskLanded={this.handleTaskLanded}
               onLandingCancelled={this.handleLandingCancelled}
               onFlyOver={this.handleFlyOver}
+              onTaskEdit={this.handleTaskEdit}
             />
           </div>
           <div className="col s5 m4 l4 xl3">
