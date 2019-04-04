@@ -8,7 +8,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateStartsWithConditionAsFalse()
         {
-            var expression = "Test1 startsWith Test2";
+            var expression = "'Test1' startsWith 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -18,7 +18,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateStartsWithConditionAsTrue()
         {
-            var expression = "Test1 startsWith Test1";
+            var expression = "'Test1' startsWith 'Test1'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -28,7 +28,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateStartsWithWithNoContainingString()
         {
-            var expression = "test1 startsWith p";
+            var expression = "'test1' startsWith 'p'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -38,7 +38,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateStartsWithConditionAsTrueWrappedInParens()
         {
-            var expression = "(Test1 startsWith te)";
+            var expression = "('Test1' startsWith 'te')";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -78,7 +78,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateAndTruthyComplexConditions()
         {
-            var expression = "Test1 startsWith Test1 and Test2 startsWith Test2";
+            var expression = "'Test1' startsWith 'Test1' and 'Test2' startsWith 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -89,7 +89,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateAndTruthyComplexConditionsWrappedInParens()
         {
-            var expression = "(Test1 startsWith Test1) and (Test2 startsWith Test2)";
+            var expression = "('Test1' startsWith 'Test1') and ('Test2' startsWith 'Test2')";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -99,7 +99,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateFalsyComplexConditions()
         {
-            var expression = "Test2 startsWith Test1 and Test2 startsWith Test2";
+            var expression = "'Test2' startsWith 'Test1' and 'Test2' startsWith 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -109,7 +109,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateFalseComplexConditions()
         {
-            var expression = "Test2 startsWith Test1 and Test1 startsWith Test2";
+            var expression = "'Test2' startsWith 'Test1' and 'Test1' startsWith 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -119,7 +119,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateOrTruthyComplexConditions()
         {
-            var expression = "Test1 startsWith Test1 or Test2 startsWith Test2";
+            var expression = "'Test1' startsWith 'Test1' or 'Test2' startsWith 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 

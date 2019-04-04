@@ -32,9 +32,9 @@ comparison_operator
 	;
 
 logical_entity
-	: BooleanEntity=(TRUE | FALSE)	#LogicalConst
-	| StringEntity=IDENTIFIER		#LogicalVariable
-	| THIS							#AliasedVariable
+	: BooleanEntity=(TRUE | FALSE)				#LogicalConst
+	| QUOTE IDENTIFIER QUOTE					#LogicalVariable
+	| THIS										#AliasedVariable
 	;
 
 
@@ -55,6 +55,7 @@ FALSE:	'false';
 
 LPAREN: '(';
 RPAREN: ')';
+QUOTE: '\'';
 
 THIS: '$this';
 

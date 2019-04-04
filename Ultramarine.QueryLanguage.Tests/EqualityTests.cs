@@ -9,7 +9,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateEqualsConditionAsFalse()
         {
-            var expression = "Test1 equals Test2";
+            var expression = "'Test1' equals 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -19,7 +19,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateEqualsConditionAsTrue()
         {
-            var expression = "Test1 equals Test1";
+            var expression = "'Test1' equals 'Test1'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -29,7 +29,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateEqualsConditionAsTrueWrappedInParens()
         {
-            var expression = "(Test1 equals Test1)";
+            var expression = "('Test1' equals 'Test1')";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -69,7 +69,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateAndTruthyComplexConditions()
         {
-            var expression = "Test1 equals Test1 and Test2 equals Test2";
+            var expression = "'Test1' equals 'Test1' and 'Test2' equals 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -80,7 +80,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateAndTruthyComplexConditionsWrappedInParens()
         {
-            var expression = "(Test1 equals Test1) and (Test2 equals Test2)";
+            var expression = "('Test1' equals 'Test1') and ('Test2' equals 'Test2')";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -90,7 +90,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateFalsyComplexConditions()
         {
-            var expression = "Test2 equals Test1 and Test2 equals Test2";
+            var expression = "'Test2' equals 'Test1' and 'Test2' equals 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -100,7 +100,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateFalseComplexConditions()
         {
-            var expression = "Test2 equals Test1 and Test1 equals Test2";
+            var expression = "'Test2' equals 'Test1' and 'Test1' equals 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
@@ -110,7 +110,7 @@ namespace Ultramarine.QueryLanguage.Tests
         [TestMethod]
         public void ShouldEvaluateOrTruthyComplexConditions()
         {
-            var expression = "Test1 equals Test1 or Test2 equals Test2";
+            var expression = "'Test1' equals 'Test1' or 'Test2' equals 'Test2'";
             var compiler = new ConditionCompiler(expression);
             var result = (bool)compiler.Execute();
 
