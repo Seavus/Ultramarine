@@ -106,6 +106,18 @@ namespace Ultramarine.Workspaces.VisualStudio
             }
             return result;
         }
+
+        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon)
+        {
+            var result = new List<IProjectItemModel>();
+            var dependentProjectItems = GetProjectItems($"$this equals {dependentUpon}");
+            foreach(var dpi in dependentProjectItems)
+            {
+                var items = dpi.GetProjectItems(expression);
+                result.AddRange(result);
+            }
+            return result;
+        }
         private List<ProjectItem> GetProjectItems(ProjectItems projectItems, Comparer comparer, string propertyName = null)
         {
             var result = new List<ProjectItem>();

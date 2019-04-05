@@ -13,7 +13,8 @@ namespace Ultramarine.Workspaces
         IProjectItemModel CreateDirectory(string folderPath);
 
         IProjectItemModel CreateProjectItem(string path, string content, bool overwrite);
-        IEnumerable<IProjectModel> GetProjects(string projectNameExpression);
-        IEnumerable<IProjectItemModel> GetProjectItems(string itemNameExpression);
+        IEnumerable<IProjectModel> GetProjects(string expression);
+        IEnumerable<IProjectItemModel> GetProjectItems(string expression);
+        IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon);
     }
 }

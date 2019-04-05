@@ -24,7 +24,9 @@ namespace Ultramarine.Generators.Tasks
 
             foreach (var project in projects)
             {
-                var items = project.GetProjectItems(ItemName);
+                var items = string.IsNullOrWhiteSpace(LinkedWith)
+                    ? project.GetProjectItems(ItemName)
+                    : project.GetProjectItems(ItemName, LinkedWith);
                 result.AddRange(items);
             }
 
