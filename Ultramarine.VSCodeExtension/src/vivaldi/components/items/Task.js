@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Input from '../ui/Input'
+
 const Task = ({
   id,
   name,
@@ -19,26 +21,13 @@ const Task = ({
     return (
       <div className="card z-depth-0">
         <div className="card-content">
-          <div className="input-field">
-            <input id="name" type="text" onChange={onChange} value={name} />
-            <label htmlFor="name" className={name ? 'active' : ''}>
-              Name
-            </label>
-          </div>
-          <div className="input-field">
-            <input
-              id="description"
-              type="text"
-              onChange={onChange}
-              value={description}
-            />
-            <label
-              htmlFor="description"
-              className={description ? 'active' : ''}
-            >
-              Description
-            </label>
-          </div>
+          <Input label="Name" htmlFor="name" value={name} onChange={onChange} />
+          <Input
+            label="Description"
+            htmlFor="description"
+            value={description}
+            onChange={onChange}
+          />
           {children}
         </div>
         <div className="card-action right-align">
