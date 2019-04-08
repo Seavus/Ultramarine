@@ -5,6 +5,26 @@ namespace Ultramarine.QueryLanguage.Tests
     [TestClass]
     public class ContainsTests
     {
+        //TODO
+        //[TestMethod]
+        //public void ShouldEvaluateStringCondition()
+        //{
+        //    var expression = "TestA";
+        //    var compiler = new ConditionCompiler(expression);
+        //    var result = compiler.Execute();
+
+        //    Assert.IsTrue(result);
+        //}
+        //[TestMethod]
+        //public void ShouldEvaluateQuotedStringCondition()
+        //{
+        //    var expression = "'TestA'";
+        //    var compiler = new ConditionCompiler(expression);
+        //    var result = compiler.Execute();
+
+        //    Assert.IsTrue(result);
+        //}
+
         [TestMethod]
         public void ShouldEvaluateContainsConditionAsFalse()
         {

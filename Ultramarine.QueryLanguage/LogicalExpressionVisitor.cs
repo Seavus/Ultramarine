@@ -37,5 +37,10 @@ namespace Ultramarine.QueryLanguage
         {
             return Visit(context.logical_expression());
         }
+
+        public override LogicalExpression VisitLogicalEntity([NotNull] QueryLanguageParser.LogicalEntityContext context)
+        {
+            return Visit(context.logical_entity());
+        }
     }    
 }

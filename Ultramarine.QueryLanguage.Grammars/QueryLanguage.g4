@@ -12,8 +12,8 @@ logical_expression
 	: LeftExpression=logical_expression AND RightExpression=logical_expression	#LogicalAndExpression
 	| LeftExpression=logical_expression OR RightExpression=logical_expression	#LogicalOrExpression
 	| Comparison=comparison_expression											#ComparisonExpression
-	| LPAREN logical_expression RPAREN											#LogicalExpressionInParen
 	| logical_entity															#LogicalEntity
+	| LPAREN logical_expression RPAREN											#LogicalExpressionInParen
 	;
 
 comparison_expression
@@ -59,7 +59,7 @@ QUOTE: '\'';
 
 THIS: '$this';
 
-IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9.]* ;
+IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9.]*;
 
 STRING
    : QUOTE (ESC | SAFECODEPOINT)* QUOTE
@@ -83,6 +83,3 @@ fragment SAFECODEPOINT
 WS
 	: [ \t\n\r] + -> skip
 ;
-//WS
-//	:	' ' -> channel(HIDDEN)
-//	;
