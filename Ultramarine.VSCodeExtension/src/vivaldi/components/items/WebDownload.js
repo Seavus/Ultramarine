@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Task from './Task'
 import TaskTypes from '../../model/TaskTypes'
 
+import Input from '../ui/Input'
+
 const WebDownload = props => {
   const {
     isEditable,
@@ -16,18 +18,18 @@ const WebDownload = props => {
   if (isEditable) {
     return (
       <Task {...props}>
-        <div className="input-field">
-          <input id="address" type="text" onChange={onChange} value={address} />
-          <label htmlFor="address" className={address ? 'active' : ''}>
-            Address
-          </label>
-        </div>
+        <Input
+          label="Address"
+          htmlFor="address"
+          value={address}
+          onChange={onChange}
+        />
       </Task>
     )
   }
   return (
     <Task {...props}>
-      <p>Address: {address}</p>
+      <p>Address: {address} </p>
     </Task>
   )
 }

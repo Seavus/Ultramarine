@@ -3,19 +3,25 @@ import PropTypes from 'prop-types'
 import Task from './Task'
 import TaskTypes from '../../model/TaskTypes'
 
+import Input from '../ui/Input'
+
 const CreateProjectItem = props => {
   const { isEditable, itemName, folderPath, overwrite, onChange } = props
   if (isEditable) {
     return (
       <Task {...props}>
-        <div className="input-field">
-          <input id="itemName" type="text" onChange={onChange} />
-          <label htmlFor="itemName">Item name</label>
-        </div>
-        <div className="input-field">
-          <input id="path" type="text" onChange={onChange} />
-          <label htmlFor="path">Path</label>
-        </div>
+        <Input
+          label="Item name"
+          htmlFor="itemName"
+          value={itemName}
+          onChange={onChange}
+        />
+        <Input
+          label="Path"
+          htmlFor="path"
+          value={folderPath}
+          onChange={onChange}
+        />
         <label>
           <input
             id="overwrite"
