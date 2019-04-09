@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Input from '../ui/Input'
+import Button from '../ui/Button'
 
 const Task = ({
   id,
@@ -18,6 +19,7 @@ const Task = ({
   // debugger;
   // console.log('task', props);
   if (isEditable) {
+    debugger
     return (
       <div className="card z-depth-0">
         <div className="card-content">
@@ -31,20 +33,16 @@ const Task = ({
           {children}
         </div>
         <div className="card-action right-align">
-          <button
-            type="button"
+          <Button
+            name="Cancel"
             className="waves-effect waves-light btn grey mlr-small"
             onClick={() => onTaskUpdateCancelled(id)}
-          >
-            Cancel
-          </button>
-          <button
-            type="button"
+          />
+          <Button
+            name="Submit"
             className="waves-effect waves-light btn"
             onClick={onTaskUpdated}
-          >
-            Submit
-          </button>
+          />
         </div>
       </div>
     )

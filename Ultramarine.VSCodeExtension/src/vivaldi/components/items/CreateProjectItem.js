@@ -4,6 +4,7 @@ import Task from './Task'
 import TaskTypes from '../../model/TaskTypes'
 
 import Input from '../ui/Input'
+import Checkbox from '../ui/Checkbox'
 
 const CreateProjectItem = props => {
   const { isEditable, itemName, folderPath, overwrite, onChange } = props
@@ -22,15 +23,13 @@ const CreateProjectItem = props => {
           value={folderPath}
           onChange={onChange}
         />
-        <label>
-          <input
-            id="overwrite"
-            type="checkbox"
-            className="filled-in"
-            onChange={onChange}
-          />
-          <span>Overwrite</span>
-        </label>
+        <Checkbox
+          id="overwrite"
+          name="Overwrite"
+          className="filled-in"
+          onChange={onChange}
+          overwrite={overwrite}
+        />
       </Task>
     )
   }
