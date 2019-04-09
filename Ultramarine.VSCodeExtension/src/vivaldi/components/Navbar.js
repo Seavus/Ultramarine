@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Button from './ui/Button'
 
 class Navbar extends Component {
   constructor(props) {
@@ -32,13 +33,11 @@ class Navbar extends Component {
                   handleFileChoosen(e)
                 }}
               />
-              <button
+              <Button
+                name="Open file"
                 className="btn-flat"
-                type="button"
                 onClick={this.handleOpenFileClick}
-              >
-                Open file
-              </button>
+              />
             </li>
           </ul>
         </div>
