@@ -6,7 +6,7 @@ using Ultramarine.Generators.Tasks.Library.Contracts;
 
 namespace Ultramarine.Generators.Tasks
 {
-    [Export(typeof(ITask))]
+    [Export(typeof(Task))]
     public class Iterator: CompositeTask
     {
         protected override object OnExecute()
