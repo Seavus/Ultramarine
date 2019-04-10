@@ -20,7 +20,7 @@ namespace Ultramarine.Workspaces.VisualStudio
             _project = project;
         }
 
-        public ProjectModel(string projectName): this(Dte.Instance.GetProject(projectName))
+        public ProjectModel(string projectName) : this(Dte.Instance.GetProject(projectName))
         {
 
         }
@@ -29,6 +29,20 @@ namespace Ultramarine.Workspaces.VisualStudio
         public string Name { get; set; }
         public string Language { get; set; }
         public List<IProjectItemModel> ProjectItems { get; set; }
+
+        public bool Build(string configuration)
+        {
+            try
+            {
+                Dte.Instance.Host.Solution.SolutionBuild.BuildProject(configuration, _project.UniqueName, true);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //todo: log exception
+                return false;
+            }
+        }
 
         public IProjectItemModel CreateDirectory(string folderPath)
         {
@@ -45,8 +59,8 @@ namespace Ultramarine.Workspaces.VisualStudio
 
         public IProjectItemModel CreateProjectItem(string path, string content, bool overwrite)
         {
-            if(!overwrite)
-                if(File.Exists(path))
+            if (!overwrite)
+                if (File.Exists(path))
                     throw new Exception(string.Format("Failed to create project item. File '{0}' already exist on file system.", path));
 
             var directoryPath = Path.GetDirectoryName(path);
@@ -79,7 +93,7 @@ namespace Ultramarine.Workspaces.VisualStudio
                     projectItem = projectItems.AddFromDirectory(directoryPath);
                 else
                     projectItem = projectItems.AddFolder(folderName);
-                
+
             }
             catch (Exception ex)
             {
@@ -94,12 +108,12 @@ namespace Ultramarine.Workspaces.VisualStudio
         public IEnumerable<IProjectItemModel> GetProjectItems(string expression)
         {
             var result = new List<IProjectItemModel>();
-            foreach(var item in ProjectItems)
+            foreach (var item in ProjectItems)
             {
                 var condition = new ConditionCompiler(expression, item.Name);
                 if (condition.Execute())
                     result.Add(item);
-                
+
                 var subItems = item.GetProjectItems(expression);
                 if (subItems != null)
                     result.AddRange(subItems);
@@ -111,7 +125,7 @@ namespace Ultramarine.Workspaces.VisualStudio
         {
             var result = new List<IProjectItemModel>();
             var dependentProjectItems = GetProjectItems($"$this equals {dependentUpon}");
-            foreach(var dpi in dependentProjectItems)
+            foreach (var dpi in dependentProjectItems)
             {
                 var items = dpi.GetProjectItems(expression);
                 result.AddRange(result);
@@ -168,9 +182,9 @@ namespace Ultramarine.Workspaces.VisualStudio
             return result;
         }
 
-        
 
-        
+
+
     }
 
 }

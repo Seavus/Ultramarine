@@ -16,5 +16,6 @@ namespace Ultramarine.Workspaces
         IEnumerable<IProjectModel> GetProjects(string expression);
         IEnumerable<IProjectItemModel> GetProjectItems(string expression);
         IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon);
+        bool Build(string configuration);
     }
 }
