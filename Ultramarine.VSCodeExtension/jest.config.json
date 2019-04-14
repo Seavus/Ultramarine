@@ -1,0 +1,18 @@
+{
+  "verbose": true,
+  "moduleNameMapper": {
+    "^~[/](.+)": "<rootDir>/src/$1",
+    "\\.(css|less|scss)$": "identity-obj-proxy"
+  },
+  "setupFiles": ["<rootDir>/jest.setup.js"],
+  "testPathIgnorePatterns": [
+    "<rootDir>/src/index.js",
+    "/node_modules/",
+    "<rootDir>/build/"
+  ],
+  "collectCoverageFrom": ["src/**/*.js"],
+  "coverageReporters": ["text", "lcov", "html"],
+  "coveragePathIgnorePatterns": ["/node_modules/", "/build/"],
+  "testMatch": ["**/?(*.)(spec|test).js?(x)"],
+  "testEnvironment": "jsdom"
+}
