@@ -72,6 +72,7 @@
   <ItemGroup>
     <VSCTCompile Include="GeneratorsPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <SubType>Designer</SubType>
     </VSCTCompile>
     <Content Include="Resources\SolutionGeneratorCommand.png" />
     <Content Include="index.html" />
@@ -355,6 +356,20 @@
       <Project>{82d1ce89-82ef-47ff-a702-f67c3e030de4}</Project>
       <Name>Ultramarine.Generators.Tasks</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ultramarine.ProjectGenerator.Json\Ultramarine.ProjectGenerator.Json.csproj">
+      <Project>{D5F07703-6192-4C4E-8B39-4D87DF054C0D}</Project>
+      <Name>Ultramarine.ProjectGenerator.Json</Name>
+      <VSIXSubPath>ItemTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\Ultramarine.ProjectGenerator.Xml\Ultramarine.ProjectGenerator.Xml.csproj">
+      <Project>{475A9BE2-24FB-4CD2-A1F0-C033CF6BD0A4}</Project>
+      <Name>Ultramarine.ProjectGenerator.Xml</Name>
+      <VSIXSubPath>ItemTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\Ultramarine.QueryLanguage.Grammars\Ultramarine.QueryLanguage.Grammars.csproj">
       <Project>{85afd823-3966-4c16-b02c-699aa8f8d695}</Project>
       <Name>Ultramarine.QueryLanguage.Grammars</Name>
@@ -362,6 +377,13 @@
     <ProjectReference Include="..\Ultramarine.QueryLanguage\Ultramarine.QueryLanguage.csproj">
       <Project>{c501f3e8-d750-4e12-a020-4748008b2af3}</Project>
       <Name>Ultramarine.QueryLanguage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ultramarine.Recipes\Ultramarine.Recipes.csproj">
+      <Project>{41C4A44A-D7F7-4E52-A02E-B2FD70DD0E46}</Project>
+      <Name>Ultramarine.Recipes</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
     <ProjectReference Include="..\Ultramarine.Workspaces.VisualStudio\Ultramarine.Workspaces.VisualStudio.csproj">
       <Project>{596E2E43-B431-456B-9537-63570CCA0807}</Project>
