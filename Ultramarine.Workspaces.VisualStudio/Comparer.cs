@@ -19,4 +19,14 @@ namespace Ultramarine.Workspaces.VisualStudio
         }
     }
 
+    public static class Condition
+    {
+        public static bool Check(string propertyName, string conditionTemplate)
+        {
+            var condition = conditionTemplate.Replace("${property}", propertyName);
+            var compiler = new ConditionCompiler(condition);
+            return (bool)compiler.Execute();
+        }
+    }
+
 }

@@ -1,0 +1,12 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "iterator": {
+        "name": "iteratorTask1",
+        "description": "iteratorTask1Description"
+      }
+    }
+  ]
+}

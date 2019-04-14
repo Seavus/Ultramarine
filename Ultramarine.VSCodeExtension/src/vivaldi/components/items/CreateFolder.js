@@ -3,35 +3,48 @@ import PropTypes from 'prop-types'
 import Task from './Task'
 import TaskTypes from '../../model/TaskTypes'
 
+import Input from '../ui/Input'
+
 const CreateFolder = props => {
   // console.log('create folder', this.props);
-  const { isEditable, path, onChange } = props
+  const { isEditable, folderPath, projectName, onChange } = props
   if (isEditable) {
     return (
       <Task {...props}>
-        <div className="input-field">
-          <input id="path" type="text" onChange={onChange} />
-          <label htmlFor="path">Path</label>
-        </div>
+        <Input
+          label="Path"
+          htmlFor="folderPath"
+          value={folderPath}
+          onChange={onChange}
+        />
+        <Input
+          label="Project Name"
+          htmlFor="projectName"
+          value={projectName}
+          onChange={onChange}
+        />
       </Task>
     )
   }
   return (
     <Task {...props}>
-      <p>Path: {path}</p>
+      <p>Path: {folderPath}</p>
+      <p>Project Name: {projectName}</p>
     </Task>
   )
 }
 
 CreateFolder.propTypes = {
   isEditable: PropTypes.bool,
-  path: PropTypes.string,
+  folderPath: PropTypes.string,
+  projectName: PropTypes.string,
   onChange: PropTypes.func
 }
 
 CreateFolder.defaultProps = {
   isEditable: false,
-  path: '',
+  folderPath: '',
+  projectName: '',
   onChange: () => {}
 }
 

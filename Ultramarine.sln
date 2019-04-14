@@ -33,11 +33,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.Generators.Test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workspaces", "Workspaces", "{29587005-ABB1-4619-A9C6-794CA0093CB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.Roslyn", "Ultramarine.Roslyn\Ultramarine.Roslyn.csproj", "{0D77F6F4-776E-4ED2-B721-AF27A37F8485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.Roslyn", "Ultramarine.Roslyn\Ultramarine.Roslyn.csproj", "{0D77F6F4-776E-4ED2-B721-AF27A37F8485}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.Workspaces", "Ultramarine.Workspaces\Ultramarine.Workspaces.csproj", "{B4452945-98EB-4E75-B77C-30083D57BB43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.Workspaces", "Ultramarine.Workspaces\Ultramarine.Workspaces.csproj", "{B4452945-98EB-4E75-B77C-30083D57BB43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.Workspaces.VisualStudio", "Ultramarine.Workspaces.VisualStudio\Ultramarine.Workspaces.VisualStudio.csproj", "{596E2E43-B431-456B-9537-63570CCA0807}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{02FF4F30-0A60-447D-AE7F-A6FBD60D016F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.Recipes", "Ultramarine.Recipes\Ultramarine.Recipes.csproj", "{41C4A44A-D7F7-4E52-A02E-B2FD70DD0E46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.ProjectGenerator.Json", "Ultramarine.ProjectGenerator.Json\Ultramarine.ProjectGenerator.Json.csproj", "{D5F07703-6192-4C4E-8B39-4D87DF054C0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.ProjectGenerator.Xml", "Ultramarine.ProjectGenerator.Xml\Ultramarine.ProjectGenerator.Xml.csproj", "{475A9BE2-24FB-4CD2-A1F0-C033CF6BD0A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +109,18 @@ Global
 		{596E2E43-B431-456B-9537-63570CCA0807}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{596E2E43-B431-456B-9537-63570CCA0807}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{596E2E43-B431-456B-9537-63570CCA0807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41C4A44A-D7F7-4E52-A02E-B2FD70DD0E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41C4A44A-D7F7-4E52-A02E-B2FD70DD0E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41C4A44A-D7F7-4E52-A02E-B2FD70DD0E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41C4A44A-D7F7-4E52-A02E-B2FD70DD0E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5F07703-6192-4C4E-8B39-4D87DF054C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5F07703-6192-4C4E-8B39-4D87DF054C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5F07703-6192-4C4E-8B39-4D87DF054C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5F07703-6192-4C4E-8B39-4D87DF054C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{475A9BE2-24FB-4CD2-A1F0-C033CF6BD0A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{475A9BE2-24FB-4CD2-A1F0-C033CF6BD0A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{475A9BE2-24FB-4CD2-A1F0-C033CF6BD0A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{475A9BE2-24FB-4CD2-A1F0-C033CF6BD0A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +140,9 @@ Global
 		{0D77F6F4-776E-4ED2-B721-AF27A37F8485} = {29587005-ABB1-4619-A9C6-794CA0093CB1}
 		{B4452945-98EB-4E75-B77C-30083D57BB43} = {29587005-ABB1-4619-A9C6-794CA0093CB1}
 		{596E2E43-B431-456B-9537-63570CCA0807} = {29587005-ABB1-4619-A9C6-794CA0093CB1}
+		{41C4A44A-D7F7-4E52-A02E-B2FD70DD0E46} = {02FF4F30-0A60-447D-AE7F-A6FBD60D016F}
+		{D5F07703-6192-4C4E-8B39-4D87DF054C0D} = {02FF4F30-0A60-447D-AE7F-A6FBD60D016F}
+		{475A9BE2-24FB-4CD2-A1F0-C033CF6BD0A4} = {02FF4F30-0A60-447D-AE7F-A6FBD60D016F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A86E2D6F-253D-4A78-955E-7A75E9CE4EBA}

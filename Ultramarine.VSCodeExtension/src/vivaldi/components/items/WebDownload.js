@@ -3,34 +3,54 @@ import PropTypes from 'prop-types'
 import Task from './Task'
 import TaskTypes from '../../model/TaskTypes'
 
+import Input from '../ui/Input'
+
 const WebDownload = props => {
-  const { isEditable, url, onChange } = props
+  const {
+    isEditable,
+    address,
+    useDefaultCredentials,
+    username,
+    password,
+    domain,
+    onChange
+  } = props
   if (isEditable) {
     return (
       <Task {...props}>
-        <div className="input-field">
-          <input id="url" type="text" onChange={onChange} />
-          <label htmlFor="url">URL</label>
-        </div>
+        <Input
+          label="Address"
+          htmlFor="address"
+          value={address}
+          onChange={onChange}
+        />
       </Task>
     )
   }
   return (
     <Task {...props}>
-      <p>URL: {url}</p>
+      <p>Address: {address} </p>
     </Task>
   )
 }
 
 WebDownload.propTypes = {
   isEditable: PropTypes.bool,
-  url: PropTypes.string,
+  address: PropTypes.string,
+  useDefaultCredentials: PropTypes.bool,
+  username: PropTypes.string,
+  password: PropTypes.string,
+  domain: PropTypes.string,
   onChange: PropTypes.func
 }
 
 WebDownload.defaultProps = {
   isEditable: false,
-  url: '',
+  address: '',
+  useDefaultCredentials: false,
+  username: '',
+  password: '',
+  domain: '',
   onChange: () => {}
 }
 

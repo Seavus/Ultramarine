@@ -8,13 +8,22 @@ namespace Ultramarine.QueryLanguage
     {
         public override ComparisonExpression VisitComparisonExpressionWithOperators([NotNull] QueryLanguageParser.ComparisonExpressionWithOperatorsContext context)
         {
-            var condition = new ComparisonExpression(context.Operator.GetText(), context.LeftOperand.GetText(), context.RightOperand.GetText());
+            var operandVisitor = new OperandVisitor();
+            var leftOperand = operandVisitor.Visit(context.LeftOperand);
+            var rightOperand = operandVisitor.Visit(context.RightOperand);
+
+            var condition = new ComparisonExpression(context.Operator.GetText(), leftOperand, rightOperand);
             return condition;
         }
 
         public override ComparisonExpression VisitComparisonExpressionInParens([NotNull] QueryLanguageParser.ComparisonExpressionInParensContext context)
         {
             return Visit(context.comparison_expression());
+        }
+
+        public override ComparisonExpression VisitLogicalVariable([NotNull] QueryLanguageParser.LogicalVariableContext context)
+        {
+            return Visit(context.STRING());
         }
     }
 }

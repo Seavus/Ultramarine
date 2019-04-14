@@ -13,38 +13,54 @@ import CreateProjectItem from './CreateProjectItem'
 const components = [CreateFolder, WebDownload, SqlExecute, CreateProjectItem]
 
 class TaskBuilder extends Component {
-  state = {}
+  constructor(props) {
+    // console.log('task builder', props)
+    super(props)
+    this.state = { ...props }
+  }
 
   handleChange = e => {
     // console.log(this.state)
     this.setState({
-      [e.target.id]: e.target.value
+      [e.target.id]:
+        e.target.type === 'checkbox' ? e.target.checked : e.target.value
     })
   }
 
-  handleTaskAdded = () => {
-    // debugger;
-    const { type, onTaskAdded } = this.props
+  handleTaskUpdated = () => {
+    debugger
+    const { type, onTaskUpdated } = this.props
     const item = { ...this.state }
     item.type = type
-    onTaskAdded(item)
+    onTaskUpdated(item)
+  }
+
+  handleTaskUpdateCancelled = () => {
+    const { id, onTaskUpdateCancelled } = this.props
+    this.setState({ ...this.props, isEditable: false })
+    onTaskUpdateCancelled(id)
   }
 
   render() {
     // console.log('task builder', this.props);
-    const { type } = this.props
+    const { type, isEditable } = this.props
     const Item = components.find(i => i.type === type)
+    const values = isEditable
+      ? { ...this.state, isEditable }
+      : { ...this.props }
     return (
       <Item
-        {...this.props}
+        {...values}
         onChange={this.handleChange}
-        onTaskAdded={this.handleTaskAdded}
+        onTaskUpdated={this.handleTaskUpdated}
+        onTaskUpdateCancelled={this.handleTaskUpdateCancelled}
       />
     )
   }
 }
 
 TaskBuilder.propTypes = {
+  id: PropTypes.number,
   type: PropTypes.oneOf([
     TaskTypes.COMPOSITE,
     TaskTypes.CREATE_FOLDER,
@@ -53,12 +69,17 @@ TaskBuilder.propTypes = {
     TaskTypes.SQL_EXECUTE,
     TaskTypes.WEB_DOWNLOAD
   ]),
-  onTaskAdded: PropTypes.func
+  isEditable: PropTypes.bool,
+  onTaskUpdated: PropTypes.func,
+  onTaskUpdateCancelled: PropTypes.func
 }
 
 TaskBuilder.defaultProps = {
+  id: null,
   type: null,
-  onTaskAdded: () => {}
+  isEditable: false,
+  onTaskUpdated: () => {},
+  onTaskUpdateCancelled: () => {}
 }
 
 export default TaskBuilder

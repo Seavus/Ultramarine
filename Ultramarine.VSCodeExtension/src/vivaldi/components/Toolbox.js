@@ -6,9 +6,10 @@ const handleDragStart = (e, t) => {
 }
 
 const Toolbox = props => {
-  const { taskTypes } = props
+  const { taskTypes, onTaskLanded, onLandingCheck } = props
+
   return (
-    <div className="toolbar">
+    <div className="toolbox">
       <div className="card z-depth-0">
         <div className="card-content">
           <span className="card-title">Toolbox</span>
@@ -27,13 +28,17 @@ const Toolbox = props => {
                 </span>
               )
               return (
+                // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/interactive-supports-focus
                 <div
                   className="d-ib plr-small"
-                  draggable
                   key={type.abbr}
+                  role="button"
+                  draggable
+                  onClick={() => onTaskLanded(type.type)}
                   onDragStart={e => {
                     handleDragStart(e, type)
                   }}
+                  onDragEnd={onLandingCheck}
                 >
                   {icon}
                 </div>
@@ -47,11 +52,15 @@ const Toolbox = props => {
 }
 
 Toolbox.propTypes = {
-  taskTypes: PropTypes.arrayOf(PropTypes.any)
+  taskTypes: PropTypes.arrayOf(PropTypes.any),
+  onTaskLanded: PropTypes.func,
+  onLandingCheck: PropTypes.func
 }
 
 Toolbox.defaultProps = {
-  taskTypes: []
+  taskTypes: [],
+  onTaskLanded: () => {},
+  onLandingCheck: () => {}
 }
 
 export default Toolbox

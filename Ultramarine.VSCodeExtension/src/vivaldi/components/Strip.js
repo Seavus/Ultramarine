@@ -5,7 +5,14 @@ import TaskBuilder from './items/TaskBuilder'
 import LandingZone from './items/LandingZone'
 
 const Strip = props => {
-  const { items, onTaskAdded, onTaskLanded, onLandingCancelled } = props
+  const {
+    items,
+    onTaskUpdated,
+    onTaskLanded,
+    onTaskUpdateCancelled,
+    onFlyOver,
+    onTaskEdit
+  } = props
   return (
     <div className="strip p-small">
       {items &&
@@ -15,22 +22,28 @@ const Strip = props => {
               <LandingZone
                 typeLanded={item.typeLanded}
                 key={item.id}
-                onTaskAdded={onTaskAdded}
+                onTaskUpdated={onTaskUpdated}
                 onTaskLanded={onTaskLanded}
-                onLandingCancelled={onLandingCancelled}
+                onTaskUpdateCancelled={onTaskUpdateCancelled}
               />
             )
           }
 
-          return (
-            <TaskBuilder
-              {...item}
-              key={item.id}
-              onTaskAdded={onTaskAdded}
-              onTaskLanded={onTaskLanded}
-              onLandingCancelled={onLandingCancelled}
-            />
-          )
+          if (Object.values(TaskTypes).includes(item.type)) {
+            return (
+              <TaskBuilder
+                {...item}
+                key={item.id}
+                onTaskUpdated={onTaskUpdated}
+                onTaskLanded={onTaskLanded}
+                onTaskUpdateCancelled={onTaskUpdateCancelled}
+                onFlyOver={onFlyOver}
+                onTaskEdit={onTaskEdit}
+              />
+            )
+          }
+
+          return <div key={item.id}>{/* task type not found */}</div>
         })}
     </div>
   )
@@ -38,16 +51,20 @@ const Strip = props => {
 
 Strip.propTypes = {
   items: PropTypes.arrayOf(PropTypes.any),
-  onTaskAdded: PropTypes.func,
+  onTaskUpdated: PropTypes.func,
   onTaskLanded: PropTypes.func,
-  onLandingCancelled: PropTypes.func
+  onTaskUpdateCancelled: PropTypes.func,
+  onFlyOver: PropTypes.func,
+  onTaskEdit: PropTypes.func
 }
 
 Strip.defaultProps = {
   items: [],
-  onTaskAdded: () => {},
+  onTaskUpdated: () => {},
   onTaskLanded: () => {},
-  onLandingCancelled: () => {}
+  onTaskUpdateCancelled: () => {},
+  onFlyOver: () => {},
+  onTaskEdit: () => {}
 }
 
 export default Strip

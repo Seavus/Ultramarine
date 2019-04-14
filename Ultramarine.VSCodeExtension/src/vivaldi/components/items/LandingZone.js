@@ -6,17 +6,28 @@ import TaskBuilder from './TaskBuilder'
 const LandingZone = props => {
   // debugger;
   // console.log('landing zone', props);
-  const { typeLanded, onTaskAdded, onLandingCancelled, onTaskLanded } = props
+  const {
+    typeLanded,
+    onTaskUpdated,
+    onTaskUpdateCancelled,
+    onTaskLanded
+  } = props
   const allowDragOver = e => {
     e.preventDefault()
   }
+
+  const handleTaskLanded = e => {
+    const type = e.dataTransfer.getData('taskType')
+    onTaskLanded(type)
+  }
+
   if (typeLanded) {
     return (
       <TaskBuilder
         type={typeLanded}
         isEditable
-        onTaskAdded={onTaskAdded}
-        onLandingCancelled={onLandingCancelled}
+        onTaskUpdated={onTaskUpdated}
+        onTaskUpdateCancelled={onTaskUpdateCancelled}
       />
     )
   }
@@ -24,7 +35,7 @@ const LandingZone = props => {
   return (
     <div
       className="card z-depth-0 x-small task-landing-zone"
-      onDrop={onTaskLanded}
+      onDrop={handleTaskLanded}
       onDragOver={allowDragOver}
     >
       <div className="card-content">
@@ -35,22 +46,16 @@ const LandingZone = props => {
 }
 
 LandingZone.propTypes = {
-  typeLanded: PropTypes.oneOf([
-    TaskTypes.CREATE_FOLDER,
-    TaskTypes.SQL_EXECUTE,
-    TaskTypes.WEB_DOWNLOAD,
-    TaskTypes.GENERATE_CODE_FROM_T4_TEMPLATE,
-    TaskTypes.COMPOSITE
-  ]),
-  onTaskAdded: PropTypes.func,
-  onLandingCancelled: PropTypes.func,
+  typeLanded: PropTypes.string,
+  onTaskUpdated: PropTypes.func,
+  onTaskUpdateCancelled: PropTypes.func,
   onTaskLanded: PropTypes.func
 }
 
 LandingZone.defaultProps = {
   typeLanded: null,
-  onTaskAdded: () => {},
-  onLandingCancelled: () => {},
+  onTaskUpdated: () => {},
+  onTaskUpdateCancelled: () => {},
   onTaskLanded: () => {}
 }
 

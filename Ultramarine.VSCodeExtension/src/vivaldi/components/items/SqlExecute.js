@@ -3,19 +3,25 @@ import PropTypes from 'prop-types'
 import Task from './Task'
 import TaskTypes from '../../model/TaskTypes'
 
+import Input from '../ui/Input'
+
 const SqlExecute = props => {
   const { isEditable, connectionString, query, onChange } = props
   if (isEditable) {
     return (
       <Task {...props}>
-        <div className="input-field">
-          <input id="connectionString" type="text" onChange={onChange} />
-          <label htmlFor="connectionString">Connection String</label>
-        </div>
-        <div className="input-field">
-          <input id="query" type="text" onChange={onChange} />
-          <label htmlFor="query">Query</label>
-        </div>
+        <Input
+          label="Connection String"
+          htmlFor="connectionString"
+          value={connectionString}
+          onChange={onChange}
+        />
+        <Input
+          label="Query"
+          htmlFor="query"
+          value={query}
+          onChange={onChange}
+        />
       </Task>
     )
   }

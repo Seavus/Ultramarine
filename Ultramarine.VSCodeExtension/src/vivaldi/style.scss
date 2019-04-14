@@ -1,26 +1,25 @@
-
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-@import "~materialize-css/sass/components/color-variables";
-$card-bg-color: color("blue-grey", "lighten-5");
-@import "~materialize-css/sass/materialize.scss";
-
+@import '~materialize-css/sass/components/color-variables';
+$card-bg-color: color('blue-grey', 'lighten-5');
+$primary-color: color('teal', 'lighten-2');
+@import '~materialize-css/sass/materialize.scss';
 
 body {
-  background-color: color("blue-grey", "darken-4")
+  background-color: color('blue-grey', 'darken-4');
 }
 
 .strip {
@@ -28,12 +27,12 @@ body {
 }
 
 .strip {
-  background-color: color("blue-grey", "darken-2");
+  background-color: color('blue-grey', 'darken-2');
 }
 
-$title-color: color("grey", "darken-1");
-$negative-text-color: color("blue-grey", "lighten-2");
-$task-bg-color: color("blue-grey", "base");
+$title-color: color('grey', 'darken-1');
+$negative-text-color: color('blue-grey', 'lighten-2');
+$task-bg-color: color('blue-grey', 'base');
 
 .card {
   border-radius: 10px;
@@ -46,9 +45,9 @@ $task-bg-color: color("blue-grey", "base");
   }
 }
 
-.toolbar {
+.toolbox {
   .container {
-    color: color("blue-grey", "darken-1");
+    color: color('blue-grey', 'darken-1');
   }
 }
 
@@ -66,15 +65,15 @@ $task-bg-color: color("blue-grey", "base");
 }
 
 .p-small {
-  padding: 8px;
+  padding: 8px !important;
 }
 
 .plr-small {
-  padding: 0 8px;
+  padding: 0 8px !important;
 }
 
 .mlr-small {
-  margin: 0 8px;
+  margin: 0 8px !important;
 }
 
 .mt-small {

@@ -12,8 +12,8 @@ logical_expression
 	: LeftExpression=logical_expression AND RightExpression=logical_expression	#LogicalAndExpression
 	| LeftExpression=logical_expression OR RightExpression=logical_expression	#LogicalOrExpression
 	| Comparison=comparison_expression											#ComparisonExpression
-	| LPAREN logical_expression RPAREN											#LogicalExpressionInParen
 	| logical_entity															#LogicalEntity
+	| LPAREN logical_expression RPAREN											#LogicalExpressionInParen
 	;
 
 comparison_expression
@@ -32,8 +32,9 @@ comparison_operator
 	;
 
 logical_entity
-	: BooleanEntity=(TRUE | FALSE)	#LogicalConst
-	| StringEntity=IDENTIFIER		#LogicalVariable
+	: BooleanEntity=(TRUE | FALSE)				#LogicalConst
+	| STRING									#LogicalVariable
+	| THIS										#AliasedVariable
 	;
 
 
@@ -54,9 +55,31 @@ FALSE:	'false';
 
 LPAREN: '(';
 RPAREN: ')';
+QUOTE: '\'';
 
-IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9]* ;
+THIS: '$this';
+
+IDENTIFIER: [a-zA-Z_][a-zA-Z_0-9.]*;
+
+STRING
+   : QUOTE (ESC | SAFECODEPOINT)* QUOTE
+;
+
+
+fragment ESC
+   : '\\' (['\\/bfnrt] | UNICODE)
+   ;
+fragment UNICODE
+   : 'u' HEX HEX HEX HEX
+   ;
+fragment HEX
+   : [0-9a-fA-F]
+   ;
+fragment SAFECODEPOINT
+   : ~ ['\\\u0000-\u001F]
+   ;
+
 
 WS
-	:	' ' -> channel(HIDDEN)
-	;
+	: [ \t\n\r] + -> skip
+;

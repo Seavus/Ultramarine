@@ -1,10 +1,12 @@
 ﻿using Antlr4.Runtime;
+using System;
 using Ultramarine.QueryLanguage.Grammars;
 
 namespace Ultramarine.QueryLanguage
 {
     public class ConditionCompiler
     {
+        public const string ThisAlias = "$this";
         public ConditionCompiler(string expression)
         {
             var input = new AntlrInputStream(expression);
@@ -12,14 +14,26 @@ namespace Ultramarine.QueryLanguage
             var tokens = new CommonTokenStream(lexer);
             var parser = new QueryLanguageParser(tokens);            
             var visitor = new LogicalExpressionVisitor();
-            _condition = visitor.Visit(parser.condition().LogicalExpression);
+            OriginalExpression = expression;
+            Expression = visitor.Visit(parser.condition().LogicalExpression);
+            if (Expression == null)
+                throw new ArgumentException($"Given expression '{expression}' cannot be parsed.");
         }
 
-        private LogicalExpression _condition;
-
-        public object Execute()
+        public ConditionCompiler(string expression, string value)
+            :this(expression.Replace(ThisAlias, $"'{value}'"))
         {
-            return _condition.Evaluate();
+
         }
+
+        public LogicalExpression Expression { get; private set; }
+        public string OriginalExpression { get; private set; }
+
+        public bool Execute()
+        {
+            return Expression.Evaluate();
+        }
+
+        
     }
 }

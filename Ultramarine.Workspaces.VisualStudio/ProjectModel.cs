@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Ultramarine.QueryLanguage;
 using Ultramarine.QueryLanguage.Comparers;
 
 namespace Ultramarine.Workspaces.VisualStudio
@@ -19,7 +20,7 @@ namespace Ultramarine.Workspaces.VisualStudio
             _project = project;
         }
 
-        public ProjectModel(string projectName): this(Dte.Instance.GetProject(projectName))
+        public ProjectModel(string projectName) : this(Dte.Instance.GetProject(projectName))
         {
 
         }
@@ -28,6 +29,20 @@ namespace Ultramarine.Workspaces.VisualStudio
         public string Name { get; set; }
         public string Language { get; set; }
         public List<IProjectItemModel> ProjectItems { get; set; }
+
+        public bool Build(string configuration)
+        {
+            try
+            {
+                Dte.Instance.Host.Solution.SolutionBuild.BuildProject(configuration, _project.UniqueName, true);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //todo: log exception
+                return false;
+            }
+        }
 
         public IProjectItemModel CreateDirectory(string folderPath)
         {
@@ -44,8 +59,8 @@ namespace Ultramarine.Workspaces.VisualStudio
 
         public IProjectItemModel CreateProjectItem(string path, string content, bool overwrite)
         {
-            if(!overwrite)
-                if(File.Exists(path))
+            if (!overwrite)
+                if (File.Exists(path))
                     throw new Exception(string.Format("Failed to create project item. File '{0}' already exist on file system.", path));
 
             var directoryPath = Path.GetDirectoryName(path);
@@ -54,6 +69,12 @@ namespace Ultramarine.Workspaces.VisualStudio
             var projectItem = _project.ProjectItems.AddFromFile(path);
 
             return new ProjectItemModel(projectItem);
+        }
+
+        public IEnumerable<IProjectModel> GetProjects(string projectNameExpression)
+        {
+            var projects = Dte.Instance.GetProjects(projectNameExpression);
+            return projects.Select(proj => new ProjectModel(proj)).ToList();
         }
 
         public IProjectModel GetProject(string projectName)
@@ -72,7 +93,7 @@ namespace Ultramarine.Workspaces.VisualStudio
                     projectItem = projectItems.AddFromDirectory(directoryPath);
                 else
                     projectItem = projectItems.AddFolder(folderName);
-                
+
             }
             catch (Exception ex)
             {
@@ -84,18 +105,32 @@ namespace Ultramarine.Workspaces.VisualStudio
             return projectItem;
         }
 
-        public IProjectItemModel FindProjectItem(string itemName)
+        public IEnumerable<IProjectItemModel> GetProjectItems(string expression)
         {
-            foreach(var item in ProjectItems)
+            var result = new List<IProjectItemModel>();
+            foreach (var item in ProjectItems)
             {
-                if (item.Name == itemName)
-                    return item;
+                var condition = new ConditionCompiler(expression, item.Name);
+                if (condition.Execute())
+                    result.Add(item);
 
-                var subItem = item.FindProjectItem(itemName);
-                if (subItem != null)
-                    return subItem;
+                var subItems = item.GetProjectItems(expression);
+                if (subItems != null)
+                    result.AddRange(subItems);
             }
-            return null;
+            return result;
+        }
+
+        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon)
+        {
+            var result = new List<IProjectItemModel>();
+            var dependentProjectItems = GetProjectItems($"$this equals {dependentUpon}");
+            foreach (var dpi in dependentProjectItems)
+            {
+                var items = dpi.GetProjectItems(expression);
+                result.AddRange(result);
+            }
+            return result;
         }
         private List<ProjectItem> GetProjectItems(ProjectItems projectItems, Comparer comparer, string propertyName = null)
         {
@@ -146,6 +181,10 @@ namespace Ultramarine.Workspaces.VisualStudio
 
             return result;
         }
+
+
+
+
     }
 
 }

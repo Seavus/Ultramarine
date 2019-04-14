@@ -1,54 +1,63 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Input from '../ui/Input'
+import Button from '../ui/Button'
+
 const Task = ({
+  id,
   name,
   description,
   isEditable,
   children,
-  onLandingCancelled,
+  onTaskUpdateCancelled,
   onChange,
-  onTaskAdded
+  onTaskUpdated,
+  onFlyOver,
+  onTaskEdit
 }) => {
   // debugger;
   // console.log('task', props);
   if (isEditable) {
+    debugger
     return (
       <div className="card z-depth-0">
         <div className="card-content">
-          <div className="input-field">
-            <input id="name" type="text" onChange={onChange} />
-            <label htmlFor="name">Name</label>
-          </div>
-          <div className="input-field">
-            <input id="description" type="text" onChange={onChange} />
-            <label htmlFor="description">Description</label>
-          </div>
+          <Input label="Name" htmlFor="name" value={name} onChange={onChange} />
+          <Input
+            label="Description"
+            htmlFor="description"
+            value={description}
+            onChange={onChange}
+          />
           {children}
         </div>
         <div className="card-action right-align">
-          <button
-            type="button"
+          <Button
+            name="Cancel"
             className="waves-effect waves-light btn grey mlr-small"
-            onClick={onLandingCancelled}
-          >
-            Cancel
-          </button>
-          <button
-            type="button"
+            onClick={() => onTaskUpdateCancelled(id)}
+          />
+          <Button
+            name="Submit"
             className="waves-effect waves-light btn"
-            onClick={onTaskAdded}
-          >
-            Submit
-          </button>
+            onClick={onTaskUpdated}
+          />
         </div>
       </div>
     )
   }
   return (
-    <div className="card z-depth-0">
+    <div
+      className="card z-depth-0"
+      onDragOver={() => onFlyOver(id)}
+      role="button"
+      tabIndex="0"
+      onKeyPress={() => {}}
+      onClick={() => onTaskEdit(id)}
+    >
       <div className="card-content">
-        <span className="card-title text-capitalize">{name}</span>
+        <span className="card-title">{name}</span>
         <p className="mb-small">{description}</p>
         {children}
       </div>
@@ -57,6 +66,7 @@ const Task = ({
 }
 
 Task.propTypes = {
+  id: PropTypes.number,
   name: PropTypes.string,
   description: PropTypes.string,
   isEditable: PropTypes.bool,
@@ -64,19 +74,24 @@ Task.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]),
-  onLandingCancelled: PropTypes.func,
+  onTaskUpdateCancelled: PropTypes.func,
   onChange: PropTypes.func,
-  onTaskAdded: PropTypes.func
+  onTaskUpdated: PropTypes.func,
+  onFlyOver: PropTypes.func,
+  onTaskEdit: PropTypes.func
 }
 
 Task.defaultProps = {
+  id: null,
   name: '',
   description: '',
   isEditable: false,
   children: null,
-  onLandingCancelled: () => {},
+  onTaskUpdateCancelled: () => {},
   onChange: () => {},
-  onTaskAdded: () => {}
+  onTaskUpdated: () => {},
+  onFlyOver: () => {},
+  onTaskEdit: () => {}
 }
 
 export default Task
