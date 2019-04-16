@@ -1,9 +1,12 @@
 ﻿using EnvDTE;
 using EnvDTE80;
+using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using Microsoft.VisualStudio.TextTemplating.VSHost;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using IAsyncServiceProvider = Microsoft.VisualStudio.Shell.IAsyncServiceProvider;
 
 namespace Ultramarine.Workspaces.VisualStudio
 {
@@ -20,11 +23,16 @@ namespace Ultramarine.Workspaces.VisualStudio
         #endregion
 
         public DTE Host { get; set; }
-        public async Task InitializeAsync(Microsoft.VisualStudio.Shell.IAsyncServiceProvider serviceProvider)
-        {
-            Host = await serviceProvider.GetServiceAsync(typeof(SDTE)) as DTE;
-        }
+        public IAsyncServiceProvider ServiceProvider { get; set; }
+        public ITextTemplating TextTemplating { get; set; }
 
+        public async System.Threading.Tasks.Task InitializeAsync(Microsoft.VisualStudio.Shell.IAsyncServiceProvider serviceProvider)
+        {
+            ServiceProvider = serviceProvider;
+            Host = await serviceProvider.GetServiceAsync(typeof(SDTE)) as DTE;
+            TextTemplating = await Dte.Instance.ServiceProvider.GetServiceAsync(typeof(STextTemplating)) as ITextTemplating;
+        }
+        
         public Project GetProject(string projectName)
         {
             for (var i = 1; i < Host.Solution.Projects.Count; i++)

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Ultramarine.Workspaces
 {
@@ -16,6 +17,7 @@ namespace Ultramarine.Workspaces
         IEnumerable<IProjectModel> GetProjects(string expression);
         IEnumerable<IProjectItemModel> GetProjectItems(string expression);
         IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon);
+        string ProcessTextTemplate(string t4File, object input, Dictionary<string, string> parameters);
         bool Build(string configuration);
     }
 }

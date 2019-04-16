@@ -1,10 +1,15 @@
 ﻿using EnvDTE;
+using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.TextTemplating;
+using Microsoft.VisualStudio.TextTemplating.VSHost;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Ultramarine.QueryLanguage;
 using Ultramarine.QueryLanguage.Comparers;
+using Ultramarine.Workspaces.VisualStudio.T4;
 
 namespace Ultramarine.Workspaces.VisualStudio
 {
@@ -182,9 +187,44 @@ namespace Ultramarine.Workspaces.VisualStudio
             return result;
         }
 
+        public string ProcessTextTemplate(string t4File, object input, Dictionary<string, string> parameters)
+        {
+            var textTemplating = Dte.Instance.TextTemplating;
+            var sessionHost = textTemplating as ITextTemplatingSessionHost;
+
+            if (input == null)
+                input = new object();
+
+            sessionHost.Session = sessionHost.CreateSession();
+            sessionHost.Session["Input"] = input;
+            sessionHost.Session["Parameters"] = parameters;
+
+            var t4FileContent = File.ReadAllText(t4File);
+            var logger = new TransformationLogger();
+
+            textTemplating.BeginErrorSession();
+            var result = textTemplating.ProcessTemplate(t4File, t4FileContent, logger);
+            textTemplating.EndErrorSession();
+
+            if (logger.HasMessages)
+            {
+                foreach (var transformationError in logger.Errors)
+                {
+                    var type = transformationError.IsWarning ? "WARNING" : "ERROR";
+                    //TODO: logger
+                    //Extensions.DteExtensions.Instance.Log(string.Format("{0} in line {1}, column {2}", type, transformationError.Line, transformationError.Column));
+                    //Extensions.DteExtensions.Instance.Log(transformationError.Message);
+                    //Extensions.DteExtensions.Instance.Log(string.Format("//{0}", type));
+                }
+            }
+
+            if (logger.HasErrors)
+                throw new Exception("Errors executing T4 transformation. See output log for details.");
 
 
 
+            return result;
+        }
     }
 
 }
