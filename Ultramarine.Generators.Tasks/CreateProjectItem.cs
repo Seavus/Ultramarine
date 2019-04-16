@@ -1,8 +1,6 @@
-﻿using System;
-using System.Composition;
+﻿using System.Composition;
 using System.IO;
 using Ultramarine.Generators.Tasks.Library.Contracts;
-using Ultramarine.Workspaces;
 
 namespace Ultramarine.Generators.Tasks
 {

@@ -21,7 +21,7 @@ namespace Ultramarine.QueryLanguage
         }
 
         public ConditionCompiler(string expression, string value)
-            :this(expression.Replace(ThisAlias, $"'{value}'"))
+            :this(string.IsNullOrWhiteSpace(expression) ? $"'{value}' equals '{value}'" : expression.Replace(ThisAlias, $"'{value}'"))
         {
 
         }
