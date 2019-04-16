@@ -19,7 +19,6 @@ const Task = ({
   // debugger;
   // console.log('task', props);
   if (isEditable) {
-    debugger
     return (
       <div className="card z-depth-0">
         <div className="card-content">
@@ -34,12 +33,12 @@ const Task = ({
         </div>
         <div className="card-action right-align">
           <Button
-            name="Cancel"
+            text="Cancel"
             className="waves-effect waves-light btn grey mlr-small"
             onClick={() => onTaskUpdateCancelled(id)}
           />
           <Button
-            name="Submit"
+            text="Submit"
             className="waves-effect waves-light btn"
             onClick={onTaskUpdated}
           />
