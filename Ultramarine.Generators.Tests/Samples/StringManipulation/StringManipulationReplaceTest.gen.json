@@ -1,0 +1,15 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "stringManipulation": {
+        "name": "stringManipulationReplaceTaskFormatting",
+        "input": "Test testing test",
+        "description": "stringManipulationReplaceTaskFormattingDescription",
+        "pattern": "\\btest\\b",
+        "replacement": "REPLACEMENT"
+      }
+    }
+  ]
+}
