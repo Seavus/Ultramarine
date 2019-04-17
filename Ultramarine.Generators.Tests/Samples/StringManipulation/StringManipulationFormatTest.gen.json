@@ -1,0 +1,14 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+        "stringManipulation": {
+          "name": "stringManipulationTaskFormatting",
+          "input": "NewVariable",
+          "description": "stringManipulationTaskFormattingDescription",
+          "format": "This is {0}"
+        }
+    }
+  ]
+}

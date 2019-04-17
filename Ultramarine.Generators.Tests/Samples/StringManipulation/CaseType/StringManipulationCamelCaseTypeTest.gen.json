@@ -1,0 +1,14 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [   
+    {
+      "stringManipulation": {
+        "name": "stringManipulationTaskCamelCaseType",
+        "input": "NewVariable",
+        "description": "stringManipulationTaskCamelCaseTypeDescription",
+        "type": "CamelCase"
+      }
+    }
+  ]
+}

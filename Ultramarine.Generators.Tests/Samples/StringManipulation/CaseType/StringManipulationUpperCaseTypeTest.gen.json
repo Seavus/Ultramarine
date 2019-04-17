@@ -1,0 +1,14 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "stringManipulation": {
+        "name": "stringManipulationTaskUpperCaseType",
+        "input": "NewVariable",
+        "description": "stringManipulationTaskUpperCaseTypeDescription",
+        "type": "Upper"
+      }
+    }
+  ]
+}
