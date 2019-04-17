@@ -53,7 +53,7 @@ namespace Ultramarine.VSExtension.Commands
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
             var menuCommandID = new CommandID(CommandSet, CommandId);
-            var menuItem = new OleMenuCommand(this.Execute, menuCommandID);
+            var menuItem = new OleMenuCommand((s, e) => this.ExecuteAsync(s, e), menuCommandID);
             menuItem.Enabled = false;
             menuItem.BeforeQueryStatus += OnProjectGeneratorReady;
             commandService.AddCommand(menuItem);
@@ -159,12 +159,13 @@ namespace Ultramarine.VSExtension.Commands
         /// </summary>
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Event args.</param>
-        private void Execute(object sender, EventArgs e)
+        private async Task ExecuteAsync(object sender, EventArgs e)
         {
-            ThreadHelper.ThrowIfNotOnUIThread();
+            // ThreadHelper.ThrowIfNotOnUIThread();
             //string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
             //string title = "GeneratorCommand";
-            var host = ServiceProvider.GetServiceAsync(typeof(SDTE)).Result as DTE;
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
+            var host = await ServiceProvider.GetServiceAsync(typeof(SDTE)) as DTE;
             if (host.SelectedItems.MultiSelect)
             {
                 VsShellUtilities.ShowMessageBox(
