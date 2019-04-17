@@ -1,0 +1,17 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "stringManipulation": {
+        "name": "stringManipulationTask1",
+        "input": "NewVariable",
+        "description": "stringManipulationTask1Description",
+        "format": "This is {0}",
+        "type": "CamelCase",
+        "pattern": "\\bThis\\b",
+        "replacement":  "Name"
+      }
+    }    
+  ]
+}
