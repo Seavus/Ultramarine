@@ -1,36 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const checkbox = props => {
-  const { id, name, className, onChange, overwrite } = props
+const Checkbox = ({ text, ...props }) => {
   return (
     <label>
-      <input
-        id={id}
-        type="checkbox"
-        className={className}
-        onChange={onChange}
-        checked={overwrite}
-      />
-      <span>{name}</span>
+      <input type="checkbox" {...props} />
+      <span>{text}</span>
     </label>
   )
 }
 
-checkbox.propTypes = {
+Checkbox.propTypes = {
   id: PropTypes.string,
-  name: PropTypes.string,
+  text: PropTypes.string,
   className: PropTypes.string,
-  overwrite: PropTypes.bool,
+  checked: PropTypes.bool,
   onChange: PropTypes.func
 }
 
-checkbox.defaultProps = {
+Checkbox.defaultProps = {
   id: '',
-  name: '',
+  text: '',
   className: '',
-  overwrite: false,
+  checked: false,
   onChange: () => {}
 }
 
-export default checkbox
+export default Checkbox

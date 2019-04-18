@@ -12,23 +12,23 @@ const CreateProjectItem = props => {
     return (
       <Task {...props}>
         <Input
-          label="Item name"
-          htmlFor="itemName"
+          id="itemName"
+          text="Item name"
           value={itemName}
           onChange={onChange}
         />
         <Input
-          label="Path"
-          htmlFor="path"
+          id="folderPath"
+          text="Path"
           value={folderPath}
           onChange={onChange}
         />
         <Checkbox
+          text="Overwrite"
           id="overwrite"
-          name="Overwrite"
           className="filled-in"
           onChange={onChange}
-          overwrite={overwrite}
+          checked={overwrite}
         />
       </Task>
     )

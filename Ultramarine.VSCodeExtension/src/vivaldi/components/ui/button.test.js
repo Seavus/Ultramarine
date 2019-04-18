@@ -11,6 +11,7 @@ describe('button render tests', () => {
   it('provides default props', () => {
     expect(Button.defaultProps.text).toBeDefined()
     expect(Button.defaultProps.onClick).toBeDefined()
+    expect(Button.defaultProps.onClick).toBeDefined()
     expect(Button.defaultProps.onClick()).toBeUndefined()
   })
 

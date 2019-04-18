@@ -11,17 +11,12 @@ const SqlExecute = props => {
     return (
       <Task {...props}>
         <Input
-          label="Connection String"
-          htmlFor="connectionString"
+          id="connectionString"
+          text="Connection String"
           value={connectionString}
           onChange={onChange}
         />
-        <Input
-          label="Query"
-          htmlFor="query"
-          value={query}
-          onChange={onChange}
-        />
+        <Input id="query" text="Query" value={query} onChange={onChange} />
       </Task>
     )
   }

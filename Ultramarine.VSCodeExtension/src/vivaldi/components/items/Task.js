@@ -22,9 +22,9 @@ const Task = ({
     return (
       <div className="card z-depth-0">
         <div className="card-content">
-          <Input label="Name" htmlFor="name" value={name} onChange={onChange} />
+          <Input text="Name" htmlFor="name" value={name} onChange={onChange} />
           <Input
-            label="Description"
+            text="Description"
             htmlFor="description"
             value={description}
             onChange={onChange}
