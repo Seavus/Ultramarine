@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Ultramarine.Workspaces.CodeElements;
+using System.IO;
 
 namespace Ultramarine.Workspaces
 {
@@ -15,6 +14,8 @@ namespace Ultramarine.Workspaces
         IProjectItemModel CreateDirectory(string folderPath);
 
         IProjectItemModel CreateProjectItem(string path, string content, bool overwrite);
+        IProjectItemModel CreateProjectItem(string path, MemoryStream content, bool overwrite);
+        IProjectItemModel CreateProjectItem(string path, object content, bool overwrite);
         IEnumerable<IProjectModel> GetProjects(string expression);
         IEnumerable<IProjectItemModel> GetProjectItems(string expression);
         IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon);

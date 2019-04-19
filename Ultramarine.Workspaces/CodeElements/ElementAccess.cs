@@ -1,5 +1,8 @@
-﻿namespace Ultramarine.Workspaces.CodeElements
+﻿using System;
+
+namespace Ultramarine.Workspaces.CodeElements
 {
+    [Serializable]
     public enum ElementAccess
     {
         Public,

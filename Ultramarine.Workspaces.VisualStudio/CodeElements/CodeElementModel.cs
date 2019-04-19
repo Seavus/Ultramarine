@@ -4,6 +4,7 @@ using Ultramarine.Workspaces.CodeElements;
 
 namespace Ultramarine.Workspaces.VisualStudio.CodeElements
 {
+    [Serializable]
     public class CodeElementModel : ICodeElementModel
     {
         public CodeElementModel(CodeElement codeElement)

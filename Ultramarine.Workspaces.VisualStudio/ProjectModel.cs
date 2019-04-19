@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.TextTemplating;
 using Microsoft.VisualStudio.TextTemplating.VSHost;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -75,6 +76,32 @@ namespace Ultramarine.Workspaces.VisualStudio
 
             return new ProjectItemModel(projectItem);
         }
+
+        public IProjectItemModel CreateProjectItem(string path, MemoryStream content, bool overwrite)
+        {
+            if (!overwrite)
+                if (File.Exists(path))
+                    throw new Exception($"Failed to create project item. File '{path}' already exists on file system.");
+            var directoryPath = Path.GetDirectoryName(path);
+            Directory.CreateDirectory(directoryPath);
+            using(var fs = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                byte[] bytes = new byte[content.Length];
+                content.Read(bytes, 0, (int)content.Length);
+                fs.Write(bytes, 0, bytes.Length);
+                content.Close();
+            }
+
+            var projectItem = _project.ProjectItems.AddFromFile(path);
+            return new ProjectItemModel(projectItem);
+        }
+
+        public IProjectItemModel CreateProjectItem(string path, object content, bool overwrite)
+        {
+            return CreateProjectItem(path, JsonConvert.SerializeObject(content), overwrite);
+        }
+
+
 
         public IEnumerable<IProjectModel> GetProjects(string projectNameExpression)
         {

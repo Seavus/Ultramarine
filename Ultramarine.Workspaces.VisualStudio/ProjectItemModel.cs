@@ -44,6 +44,8 @@ namespace Ultramarine.Workspaces.VisualStudio
         public List<ICodeElementModel> GetCodeElements(string expression)
         {
             var result = new List<CodeElement>();
+            if (_projectItem.FileCodeModel == null)
+                return null;
             foreach (CodeElement codeElement in _projectItem.FileCodeModel.CodeElements)
             {
                 if (codeElement.IsCodeType)

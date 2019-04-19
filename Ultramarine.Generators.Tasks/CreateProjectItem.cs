@@ -1,5 +1,6 @@
 ﻿using System.Composition;
 using System.IO;
+using System.Linq;
 using Ultramarine.Generators.Tasks.Library.Contracts;
 
 namespace Ultramarine.Generators.Tasks
@@ -15,11 +16,17 @@ namespace Ultramarine.Generators.Tasks
 
         protected override object OnExecute()
         {
-            var projectItemPath = string.IsNullOrWhiteSpace(ProjectName) ? ExecutionContext.FilePath : ProjectName;
-            var folderPath = FolderPath ?? string.Empty;
-            projectItemPath = Path.Combine(projectItemPath, folderPath, ItemName);
+            var project = string.IsNullOrWhiteSpace(ProjectName)
+                ? ExecutionContext
+                : ExecutionContext.GetProjects($"$this equals '{ProjectName}'").FirstOrDefault();
 
-            return ExecutionContext.CreateProjectItem(projectItemPath, Input as string, Overwrite);
+            var folderPath = FolderPath ?? string.Empty;
+            var projectItemPath = Path.Combine(project.FilePath, folderPath, ItemName);
+            if (Input is string)
+                return project.CreateProjectItem(projectItemPath, Input as string, Overwrite);
+            if (Input is MemoryStream)
+                return project.CreateProjectItem(projectItemPath, Input as MemoryStream, Overwrite);
+            return project.CreateProjectItem(projectItemPath, Input, Overwrite);
         }
     }
 }

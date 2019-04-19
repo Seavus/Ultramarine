@@ -30,6 +30,7 @@ namespace Ultramarine.Generators.Tasks
                 if (item is IProjectItemModel)
                 {
                     var elements = ((IProjectItemModel)item).GetCodeElements(ElementName);
+                    if(elements != null)
                     result.AddRange(elements);
                 }
                 //TODO: add any other type of inputs
