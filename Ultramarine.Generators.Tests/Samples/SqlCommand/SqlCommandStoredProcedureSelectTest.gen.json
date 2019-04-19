@@ -1,0 +1,15 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "SqlCommand": {
+        "name": "SqlCommandStoredProcedureSelect",
+        "connectionstring": "Server=.\\sqlexpress;Database=AdventureWorks2017;Trusted_Connection=True;MultipleActiveResultSets=true",
+        "input": "EXEC uspGetManagerEmployees\t@BusinessEntityID = 2",
+        "description": "SqlCommandTextUpdateDecription",
+        "statement": "Select"
+      }
+    }
+  ]
+}

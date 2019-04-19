@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Composition" Version="1.0.31" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
   </ItemGroup>
 
   <ItemGroup>

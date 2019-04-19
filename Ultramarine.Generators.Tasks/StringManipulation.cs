@@ -40,6 +40,7 @@ namespace Ultramarine.Generators.Tasks
             return Regex.Replace(value.ToString(), pattern, replacement);
         }
 
+
         private static string ConvertCase(CaseType? type, string input)
         {
             var result = input;
