@@ -1,0 +1,15 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "SqlCommand": {
+        "name": "SqlCommandTextUpdate",
+        "connectionstring": "Server=.\\sqlexpress;Database=AdventureWorks2017;Trusted_Connection=True;MultipleActiveResultSets=true",
+        "input": "SELECT * FROM Person.Person where BusinessEntityID = 6",
+        "description": "SqlCommandTextUpdateDecription",
+        "statement": "Select"
+      }
+    }
+  ]
+}

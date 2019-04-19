@@ -46,40 +46,7 @@ namespace Ultramarine.Generators.Tests
             Assert.AreEqual(stringManipulationTask.Name, "stringManipulationTask1");
             Assert.AreEqual(stringManipulationTask.Description, "stringManipulationTask1Description");
         }
-
-        //[TestMethod]
-        //[DeploymentItem("Samples\\StringManipulationTest.gen.json", "Samples")]
-        //public void TestStringManipulation()
-        //{
-        //    var generatorPath = "Samples\\StringManipulationTest.gen.json";
-        //    var generator = GeneratorSerializer.Instance.Load(generatorPath);
-        //    Assert.IsNotNull(generator.Tasks.FirstOrDefault(x => x.Name == "stringManipulationTask1").Input);
-        //    var input = generator.Tasks.FirstOrDefault(x => x.Name == "stringManipulationTask1");
-
-        //    var stringMan = new StringManipulation();
-
-        //    var ReplacedString = stringMan.Replace(input, "e", "1");
-        //    Assert.AreEqual(ReplacedString, "N1wVariabl1");
-
-        //    //var fs = "This is {0} string";
-        //    //var FormattedString = stringMan.Format("new", fs);
-        //    //Assert.AreEqual(FormattedString, "This is new string");
-
-        //    stringMan.Input = "NewVariable";
-        //    var camelCaseString = stringMan.Convert(CaseType.CamilCase);
-        //    Assert.AreEqual(camelCaseString, "newVariable");
-
-        //    var lowerString = stringMan.Convert(CaseType.Lower);
-        //    Assert.AreEqual(lowerString, "newvariable");
-
-        //    var upperString = stringMan.Convert(CaseType.Upper);
-        //    Assert.AreEqual(upperString, "NEWVARIABLE");
-
-        //    stringMan.Input = "newVariable";
-        //    var hungarianString = stringMan.Convert(CaseType.Hungarian);
-        //    Assert.AreEqual(hungarianString, "NewVariable");
-        //}
-
+        
         [TestMethod]
         [DeploymentItem("Samples\\StringManipulation\\StringManipulationFormatTest.gen.json", "Samples")]
         public void ShouldFormatInputWhenFormatIsProvided()

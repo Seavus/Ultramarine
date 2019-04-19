@@ -1,0 +1,15 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "SqlCommand": {
+        "name": "SqlCommandTextUpdate",
+        "connectionstring": "Server=.\\sqlexpress;Database=AdventureWorks2017;Trusted_Connection=True;MultipleActiveResultSets=true",
+        "input": "Insert into Sales.Currency values ('CTT', 'Test test testic', '2008-04-30 00:00:00.000')",
+        "description": "SqlCommandTextUpdateDescription",
+        "statement": "Update"
+      }
+    }
+  ]
+}
