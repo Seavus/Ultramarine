@@ -18,6 +18,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Samples\SqlCommand\SqlCommandStoredProcedureSelectTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\SqlCommand\SqlCommandTextDeleteTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\SqlCommand\SqlCommandTextSelectTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\SqlCommand\SqlCommandTextUpdateTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Samples\StringManipulation\CaseType\StringManipulationCamelCaseTypeTest.gen.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
