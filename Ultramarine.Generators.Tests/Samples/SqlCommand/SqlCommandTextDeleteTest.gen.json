@@ -3,12 +3,11 @@
   "description": "generator1description",
   "tasks": [
     {
-      "SqlCommand": {
+      "sqlCommand": {
         "name": "SqlCommandTextDelete",
-        "connectionstring": "Server=.\\sqlexpress;Database=AdventureWorks2017;Trusted_Connection=True;MultipleActiveResultSets=true",
-        "input": "Delete from Sales.Currency where CurrencyCode = 'ALL'",
         "description": "SqlCommandTextDeleteDecription",
-        "statement": "Delete"
+        "connectionstring": "Server=.\\sqlexpress;Database=AdventureWorks;Trusted_Connection=True;MultipleActiveResultSets=true",
+        "statement": "Delete from Sales.Currency where CurrencyCode = 'ALL'"
       }
     }
   ]

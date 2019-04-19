@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Composition;
 using System.Data;
-using System.Data.Common;
 using Ultramarine.Generators.Tasks.Library.Contracts;
 using System.Data.SqlClient;
-using Newtonsoft.Json;
+using System.Collections;
 
 namespace Ultramarine.Generators.Tasks
 {
@@ -13,179 +11,92 @@ namespace Ultramarine.Generators.Tasks
     public class SqlCommand : Task
     {
         public string ConnectionString { get; set; }
-        public SqlStatement Statement { get; set; }
+        public string Statement { get; set; }
+        public CommandType CommandType { get; set; } = CommandType.Text;
+        public QueryType QueryType { get; set; } = QueryType.Reader;
+
+        protected override ValidationResult Validate()
+        {
+            if (string.IsNullOrWhiteSpace(ConnectionString))
+                return new ValidationResult(nameof(ConnectionString), "Connection string has not been specified.");
+            if (string.IsNullOrWhiteSpace(Statement) && Input == null)
+                return new ValidationResult(nameof(Statement), "SQL statement has not been specified.");
+            return base.Validate();
+        }
 
         protected override object OnExecute()
         {
-            var command = Convert.ToString(Input);
-
-            if (string.IsNullOrEmpty(command))
-                throw new Exception("No command");
-            
-            return ExecuteCommand(ConnectionString, command);
+            return ExecuteCommand(ConnectionString, Statement, CommandType, QueryType);
         }
 
-        private object ExecuteCommand(string connectionString, string command /*, CommandType commandType*/)
+        private object ExecuteCommand(string connectionString, string statement, CommandType commandType, QueryType queryType)
         {
-            try
+            object data = null;
+
+            using (var connection = new SqlConnection(connectionString))
             {
-                if (string.IsNullOrEmpty(connectionString) || string.IsNullOrEmpty(command))
-                    return 0;
-
-                using (var connection = new SqlConnection(connectionString))
+                using (var command = new System.Data.SqlClient.SqlCommand(statement, connection))
                 {
-                    using (var cmd = new System.Data.SqlClient.SqlCommand(command, connection))
+                    command.CommandType = commandType;
+                    connection.Open();
+                    switch (queryType)
                     {
-                        //cmd.CommandType = commandType;
-                        connection.Open();
+                        case QueryType.NonQuery:
+                            data = command.ExecuteNonQuery();
+                            break;
+                        case QueryType.Scalar:
+                            data = command.ExecuteScalar();
+                            break;
+                        default:
+                            var reader = command.ExecuteReader();
+                            data = ExtractResult(reader);
+                            break;
 
-                        if (Statement == SqlStatement.Select)
-                        {
-                            var dataSet = new DataSet();
-                            var da = new SqlDataAdapter(cmd);
-                            da.Fill(dataSet);
-
-                            var list = new List<List<object>>();
-                            foreach (DataTable table in dataSet.Tables)
-                            {
-                                var t = new List<object>();
-                                foreach (DataRow row in table.Rows)
-                                {
-                                    t.Add(row.ItemArray);
-                                }
-                                list.Add(t);
-                            }
-
-                            return list;
-                        }
-                        else
-                        {
-                            return cmd.ExecuteNonQuery();
-                        }
                     }
+                    connection.Close();
+                    return data;
                 }
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
         }
 
-        //private void SqlCommandText(string query)
-        //{
-        //    try
-        //    {
-        //        using (var connection = new SqlConnection(ConnectionString))
-        //        using (var command = new System.Data.SqlClient.SqlCommand(query, connection))
-        //        {
-        //            command.CommandType = System.Data.CommandType.Text;
-        //            connection.Open();
+        private object ExtractResult(SqlDataReader reader)
+        {
+            var resultArray = new ArrayList();
+            do
+            {
+                var table = new List<List<object>>();
+                var count = reader.FieldCount;
+                while (reader.Read())
+                {
+                    var row = new List<object>();
+                    for (var i = 0; i < count; i++)
+                    {
+                        var cell = new
+                        {
+                            Name = reader.GetName(i),
+                            Value = reader.GetValue(i),
+                            Type = reader.GetFieldType(i)
+                        };
+                        row.Add(cell);
+                    }
+                    table.Add(row);
 
-        //            if (Statement == SqlStatement.Select)
-        //            {
-        //                SqlDataReader reader = command.ExecuteReader();
-        //                if (reader.HasRows)
-        //                {
-        //                    while (reader.Read())
-        //                    {
-        //                        //TODO...
-        //                    }
-        //                }
-        //            }
-        //            else
-        //            {
-        //                command.ExecuteNonQuery();
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
+                }
+                if (table.Count > 0)
+                    resultArray.Add(table);
 
-        //private void SqlCommandStoredProcedure(List<Parameter> parameters)
-        //{
-        //    try
-        //    {
-        //        using (var connection = new SqlConnection(ConnectionString))
-        //        using (var command = new System.Data.SqlClient.SqlCommand(StoredProcedureName, connection))
-        //        {
-        //            command.CommandType = System.Data.CommandType.StoredProcedure;
+            } while (reader.NextResult());
 
-        //            foreach (var p in parameters)
-        //            {
-        //                command.Parameters.AddWithValue(p.Name, p.Value);
-        //            }
+            return resultArray;
+        }
 
-        //            connection.Open();
-        //            if (Statement == SqlStatement.Select)
-        //            {
-        //                SqlDataReader reader = command.ExecuteReader();
-        //                if (reader.HasRows)
-        //                {
-        //                    while (reader.Read())
-        //                    {
-        //                        //TODO...
-        //                    }
-        //                }
-        //            }
-        //            else
-        //            {
-        //                command.ExecuteNonQuery();
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
-
-        //private void SqlCommandTableDirect()
-        //{
-        //    try
-        //    {
-        //        using (var connection = new OleDbConnection(ConnectionString))
-        //        using (var command = new System.Data.SqlClient.SqlCommand(StoredProcedureName, connection))
-        //        {
-        //            command.CommandType = System.Data.CommandType.TableDirect;
-        //            command.CommandText = "Sales.Store";
-
-        //            //foreach (var p in parameters)
-        //            //{
-        //            //    command.Parameters.AddWithValue(p.Name, p.Value);
-        //            //}
-
-        //            connection.Open();
-        //            if (Statement == SqlStatement.Select)
-        //            {
-        //                SqlDataReader reader = command.ExecuteReader();
-        //                if (reader.HasRows)
-        //                {
-        //                    while (reader.Read())
-        //                    {
-        //                        //TODO...
-        //                    }
-        //                }
-        //            }
-        //            else
-        //            {
-        //                command.ExecuteNonQuery();
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
     }
-    
-    public enum SqlStatement
+
+    public enum QueryType
     {
-        Select,
-        Update,
-        Delete
+        Reader,
+        NonQuery,
+        Scalar
     }
+
 }
