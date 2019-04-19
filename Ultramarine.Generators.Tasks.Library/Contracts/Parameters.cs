@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Ultramarine.Generators.Tasks.Library;
 
-namespace Ultramarine.Generators.Tasks
+namespace Ultramarine.Generators.Tasks.Library.Contracts
 {
     public class Parameters : Dictionary<string, string>
     {

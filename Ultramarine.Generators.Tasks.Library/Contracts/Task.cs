@@ -1,4 +1,5 @@
-﻿using Ultramarine.Workspaces;
+﻿using System.Collections.Generic;
+using Ultramarine.Workspaces;
 
 namespace Ultramarine.Generators.Tasks.Library.Contracts
 {
@@ -11,6 +12,7 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
         protected Task(string name)
         {
             Name = name;
+            Variables = new List<Variable>();
         }
 
         public string Name { get; set; }
@@ -21,6 +23,8 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
         public object Output { get; set; }
         public Task Parent { get; set; }
         public string ConnectedWith { get; set; }
+
+        public List<Variable> Variables { get; set; }
         protected virtual ValidationResult Validate()
         {
             var validationResult = new ValidationResult();
@@ -54,8 +58,6 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
             Output = OnExecute();
 
             Logger.Info($"Ending {GetType()} execution: {Name}");
-        }
-
+        }        
     }
-
 }
