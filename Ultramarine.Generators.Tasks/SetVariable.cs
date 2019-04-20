@@ -24,8 +24,9 @@ namespace Ultramarine.Generators.Tasks
         protected override object OnExecute()
         {
             var parentTask = string.IsNullOrWhiteSpace(ParentTask) ? Parent : this.TryGetParentTask(ParentTask);
+            var variableValue = VariableValue == null ? Input : VariableValue;
             parentTask.Variables.Add(new Variable(VariableName, VariableValue));
-            return VariableValue;
+            return variableValue;
         }
     }
 }
