@@ -8,10 +8,15 @@ namespace Ultramarine.Generators.Tasks
     [Export(typeof(Task))]
     public class CreateProjectItem : Task
     {
-        public string ItemName { get; set; }
-        public string FolderPath { get; set; }
-        public string LinkedWith { get; set; }
-        public string ProjectName { get; set; }
+        private string _itemName;
+        private string _folderPath;
+        private string _linkedWith;
+        private string _projectName;
+
+        public string ItemName { get => TryGetSettingValue(_itemName) as string; set => _itemName = value; }
+        public string FolderPath { get => TryGetSettingValue(_folderPath) as string; set => _folderPath = value; }
+        public string LinkedWith { get => TryGetSettingValue(_linkedWith) as string; set => _linkedWith = value; }
+        public string ProjectName { get => TryGetSettingValue(_projectName) as string; set => _projectName = value; }
         public bool Overwrite { get; set; }
 
         protected override object OnExecute()

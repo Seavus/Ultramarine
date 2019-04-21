@@ -214,7 +214,7 @@ namespace Ultramarine.Workspaces.VisualStudio
             return result;
         }
 
-        public string ProcessTextTemplate(string t4File, object input, Dictionary<string, string> parameters)
+        public string ProcessTextTemplate(string t4File, object input, Dictionary<string, object> parameters)
         {
             var textTemplating = Dte.Instance.TextTemplating;
             var sessionHost = textTemplating as ITextTemplatingSessionHost;

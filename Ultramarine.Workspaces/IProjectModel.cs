@@ -19,7 +19,7 @@ namespace Ultramarine.Workspaces
         IEnumerable<IProjectModel> GetProjects(string expression);
         IEnumerable<IProjectItemModel> GetProjectItems(string expression);
         IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon);
-        string ProcessTextTemplate(string t4File, object input, Dictionary<string, string> parameters);
+        string ProcessTextTemplate(string t4File, object input, Dictionary<string, object> parameters);
         
         bool Build(string configuration);
     }

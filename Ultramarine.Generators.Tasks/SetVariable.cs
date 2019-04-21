@@ -25,7 +25,10 @@ namespace Ultramarine.Generators.Tasks
         {
             var parentTask = string.IsNullOrWhiteSpace(ParentTask) ? Parent : this.TryGetParentTask(ParentTask);
             var variableValue = VariableValue == null ? Input : VariableValue;
-            parentTask.Variables.Add(new Variable(VariableName, VariableValue));
+            var existingIndex = parentTask.Variables.FindIndex(v => v.Key == VariableName);
+            if (existingIndex >= 0)
+                parentTask.Variables.RemoveAt(existingIndex);
+            parentTask.Variables.Add(new Variable(VariableName, variableValue));
             return variableValue;
         }
     }

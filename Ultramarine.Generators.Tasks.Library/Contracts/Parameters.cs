@@ -5,20 +5,20 @@ using System.Text.RegularExpressions;
 
 namespace Ultramarine.Generators.Tasks.Library.Contracts
 {
-    public class Parameters : Dictionary<string, string>
+    public class Parameters : Dictionary<string, object>
     {
         private const string GlobalVariableNameExpression = @"(\{(\w+)\})";
         private const string LocalVariableNameExpression = @"(\$\{(\w+)\})";
 
-        public Dictionary<string, string> Prepare()
+        public Dictionary<string, object> Prepare()
         {
             Validate(this);
             return this.Select(item =>
-                new KeyValuePair<string, string>(item.Key, GetVariableValue(item.Value).ToString()))
+                new KeyValuePair<string, object>(item.Key, GetVariableValue(item.Value)))
             .ToDictionary(k => k.Key, v => v.Value);
         }
 
-        private static void Validate(Dictionary<string, string> parameters)
+        private static void Validate(Dictionary<string, object> parameters)
         {
             if (parameters == null)
                 return;
@@ -31,9 +31,13 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
 
         }
 
-        private static object GetVariableValue(string variableName)
+        private static object GetVariableValue(object variableValue)
         {
-            return GlobalRegistrar.Variables == null ? null : PrepareVariable(variableName);
+            if (variableValue is string)
+                return GlobalRegistrar.Variables == null ? null : PrepareVariable(variableValue as string);
+            if (variableValue is Newtonsoft.Json.Linq.JArray)
+                return ((Newtonsoft.Json.Linq.JArray)variableValue).Select(c => PrepareVariable((string)c)).ToList();
+            return variableValue;
         }
 
         private static string PrepareVariable(string variableName)
