@@ -15,6 +15,7 @@ namespace Ultramarine.Workspaces
 
         IProjectItemModel CreateProjectItem(string path, string content, bool overwrite);
         IProjectItemModel CreateProjectItem(string path, MemoryStream content, bool overwrite);
+        IProjectItemModel CreateProjectItem(string path, byte[] content, bool overwrite);
         IProjectItemModel CreateProjectItem(string path, object content, bool overwrite);
         IEnumerable<IProjectModel> GetProjects(string expression);
         IEnumerable<IProjectItemModel> GetProjectItems(string expression);
