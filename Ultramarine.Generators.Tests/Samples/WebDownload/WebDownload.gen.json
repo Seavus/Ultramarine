@@ -6,7 +6,7 @@
       "webDownload": {
         "name": "WebDownloadTask",
         "description": "WebDownloadTaskDescription",
-        "downloadlink": "http://ipv4.download.thinkbroadband.com/5MB.zip"
+        "url": "http://ipv4.download.thinkbroadband.com/5MB.zip"        
       }
     }
   ]

@@ -11,40 +11,30 @@ namespace Ultramarine.Generators.Tasks
     [Export(typeof(Task))]
     public class WebDownload : Task
     {
-        public string DownloadLink { get; set; }
+        public string Url { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Domain { get; set; }
         public bool UseSSL { get; set; }
+        public string UserAgent { get; set; } = "Mozilla/4.0 (Compatible; Windows NT 5.1; MSIE 6.0)";
 
         protected override object OnExecute()
         {
-            try
+            using (WebClient client = new WebClient())
             {
-                using (WebClient client = new WebClient())
+                client.Headers.Add("user-agent", UserAgent);
+
+                if (!string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(Username))
                 {
-                    client.Headers.Add("user-agent", "Mozilla/4.0 (Compatible; Windows NT 5.1; MSIE 6.0)");
-
-                    if (!string.IsNullOrEmpty(Password) || !string.IsNullOrEmpty(Username))
-                    {
-                        client.UseDefaultCredentials = true;
-                        client.Credentials = new NetworkCredential(Username, Password);
-                    }
-
-                    if (UseSSL)
-                        ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
-
-                    MemoryStream stream;
-                    stream = new MemoryStream(client.DownloadData(DownloadLink));
-                    
-                        return stream;
-                    
+                    client.UseDefaultCredentials = true;
+                    client.Credentials = new NetworkCredential(Username, Password, Domain);
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
+
+                if (UseSSL)
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
+
+                return client.DownloadData(Url);
             }
         }
-
     }
 }

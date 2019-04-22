@@ -31,6 +31,8 @@ namespace Ultramarine.Generators.Tasks
                 return project.CreateProjectItem(projectItemPath, Input as string, Overwrite);
             if (Input is MemoryStream)
                 return project.CreateProjectItem(projectItemPath, Input as MemoryStream, Overwrite);
+            if (Input is byte[])
+                return project.CreateProjectItem(projectItemPath, Input as byte[], Overwrite);
             return project.CreateProjectItem(projectItemPath, Input, Overwrite);
         }
     }

@@ -41,10 +41,10 @@ namespace Ultramarine.Generators.Tests
             var generatorPath = "Samples\\WebDownload\\WebDownload.gen.json";
             var generator = GeneratorSerializer.Instance.Load(generatorPath);
             Assert.IsNotNull(generator.Tasks.FirstOrDefault());
-            var SqlCommandTask = generator.Tasks.First();
-            Assert.IsInstanceOfType(SqlCommandTask, typeof(WebDownload));
-            Assert.AreEqual(SqlCommandTask.Name, "WebDownloadTask");
-            Assert.AreEqual(SqlCommandTask.Description, "WebDownloadTaskDescription");
+            var webDownloadTask = generator.Tasks.First();
+            Assert.IsInstanceOfType(webDownloadTask, typeof(WebDownload));
+            Assert.AreEqual(webDownloadTask.Name, "WebDownloadTask");
+            Assert.AreEqual(webDownloadTask.Description, "WebDownloadTaskDescription");
         }
 
         [TestMethod]
@@ -60,7 +60,8 @@ namespace Ultramarine.Generators.Tests
 
             var task = generator.Tasks.First();
 
-            Assert.AreEqual(task.Output, 1); //temporary (num of rows)
+            Assert.IsInstanceOfType(task.Output, typeof(byte[])); //temporary (num of rows)
+            Assert.IsNotNull(task.Output);
         }
     }
 }

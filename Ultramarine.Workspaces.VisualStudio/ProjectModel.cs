@@ -101,6 +101,12 @@ namespace Ultramarine.Workspaces.VisualStudio
             return CreateProjectItem(path, JsonConvert.SerializeObject(content), overwrite);
         }
 
+        public IProjectItemModel CreateProjectItem(string path, byte[] content, bool overwrite)
+        {
+            var contentStream = new MemoryStream(content);
+            return CreateProjectItem(path, contentStream, overwrite);
+        }
+
 
 
         public IEnumerable<IProjectModel> GetProjects(string projectNameExpression)
@@ -252,6 +258,8 @@ namespace Ultramarine.Workspaces.VisualStudio
 
             return result;
         }
+
+        
     }
 
 }
