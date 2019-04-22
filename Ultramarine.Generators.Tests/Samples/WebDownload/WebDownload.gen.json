@@ -1,0 +1,13 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "webDownload": {
+        "name": "WebDownloadTask",
+        "description": "WebDownloadTaskDescription",
+        "downloadlink": "http://ipv4.download.thinkbroadband.com/5MB.zip"
+      }
+    }
+  ]
+}
