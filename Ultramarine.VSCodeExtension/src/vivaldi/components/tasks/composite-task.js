@@ -5,7 +5,7 @@ import LandingZone from './landing-zone'
 import taskBuilder from './task-builder'
 
 const CompositeTask = ({ name, description, tasks }) => (
-  <div>
+  <div className="strip p-small">
     <Task name={name} description={description}>
       {tasks.map(task => taskBuilder(task))}
       <LandingZone />

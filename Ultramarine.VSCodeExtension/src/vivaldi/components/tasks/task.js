@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Task = ({ name, description, children }) => (
+const Task = ({ name, description, children, icon }) => (
   <div className="card z-depth-0">
     <div className="card-content">
       <span className="card-title">{name}</span>
-      <p className="mb-small">{description}</p>
-      {children}
+      <p>{description}</p>
+      <div className="card-action">
+        {children}
+        <i className="material-icons">{icon}</i>
+      </div>
     </div>
   </div>
 )
@@ -17,12 +20,14 @@ Task.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ])
+  ]),
+  icon: PropTypes.string
 }
 
 Task.defaultProps = {
   description: '',
-  children: null
+  children: null,
+  icon: 'adjust'
 }
 
 export default Task

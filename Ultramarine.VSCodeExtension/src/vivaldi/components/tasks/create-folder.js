@@ -32,4 +32,7 @@ const CreateFolder = ({ folderPath, projectName, editable, ...rest }) => (
   </Task>
 )
 
+CreateFolder.description = 'Create Folder'
+CreateFolder.icon = 'create_new_folder'
+
 export default CreateFolder
