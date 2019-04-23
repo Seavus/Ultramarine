@@ -1,13 +1,10 @@
 ﻿using EnvDTE;
-using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.TextTemplating;
-using Microsoft.VisualStudio.TextTemplating.VSHost;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using Ultramarine.QueryLanguage;
 using Ultramarine.QueryLanguage.Comparers;
 using Ultramarine.Workspaces.VisualStudio.T4;
