@@ -190,8 +190,14 @@ namespace Ultramarine.VSExtension.Commands
                 var generator = GeneratorSerializer.Instance.Load(generatorPath);
                 generator.SetExecutionContext(new ProjectModel(selectedProject));
                 generator.SetLogger(new OutputLogger());
-
-                generator.Execute();
+                try
+                {
+                    generator.Execute();
+                }
+                catch
+                {
+                    MessageBox.Show("Generator execution completed with errors. See output window for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             });
             // Show a message box to prove we were here
             //VsShellUtilities.ShowMessageBox(
