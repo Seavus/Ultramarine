@@ -1,20 +1,33 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { isEqual } from 'underscore'
 import Generator from './tasks/generator'
 import Toolbox from './task-toolbox'
 import { TaskTypes } from './tasks/task-builder'
-import genConfig from '../../tests/samples/repository.gen.json'
 
 class Configuration extends Component {
   constructor(props) {
     super(props)
+    const { settings } = this.props
     this.state = {
-      configuration: genConfig,
+      configuration: settings,
+      tasks: TaskTypes
+    }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    const { settings } = props
+    const { configuration } = state
+
+    if (isEqual(settings, configuration)) return null
+    return {
+      configuration: settings,
       tasks: TaskTypes
     }
   }
 
   handleTaskClicked = () => {
-    const { configuration } = this.state
+    // const { configuration } = this.state
   }
 
   handleTaskLanded = (landingZone, parentName, taskType) => {
@@ -62,6 +75,16 @@ class Configuration extends Component {
         </div>
       </div>
     )
+  }
+}
+
+Configuration.propTypes = {
+  settings: PropTypes.shape({})
+}
+Configuration.defaultProps = {
+  settings: {
+    name: 'generatorConfig',
+    tasks: []
   }
 }
 

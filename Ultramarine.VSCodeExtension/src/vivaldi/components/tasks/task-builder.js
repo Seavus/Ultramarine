@@ -1,10 +1,30 @@
 import React from 'react'
-import CreateFolder from './create-folder'
-import LoadProjectItem from './load-project-item'
-import Iterator from './iterator'
+import BuildProject from './generated/BuildProject.generated'
+import CreateFolder from './generated/CreateFolder.generated'
+import CreateProjectItem from './generated/CreateProjectItem.generated'
+import Iterator from './generated/Iterator.generated'
+import LoadCodeElement from './generated/LoadCodeElement.generated'
+import LoadProjectItem from './generated/LoadProjectItem.generated'
+import ReadProperty from './generated/ReadProperty.generated'
+import SetVariable from './generated/SetVariable.generated'
+import StringManipulation from './generated/StringManipulation.generated'
+import TextTransformation from './generated/TextTransformation.generated'
+import WebDownload from './generated/WebDownload.generated'
 import Task from './task'
 
-export const Tasks = [CreateFolder, LoadProjectItem, Iterator]
+export const Tasks = [
+  BuildProject,
+  CreateFolder,
+  CreateProjectItem,
+  Iterator,
+  LoadCodeElement,
+  LoadProjectItem,
+  ReadProperty,
+  SetVariable,
+  StringManipulation,
+  TextTransformation,
+  WebDownload
+]
 
 export const TaskTypes = Tasks.map(t => ({
   name: t.name,

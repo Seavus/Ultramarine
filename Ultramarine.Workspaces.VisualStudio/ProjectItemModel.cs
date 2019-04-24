@@ -14,7 +14,7 @@ namespace Ultramarine.Workspaces.VisualStudio
         public ProjectItemModel(ProjectItem projectItem)
         {
             Name = projectItem.Name;
-            FilePath = projectItem.Properties.Item("FullPath").Value.ToString();
+            FilePath = GetFilePath(projectItem); //.Properties.Item("FullPath").Value.ToString();
             Language = projectItem.FileCodeModel == null ? null : projectItem.FileCodeModel.Language;
             ProjectItems = MapProjectItems(projectItem.ProjectItems);
 
@@ -145,7 +145,10 @@ namespace Ultramarine.Workspaces.VisualStudio
 
         private List<IProjectItemModel> MapProjectItems(ProjectItems projectItems)
         {
+
             var result = new List<IProjectItemModel>();
+            if (projectItems == null)
+                return result;
 
             for (int i = 1; i < projectItems.Count; i++)
             {
@@ -153,6 +156,18 @@ namespace Ultramarine.Workspaces.VisualStudio
             }
 
             return result;
+        }
+
+        private string GetFilePath(ProjectItem projectItem)
+        {
+            try
+            {
+                return projectItem.Properties.Item("FullPath").Value.ToString();
+            }
+            catch
+            {
+                return projectItem.Properties.Item("Path").Value.ToString();
+            }
         }
     }
 

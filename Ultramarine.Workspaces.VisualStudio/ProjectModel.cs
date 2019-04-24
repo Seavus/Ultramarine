@@ -18,7 +18,7 @@ namespace Ultramarine.Workspaces.VisualStudio
         {
             FilePath = project.Properties.Item("FullPath").Value.ToString();
             Name = project.Name;
-            Language = project.CodeModel.Language;
+            Language = project.CodeModel == null ? null : project.CodeModel.Language;
             ProjectItems = MapProjectItems(project.ProjectItems);
             _project = project;
         }

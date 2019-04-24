@@ -19,7 +19,7 @@
     {
       "iterator": {
         "name": "foreachCSharptTaskClass",
-        "connectedWith": "loadCSharpTasks",
+        "connectedWith": "loadCSharpTaskClasses",
         "tasks": [
           {
             "readProperty": {
@@ -38,7 +38,8 @@
           {
             "textTransformation": {
               "name": "transformToEs6",
-              "fileName": "$this equals 'TransformTask.tt'"
+              "fileName": "$this equals 'TransformTask.tt'",
+              "projectName": "$this equals 'Ultramarine.GeneratorRecipes'"
             }
           },
           {
@@ -46,7 +47,8 @@
               "name": "createTaskItem",
               "connectedWith": "transformToEs6",
               "itemName": "{TaskName}.generated.js",
-              "folderPath": "src\\vivaldi\\components\\tasks\\generated"
+              "folderPath": "src\\vivaldi\\components\\tasks\\generated",
+              "overwrite": true
             }
           }
         ]
