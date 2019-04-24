@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class LandingZone extends Component {
-  handleTaskLanded = () => {}
+  handleTaskLanded = e => {
+    const type = e.dataTransfer.getData('taskType')
+    const { onTaskLanded, name } = this.props
+    onTaskLanded(this, name, type)
+  }
 
   allowDragOver = e => {
     e.preventDefault()
@@ -20,6 +25,11 @@ class LandingZone extends Component {
       </div>
     )
   }
+}
+
+LandingZone.propTypes = {
+  name: PropTypes.string.isRequired,
+  onTaskLanded: PropTypes.func.isRequired
 }
 
 export default LandingZone

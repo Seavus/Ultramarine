@@ -16,12 +16,16 @@ const getTaskType = task => Object.keys(task)[0]
 const getTask = task =>
   Tasks.find(t => t.name.toLowerCase() === getTaskType(task).toLowerCase())
 
-const taskBuilder = task => {
+const taskBuilder = (task, onTaskLanded) => {
   const taskType = getTaskType(task)
   const taskSettings = task[taskType]
   const ConcreteTask = getTask(task)
   return ConcreteTask ? (
-    <ConcreteTask key={taskSettings.name} {...taskSettings} />
+    <ConcreteTask
+      key={taskSettings.name}
+      {...taskSettings}
+      onTaskLanded={onTaskLanded}
+    />
   ) : (
     <Task key={taskSettings.name} {...taskSettings} />
   )

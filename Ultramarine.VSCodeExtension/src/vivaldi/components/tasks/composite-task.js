@@ -4,11 +4,11 @@ import Task from './task'
 import LandingZone from './landing-zone'
 import taskBuilder from './task-builder'
 
-const CompositeTask = ({ name, description, tasks }) => (
+const CompositeTask = ({ name, description, tasks, onTaskLanded }) => (
   <div className="strip p-small">
     <Task name={name} description={description}>
-      {tasks.map(task => taskBuilder(task))}
-      <LandingZone />
+      {tasks.map(task => taskBuilder(task, onTaskLanded))}
+      <LandingZone name={name} onTaskLanded={onTaskLanded} />
     </Task>
   </div>
 )
@@ -16,7 +16,8 @@ const CompositeTask = ({ name, description, tasks }) => (
 CompositeTask.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string,
-  tasks: PropTypes.array.isRequired
+  tasks: PropTypes.array.isRequired,
+  onTaskLanded: PropTypes.func.isRequired
 }
 
 CompositeTask.defaultProps = {
