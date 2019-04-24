@@ -45,6 +45,7 @@ const LoadProjectItem = ({
 
 LoadProjectItem.description = 'Load Project Item'
 LoadProjectItem.icon = 'code'
+LoadProjectItem.type = 'loadProjectItem'
 
 LoadProjectItem.propTypes = {
   itemName: PropTypes.string,

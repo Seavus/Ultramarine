@@ -18,13 +18,16 @@ class Configuration extends Component {
   }
 
   handleTaskLanded = (landingZone, parentName, taskType) => {
-    debugger
     const { configuration } = this.state
     const task = this.findTask(configuration, parentName)
-    task.tasks.push({ [taskType]: { name: '', description: '' } })
+    task.tasks.push({
+      [taskType]: { name: '', description: '', editable: true }
+    })
 
     this.setState({ configuration })
   }
+
+  handleTaskChange = () => {}
 
   findTask = (task, parentName) => {
     if (task.name.toLowerCase() === parentName.toLowerCase()) return task
@@ -46,10 +49,15 @@ class Configuration extends Component {
             <Generator
               {...configuration}
               onTaskLanded={this.handleTaskLanded}
+              onChange={this.handleTaskChange}
             />
           </div>
           <div className="col s5 m4 l4 xl3">
-            <Toolbox tasks={tasks} onTaskLanded={this.handleTaskLanded} />
+            <Toolbox
+              tasks={tasks}
+              onTaskLanded={this.handleTaskLanded}
+              onTaskClicked={this.handleTaskClicked}
+            />
           </div>
         </div>
       </div>

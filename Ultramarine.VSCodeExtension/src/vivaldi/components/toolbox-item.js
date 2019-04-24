@@ -10,8 +10,8 @@ class ToolboxItem extends Component {
   }
 
   handleDragStart = e => {
-    const { name } = this.props
-    e.dataTransfer.setData('taskType', name)
+    const { type } = this.props
+    e.dataTransfer.setData('taskType', type)
   }
 
   render() {
@@ -34,6 +34,7 @@ class ToolboxItem extends Component {
 }
 
 ToolboxItem.propTypes = {
+  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string,
   icon: PropTypes.string,
