@@ -1,3 +1,7 @@
 {
+  "name": "$safeitemname$",
+  "description": "$safeitemname$Description",
+  "tasks": [
 
+  ]
 }
