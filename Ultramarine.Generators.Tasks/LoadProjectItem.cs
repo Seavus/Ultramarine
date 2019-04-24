@@ -18,7 +18,7 @@ namespace Ultramarine.Generators.Tasks
         protected override object OnExecute()
         {
             var result = new List<IProjectItemModel>();
-            var projects = ExecutionContext.GetProjects(ProjectName);
+            var projects = string.IsNullOrWhiteSpace(ProjectName) ? new List<IProjectModel> { ExecutionContext } : ExecutionContext.GetProjects(ProjectName);
             if (projects == null || !projects.Any())
                 throw new ArgumentException($"There is no project named {ProjectName}");
 

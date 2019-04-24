@@ -1,4 +1,6 @@
-﻿namespace Ultramarine.Workspaces.CodeElements
+﻿using System.Collections.Generic;
+
+namespace Ultramarine.Workspaces.CodeElements
 {
     public interface ICodeElementModel
     {
@@ -6,5 +8,6 @@
         ElementType? Type { get; set; }
         ElementAccess? Access { get; set; }
         ElementOverride Override { get; set; }
+        List<string> TypeOf { get; set; }
     }
 }
