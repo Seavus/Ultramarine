@@ -1,0 +1,56 @@
+﻿{
+  "name": "vscode.task.generator",
+  "description": "generate task implementation",
+  "tasks": [
+    {
+      "loadProjectItem": {
+        "name": "loadCSharpTasks",
+        "projectName": "$this equals 'Ultramarine.Generators.Tasks'"
+      }
+    },
+    {
+      "loadCodeElement": {
+        "name": "loadCSharpTaskClasses",
+        "connectedWith": "loadCSharpTasks",
+        "elementType": "class",
+        "typeOf": "Task"
+      }
+    },
+    {
+      "iterator": {
+        "name": "foreachCSharptTaskClass",
+        "connectedWith": "loadCSharpTasks",
+        "tasks": [
+          {
+            "readProperty": {
+              "name": "readTaskName",
+              "propertyName": "Name"
+            }
+          },
+          {
+            "setVariable": {
+              "name": "setTaskName",
+              "description": "",
+              "variableName": "TaskName",
+              "connectedWith": "readTaskName"
+            }
+          },
+          {
+            "textTransformation": {
+              "name": "transformToEs6",
+              "fileName": "$this equals 'TransformTask.tt'"
+            }
+          },
+          {
+            "createProjectItem": {
+              "name": "createTaskItem",
+              "connectedWith": "transformToEs6",
+              "itemName": "{TaskName}.generated.js",
+              "folderPath": "src\\vivaldi\\components\\tasks\\generated"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
