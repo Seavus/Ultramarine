@@ -58,14 +58,14 @@ class Configuration extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col s7 m8 offset-l1 l7 offset-xl2 xl7">
+          <div className="col s10 m10 l8 xl9">
             <Generator
               {...configuration}
               onTaskLanded={this.handleTaskLanded}
               onChange={this.handleTaskChange}
             />
           </div>
-          <div className="col s5 m4 l4 xl3">
+          <div className="col s2 m2 l4 xl3">
             <Toolbox
               tasks={tasks}
               onTaskLanded={this.handleTaskLanded}

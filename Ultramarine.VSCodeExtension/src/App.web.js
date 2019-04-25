@@ -15,9 +15,8 @@ class App extends Component {
   handleFileRead = e => {
     const content = e.target.result
     const generatorContent = JSON.parse(content)
-    debugger
+
     this.setState({ configuration: generatorContent })
-    debugger
   }
 
   handleFileChoosen = e => {
