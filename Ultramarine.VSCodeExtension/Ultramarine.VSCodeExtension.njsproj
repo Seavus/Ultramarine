@@ -86,6 +86,7 @@
     <Content Include="src\vivaldi\components\ui\input.test.js" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="src\vivaldi\components\tasks\generated\" />
     <Folder Include="__tests__" />
     <Folder Include="public" />
     <Folder Include="src" />
@@ -100,6 +101,20 @@
     <Folder Include="src\vivaldi\components\ui\__tests__" />
     <Folder Include="src\vivaldi\model" />
     <Folder Include="test" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\vivaldi\components\tasks\generated\BuildProject.generated.js" />
+    <Compile Include="src\vivaldi\components\tasks\generated\CreateFolder.generated.js" />
+    <Compile Include="src\vivaldi\components\tasks\generated\CreateProjectItem.generated.js" />
+    <Compile Include="src\vivaldi\components\tasks\generated\Iterator.generated.js" />
+    <Compile Include="src\vivaldi\components\tasks\generated\LoadCodeElement.generated.js" />
+    <Compile Include="src\vivaldi\components\tasks\generated\LoadProjectItem.generated.js" />
+    <Compile Include="src\vivaldi\components\tasks\generated\ReadProperty.generated.js" />
+    <Compile Include="src\vivaldi\components\tasks\generated\SetVariable.generated.js" />
+    <Compile Include="src\vivaldi\components\tasks\generated\SqlCommand.generated.js" />
+    <Compile Include="src\vivaldi\components\tasks\generated\StringManipulation.generated.js" />
+    <Compile Include="src\vivaldi\components\tasks\generated\TextTransformation.generated.js" />
+    <Compile Include="src\vivaldi\components\tasks\generated\WebDownload.generated.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
