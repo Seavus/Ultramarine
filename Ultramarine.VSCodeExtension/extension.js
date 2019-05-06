@@ -17,6 +17,8 @@ const buildScriptsUri = (context, scriptName) =>
     scheme: 'vscode-resource'
   })
 
+let generatorContent
+
 /**
  * @param {vscode.ExtensionContext} context
  */
@@ -45,10 +47,19 @@ function activate(context) {
       const bundleScript = buildScriptsUri(context, 'bundle.js')
       const vendorScripts = buildScriptsUri(context, 'vendor.js')
       panel.webview.html = webViewBuilder(bundleScript, vendorScripts)
+
+      panel.onDidChangeViewState(
+        e => {
+          const pan = e.webviewPanel
+          if (pan.active) pan.postMessage({ generator: generatorContent })
+        },
+        null,
+        context
+      )
       // Display a message box to the user
       // vscode.window.showInformationMessage('Hello World!')
       vscode.workspace.openTextDocument(uri).then(document => {
-        const generatorContent = JSON.parse(document.getText())
+        generatorContent = JSON.parse(document.getText())
         setTimeout(
           () => panel.webview.postMessage({ generator: generatorContent }),
           2000

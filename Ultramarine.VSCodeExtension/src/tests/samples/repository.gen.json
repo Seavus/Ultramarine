@@ -1,0 +1,66 @@
+{
+  "name": "seaq.data.generator",
+  "description": "SeaQ Data layer generator configuration",
+  "tasks": [
+    {
+      "loadProjectItem": {
+        "name": "loadDomainAggregates",
+        "description": "Load domain aggregates from SeaQ Core",
+        "projectName": "$this equals 'SeaQ.Core'"
+      }
+    },
+    {
+      "loadCodeElement": {
+        "name": "loadDomainAggregateClasses",
+        "description": "Load domain aggregate classes",
+        "connectedWith": "loadDomainAggregates",
+        "elementType": "class"
+      }
+    },
+    {
+      "iterator": {
+        "name": "foreachDomainAggregateClass",
+        "description": "Iterates through aggregate classes",
+        "connectedWith": "loadDomainAggregateClasses",
+        "tasks": [
+          {
+            "readProperty": {
+              "name": "readAggregateName",
+              "propertyName": "Name"
+            }
+          },
+          {
+            "setVariable": {
+              "name": "setAggregateName",
+              "description": "",
+              "variableName": "AggregateName",
+              "connectedWith": "readAggregateName"
+            }
+          },
+          {
+            "textTransformation": {
+              "name": "transformAggregateToRepository",
+              "description": "",
+              "fileName": "$this equals 'ConcreteRepository.tt'",
+              "projectName": "$this equals 'Seaq.Recipes'",
+              "parameters": {
+                "Namespace": "SeaQ.Data.Core.Repositories",
+                "Usings": ["SeaQ.Core", "SeaQ.Core.Repositories"]
+              }
+            }
+          },
+          {
+            "createProjectItem": {
+              "name": "generateAggregateRepository",
+              "description": "",
+              "connectedWith": "transformAggregateToRepository",
+              "itemName": "{AggregateName}Repository.generated.cs",
+              "folderPath": "Core\\Repositories\\Generated",
+              "overwrite": true
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

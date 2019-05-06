@@ -15,7 +15,8 @@ namespace Ultramarine.Workspaces.VisualStudio.CodeElements
             Name = codeElement.Name;
             Type = Convert(codeElement.Kind);
             Access = Convert(codeElement.GetAccess());
-            TypeOf = GetTypeOf();            
+            TypeOf = GetTypeOf();
+            Children = MapCodeElements(codeElement.Children);
         }
 
         public string Name { get; set; }
@@ -23,6 +24,7 @@ namespace Ultramarine.Workspaces.VisualStudio.CodeElements
         public ElementAccess? Access { get; set; }
         public ElementOverride Override { get; set; }
         public List<string> TypeOf { get; set; }
+        public List<ICodeElementModel> Children { get; set; }
 
         private CodeElement _codeElement;
 
@@ -38,6 +40,19 @@ namespace Ultramarine.Workspaces.VisualStudio.CodeElements
             if (elementAccess.HasValue)
                 return (ElementAccess)elementAccess;
             return null;
+        }
+
+        private List<ICodeElementModel> MapCodeElements(EnvDTE.CodeElements codeElements)
+        {
+            var result = new List<ICodeElementModel>();
+            if (codeElements == null)
+                return result;
+
+            for (int i = 1; i < codeElements.Count; i++)
+            {
+                result.Add(new CodeElementModel(codeElements.Item(i)));
+            }
+            return result;
         }
 
         private List<string> GetTypeOf()
