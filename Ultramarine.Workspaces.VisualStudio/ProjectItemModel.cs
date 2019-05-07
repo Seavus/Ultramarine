@@ -1,5 +1,6 @@
 ﻿using EnvDTE;
 using EnvDTE80;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Ultramarine.QueryLanguage;
@@ -14,8 +15,8 @@ namespace Ultramarine.Workspaces.VisualStudio
         public ProjectItemModel(ProjectItem projectItem)
         {
             Name = projectItem.Name;
-            FilePath = GetFilePath(projectItem); //.Properties.Item("FullPath").Value.ToString();
-            Language = projectItem.FileCodeModel == null ? null : projectItem.FileCodeModel.Language;
+            FilePath = GetFilePath(projectItem);
+            Language = GetLanguage(projectItem);
             ProjectItems = MapProjectItems(projectItem.ProjectItems);
 
             _projectItem = projectItem;
@@ -44,8 +45,10 @@ namespace Ultramarine.Workspaces.VisualStudio
         public List<ICodeElementModel> GetCodeElements(string expression)
         {
             var result = new List<CodeElement>();
-            if (_projectItem.FileCodeModel == null)
+            var codeModel = GetCodeModel(_projectItem);
+            if (codeModel == null)
                 return null;
+
             foreach (CodeElement codeElement in _projectItem.FileCodeModel.CodeElements)
             {
                 if (codeElement.IsCodeType)
@@ -61,6 +64,7 @@ namespace Ultramarine.Workspaces.VisualStudio
                     result.AddRange(GetInnerCodeElements(codeElement, expression));
                 }
             }
+
             return result.Select<CodeElement, ICodeElementModel>(c => new CodeElementModel(c)).ToList();
         }
 
@@ -167,6 +171,24 @@ namespace Ultramarine.Workspaces.VisualStudio
             catch
             {
                 return projectItem.Properties.Item("Path").Value.ToString();
+            }
+        }
+
+        private static string GetLanguage(ProjectItem projectItem)
+        {
+            var codeModel = GetCodeModel(projectItem);
+            return codeModel == null ? null : codeModel.Language;
+        }
+
+        private static FileCodeModel GetCodeModel(ProjectItem projectItem)
+        {
+            try
+            {
+                return projectItem.FileCodeModel;
+            }
+            catch
+            {
+                return null;
             }
         }
     }

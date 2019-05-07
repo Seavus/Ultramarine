@@ -24,7 +24,6 @@ namespace Ultramarine.VSExtension.Commands
     {
         private const string ProjectGeneratorXmlConfigurationFileName = "Project.gen.config";
         private const string ProjectGeneratorJsonConfigurationFileName = "Project.gen.json";
-
         /// <summary>
         /// Command ID.
         /// </summary>
@@ -186,16 +185,19 @@ namespace Ultramarine.VSExtension.Commands
             //var project = workspace.CurrentSolution.Projects.First(c => c.Name == selectedProject.Name);
             await Task.Run(() =>
             {
+                var logger = new OutputLogger();
+
                 var generatorPath = Path.Combine(Path.GetDirectoryName(projectPath), "Project.gen.json");
                 var generator = GeneratorSerializer.Instance.Load(generatorPath);
                 generator.SetExecutionContext(new ProjectModel(selectedProject));
-                generator.SetLogger(new OutputLogger());
+                generator.SetLogger(logger);
                 try
                 {
                     generator.Execute();
                 }
-                catch
+                catch (Exception ex)
                 {
+                    logger.Error(ex);
                     MessageBox.Show("Generator execution completed with errors. See output window for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             });
