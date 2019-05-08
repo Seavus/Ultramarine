@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.438
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.VSExtension", "Ultramarine.VSExtension\Ultramarine.VSExtension.csproj", "{2203EBE1-86F6-4605-A231-1FADB52ACC19}"
 EndProject
@@ -50,6 +50,8 @@ EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Ultramarine.VSCodeExtension", "Ultramarine.VSCodeExtension\Ultramarine.VSCodeExtension.njsproj", "{BCAD61C5-9364-48AA-BF0B-595A032FC1BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.GeneratorRecipes", "Ultramarine.GeneratorRecipes\Ultramarine.GeneratorRecipes.csproj", "{79A4B070-8B42-4EFA-B2C6-C2294D0B06EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ultramarine.Generators.SchemaBuilder", "Ultramarine.Generators.SchemaBuilder\Ultramarine.Generators.SchemaBuilder.csproj", "{C5D6C174-CFDD-4FCA-8BCA-0A2B8F28EDDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +133,10 @@ Global
 		{79A4B070-8B42-4EFA-B2C6-C2294D0B06EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79A4B070-8B42-4EFA-B2C6-C2294D0B06EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79A4B070-8B42-4EFA-B2C6-C2294D0B06EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D6C174-CFDD-4FCA-8BCA-0A2B8F28EDDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D6C174-CFDD-4FCA-8BCA-0A2B8F28EDDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D6C174-CFDD-4FCA-8BCA-0A2B8F28EDDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D6C174-CFDD-4FCA-8BCA-0A2B8F28EDDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -153,6 +159,7 @@ Global
 		{41C4A44A-D7F7-4E52-A02E-B2FD70DD0E46} = {02FF4F30-0A60-447D-AE7F-A6FBD60D016F}
 		{D5F07703-6192-4C4E-8B39-4D87DF054C0D} = {02FF4F30-0A60-447D-AE7F-A6FBD60D016F}
 		{475A9BE2-24FB-4CD2-A1F0-C033CF6BD0A4} = {02FF4F30-0A60-447D-AE7F-A6FBD60D016F}
+		{C5D6C174-CFDD-4FCA-8BCA-0A2B8F28EDDB} = {BCDC8113-7331-4D96-A091-D91E3D4452A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A86E2D6F-253D-4A78-955E-7A75E9CE4EBA}
