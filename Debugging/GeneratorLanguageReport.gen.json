@@ -1,0 +1,29 @@
+﻿
+// Generated material. Generating code in C#.
+{
+	"generator": {
+		"name": "test1",
+		"description": "test1",
+		"tasks": [
+		 {
+		  	 "LoadCodeElement": {
+			 "name": "LoadCodeElement1",
+			 "description": ""
+			 }
+		 },
+		 {
+		  	 "LoadCodeElement": {
+			 "name": "LoadCodeElement2",
+			 "description": ""
+			 }
+		 },
+		 {
+		  	 "BuildProject": {
+			 "name": "BuildProject1",
+			 "description": ""
+			 }
+		 },
+
+		]
+	}
+}

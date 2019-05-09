@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generatorModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0eebe70d-08ee-41a7-91c8-ce229e51f8a1" xmlns="http://schemas.microsoft.com/dsltools/GeneratorLanguage">
+  <tasks>
+    <generatorModelHasTasks Id="ec72fd3c-6b8a-4b4c-a2f1-5871d41e9b85">
+      <buildProject Id="01d7968c-a9f9-47a9-a15d-6da1f2da1a07" name="BuildProject1" />
+    </generatorModelHasTasks>
+    <generatorModelHasTasks Id="106239ce-e097-4523-987f-855d713c5735">
+      <loadCodeElement Id="55252d77-8ea1-408b-aab4-3718c3dc10b1" name="LoadCodeElement1" />
+    </generatorModelHasTasks>
+  </tasks>
+</generatorModel>

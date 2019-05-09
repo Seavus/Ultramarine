@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generatorLanguageDiagram dslVersion="1.0.0.0" Id="6f9240f6-b71d-4c15-bdcb-9ce9a6825dfd" absoluteBounds="0, 0, 11, 8.5" name="Test">
+  <generatorModelMoniker Id="0eebe70d-08ee-41a7-91c8-ce229e51f8a1" />
+  <nestedChildShapes>
+    <buildProjectShape Id="9cec3ef5-2bc0-4512-aff2-72e856f4b619" absoluteBounds="4, 1.375, 1.5, 1">
+      <buildProjectMoniker Id="01d7968c-a9f9-47a9-a15d-6da1f2da1a07" />
+    </buildProjectShape>
+    <loadCodeElementShape Id="d7fcbb58-af8a-4aee-9f21-878f5aa3d003" absoluteBounds="6.25, 0.625, 2, 0.75">
+      <loadCodeElementMoniker Id="55252d77-8ea1-408b-aab4-3718c3dc10b1" />
+    </loadCodeElementShape>
+  </nestedChildShapes>
+</generatorLanguageDiagram>
