@@ -146,6 +146,7 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Parts\Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GeneratedCode\DomainModel.cs">
       <AutoGen>True</AutoGen>

@@ -273,6 +273,12 @@ namespace Ultramarine.Generators.Language
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Justification = "Generated code.")]
 		protected override DslDiagrams::ShapeElement CreateChildShape(DslModeling::ModelElement element)
 		{
+			if(element is global::Ultramarine.Generators.Language.Iterator)
+			{
+				global::Ultramarine.Generators.Language.IteratorShape newShape = new global::Ultramarine.Generators.Language.IteratorShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
 			if(element is global::Ultramarine.Generators.Language.LoadCodeElement)
 			{
 				global::Ultramarine.Generators.Language.LoadCodeElementShape newShape = new global::Ultramarine.Generators.Language.LoadCodeElementShape(this.Partition);
@@ -291,9 +297,44 @@ namespace Ultramarine.Generators.Language
 				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
 				return newShape;
 			}
+			if(element is global::Ultramarine.Generators.Language.CreateProjectItem)
+			{
+				global::Ultramarine.Generators.Language.CreateProjectItemShape newShape = new global::Ultramarine.Generators.Language.CreateProjectItemShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
+			if(element is global::Ultramarine.Generators.Language.LoadProjectItem)
+			{
+				global::Ultramarine.Generators.Language.LoadProjectItemShape newShape = new global::Ultramarine.Generators.Language.LoadProjectItemShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
+			if(element is global::Ultramarine.Generators.Language.ReadProperty)
+			{
+				global::Ultramarine.Generators.Language.ReadPropertyShape newShape = new global::Ultramarine.Generators.Language.ReadPropertyShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
+			if(element is global::Ultramarine.Generators.Language.SetVariable)
+			{
+				global::Ultramarine.Generators.Language.SetVariableShape newShape = new global::Ultramarine.Generators.Language.SetVariableShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
+			if(element is global::Ultramarine.Generators.Language.TextTransformation)
+			{
+				global::Ultramarine.Generators.Language.TextTransformationShape newShape = new global::Ultramarine.Generators.Language.TextTransformationShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
 			if(element is global::Ultramarine.Generators.Language.ConnectedWith)
 			{
 				global::Ultramarine.Generators.Language.ConnectedWithConnector newShape = new global::Ultramarine.Generators.Language.ConnectedWithConnector(this.Partition);
+				return newShape;
+			}
+			if(element is global::Ultramarine.Generators.Language.ChildTasks)
+			{
+				global::Ultramarine.Generators.Language.IteratorConnector newShape = new global::Ultramarine.Generators.Language.IteratorConnector(this.Partition);
 				return newShape;
 			}
 			return base.CreateChildShape(element);
@@ -310,6 +351,12 @@ namespace Ultramarine.Generators.Language
 			global::Ultramarine.Generators.Language.LoadCodeElementShape.DecoratorsInitialized += LoadCodeElementShapeDecoratorMap.OnDecoratorsInitialized;
 			global::Ultramarine.Generators.Language.BuildProjectShape.DecoratorsInitialized += BuildProjectShapeDecoratorMap.OnDecoratorsInitialized;
 			global::Ultramarine.Generators.Language.CreateFolderShape.DecoratorsInitialized += CreateFolderShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Ultramarine.Generators.Language.CreateProjectItemShape.DecoratorsInitialized += CreateProjectItemShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Ultramarine.Generators.Language.LoadProjectItemShape.DecoratorsInitialized += LoadProjectItemShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Ultramarine.Generators.Language.ReadPropertyShape.DecoratorsInitialized += ReadPropertyShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Ultramarine.Generators.Language.SetVariableShape.DecoratorsInitialized += SetVariableShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Ultramarine.Generators.Language.TextTransformationShape.DecoratorsInitialized += TextTransformationShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Ultramarine.Generators.Language.IteratorShape.DecoratorsInitialized += IteratorShapeDecoratorMap.OnDecoratorsInitialized;
 		}
 		
 		/// <summary>
@@ -381,14 +428,152 @@ namespace Ultramarine.Generators.Language
 			/// </summary>
 			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
 			{
+				TaskShapeDecoratorMap.OnDecoratorsInitialized(sender, e);
+				
 				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
 				DslDiagrams::AssociatedPropertyInfo propertyInfo;
 				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
-				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "Description").AssociateValueWith(shape.Store, propertyInfo);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for CreateProjectItemShape.
+		/// </summary>
+		internal static partial class CreateProjectItemShapeDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for CreateProjectItemShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				TaskShapeDecoratorMap.OnDecoratorsInitialized(sender, e);
+				
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.NameDomainPropertyId);
-				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "Name").AssociateValueWith(shape.Store, propertyInfo);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.CreateProjectItem.FolderPathDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for LoadProjectItemShape.
+		/// </summary>
+		internal static partial class LoadProjectItemShapeDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for LoadProjectItemShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				TaskShapeDecoratorMap.OnDecoratorsInitialized(sender, e);
+				
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for ReadPropertyShape.
+		/// </summary>
+		internal static partial class ReadPropertyShapeDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for ReadPropertyShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				TaskShapeDecoratorMap.OnDecoratorsInitialized(sender, e);
+				
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for SetVariableShape.
+		/// </summary>
+		internal static partial class SetVariableShapeDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for SetVariableShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				TaskShapeDecoratorMap.OnDecoratorsInitialized(sender, e);
+				
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for TextTransformationShape.
+		/// </summary>
+		internal static partial class TextTransformationShapeDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for TextTransformationShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				TaskShapeDecoratorMap.OnDecoratorsInitialized(sender, e);
+				
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for IteratorShape.
+		/// </summary>
+		internal static partial class IteratorShapeDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for IteratorShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -396,7 +581,8 @@ namespace Ultramarine.Generators.Language
 		
 		#region Connect actions
 		private bool changingMouseAction;
-		private global::Ultramarine.Generators.Language.ExampleRelationshipConnectAction exampleRelationshipConnectAction;
+		private global::Ultramarine.Generators.Language.ConnectedWithRelationshipConnectAction connectedWithRelationshipConnectAction;
+		private global::Ultramarine.Generators.Language.ParentRelationshipConnectAction parentRelationshipConnectAction;
 		/// <summary>
 		/// Virtual method to provide a filter when to select the mouse action
 		/// </summary>
@@ -419,14 +605,23 @@ namespace Ultramarine.Generators.Language
 			if(activeView != null)
 			{
 				DslDiagrams::MouseAction action = null;
-				if (SelectedToolboxItemSupportsFilterString(activeView, global::Ultramarine.Generators.Language.GeneratorLanguageToolboxHelper.ExampleRelationshipFilterString))
+				if (SelectedToolboxItemSupportsFilterString(activeView, global::Ultramarine.Generators.Language.GeneratorLanguageToolboxHelper.ConnectedWithRelationshipFilterString))
 				{
-					if (this.exampleRelationshipConnectAction == null)
+					if (this.connectedWithRelationshipConnectAction == null)
 					{
-						this.exampleRelationshipConnectAction = new global::Ultramarine.Generators.Language.ExampleRelationshipConnectAction(this);
-						this.exampleRelationshipConnectAction.MouseActionDeactivated += new DslDiagrams::MouseAction.MouseActionDeactivatedEventHandler(OnConnectActionDeactivated);
+						this.connectedWithRelationshipConnectAction = new global::Ultramarine.Generators.Language.ConnectedWithRelationshipConnectAction(this);
+						this.connectedWithRelationshipConnectAction.MouseActionDeactivated += new DslDiagrams::MouseAction.MouseActionDeactivatedEventHandler(OnConnectActionDeactivated);
 					}
-					action = this.exampleRelationshipConnectAction;
+					action = this.connectedWithRelationshipConnectAction;
+				} 
+				else if (SelectedToolboxItemSupportsFilterString(activeView, global::Ultramarine.Generators.Language.GeneratorLanguageToolboxHelper.ParentRelationshipFilterString))
+				{
+					if (this.parentRelationshipConnectAction == null)
+					{
+						this.parentRelationshipConnectAction = new global::Ultramarine.Generators.Language.ParentRelationshipConnectAction(this);
+						this.parentRelationshipConnectAction.MouseActionDeactivated += new DslDiagrams::MouseAction.MouseActionDeactivatedEventHandler(OnConnectActionDeactivated);
+					}
+					action = this.parentRelationshipConnectAction;
 				} 
 				else
 				{
@@ -485,10 +680,15 @@ namespace Ultramarine.Generators.Language
 			{
 				if(disposing)
 				{
-					if(this.exampleRelationshipConnectAction != null)
+					if(this.connectedWithRelationshipConnectAction != null)
 					{
-						this.exampleRelationshipConnectAction.Dispose();
-						this.exampleRelationshipConnectAction = null;
+						this.connectedWithRelationshipConnectAction.Dispose();
+						this.connectedWithRelationshipConnectAction = null;
+					}
+					if(this.parentRelationshipConnectAction != null)
+					{
+						this.parentRelationshipConnectAction.Dispose();
+						this.parentRelationshipConnectAction = null;
 					}
 					this.UnsubscribeCompartmentItemsEvents();
 				}
@@ -544,10 +744,17 @@ namespace Ultramarine.Generators.Language
 		/// <summary>
 		/// Rule that initiates view fixup when an element that has an associated shape is added to the model. 
 		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.Iterator), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.LoadCodeElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.BuildProject), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.CreateFolder), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.CreateProjectItem), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.LoadProjectItem), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.ReadProperty), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.SetVariable), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.TextTransformation), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.ConnectedWith), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.ChildTasks), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
 		internal sealed partial class FixUpDiagram : FixUpDiagramBase
 		{
 			[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
@@ -563,6 +770,10 @@ namespace Ultramarine.Generators.Language
 				{
 					parentElement = GetParentForRelationship((DslModeling::ElementLink)childElement);
 				} else
+				if(childElement is global::Ultramarine.Generators.Language.Iterator)
+				{
+					parentElement = GetParentForIterator((global::Ultramarine.Generators.Language.Iterator)childElement);
+				} else
 				if(childElement is global::Ultramarine.Generators.Language.LoadCodeElement)
 				{
 					parentElement = GetParentForLoadCodeElement((global::Ultramarine.Generators.Language.LoadCodeElement)childElement);
@@ -574,6 +785,26 @@ namespace Ultramarine.Generators.Language
 				if(childElement is global::Ultramarine.Generators.Language.CreateFolder)
 				{
 					parentElement = GetParentForCreateFolder((global::Ultramarine.Generators.Language.CreateFolder)childElement);
+				} else
+				if(childElement is global::Ultramarine.Generators.Language.CreateProjectItem)
+				{
+					parentElement = GetParentForCreateProjectItem((global::Ultramarine.Generators.Language.CreateProjectItem)childElement);
+				} else
+				if(childElement is global::Ultramarine.Generators.Language.LoadProjectItem)
+				{
+					parentElement = GetParentForLoadProjectItem((global::Ultramarine.Generators.Language.LoadProjectItem)childElement);
+				} else
+				if(childElement is global::Ultramarine.Generators.Language.ReadProperty)
+				{
+					parentElement = GetParentForReadProperty((global::Ultramarine.Generators.Language.ReadProperty)childElement);
+				} else
+				if(childElement is global::Ultramarine.Generators.Language.SetVariable)
+				{
+					parentElement = GetParentForSetVariable((global::Ultramarine.Generators.Language.SetVariable)childElement);
+				} else
+				if(childElement is global::Ultramarine.Generators.Language.TextTransformation)
+				{
+					parentElement = GetParentForTextTransformation((global::Ultramarine.Generators.Language.TextTransformation)childElement);
 				} else
 				{
 					parentElement = null;
@@ -599,6 +830,48 @@ namespace Ultramarine.Generators.Language
 				return result;
 			}
 			public static global::Ultramarine.Generators.Language.GeneratorModel GetParentForCreateFolder( global::Ultramarine.Generators.Language.Task root )
+			{
+				// Segments 0 and 1
+				global::Ultramarine.Generators.Language.GeneratorModel result = root.Generator;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Ultramarine.Generators.Language.GeneratorModel GetParentForCreateProjectItem( global::Ultramarine.Generators.Language.Task root )
+			{
+				// Segments 0 and 1
+				global::Ultramarine.Generators.Language.GeneratorModel result = root.Generator;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Ultramarine.Generators.Language.GeneratorModel GetParentForLoadProjectItem( global::Ultramarine.Generators.Language.Task root )
+			{
+				// Segments 0 and 1
+				global::Ultramarine.Generators.Language.GeneratorModel result = root.Generator;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Ultramarine.Generators.Language.GeneratorModel GetParentForReadProperty( global::Ultramarine.Generators.Language.Task root )
+			{
+				// Segments 0 and 1
+				global::Ultramarine.Generators.Language.GeneratorModel result = root.Generator;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Ultramarine.Generators.Language.GeneratorModel GetParentForSetVariable( global::Ultramarine.Generators.Language.Task root )
+			{
+				// Segments 0 and 1
+				global::Ultramarine.Generators.Language.GeneratorModel result = root.Generator;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Ultramarine.Generators.Language.GeneratorModel GetParentForTextTransformation( global::Ultramarine.Generators.Language.Task root )
+			{
+				// Segments 0 and 1
+				global::Ultramarine.Generators.Language.GeneratorModel result = root.Generator;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Ultramarine.Generators.Language.GeneratorModel GetParentForIterator( global::Ultramarine.Generators.Language.Task root )
 			{
 				// Segments 0 and 1
 				global::Ultramarine.Generators.Language.GeneratorModel result = root.Generator;
@@ -693,7 +966,7 @@ namespace Ultramarine.Generators.Language
 		/// <summary>
 		/// Rule to update compartments when an item is added to the list
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.CreateFolderHasSetting), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.ChildTasks), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		internal sealed class CompartmentItemAddRule : DslModeling::AddRule
 		{
 			/// <summary>
@@ -710,25 +983,25 @@ namespace Ultramarine.Generators.Language
 				if(e==null) throw new global::System.ArgumentNullException("e");
 				if (e.ModelElement.IsDeleted)
 					return;
-				if(e.ModelElement is global::Ultramarine.Generators.Language.CreateFolderHasSetting)
+				if(e.ModelElement is global::Ultramarine.Generators.Language.ChildTasks)
 				{
-					global::System.Collections.IEnumerable elements = GetCreateFolderForCreateFolderShapeCompartment1FromLastLink((global::Ultramarine.Generators.Language.CreateFolderHasSetting)e.ModelElement);
-					UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.CreateFolderShape), "Compartment1", repaintOnly);
+					global::System.Collections.IEnumerable elements = GetIteratorForIteratorShapeTasksFromLastLink((global::Ultramarine.Generators.Language.ChildTasks)e.ModelElement);
+					UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.IteratorShape), "Tasks", repaintOnly);
 				}
 			}
 			
 			#region static DomainPath traversal methods to get the list of compartments to update
-			internal static global::System.Collections.ICollection GetCreateFolderForCreateFolderShapeCompartment1FromLastLink(global::Ultramarine.Generators.Language.CreateFolderHasSetting root)
+			internal static global::System.Collections.ICollection GetIteratorForIteratorShapeTasksFromLastLink(global::Ultramarine.Generators.Language.ChildTasks root)
 			{
 				// Segment 0
-				global::Ultramarine.Generators.Language.CreateFolder result = root.CreateFolder;
+				global::Ultramarine.Generators.Language.CompositeTask result = root.CompositeTask;
 				if ( result == null ) return new DslModeling::ModelElement[0];
 				return new DslModeling::ModelElement[] {result};
 			}
-			internal static global::System.Collections.ICollection GetCreateFolderForCreateFolderShapeCompartment1(global::Ultramarine.Generators.Language.Settings root)
+			internal static global::System.Collections.ICollection GetIteratorForIteratorShapeTasks(global::Ultramarine.Generators.Language.Task root)
 			{
 				// Segments 1 and 0
-				global::Ultramarine.Generators.Language.CreateFolder result = root.CreateFolder;
+				global::Ultramarine.Generators.Language.CompositeTask result = root.Parent;
 				if ( result == null ) return new DslModeling::ModelElement[0];
 				return new DslModeling::ModelElement[] {result};
 			}
@@ -777,7 +1050,7 @@ namespace Ultramarine.Generators.Language
 		/// <summary>
 		/// Rule to update compartments when an items is removed from the list
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.CreateFolderHasSetting), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.ChildTasks), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		internal sealed class CompartmentItemDeleteRule : DslModeling::DeleteRule
 		{
 			/// <summary>
@@ -792,10 +1065,10 @@ namespace Ultramarine.Generators.Language
 			internal static void ElementDeleted(DslModeling::ElementDeletedEventArgs e, bool repaintOnly)
 			{
 				if(e==null) throw new global::System.ArgumentNullException("e");
-				if(e.ModelElement is global::Ultramarine.Generators.Language.CreateFolderHasSetting)
+				if(e.ModelElement is global::Ultramarine.Generators.Language.ChildTasks)
 				{
-					global::System.Collections.ICollection elements = CompartmentItemAddRule.GetCreateFolderForCreateFolderShapeCompartment1FromLastLink((global::Ultramarine.Generators.Language.CreateFolderHasSetting)e.ModelElement);
-					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.CreateFolderShape), "Compartment1", repaintOnly);
+					global::System.Collections.ICollection elements = CompartmentItemAddRule.GetIteratorForIteratorShapeTasksFromLastLink((global::Ultramarine.Generators.Language.ChildTasks)e.ModelElement);
+					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.IteratorShape), "Tasks", repaintOnly);
 				}
 			}
 		}
@@ -803,7 +1076,7 @@ namespace Ultramarine.Generators.Language
 		/// <summary>
 		/// Rule to update compartments when the property on an item being displayed changes.
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.Settings), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.Task), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		internal sealed class CompartmentItemChangeRule : DslModeling::ChangeRule 
 		{
 			/// <summary>
@@ -818,10 +1091,10 @@ namespace Ultramarine.Generators.Language
 			internal static void ElementPropertyChanged(DslModeling::ElementPropertyChangedEventArgs e, bool repaintOnly)
 			{
 				if(e==null) throw new global::System.ArgumentNullException("e");
-				if(e.ModelElement is global::Ultramarine.Generators.Language.Settings && e.DomainProperty.Id == global::Ultramarine.Generators.Language.Settings.ValueDomainPropertyId)
+				if(e.ModelElement is global::Ultramarine.Generators.Language.Task && e.DomainProperty.Id == global::Ultramarine.Generators.Language.Task.NameDomainPropertyId)
 				{
-					global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetCreateFolderForCreateFolderShapeCompartment1((global::Ultramarine.Generators.Language.Settings)e.ModelElement);
-					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.CreateFolderShape), "Compartment1", repaintOnly);
+					global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetIteratorForIteratorShapeTasks((global::Ultramarine.Generators.Language.Task)e.ModelElement);
+					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.IteratorShape), "Tasks", repaintOnly);
 				}
 			}
 		}
@@ -829,7 +1102,7 @@ namespace Ultramarine.Generators.Language
 		/// <summary>
 		/// Rule to update compartments when a roleplayer change happens
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.CreateFolderHasSetting), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.ChildTasks), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		internal sealed class CompartmentItemRolePlayerChangeRule : DslModeling::RolePlayerChangeRule 
 		{
 			/// <summary>
@@ -844,17 +1117,17 @@ namespace Ultramarine.Generators.Language
 			internal static void RolePlayerChanged(DslModeling::RolePlayerChangedEventArgs e, bool repaintOnly)
 			{
 				if(e==null) throw new global::System.ArgumentNullException("e");
-				if(typeof(global::Ultramarine.Generators.Language.CreateFolderHasSetting).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				if(typeof(global::Ultramarine.Generators.Language.ChildTasks).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
 				{
 					if(e.DomainRole.IsSource)
 					{
-						//global::System.Collections.IEnumerable oldElements = CompartmentItemAddRule.GetCreateFolderForCreateFolderShapeCompartment1FromLastLink((global::Ultramarine.Generators.Language.Settings)e.OldRolePlayer);
+						//global::System.Collections.IEnumerable oldElements = CompartmentItemAddRule.GetIteratorForIteratorShapeTasksFromLastLink((global::Ultramarine.Generators.Language.Task)e.OldRolePlayer);
 						//foreach(DslModeling::ModelElement element in oldElements)
 						//{
 						//	DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> pels = DslDiagrams::PresentationViewsSubject.GetPresentation(element);
 						//	foreach(DslDiagrams::PresentationElement pel in pels)
 						//	{
-						//		global::Ultramarine.Generators.Language.CreateFolderShape compartmentShape = pel as global::Ultramarine.Generators.Language.CreateFolderShape;
+						//		global::Ultramarine.Generators.Language.IteratorShape compartmentShape = pel as global::Ultramarine.Generators.Language.IteratorShape;
 						//		if(compartmentShape != null)
 						//		{
 						//			compartmentShape.GetCompartmentMappings()[0].InitializeCompartmentShape(compartmentShape);
@@ -862,13 +1135,13 @@ namespace Ultramarine.Generators.Language
 						//	}
 						//}
 						
-						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetCreateFolderForCreateFolderShapeCompartment1FromLastLink((global::Ultramarine.Generators.Language.CreateFolderHasSetting)e.ElementLink);
-						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.CreateFolderShape), "Compartment1", repaintOnly);
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetIteratorForIteratorShapeTasksFromLastLink((global::Ultramarine.Generators.Language.ChildTasks)e.ElementLink);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.IteratorShape), "Tasks", repaintOnly);
 					}
 					else 
 					{
-						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetCreateFolderForCreateFolderShapeCompartment1((global::Ultramarine.Generators.Language.Settings)e.NewRolePlayer);
-						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.CreateFolderShape), "Compartment1", repaintOnly);
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetIteratorForIteratorShapeTasks((global::Ultramarine.Generators.Language.Task)e.NewRolePlayer);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.IteratorShape), "Tasks", repaintOnly);
 					}
 				}
 			}
@@ -877,7 +1150,7 @@ namespace Ultramarine.Generators.Language
 		/// <summary>
 		/// Rule to update compartments when the order of items in the list changes.
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.CreateFolderHasSetting), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.ChildTasks), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		internal sealed class CompartmentItemRolePlayerPositionChangeRule : DslModeling::RolePlayerPositionChangeRule 
 		{
 			/// <summary>
@@ -892,12 +1165,12 @@ namespace Ultramarine.Generators.Language
 			internal static void RolePlayerPositionChanged(DslModeling::RolePlayerOrderChangedEventArgs e, bool repaintOnly)
 			{
 				if(e==null) throw new global::System.ArgumentNullException("e");
-				if(typeof(global::Ultramarine.Generators.Language.CreateFolderHasSetting).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				if(typeof(global::Ultramarine.Generators.Language.ChildTasks).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
 				{
 					if(!e.CounterpartDomainRole.IsSource)
 					{
-						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetCreateFolderForCreateFolderShapeCompartment1((global::Ultramarine.Generators.Language.Settings)e.CounterpartRolePlayer);
-						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.CreateFolderShape), "Compartment1", repaintOnly);
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetIteratorForIteratorShapeTasks((global::Ultramarine.Generators.Language.Task)e.CounterpartRolePlayer);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ultramarine.Generators.Language.IteratorShape), "Tasks", repaintOnly);
 					}
 				}
 			}
@@ -907,6 +1180,7 @@ namespace Ultramarine.Generators.Language
 		/// Reroute a connector when the role players of its underlying relationship change
 		/// </summary>
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.ConnectedWith), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.ChildTasks), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
 		internal sealed class ConnectorRolePlayerChanged : DslModeling::RolePlayerChangeRule
 		{
 			/// <summary>

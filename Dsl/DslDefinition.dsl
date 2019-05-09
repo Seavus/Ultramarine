@@ -36,59 +36,182 @@
       <BaseClass>
         <DomainClassMoniker Name="Task" />
       </BaseClass>
+      <Properties>
+        <DomainProperty Id="3bbe6d15-5211-403e-8cad-4f065140ae21" Description="Description for Ultramarine.Generators.Language.LoadCodeElement.Element Name" Name="ElementName" DisplayName="Element Name" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="8427b3e8-364c-4296-bfe7-47567c7b1efd" Description="Description for Ultramarine.Generators.Language.LoadCodeElement.Element Type" Name="ElementType" DisplayName="Element Type" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="c743c13e-f643-464a-a943-d643a4bf040a" Description="Description for Ultramarine.Generators.Language.LoadCodeElement.Element Access" Name="ElementAccess" DisplayName="Element Access" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="84636b5c-8348-4063-b1a8-48516cccb759" Description="Description for Ultramarine.Generators.Language.LoadCodeElement.Element Override" Name="ElementOverride" DisplayName="Element Override" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="f8bd1678-2988-4bb2-a5a9-05128fdf9188" Description="Description for Ultramarine.Generators.Language.LoadCodeElement.Type Of" Name="TypeOf" DisplayName="Type Of" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
     </DomainClass>
     <DomainClass Id="c485d0c8-53cb-4700-b9cd-c3df4a47eb15" Description="Description for Ultramarine.Generators.Language.BuildProject" Name="BuildProject" DisplayName="Build Project" Namespace="Ultramarine.Generators.Language">
       <BaseClass>
         <DomainClassMoniker Name="Task" />
       </BaseClass>
       <Properties>
-        <DomainProperty Id="2c4ce0b6-c357-421c-a00d-b0e3ba8bec82" Description="Description for Ultramarine.Generators.Language.BuildProject.Project Name" Name="ProjectName" DisplayName="Project Name">
+        <DomainProperty Id="2c4ce0b6-c357-421c-a00d-b0e3ba8bec82" Description="Name of the project to build" Name="ProjectName" DisplayName="Project name" Category="Settings">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="6ea6184d-c953-4035-ae6b-27f14e524314" Description="Description for Ultramarine.Generators.Language.BuildProject.Configuration" Name="Configuration" DisplayName="Configuration">
+        <DomainProperty Id="6ea6184d-c953-4035-ae6b-27f14e524314" Description="Project configuration to build" Name="Configuration" DisplayName="Configuration" DefaultValue="Debug" Category="Settings">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
       </Properties>
     </DomainClass>
-    <DomainClass Id="0a8bec4c-7da8-4fae-91f5-9a87f89b38b1" Description="Description for Ultramarine.Generators.Language.CreateFolder" Name="CreateFolder" DisplayName="Create Folder" Namespace="Ultramarine.Generators.Language">
+    <DomainClass Id="40bc53f4-bbd4-477a-9afe-d9c3e3ca8e63" Description="Description for Ultramarine.Generators.Language.CreateFolder" Name="CreateFolder" DisplayName="Create Folder" Namespace="Ultramarine.Generators.Language">
       <BaseClass>
         <DomainClassMoniker Name="Task" />
       </BaseClass>
       <Properties>
-        <DomainProperty Id="5b7b713f-a14e-46f3-a6ee-13c915fbbcc7" Description="Description for Ultramarine.Generators.Language.CreateFolder.Folder Path" Name="FolderPath" DisplayName="Folder Path">
+        <DomainProperty Id="0bd209e8-d065-4beb-a785-b4b43ea4223a" Description="Description for Ultramarine.Generators.Language.CreateFolder.Folder Path" Name="FolderPath" DisplayName="Folder Path" Category="Settings">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="3b4e683a-8927-4652-aab5-ee7d46d6f132" Description="Description for Ultramarine.Generators.Language.CreateFolder.Base Path" Name="BasePath" DisplayName="Base Path">
+        <DomainProperty Id="360efd74-a299-49c0-88f4-f01f345b2387" Description="Description for Ultramarine.Generators.Language.CreateFolder.Base Path" Name="BasePath" DisplayName="Base Path" Category="Settings">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
       </Properties>
-      <ElementMergeDirectives>
-        <ElementMergeDirective>
-          <Index>
-            <DomainClassMoniker Name="Settings" />
-          </Index>
-          <LinkCreationPaths>
-            <DomainPath>CreateFolderHasSetting.Setting</DomainPath>
-          </LinkCreationPaths>
-        </ElementMergeDirective>
-      </ElementMergeDirectives>
     </DomainClass>
-    <DomainClass Id="dbf0da59-5949-4c55-a59c-2a0ff2343ea2" Description="Description for Ultramarine.Generators.Language.Settings" Name="Settings" DisplayName="Settings" InheritanceModifier="Sealed" Namespace="Ultramarine.Generators.Language">
+    <DomainClass Id="82ab47c8-1755-4e0d-b939-2f5aa4eb8e33" Description="Description for Ultramarine.Generators.Language.CreateProjectItem" Name="CreateProjectItem" DisplayName="Create Project Item" Namespace="Ultramarine.Generators.Language">
+      <BaseClass>
+        <DomainClassMoniker Name="Task" />
+      </BaseClass>
       <Properties>
-        <DomainProperty Id="bfd881b2-142f-45f0-8a26-b01b4aebdac3" Description="Description for Ultramarine.Generators.Language.Settings.Value" Name="Value" DisplayName="Value">
+        <DomainProperty Id="739ebe60-22b8-4209-819b-937af6c3274a" Description="Description for Ultramarine.Generators.Language.CreateProjectItem.Item Name" Name="ItemName" DisplayName="Item Name" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="38d4fe11-243a-4767-a37c-dec047d5515b" Description="Description for Ultramarine.Generators.Language.CreateProjectItem.Folder Path" Name="FolderPath" DisplayName="Folder Path" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="a814346f-0fb9-465e-b6ff-e3d5df39a9b3" Description="Description for Ultramarine.Generators.Language.CreateProjectItem.Linked With" Name="LinkedWith" DisplayName="Linked With" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="af1ceb4a-ec36-437c-b810-8fb31e5e374b" Description="Description for Ultramarine.Generators.Language.CreateProjectItem.Project Name" Name="ProjectName" DisplayName="Project Name" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="7bcd5863-138d-4692-ba1a-09b6dda26285" Description="Description for Ultramarine.Generators.Language.CreateProjectItem.Overwrite" Name="Overwrite" DisplayName="Overwrite" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/Boolean" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
+    <DomainClass Id="feaf6d65-bedd-4b04-91c5-d0226176c21a" Description="Description for Ultramarine.Generators.Language.LoadProjectItem" Name="LoadProjectItem" DisplayName="Load Project Item" Namespace="Ultramarine.Generators.Language">
+      <BaseClass>
+        <DomainClassMoniker Name="Task" />
+      </BaseClass>
+      <Properties>
+        <DomainProperty Id="d2100451-3c56-434a-8c7f-b6935b11c65a" Description="Description for Ultramarine.Generators.Language.LoadProjectItem.Project Name" Name="ProjectName" DisplayName="Project Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="6b3c9a64-adab-4d9f-be52-3e27a3194852" Description="Description for Ultramarine.Generators.Language.LoadProjectItem.Item Name" Name="ItemName" DisplayName="Item Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="d82e00ed-cdd4-4d86-8d4b-340f7944fb46" Description="Description for Ultramarine.Generators.Language.LoadProjectItem.Linked With" Name="LinkedWith" DisplayName="Linked With">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
       </Properties>
+    </DomainClass>
+    <DomainClass Id="2a2726ef-e0e8-4b0d-a8f2-37d2f7d03b4c" Description="Description for Ultramarine.Generators.Language.ReadProperty" Name="ReadProperty" DisplayName="Read Property" Namespace="Ultramarine.Generators.Language">
+      <BaseClass>
+        <DomainClassMoniker Name="Task" />
+      </BaseClass>
+      <Properties>
+        <DomainProperty Id="47796921-bf6b-49db-8e5c-248c3408e0f4" Description="Description for Ultramarine.Generators.Language.ReadProperty.Property Name" Name="PropertyName" DisplayName="Property Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
+    <DomainClass Id="9e35266d-2d6f-4d1c-9ea2-40677ffdaee1" Description="Description for Ultramarine.Generators.Language.SetVariable" Name="SetVariable" DisplayName="Set Variable" Namespace="Ultramarine.Generators.Language">
+      <BaseClass>
+        <DomainClassMoniker Name="Task" />
+      </BaseClass>
+      <Properties>
+        <DomainProperty Id="9f4ba5ed-94b9-460c-a912-ba7642b0db2e" Description="Description for Ultramarine.Generators.Language.SetVariable.Variable Name" Name="VariableName" DisplayName="Variable Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="509a5ec0-99b0-48f9-a9b0-2cba1dc37855" Description="Description for Ultramarine.Generators.Language.SetVariable.Variable Value" Name="VariableValue" DisplayName="Variable Value">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="9417475f-713c-4983-a481-af96ebf0e123" Description="Description for Ultramarine.Generators.Language.SetVariable.Parent Task" Name="ParentTask" DisplayName="Parent Task">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
+    <DomainClass Id="cf3a6e86-268d-4c5d-85e5-54f790a850c5" Description="Description for Ultramarine.Generators.Language.TextTransformation" Name="TextTransformation" DisplayName="Text Transformation" Namespace="Ultramarine.Generators.Language">
+      <BaseClass>
+        <DomainClassMoniker Name="Task" />
+      </BaseClass>
+      <Properties>
+        <DomainProperty Id="0ec6bd04-5eab-4522-9888-e68def811753" Description="Description for Ultramarine.Generators.Language.TextTransformation.File Name" Name="FileName" DisplayName="File Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="62ae3e3d-ad13-4bee-91d7-a5d4191ede17" Description="Description for Ultramarine.Generators.Language.TextTransformation.Project Name" Name="ProjectName" DisplayName="Project Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="3fbda026-81a0-408e-bb53-4fc02d257317" Description="Description for Ultramarine.Generators.Language.TextTransformation.Parameters" Name="Parameters" DisplayName="Parameters">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
+    <DomainClass Id="0f981f24-ba7b-496f-aa88-c64c5c8c9a90" Description="Description for Ultramarine.Generators.Language.Iterator" Name="Iterator" DisplayName="Iterator" Namespace="Ultramarine.Generators.Language">
+      <BaseClass>
+        <DomainClassMoniker Name="CompositeTask" />
+      </BaseClass>
     </DomainClass>
   </Classes>
   <Relationships>
@@ -124,34 +247,18 @@
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="0ae4d88d-d086-4dbd-9ef8-bb70cff9b8d9" Description="Description for Ultramarine.Generators.Language.CompositeTaskReferencesTasked" Name="CompositeTaskReferencesTasked" DisplayName="Composite Task References Tasked" Namespace="Ultramarine.Generators.Language">
+    <DomainRelationship Id="0ae4d88d-d086-4dbd-9ef8-bb70cff9b8d9" Description="Description for Ultramarine.Generators.Language.ChildTasks" Name="ChildTasks" DisplayName="Child Tasks" Namespace="Ultramarine.Generators.Language">
       <Source>
-        <DomainRole Id="7d858091-54ed-4846-b5a0-31b87d001bd7" Description="Description for Ultramarine.Generators.Language.CompositeTaskReferencesTasked.CompositeTask" Name="CompositeTask" DisplayName="Composite Task" PropertyName="Tasked" PropertyDisplayName="Tasked">
+        <DomainRole Id="7d858091-54ed-4846-b5a0-31b87d001bd7" Description="Description for Ultramarine.Generators.Language.ChildTasks.CompositeTask" Name="CompositeTask" DisplayName="Composite Task" PropertyName="Tasks" PropagatesDelete="true" PropertyDisplayName="Tasks">
           <RolePlayer>
             <DomainClassMoniker Name="CompositeTask" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="6f1c3c60-10b8-40a1-b6d2-3f1fe7b5ca6b" Description="Description for Ultramarine.Generators.Language.CompositeTaskReferencesTasked.Task" Name="Task" DisplayName="Task" PropertyName="CompositeTasked" PropertyDisplayName="Composite Tasked">
+        <DomainRole Id="6f1c3c60-10b8-40a1-b6d2-3f1fe7b5ca6b" Description="Description for Ultramarine.Generators.Language.ChildTasks.Task" Name="Task" DisplayName="Task" PropertyName="Parent" Multiplicity="One" PropertyDisplayName="Parent">
           <RolePlayer>
             <DomainClassMoniker Name="Task" />
-          </RolePlayer>
-        </DomainRole>
-      </Target>
-    </DomainRelationship>
-    <DomainRelationship Id="6d9be41d-8491-4587-a01c-2656c2b7c759" Description="Description for Ultramarine.Generators.Language.CreateFolderHasSetting" Name="CreateFolderHasSetting" DisplayName="Create Folder Has Setting" Namespace="Ultramarine.Generators.Language" IsEmbedding="true">
-      <Source>
-        <DomainRole Id="2d95806b-94e5-450c-af9d-30917059f048" Description="Description for Ultramarine.Generators.Language.CreateFolderHasSetting.CreateFolder" Name="CreateFolder" DisplayName="Create Folder" PropertyName="Setting" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Setting">
-          <RolePlayer>
-            <DomainClassMoniker Name="CreateFolder" />
-          </RolePlayer>
-        </DomainRole>
-      </Source>
-      <Target>
-        <DomainRole Id="1b25d5e4-8eaf-4663-87a9-0b61688a5cb2" Description="Description for Ultramarine.Generators.Language.CreateFolderHasSetting.Settings" Name="Settings" DisplayName="Settings" PropertyName="CreateFolder" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Create Folder">
-          <RolePlayer>
-            <DomainClassMoniker Name="Settings" />
           </RolePlayer>
         </DomainRole>
       </Target>
@@ -175,55 +282,74 @@
     <ExternalType Name="Char" Namespace="System" />
   </Types>
   <Shapes>
-    <GeometryShape Id="58d67238-c826-4929-9037-ad4ca1327d43" Description="Shape used to represent ExampleElements on a Diagram." Name="LoadCodeElementShape" DisplayName="Load Code Element Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Load Code Element Shape" FillColor="234, 234, 236" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" Geometry="Rectangle">
+    <GeometryShape Id="58d67238-c826-4929-9037-ad4ca1327d43" Description="Shape used to represent ExampleElements on a Diagram." Name="LoadCodeElementShape" DisplayName="Load Code Element Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Load Code Element Shape" FillColor="255, 153, 204" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
     </GeometryShape>
-    <GeometryShape Id="f5e430b0-4664-4db8-bc0c-80dc426c72b6" Description="Description for Ultramarine.Generators.Language.TaskShape" Name="TaskShape" DisplayName="Task Shape" InheritanceModifier="Abstract" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Task Shape" InitialHeight="1" Geometry="Rectangle">
+    <GeometryShape Id="f5e430b0-4664-4db8-bc0c-80dc426c72b6" Description="Description for Ultramarine.Generators.Language.TaskShape" Name="TaskShape" DisplayName="Task Shape" InheritanceModifier="Abstract" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Task Shape" FillColor="234, 234, 236" OutlineColor="Silver" InitialWidth="1.2" InitialHeight="0.75" Geometry="RoundedRectangle">
       <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontStyle="Bold" />
+        <TextDecorator Name="NameDecorator" DisplayName="Name" DefaultText="Name" FontStyle="Bold" />
       </ShapeHasDecorators>
-      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0.1">
+      <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="DescriptionDecorator" DisplayName="Description Decorator" DefaultText="DescriptionDecorator" FontStyle="Italic" />
       </ShapeHasDecorators>
       <ShapeHasDecorators Position="InnerTopRight" HorizontalOffset="0" VerticalOffset="0">
-        <ExpandCollapseDecorator Name="ExpandCollapseDecorator" DisplayName="Expand Collapse Decorator" />
+        <ExpandCollapseDecorator Name="ExpanderDecorator" DisplayName="Expander Decorator" />
+      </ShapeHasDecorators>
+      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0.12">
+        <TextDecorator Name="TypeDecorator" DisplayName="Type" DefaultText="Type" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="450ca504-4e61-482d-aad1-c82e46ac7fd4" Description="Description for Ultramarine.Generators.Language.BuildProjectShape" Name="BuildProjectShape" DisplayName="Build Project Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Build Project Shape" InitialHeight="1" Geometry="Rectangle">
+    <GeometryShape Id="450ca504-4e61-482d-aad1-c82e46ac7fd4" Description="Description for Ultramarine.Generators.Language.BuildProjectShape" Name="BuildProjectShape" DisplayName="Build Project Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Build Project Shape" FillColor="215, 220, 230" OutlineColor="Silver" InitialHeight="1" Geometry="RoundedRectangle">
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
-      <Properties>
-        <DomainProperty Id="e9799d3f-5a3c-40ca-8085-18d26a5f4fe3" Description="Description for Ultramarine.Generators.Language.BuildProjectShape.Project Name" Name="ProjectName" DisplayName="Project Name">
-          <Type>
-            <ExternalTypeMoniker Name="/System/String" />
-          </Type>
-        </DomainProperty>
-        <DomainProperty Id="c2826879-436a-499b-8cc5-af06b863be99" Description="Description for Ultramarine.Generators.Language.BuildProjectShape.Configuration" Name="Configuration" DisplayName="Configuration">
-          <Type>
-            <ExternalTypeMoniker Name="/System/String" />
-          </Type>
-        </DomainProperty>
-      </Properties>
-      <ShapeHasDecorators Position="InnerTopLeft" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="TextDecorator1" DisplayName="Text Decorator1" DefaultText="TextDecorator1" />
-      </ShapeHasDecorators>
     </GeometryShape>
-    <CompartmentShape Id="753d476b-454e-4ee7-951f-56f8dd2f2581" Description="Description for Ultramarine.Generators.Language.CreateFolderShape" Name="CreateFolderShape" DisplayName="Create Folder Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Create Folder Shape" InitialHeight="1" Geometry="Rectangle">
-      <ShapeHasDecorators Position="InnerTopLeft" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="Name" DisplayName="Name" DefaultText="Name" />
+    <GeometryShape Id="2cf43689-bcb0-4e2f-9239-b3cbc86a4c64" Description="Description for Ultramarine.Generators.Language.CreateFolderShape" Name="CreateFolderShape" DisplayName="Create Folder Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Create Folder Shape" InitialHeight="1" Geometry="Rectangle">
+      <BaseGeometryShape>
+        <GeometryShapeMoniker Name="TaskShape" />
+      </BaseGeometryShape>
+    </GeometryShape>
+    <GeometryShape Id="883ab655-c59b-4963-99e5-2edfdb58bbd8" Description="Description for Ultramarine.Generators.Language.CreateProjectItemShape" Name="CreateProjectItemShape" DisplayName="Create Project Item Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Create Project Item Shape" InitialHeight="1" Geometry="Rectangle">
+      <BaseGeometryShape>
+        <GeometryShapeMoniker Name="TaskShape" />
+      </BaseGeometryShape>
+    </GeometryShape>
+    <GeometryShape Id="857210ba-a7b4-4fca-9f1c-4a337520227a" Description="Description for Ultramarine.Generators.Language.LoadProjectItemShape" Name="LoadProjectItemShape" DisplayName="Load Project Item Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Load Project Item Shape" InitialHeight="1" Geometry="Rectangle">
+      <BaseGeometryShape>
+        <GeometryShapeMoniker Name="TaskShape" />
+      </BaseGeometryShape>
+    </GeometryShape>
+    <GeometryShape Id="9ba526a8-3267-41f5-a7b1-767e66ee3463" Description="Description for Ultramarine.Generators.Language.ReadPropertyShape" Name="ReadPropertyShape" DisplayName="Read Property Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Read Property Shape" InitialHeight="1" Geometry="Rectangle">
+      <BaseGeometryShape>
+        <GeometryShapeMoniker Name="TaskShape" />
+      </BaseGeometryShape>
+    </GeometryShape>
+    <GeometryShape Id="a7fab263-fe32-4091-a1b1-db97327d3be5" Description="Description for Ultramarine.Generators.Language.SetVariableShape" Name="SetVariableShape" DisplayName="Set Variable Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Set Variable Shape" InitialHeight="1" Geometry="Rectangle">
+      <BaseGeometryShape>
+        <GeometryShapeMoniker Name="TaskShape" />
+      </BaseGeometryShape>
+    </GeometryShape>
+    <GeometryShape Id="ae5903c3-0190-4edd-a9dd-7175f9c738ab" Description="Description for Ultramarine.Generators.Language.TextTransformationShape" Name="TextTransformationShape" DisplayName="Text Transformation Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Text Transformation Shape" InitialHeight="1" Geometry="Rectangle">
+      <BaseGeometryShape>
+        <GeometryShapeMoniker Name="TaskShape" />
+      </BaseGeometryShape>
+    </GeometryShape>
+    <CompartmentShape Id="fe69f575-c5c4-4a36-a483-3543adafdb19" Description="Description for Ultramarine.Generators.Language.IteratorShape" Name="IteratorShape" DisplayName="Iterator Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Iterator Shape" InitialHeight="1" Geometry="Rectangle">
+      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
+        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontStyle="Bold" />
       </ShapeHasDecorators>
-      <ShapeHasDecorators Position="InnerTopLeft" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="Description" DisplayName="Description" DefaultText="Description" />
+      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0.12">
+        <TextDecorator Name="DescriptionDecorator" DisplayName="Description Decorator" DefaultText="DescriptionDecorator" />
       </ShapeHasDecorators>
-      <Compartment Name="Compartment1" />
+      <Compartment Name="Tasks" />
     </CompartmentShape>
   </Shapes>
   <Connectors>
     <Connector Id="dab655e0-7fef-4a35-9d0f-6847eb0c9a37" Description="Connector between the ExampleShapes. Represents ExampleRelationships on the Diagram." Name="ConnectedWithConnector" DisplayName="Connected With Connector" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Connected With Connector" Color="113, 111, 110" TargetEndStyle="EmptyArrow" Thickness="0.01" />
+    <Connector Id="1f82a4c0-b0ee-4277-901c-8c5b43647f88" Description="Description for Ultramarine.Generators.Language.IteratorConnector" Name="IteratorConnector" DisplayName="Iterator Connector" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Iterator Connector" Color="Maroon" />
   </Connectors>
   <XmlSerializationBehavior Name="GeneratorLanguageSerializationBehavior" Namespace="Ultramarine.Generators.Language">
     <ClassData>
@@ -261,13 +387,30 @@
       <XmlClassData TypeName="CompositeTask" MonikerAttributeName="" SerializeId="true" MonikerElementName="compositeTaskMoniker" ElementName="compositeTask" MonikerTypeName="CompositeTaskMoniker">
         <DomainClassMoniker Name="CompositeTask" />
         <ElementData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="tasked">
-            <DomainRelationshipMoniker Name="CompositeTaskReferencesTasked" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="tasks">
+            <DomainRelationshipMoniker Name="ChildTasks" />
           </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="LoadCodeElement" MonikerAttributeName="" SerializeId="true" MonikerElementName="loadCodeElementMoniker" ElementName="loadCodeElement" MonikerTypeName="LoadCodeElementMoniker">
         <DomainClassMoniker Name="LoadCodeElement" />
+        <ElementData>
+          <XmlPropertyData XmlName="elementName">
+            <DomainPropertyMoniker Name="LoadCodeElement/ElementName" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="elementType">
+            <DomainPropertyMoniker Name="LoadCodeElement/ElementType" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="elementAccess">
+            <DomainPropertyMoniker Name="LoadCodeElement/ElementAccess" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="elementOverride">
+            <DomainPropertyMoniker Name="LoadCodeElement/ElementOverride" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="typeOf">
+            <DomainPropertyMoniker Name="LoadCodeElement/TypeOf" />
+          </XmlPropertyData>
+        </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="ConnectedWith" MonikerAttributeName="" SerializeId="true" MonikerElementName="connectedWithMoniker" ElementName="connectedWith" MonikerTypeName="ConnectedWithMoniker">
         <DomainRelationshipMoniker Name="ConnectedWith" />
@@ -275,8 +418,8 @@
       <XmlClassData TypeName="GeneratorModelHasTasks" MonikerAttributeName="" SerializeId="true" MonikerElementName="generatorModelHasTasksMoniker" ElementName="generatorModelHasTasks" MonikerTypeName="GeneratorModelHasTasksMoniker">
         <DomainRelationshipMoniker Name="GeneratorModelHasTasks" />
       </XmlClassData>
-      <XmlClassData TypeName="CompositeTaskReferencesTasked" MonikerAttributeName="" SerializeId="true" MonikerElementName="compositeTaskReferencesTaskedMoniker" ElementName="compositeTaskReferencesTasked" MonikerTypeName="CompositeTaskReferencesTaskedMoniker">
-        <DomainRelationshipMoniker Name="CompositeTaskReferencesTasked" />
+      <XmlClassData TypeName="ChildTasks" MonikerAttributeName="" SerializeId="true" MonikerElementName="childTasksMoniker" ElementName="childTasks" MonikerTypeName="ChildTasksMoniker">
+        <DomainRelationshipMoniker Name="ChildTasks" />
       </XmlClassData>
       <XmlClassData TypeName="BuildProject" MonikerAttributeName="" SerializeId="true" MonikerElementName="buildProjectMoniker" ElementName="buildProject" MonikerTypeName="BuildProjectMoniker">
         <DomainClassMoniker Name="BuildProject" />
@@ -294,17 +437,9 @@
       </XmlClassData>
       <XmlClassData TypeName="BuildProjectShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="buildProjectShapeMoniker" ElementName="buildProjectShape" MonikerTypeName="BuildProjectShapeMoniker">
         <GeometryShapeMoniker Name="BuildProjectShape" />
-        <ElementData>
-          <XmlPropertyData XmlName="projectName">
-            <DomainPropertyMoniker Name="BuildProjectShape/ProjectName" />
-          </XmlPropertyData>
-          <XmlPropertyData XmlName="configuration">
-            <DomainPropertyMoniker Name="BuildProjectShape/Configuration" />
-          </XmlPropertyData>
-        </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="CreateFolderShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="createFolderShapeMoniker" ElementName="createFolderShape" MonikerTypeName="CreateFolderShapeMoniker">
-        <CompartmentShapeMoniker Name="CreateFolderShape" />
+        <GeometryShapeMoniker Name="CreateFolderShape" />
       </XmlClassData>
       <XmlClassData TypeName="CreateFolder" MonikerAttributeName="" SerializeId="true" MonikerElementName="createFolderMoniker" ElementName="createFolder" MonikerTypeName="CreateFolderMoniker">
         <DomainClassMoniker Name="CreateFolder" />
@@ -315,21 +450,101 @@
           <XmlPropertyData XmlName="basePath">
             <DomainPropertyMoniker Name="CreateFolder/BasePath" />
           </XmlPropertyData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="setting">
-            <DomainRelationshipMoniker Name="CreateFolderHasSetting" />
-          </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
-      <XmlClassData TypeName="Settings" MonikerAttributeName="" SerializeId="true" MonikerElementName="settingsMoniker" ElementName="settings" MonikerTypeName="SettingsMoniker">
-        <DomainClassMoniker Name="Settings" />
+      <XmlClassData TypeName="CreateProjectItem" MonikerAttributeName="" SerializeId="true" MonikerElementName="createProjectItemMoniker" ElementName="createProjectItem" MonikerTypeName="CreateProjectItemMoniker">
+        <DomainClassMoniker Name="CreateProjectItem" />
         <ElementData>
-          <XmlPropertyData XmlName="value">
-            <DomainPropertyMoniker Name="Settings/Value" />
+          <XmlPropertyData XmlName="itemName">
+            <DomainPropertyMoniker Name="CreateProjectItem/ItemName" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="folderPath">
+            <DomainPropertyMoniker Name="CreateProjectItem/FolderPath" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="linkedWith">
+            <DomainPropertyMoniker Name="CreateProjectItem/LinkedWith" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="projectName">
+            <DomainPropertyMoniker Name="CreateProjectItem/ProjectName" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="overwrite">
+            <DomainPropertyMoniker Name="CreateProjectItem/Overwrite" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
-      <XmlClassData TypeName="CreateFolderHasSetting" MonikerAttributeName="" SerializeId="true" MonikerElementName="createFolderHasSettingMoniker" ElementName="createFolderHasSetting" MonikerTypeName="CreateFolderHasSettingMoniker">
-        <DomainRelationshipMoniker Name="CreateFolderHasSetting" />
+      <XmlClassData TypeName="CreateProjectItemShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="createProjectItemShapeMoniker" ElementName="createProjectItemShape" MonikerTypeName="CreateProjectItemShapeMoniker">
+        <GeometryShapeMoniker Name="CreateProjectItemShape" />
+      </XmlClassData>
+      <XmlClassData TypeName="LoadProjectItem" MonikerAttributeName="" SerializeId="true" MonikerElementName="loadProjectItemMoniker" ElementName="loadProjectItem" MonikerTypeName="LoadProjectItemMoniker">
+        <DomainClassMoniker Name="LoadProjectItem" />
+        <ElementData>
+          <XmlPropertyData XmlName="projectName">
+            <DomainPropertyMoniker Name="LoadProjectItem/ProjectName" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="itemName">
+            <DomainPropertyMoniker Name="LoadProjectItem/ItemName" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="linkedWith">
+            <DomainPropertyMoniker Name="LoadProjectItem/LinkedWith" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="LoadProjectItemShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="loadProjectItemShapeMoniker" ElementName="loadProjectItemShape" MonikerTypeName="LoadProjectItemShapeMoniker">
+        <GeometryShapeMoniker Name="LoadProjectItemShape" />
+      </XmlClassData>
+      <XmlClassData TypeName="ReadProperty" MonikerAttributeName="" SerializeId="true" MonikerElementName="readPropertyMoniker" ElementName="readProperty" MonikerTypeName="ReadPropertyMoniker">
+        <DomainClassMoniker Name="ReadProperty" />
+        <ElementData>
+          <XmlPropertyData XmlName="propertyName">
+            <DomainPropertyMoniker Name="ReadProperty/PropertyName" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="ReadPropertyShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="readPropertyShapeMoniker" ElementName="readPropertyShape" MonikerTypeName="ReadPropertyShapeMoniker">
+        <GeometryShapeMoniker Name="ReadPropertyShape" />
+      </XmlClassData>
+      <XmlClassData TypeName="SetVariable" MonikerAttributeName="" SerializeId="true" MonikerElementName="setVariableMoniker" ElementName="setVariable" MonikerTypeName="SetVariableMoniker">
+        <DomainClassMoniker Name="SetVariable" />
+        <ElementData>
+          <XmlPropertyData XmlName="variableName">
+            <DomainPropertyMoniker Name="SetVariable/VariableName" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="variableValue">
+            <DomainPropertyMoniker Name="SetVariable/VariableValue" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="parentTask">
+            <DomainPropertyMoniker Name="SetVariable/ParentTask" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="SetVariableShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="setVariableShapeMoniker" ElementName="setVariableShape" MonikerTypeName="SetVariableShapeMoniker">
+        <GeometryShapeMoniker Name="SetVariableShape" />
+      </XmlClassData>
+      <XmlClassData TypeName="TextTransformation" MonikerAttributeName="" SerializeId="true" MonikerElementName="textTransformationMoniker" ElementName="textTransformation" MonikerTypeName="TextTransformationMoniker">
+        <DomainClassMoniker Name="TextTransformation" />
+        <ElementData>
+          <XmlPropertyData XmlName="fileName">
+            <DomainPropertyMoniker Name="TextTransformation/FileName" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="projectName">
+            <DomainPropertyMoniker Name="TextTransformation/ProjectName" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="parameters">
+            <DomainPropertyMoniker Name="TextTransformation/Parameters" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="TextTransformationShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="textTransformationShapeMoniker" ElementName="textTransformationShape" MonikerTypeName="TextTransformationShapeMoniker">
+        <GeometryShapeMoniker Name="TextTransformationShape" />
+      </XmlClassData>
+      <XmlClassData TypeName="Iterator" MonikerAttributeName="" SerializeId="true" MonikerElementName="iteratorMoniker" ElementName="iterator" MonikerTypeName="IteratorMoniker">
+        <DomainClassMoniker Name="Iterator" />
+      </XmlClassData>
+      <XmlClassData TypeName="IteratorShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="iteratorShapeMoniker" ElementName="iteratorShape" MonikerTypeName="IteratorShapeMoniker">
+        <CompartmentShapeMoniker Name="IteratorShape" />
+      </XmlClassData>
+      <XmlClassData TypeName="IteratorConnector" MonikerAttributeName="" SerializeId="true" MonikerElementName="iteratorConnectorMoniker" ElementName="iteratorConnector" MonikerTypeName="IteratorConnectorMoniker">
+        <ConnectorMoniker Name="IteratorConnector" />
       </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
@@ -354,9 +569,9 @@
         </TargetDirectives>
       </LinkConnectDirective>
     </ConnectionBuilder>
-    <ConnectionBuilder Name="CompositeTaskReferencesTaskedBuilder">
+    <ConnectionBuilder Name="ChildTasksBuilder">
       <LinkConnectDirective>
-        <DomainRelationshipMoniker Name="CompositeTaskReferencesTasked" />
+        <DomainRelationshipMoniker Name="ChildTasks" />
         <SourceDirectives>
           <RolePlayerConnectDirective>
             <AcceptingClass>
@@ -425,13 +640,59 @@
         </DecoratorMap>
         <GeometryShapeMoniker Name="BuildProjectShape" />
       </ShapeMap>
-      <CompartmentShapeMap>
+      <ShapeMap>
         <DomainClassMoniker Name="CreateFolder" />
         <ParentElementPath>
           <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
-          <TextDecoratorMoniker Name="CreateFolderShape/Description" />
+          <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Description" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <GeometryShapeMoniker Name="CreateFolderShape" />
+      </ShapeMap>
+      <ShapeMap>
+        <DomainClassMoniker Name="CreateProjectItem" />
+        <ParentElementPath>
+          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+        </ParentElementPath>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="CreateProjectItem/FolderPath" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <GeometryShapeMoniker Name="CreateProjectItemShape" />
+      </ShapeMap>
+      <ShapeMap>
+        <DomainClassMoniker Name="LoadProjectItem" />
+        <ParentElementPath>
+          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+        </ParentElementPath>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="Task/Description" />
@@ -439,22 +700,114 @@
           </PropertyDisplayed>
         </DecoratorMap>
         <DecoratorMap>
-          <TextDecoratorMoniker Name="CreateFolderShape/Name" />
+          <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="Task/Name" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
-        <CompartmentShapeMoniker Name="CreateFolderShape" />
+        <GeometryShapeMoniker Name="LoadProjectItemShape" />
+      </ShapeMap>
+      <ShapeMap>
+        <DomainClassMoniker Name="ReadProperty" />
+        <ParentElementPath>
+          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+        </ParentElementPath>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Description" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <GeometryShapeMoniker Name="ReadPropertyShape" />
+      </ShapeMap>
+      <ShapeMap>
+        <DomainClassMoniker Name="SetVariable" />
+        <ParentElementPath>
+          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+        </ParentElementPath>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Description" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <GeometryShapeMoniker Name="SetVariableShape" />
+      </ShapeMap>
+      <ShapeMap>
+        <DomainClassMoniker Name="TextTransformation" />
+        <ParentElementPath>
+          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+        </ParentElementPath>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Description" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <GeometryShapeMoniker Name="TextTransformationShape" />
+      </ShapeMap>
+      <CompartmentShapeMap>
+        <DomainClassMoniker Name="Iterator" />
+        <ParentElementPath>
+          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+        </ParentElementPath>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="IteratorShape/NameDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="IteratorShape/DescriptionDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Description" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <CompartmentShapeMoniker Name="IteratorShape" />
         <CompartmentMap>
-          <CompartmentMoniker Name="CreateFolderShape/Compartment1" />
+          <CompartmentMoniker Name="IteratorShape/Tasks" />
           <ElementsDisplayed>
-            <DomainPath>CreateFolderHasSetting.Setting/!Settings</DomainPath>
+            <DomainPath>ChildTasks.Tasks/!Task</DomainPath>
           </ElementsDisplayed>
           <PropertyDisplayed>
             <PropertyPath>
-              <DomainPropertyMoniker Name="Settings/Value" />
+              <DomainPropertyMoniker Name="Task/Name" />
             </PropertyPath>
           </PropertyDisplayed>
         </CompartmentMap>
@@ -464,6 +817,10 @@
       <ConnectorMap>
         <ConnectorMoniker Name="ConnectedWithConnector" />
         <DomainRelationshipMoniker Name="ConnectedWith" />
+      </ConnectorMap>
+      <ConnectorMap>
+        <ConnectorMoniker Name="IteratorConnector" />
+        <DomainRelationshipMoniker Name="ChildTasks" />
       </ConnectorMap>
     </ConnectorMaps>
   </Diagram>
@@ -475,17 +832,38 @@
       <XmlSerializationBehaviorMoniker Name="GeneratorLanguageSerializationBehavior" />
     </XmlSerializationDefinition>
     <ToolboxTab TabText="GeneratorLanguage">
-      <ElementTool Name="LoadCodeElement" ToolboxIcon="resources\exampleshapetoolbitmap.bmp" Caption="Load CodeElement" Tooltip="Create an ExampleElement" HelpKeyword="CreateExampleClassF1Keyword">
-        <DomainClassMoniker Name="LoadCodeElement" />
-      </ElementTool>
-      <ConnectionTool Name="ExampleRelationship" ToolboxIcon="resources\exampleconnectortoolbitmap.bmp" Caption="ExampleRelationship" Tooltip="Drag between ExampleElements to create an ExampleRelationship" HelpKeyword="ConnectExampleRelationF1Keyword">
+      <ConnectionTool Name="ConnectedWithRelationship" ToolboxIcon="resources\exampleconnectortoolbitmap.bmp" Caption="ConnectedWith" Tooltip="Drag between ExampleElements to create an ExampleRelationship" HelpKeyword="ConnectExampleRelationF1Keyword">
         <ConnectionBuilderMoniker Name="GeneratorLanguage/ConnectedWithBuilder" />
       </ConnectionTool>
       <ElementTool Name="BuildProject" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="BuildProject" Tooltip="Build Project" HelpKeyword="BuildProject">
         <DomainClassMoniker Name="BuildProject" />
       </ElementTool>
-      <ElementTool Name="CreateFolder" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="Create Folder" Tooltip="Create Folder" HelpKeyword="CreateFolder">
+      <ElementTool Name="CreateFolder" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="CreateFolder" Tooltip="Create Folder" HelpKeyword="CreateFolder">
         <DomainClassMoniker Name="CreateFolder" />
+      </ElementTool>
+      <ElementTool Name="CreateProjectItem" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="CreateProjectItem" Tooltip="Create Project Item" HelpKeyword="CreateProjectItem">
+        <DomainClassMoniker Name="CreateProjectItem" />
+      </ElementTool>
+      <ElementTool Name="LoadCodeElement" ToolboxIcon="resources\exampleshapetoolbitmap.bmp" Caption="Load CodeElement" Tooltip="Create an ExampleElement" HelpKeyword="CreateExampleClassF1Keyword">
+        <DomainClassMoniker Name="LoadCodeElement" />
+      </ElementTool>
+      <ElementTool Name="LoadProjectItem" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="LoadProjectItem" Tooltip="Load Project Item" HelpKeyword="LoadProjectItem">
+        <DomainClassMoniker Name="LoadProjectItem" />
+      </ElementTool>
+      <ElementTool Name="ReadProperty" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="ReadProperty" Tooltip="Read Property" HelpKeyword="ReadProperty">
+        <DomainClassMoniker Name="ReadProperty" />
+      </ElementTool>
+      <ElementTool Name="SetVariable" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="SetVariable" Tooltip="Set Variable" HelpKeyword="SetVariable">
+        <DomainClassMoniker Name="SetVariable" />
+      </ElementTool>
+      <ConnectionTool Name="ParentRelationship" ToolboxIcon="Resources\ExampleConnectorToolBitmap.bmp" Caption="ParentRelationship" Tooltip="Parent Relationship" HelpKeyword="ParentRelationship" SourceCursorIcon="Resources\ConnectorSourceSearch.cur" TargetCursorIcon="Resources\ConnectorTargetSearch.cur">
+        <ConnectionBuilderMoniker Name="GeneratorLanguage/ChildTasksBuilder" />
+      </ConnectionTool>
+      <ElementTool Name="Iterator" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="Iterator" Tooltip="Iterator" HelpKeyword="Iterator">
+        <DomainClassMoniker Name="Iterator" />
+      </ElementTool>
+      <ElementTool Name="TextTransformation" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="TextTransformation" Tooltip="Text Transformation" HelpKeyword="TextTransformation">
+        <DomainClassMoniker Name="TextTransformation" />
       </ElementTool>
     </ToolboxTab>
     <Validation UsesMenu="false" UsesOpen="false" UsesSave="false" UsesLoad="false" />

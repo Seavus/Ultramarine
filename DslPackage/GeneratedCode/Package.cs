@@ -29,21 +29,13 @@ namespace Ultramarine.Generators.Language
 	[VSShell::ProvideToolWindowVisibility(typeof(GeneratorLanguageExplorerToolWindow), Constants.GeneratorLanguageEditorFactoryId)]
 	[VSShell::ProvideStaticToolboxGroup("@GeneratorLanguageToolboxTab;Ultramarine.Generators.Language.Dsl.dll", "Ultramarine.Generators.Language.GeneratorLanguageToolboxTab")]
 	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
-					"@LoadCodeElementToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
-					"Ultramarine.Generators.Language.LoadCodeElementToolboxItem", 
-					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
-					"CreateExampleClassF1Keyword", 
-					"@LoadCodeElementToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
-					0xff00ff,
-					Index = 0)]
-	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
-					"@ExampleRelationshipToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
-					"Ultramarine.Generators.Language.ExampleRelationshipToolboxItem", 
+					"@ConnectedWithRelationshipToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.ConnectedWithRelationshipToolboxItem", 
 					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
 					"ConnectExampleRelationF1Keyword", 
-					"@ExampleRelationshipToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					"@ConnectedWithRelationshipToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
 					0xff00ff,
-					Index = 1)]
+					Index = 0)]
 	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
 					"@BuildProjectToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
 					"Ultramarine.Generators.Language.BuildProjectToolboxItem", 
@@ -51,7 +43,7 @@ namespace Ultramarine.Generators.Language
 					"BuildProject", 
 					"@BuildProjectToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
 					0xff00ff,
-					Index = 2)]
+					Index = 1)]
 	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
 					"@CreateFolderToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
 					"Ultramarine.Generators.Language.CreateFolderToolboxItem", 
@@ -59,7 +51,71 @@ namespace Ultramarine.Generators.Language
 					"CreateFolder", 
 					"@CreateFolderToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
 					0xff00ff,
+					Index = 2)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
+					"@CreateProjectItemToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.CreateProjectItemToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"CreateProjectItem", 
+					"@CreateProjectItemToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
 					Index = 3)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
+					"@LoadCodeElementToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.LoadCodeElementToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"CreateExampleClassF1Keyword", 
+					"@LoadCodeElementToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
+					Index = 4)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
+					"@LoadProjectItemToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.LoadProjectItemToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"LoadProjectItem", 
+					"@LoadProjectItemToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
+					Index = 5)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
+					"@ReadPropertyToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.ReadPropertyToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"ReadProperty", 
+					"@ReadPropertyToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
+					Index = 6)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
+					"@SetVariableToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.SetVariableToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"SetVariable", 
+					"@SetVariableToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
+					Index = 7)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
+					"@ParentRelationshipToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.ParentRelationshipToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"ParentRelationship", 
+					"@ParentRelationshipToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
+					Index = 8)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
+					"@IteratorToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.IteratorToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"Iterator", 
+					"@IteratorToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
+					Index = 9)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
+					"@TextTransformationToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.TextTransformationToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"TextTransformation", 
+					"@TextTransformationToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
+					Index = 10)]
 	[VSShell::ProvideEditorFactory(typeof(GeneratorLanguageEditorFactory), 103, TrustLevel = VSShellInterop::__VSEDITORTRUSTLEVEL.ETL_AlwaysTrusted)]
 	[VSShell::ProvideEditorExtension(typeof(GeneratorLanguageEditorFactory), "." + Constants.DesignerFileExtension, 50)]
 	[VSShell::ProvideEditorLogicalView(typeof(GeneratorLanguageEditorFactory), "{7651A702-06E5-11D1-8EBD-00A0C90F26EA}")] // Designer logical view GUID i.e. VSConstants.LOGVIEWID_Designer

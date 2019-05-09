@@ -146,7 +146,7 @@ namespace Ultramarine.Generators.Language
 	/// <summary>
 	/// ConnectionBuilder class to provide logic for constructing connections between elements.
 	/// </summary>
-	public static partial class CompositeTaskReferencesTaskedBuilder
+	public static partial class ChildTasksBuilder
 	{
 		#region Accept Connection Methods
 		/// <summary>
@@ -220,7 +220,8 @@ namespace Ultramarine.Generators.Language
 					{
 						global::Ultramarine.Generators.Language.CompositeTask sourceCompositeTask = (global::Ultramarine.Generators.Language.CompositeTask)candidateSource;
 						global::Ultramarine.Generators.Language.Task targetTask = (global::Ultramarine.Generators.Language.Task)candidateTarget;
-						if(targetTask == null || sourceCompositeTask == null || global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked.GetLinks(sourceCompositeTask, targetTask).Count > 0) return false;
+						if(targetTask == null || global::Ultramarine.Generators.Language.ChildTasks.GetLinkToParent(targetTask) != null) return false;
+						if(targetTask == null || sourceCompositeTask == null || global::Ultramarine.Generators.Language.ChildTasks.GetLinks(sourceCompositeTask, targetTask).Count > 0) return false;
 						return true;
 					}
 				}
@@ -258,7 +259,7 @@ namespace Ultramarine.Generators.Language
 					{
 						global::Ultramarine.Generators.Language.CompositeTask sourceAccepted = (global::Ultramarine.Generators.Language.CompositeTask)source;
 						global::Ultramarine.Generators.Language.Task targetAccepted = (global::Ultramarine.Generators.Language.Task)target;
-						DslModeling::ElementLink result = new global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked(sourceAccepted, targetAccepted);
+						DslModeling::ElementLink result = new global::Ultramarine.Generators.Language.ChildTasks(sourceAccepted, targetAccepted);
 						if (DslModeling::DomainClassInfo.HasNameProperty(result))
 						{
 							DslModeling::DomainClassInfo.SetUniqueName(result);
@@ -277,14 +278,14 @@ namespace Ultramarine.Generators.Language
  	/// <summary>
 	/// Handles interaction between the ConnectionBuilder and the corresponding ConnectionTool.
 	/// </summary>
-	internal partial class ExampleRelationshipConnectAction : DslDiagrams::ConnectAction
+	internal partial class ConnectedWithRelationshipConnectAction : DslDiagrams::ConnectAction
 	{
 		private DslDiagrams::ConnectionType[] connectionTypes;
 		
 		/// <summary>
-		/// Constructs a new ExampleRelationshipConnectAction for the given Diagram.
+		/// Constructs a new ConnectedWithRelationshipConnectAction for the given Diagram.
 		/// </summary>
-		public ExampleRelationshipConnectAction(DslDiagrams::Diagram diagram): base(diagram, true) 
+		public ConnectedWithRelationshipConnectAction(DslDiagrams::Diagram diagram): base(diagram, true) 
 		{
 		}
 		
@@ -314,24 +315,24 @@ namespace Ultramarine.Generators.Language
 		
 		
 		/// <summary>
-		/// Returns the ExampleRelationshipConnectionType associated with this action.
+		/// Returns the ConnectedWithRelationshipConnectionType associated with this action.
 		/// </summary>
 		protected override DslDiagrams::ConnectionType[] GetConnectionTypes(DslDiagrams::ShapeElement sourceShapeElement, DslDiagrams::ShapeElement targetShapeElement)
 		{
 			if(this.connectionTypes == null)
 			{
-				this.connectionTypes = new DslDiagrams::ConnectionType[] { new ExampleRelationshipConnectionType() };
+				this.connectionTypes = new DslDiagrams::ConnectionType[] { new ConnectedWithRelationshipConnectionType() };
 			}
 			
 			return this.connectionTypes;
 		}
 		
-		private partial class ExampleRelationshipConnectionTypeBase : DslDiagrams::ConnectionType
+		private partial class ConnectedWithRelationshipConnectionTypeBase : DslDiagrams::ConnectionType
 		{
 			/// <summary>
-			/// Constructs a new the ExampleRelationshipConnectionType with the given ConnectionBuilder.
+			/// Constructs a new the ConnectedWithRelationshipConnectionType with the given ConnectionBuilder.
 			/// </summary>
-			protected ExampleRelationshipConnectionTypeBase() : base() {}
+			protected ConnectedWithRelationshipConnectionTypeBase() : base() {}
 			
 			private static DslDiagrams::ShapeElement RemovePassThroughShapes(DslDiagrams::ShapeElement shape)
 			{
@@ -424,12 +425,228 @@ namespace Ultramarine.Generators.Language
 			}
 		}
 		
-		private partial class ExampleRelationshipConnectionType : ExampleRelationshipConnectionTypeBase
+		private partial class ConnectedWithRelationshipConnectionType : ConnectedWithRelationshipConnectionTypeBase
 		{
 			/// <summary>
-			/// Constructs a new the ExampleRelationshipConnectionType with the given ConnectionBuilder.
+			/// Constructs a new the ConnectedWithRelationshipConnectionType with the given ConnectionBuilder.
 			/// </summary>
-			public ExampleRelationshipConnectionType() : base() {}
+			public ConnectedWithRelationshipConnectionType() : base() {}
+		}
+	}
+ 	
+ 	/// <summary>
+	/// Handles interaction between the ConnectionBuilder and the corresponding ConnectionTool.
+	/// </summary>
+	internal partial class ParentRelationshipConnectAction : DslDiagrams::ConnectAction
+	{
+		private DslDiagrams::ConnectionType[] connectionTypes;
+		private global::System.Windows.Forms.Cursor sourceCursor;
+		private global::System.Windows.Forms.Cursor targetCursor;
+		
+		/// <summary>
+		/// Constructs a new ParentRelationshipConnectAction for the given Diagram.
+		/// </summary>
+		public ParentRelationshipConnectAction(DslDiagrams::Diagram diagram): base(diagram, true) 
+		{
+			global::System.Resources.ResourceManager resourceManager = global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel.SingletonResourceManager;
+			global::System.Globalization.CultureInfo resourceCulture = global::System.Globalization.CultureInfo.CurrentUICulture;
+
+			byte[] sourceCursorBytes = (byte[])resourceManager.GetObject("ParentRelationshipSourceCursor", resourceCulture);
+			using(global::System.IO.MemoryStream sourceCursorStream = new global::System.IO.MemoryStream(sourceCursorBytes))
+			{ 
+				this.sourceCursor = new global::System.Windows.Forms.Cursor(sourceCursorStream);
+			}
+			byte[] targetCursorBytes = (byte[])resourceManager.GetObject("ParentRelationshipTargetCursor", resourceCulture);
+			using(global::System.IO.MemoryStream targetCursorStream = new global::System.IO.MemoryStream(targetCursorBytes))
+			{ 
+				this.targetCursor = new global::System.Windows.Forms.Cursor(targetCursorStream);
+			}
+		}
+		
+		/// <summary>
+		/// Gets the cursor corresponding to the given mouse position.
+		/// </summary>
+		/// <remarks>
+		/// Changes the cursor to Cursors.No before the first mouse click if the source shape is not valid.
+		/// </remarks>
+		public override global::System.Windows.Forms.Cursor GetCursor(global::System.Windows.Forms.Cursor currentCursor, DslDiagrams::DiagramClientView diagramClientView, DslDiagrams::PointD mousePosition)
+		{
+			if (this.MouseDownHitShape == null && currentCursor != global::System.Windows.Forms.Cursors.No)
+			{
+				DslDiagrams::DiagramHitTestInfo hitTestInfo = new DslDiagrams::DiagramHitTestInfo(diagramClientView);
+				this.Diagram.DoHitTest(mousePosition, hitTestInfo);
+				DslDiagrams::ShapeElement shape = hitTestInfo.HitDiagramItem.Shape;
+
+				DslDiagrams::ConnectionType connectionType = GetConnectionTypes(shape, null)[0];
+				string warningString = string.Empty;
+				if (!connectionType.CanCreateConnection(shape, null, ref warningString))
+				{
+					return global::System.Windows.Forms.Cursors.No;
+				}
+			}
+			return base.GetCursor(currentCursor, diagramClientView, mousePosition);
+		}
+		
+		/// <summary>
+		/// Associates custom source and target cursors with the connect action.
+		/// </summary>
+		protected override global::System.Windows.Forms.Cursor GetCursorFromCursorType(DslDiagrams::ConnectActionCursor connectActionCursor)
+		{
+			if(connectActionCursor == DslDiagrams::ConnectActionCursor.Searching)
+			{
+				return this.sourceCursor;
+			}
+			if(connectActionCursor == DslDiagrams::ConnectActionCursor.Allowed)
+			{
+				return this.targetCursor;
+			}
+			return base.GetCursorFromCursorType(connectActionCursor);
+		}
+		
+		/// <summary>
+		/// Disposes custom cursor resources.
+		/// </summary>
+		protected override void Dispose(bool disposing)
+		{
+			try
+			{
+				if(disposing)
+				{
+					if(this.sourceCursor != null)
+					{
+						this.sourceCursor.Dispose();
+						this.sourceCursor = null;
+					}
+					if(this.targetCursor != null)
+					{
+						this.targetCursor.Dispose();
+						this.targetCursor = null;
+					}
+				}
+			}
+			finally
+			{
+				base.Dispose(disposing);
+			}
+		}
+		
+		/// <summary>
+		/// Returns the ParentRelationshipConnectionType associated with this action.
+		/// </summary>
+		protected override DslDiagrams::ConnectionType[] GetConnectionTypes(DslDiagrams::ShapeElement sourceShapeElement, DslDiagrams::ShapeElement targetShapeElement)
+		{
+			if(this.connectionTypes == null)
+			{
+				this.connectionTypes = new DslDiagrams::ConnectionType[] { new ParentRelationshipConnectionType() };
+			}
+			
+			return this.connectionTypes;
+		}
+		
+		private partial class ParentRelationshipConnectionTypeBase : DslDiagrams::ConnectionType
+		{
+			/// <summary>
+			/// Constructs a new the ParentRelationshipConnectionType with the given ConnectionBuilder.
+			/// </summary>
+			protected ParentRelationshipConnectionTypeBase() : base() {}
+			
+			private static DslDiagrams::ShapeElement RemovePassThroughShapes(DslDiagrams::ShapeElement shape)
+			{
+				if (shape is DslDiagrams::Compartment)
+				{
+					return shape.ParentShape;
+				}
+				DslDiagrams::SwimlaneShape swimlane = shape as DslDiagrams::SwimlaneShape;
+				if (swimlane != null && swimlane.ForwardDragDropToParent)
+				{
+					return shape.ParentShape;
+				}
+				return shape;
+			}
+						
+			/// <summary>
+			/// Called by the base ConnectAction class to determine if the given shapes can be connected.
+			/// </summary>
+			/// <remarks>
+			/// This implementation delegates calls to the ConnectionBuilder ChildTasksBuilder.
+			/// </remarks>
+			public override bool CanCreateConnection(DslDiagrams::ShapeElement sourceShapeElement, DslDiagrams::ShapeElement targetShapeElement, ref string connectionWarning)
+			{
+				bool canConnect = true;
+				
+				if(sourceShapeElement == null) throw new global::System.ArgumentNullException("sourceShapeElement");
+				sourceShapeElement = RemovePassThroughShapes(sourceShapeElement);
+				DslModeling::ModelElement sourceElement = sourceShapeElement.ModelElement;
+				if(sourceElement == null) sourceElement = sourceShapeElement;
+				
+				DslModeling::ModelElement targetElement = null;
+				if (targetShapeElement != null)
+				{
+					targetShapeElement = RemovePassThroughShapes(targetShapeElement);
+					targetElement = targetShapeElement.ModelElement;
+					if(targetElement == null) targetElement = targetShapeElement;
+			
+				}
+
+				// base.CanCreateConnection must be called to check whether existing Locks prevent this link from getting created.	
+				canConnect = base.CanCreateConnection(sourceShapeElement, targetShapeElement, ref connectionWarning);
+				if (canConnect)
+				{				
+					if(targetShapeElement == null)
+					{
+						return ChildTasksBuilder.CanAcceptSource(sourceElement);
+					}
+					else
+					{				
+						return ChildTasksBuilder.CanAcceptSourceAndTarget(sourceElement, targetElement);
+					}
+				}
+				else
+				{
+					//return false
+					return canConnect;
+				}
+			}
+						
+			/// <summary>
+			/// Called by the base ConnectAction class to ask whether the given source and target are valid.
+			/// </summary>
+			/// <remarks>
+			/// Always return true here, to give CanCreateConnection a chance to decide.
+			/// </remarks>
+			public override bool IsValidSourceAndTarget(DslDiagrams::ShapeElement sourceShapeElement, DslDiagrams::ShapeElement targetShapeElement)
+			{
+				return true;
+			}
+			
+			/// <summary>
+			/// Called by the base ConnectAction class to create the underlying relationship.
+			/// </summary>
+			/// <remarks>
+			/// This implementation delegates calls to the ConnectionBuilder ChildTasksBuilder.
+			/// </remarks>
+			public override void CreateConnection(DslDiagrams::ShapeElement sourceShapeElement, DslDiagrams::ShapeElement targetShapeElement, DslDiagrams::PaintFeedbackArgs paintFeedbackArgs)
+			{
+				if(sourceShapeElement == null) throw new global::System.ArgumentNullException("sourceShapeElement");
+				if(targetShapeElement == null) throw new global::System.ArgumentNullException("targetShapeElement");
+				
+				sourceShapeElement = RemovePassThroughShapes(sourceShapeElement);
+				targetShapeElement = RemovePassThroughShapes(targetShapeElement);
+				
+				DslModeling::ModelElement sourceElement = sourceShapeElement.ModelElement;
+				if(sourceElement == null) sourceElement = sourceShapeElement;
+				DslModeling::ModelElement targetElement = targetShapeElement.ModelElement;
+				if(targetElement == null) targetElement = targetShapeElement;
+				ChildTasksBuilder.Connect(sourceElement, targetElement);
+			}
+		}
+		
+		private partial class ParentRelationshipConnectionType : ParentRelationshipConnectionTypeBase
+		{
+			/// <summary>
+			/// Constructs a new the ParentRelationshipConnectionType with the given ConnectionBuilder.
+			/// </summary>
+			public ParentRelationshipConnectionType() : base() {}
 		}
 	}
 }

@@ -421,19 +421,22 @@ namespace Ultramarine.Generators.Language
 			}
 		}
 		#endregion
-		#region CompositeTasked opposite domain role accessor
-		
+		#region Parent opposite domain role accessor
 		/// <summary>
-		/// Gets a list of CompositeTasked.
-		/// Description for
-		/// Ultramarine.Generators.Language.CompositeTaskReferencesTasked.Task
+		/// Gets or sets Parent.
+		/// Description for Ultramarine.Generators.Language.ChildTasks.Task
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<CompositeTask> CompositeTasked
+		public virtual CompositeTask Parent
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<CompositeTask>, CompositeTask>(global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked.TaskDomainRoleId);
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Ultramarine.Generators.Language.ChildTasks.TaskDomainRoleId) as CompositeTask;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Ultramarine.Generators.Language.ChildTasks.TaskDomainRoleId, value);
 			}
 		}
 		#endregion
@@ -468,19 +471,18 @@ namespace Ultramarine.Generators.Language
 		{
 		}
 		#endregion
-		#region Tasked opposite domain role accessor
+		#region Tasks opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of Tasked.
-		/// Description for
-		/// Ultramarine.Generators.Language.CompositeTaskReferencesTasked.CompositeTask
+		/// Gets a list of Tasks.
+		/// Description for Ultramarine.Generators.Language.ChildTasks.CompositeTask
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<Task> Tasked
+		public virtual DslModeling::LinkedElementCollection<Task> Tasks
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Task>, Task>(global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked.CompositeTaskDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Task>, Task>(global::Ultramarine.Generators.Language.ChildTasks.CompositeTaskDomainRoleId);
 			}
 		}
 		#endregion
@@ -524,6 +526,446 @@ namespace Ultramarine.Generators.Language
 			: base(partition, propertyAssignments)
 		{
 		}
+		#endregion
+		#region ElementName domain property code
+		
+		/// <summary>
+		/// ElementName domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ElementNameDomainPropertyId = new global::System.Guid(0x3bbe6d15, 0x5211, 0x403e, 0x8c, 0xad, 0x4f, 0x06, 0x51, 0x40, 0xae, 0x21);
+		
+		/// <summary>
+		/// Storage for ElementName
+		/// </summary>
+		private global::System.String elementNamePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ElementName domain property.
+		/// Description for Ultramarine.Generators.Language.LoadCodeElement.Element Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.LoadCodeElement/ElementName.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.LoadCodeElement/ElementName.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.LoadCodeElement/ElementName.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("3bbe6d15-5211-403e-8cad-4f065140ae21")]
+		public global::System.String ElementName
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return elementNamePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ElementNamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the LoadCodeElement.ElementName domain property.
+		/// </summary>
+		internal sealed partial class ElementNamePropertyHandler : DslModeling::DomainPropertyValueHandler<LoadCodeElement, global::System.String>
+		{
+			private ElementNamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the LoadCodeElement.ElementName domain property value handler.
+			/// </summary>
+			public static readonly ElementNamePropertyHandler Instance = new ElementNamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the LoadCodeElement.ElementName domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ElementNameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(LoadCodeElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.elementNamePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(LoadCodeElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.elementNamePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region ElementType domain property code
+		
+		/// <summary>
+		/// ElementType domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ElementTypeDomainPropertyId = new global::System.Guid(0x8427b3e8, 0x364c, 0x4296, 0xbf, 0xe7, 0x47, 0x56, 0x7c, 0x7b, 0x1e, 0xfd);
+		
+		/// <summary>
+		/// Storage for ElementType
+		/// </summary>
+		private global::System.String elementTypePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ElementType domain property.
+		/// Description for Ultramarine.Generators.Language.LoadCodeElement.Element Type
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.LoadCodeElement/ElementType.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.LoadCodeElement/ElementType.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.LoadCodeElement/ElementType.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("8427b3e8-364c-4296-bfe7-47567c7b1efd")]
+		public global::System.String ElementType
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return elementTypePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ElementTypePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the LoadCodeElement.ElementType domain property.
+		/// </summary>
+		internal sealed partial class ElementTypePropertyHandler : DslModeling::DomainPropertyValueHandler<LoadCodeElement, global::System.String>
+		{
+			private ElementTypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the LoadCodeElement.ElementType domain property value handler.
+			/// </summary>
+			public static readonly ElementTypePropertyHandler Instance = new ElementTypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the LoadCodeElement.ElementType domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ElementTypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(LoadCodeElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.elementTypePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(LoadCodeElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.elementTypePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region ElementAccess domain property code
+		
+		/// <summary>
+		/// ElementAccess domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ElementAccessDomainPropertyId = new global::System.Guid(0xc743c13e, 0xf643, 0x464a, 0xa9, 0x43, 0xd6, 0x43, 0xa4, 0xbf, 0x04, 0x0a);
+		
+		/// <summary>
+		/// Storage for ElementAccess
+		/// </summary>
+		private global::System.String elementAccessPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ElementAccess domain property.
+		/// Description for Ultramarine.Generators.Language.LoadCodeElement.Element Access
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.LoadCodeElement/ElementAccess.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.LoadCodeElement/ElementAccess.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.LoadCodeElement/ElementAccess.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("c743c13e-f643-464a-a943-d643a4bf040a")]
+		public global::System.String ElementAccess
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return elementAccessPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ElementAccessPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the LoadCodeElement.ElementAccess domain property.
+		/// </summary>
+		internal sealed partial class ElementAccessPropertyHandler : DslModeling::DomainPropertyValueHandler<LoadCodeElement, global::System.String>
+		{
+			private ElementAccessPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the LoadCodeElement.ElementAccess domain property value handler.
+			/// </summary>
+			public static readonly ElementAccessPropertyHandler Instance = new ElementAccessPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the LoadCodeElement.ElementAccess domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ElementAccessDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(LoadCodeElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.elementAccessPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(LoadCodeElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.elementAccessPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region ElementOverride domain property code
+		
+		/// <summary>
+		/// ElementOverride domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ElementOverrideDomainPropertyId = new global::System.Guid(0x84636b5c, 0x8348, 0x4063, 0xb1, 0xa8, 0x48, 0x51, 0x6c, 0xcc, 0xb7, 0x59);
+		
+		/// <summary>
+		/// Storage for ElementOverride
+		/// </summary>
+		private global::System.String elementOverridePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ElementOverride domain property.
+		/// Description for Ultramarine.Generators.Language.LoadCodeElement.Element Override
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.LoadCodeElement/ElementOverride.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.LoadCodeElement/ElementOverride.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.LoadCodeElement/ElementOverride.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("84636b5c-8348-4063-b1a8-48516cccb759")]
+		public global::System.String ElementOverride
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return elementOverridePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ElementOverridePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the LoadCodeElement.ElementOverride domain property.
+		/// </summary>
+		internal sealed partial class ElementOverridePropertyHandler : DslModeling::DomainPropertyValueHandler<LoadCodeElement, global::System.String>
+		{
+			private ElementOverridePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the LoadCodeElement.ElementOverride domain property value handler.
+			/// </summary>
+			public static readonly ElementOverridePropertyHandler Instance = new ElementOverridePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the LoadCodeElement.ElementOverride domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ElementOverrideDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(LoadCodeElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.elementOverridePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(LoadCodeElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.elementOverridePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region TypeOf domain property code
+		
+		/// <summary>
+		/// TypeOf domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid TypeOfDomainPropertyId = new global::System.Guid(0xf8bd1678, 0x2988, 0x4bb2, 0xa5, 0xa9, 0x05, 0x12, 0x8f, 0xdf, 0x91, 0x88);
+		
+		/// <summary>
+		/// Storage for TypeOf
+		/// </summary>
+		private global::System.String typeOfPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of TypeOf domain property.
+		/// Description for Ultramarine.Generators.Language.LoadCodeElement.Type Of
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.LoadCodeElement/TypeOf.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.LoadCodeElement/TypeOf.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.LoadCodeElement/TypeOf.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("f8bd1678-2988-4bb2-a5a9-05128fdf9188")]
+		public global::System.String TypeOf
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return typeOfPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				TypeOfPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the LoadCodeElement.TypeOf domain property.
+		/// </summary>
+		internal sealed partial class TypeOfPropertyHandler : DslModeling::DomainPropertyValueHandler<LoadCodeElement, global::System.String>
+		{
+			private TypeOfPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the LoadCodeElement.TypeOf domain property value handler.
+			/// </summary>
+			public static readonly TypeOfPropertyHandler Instance = new TypeOfPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the LoadCodeElement.TypeOf domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TypeOfDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(LoadCodeElement element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.typeOfPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(LoadCodeElement element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.typeOfPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
 		#endregion
 	}
 }
@@ -580,9 +1022,10 @@ namespace Ultramarine.Generators.Language
 		
 		/// <summary>
 		/// Gets or sets the value of ProjectName domain property.
-		/// Description for Ultramarine.Generators.Language.BuildProject.Project Name
+		/// Name of the project to build
 		/// </summary>
 		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.BuildProject/ProjectName.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.BuildProject/ProjectName.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.BuildProject/ProjectName.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("2c4ce0b6-c357-421c-a00d-b0e3ba8bec82")]
 		public global::System.String ProjectName
@@ -663,14 +1106,16 @@ namespace Ultramarine.Generators.Language
 		/// <summary>
 		/// Storage for Configuration
 		/// </summary>
-		private global::System.String configurationPropertyStorage = string.Empty;
+		private global::System.String configurationPropertyStorage = "Debug";
 		
 		/// <summary>
 		/// Gets or sets the value of Configuration domain property.
-		/// Description for Ultramarine.Generators.Language.BuildProject.Configuration
+		/// Project configuration to build
 		/// </summary>
 		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.BuildProject/Configuration.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.BuildProject/Configuration.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.BuildProject/Configuration.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("Debug")]
 		[DslModeling::DomainObjectId("6ea6184d-c953-4035-ae6b-27f14e524314")]
 		public global::System.String Configuration
 		{
@@ -752,7 +1197,7 @@ namespace Ultramarine.Generators.Language
 	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateFolder.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
 	[global::System.CLSCompliant(true)]
-	[DslModeling::DomainObjectId("0a8bec4c-7da8-4fae-91f5-9a87f89b38b1")]
+	[DslModeling::DomainObjectId("40bc53f4-bbd4-477a-9afe-d9c3e3ca8e63")]
 	public partial class CreateFolder : Task
 	{
 		#region Constructors, domain class Id
@@ -760,7 +1205,7 @@ namespace Ultramarine.Generators.Language
 		/// <summary>
 		/// CreateFolder domain class Id.
 		/// </summary>
-		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x0a8bec4c, 0x7da8, 0x4fae, 0x91, 0xf5, 0x9a, 0x87, 0xf8, 0x9b, 0x38, 0xb1);
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x40bc53f4, 0xbbd4, 0x477a, 0x9a, 0xfe, 0xd9, 0xc3, 0xe3, 0xca, 0x8e, 0x63);
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -786,7 +1231,7 @@ namespace Ultramarine.Generators.Language
 		/// <summary>
 		/// FolderPath domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid FolderPathDomainPropertyId = new global::System.Guid(0x5b7b713f, 0xa14e, 0x46f3, 0xa6, 0xee, 0x13, 0xc9, 0x15, 0xfb, 0xbc, 0xc7);
+		public static readonly global::System.Guid FolderPathDomainPropertyId = new global::System.Guid(0x0bd209e8, 0xd065, 0x4beb, 0xa7, 0x85, 0xb4, 0xb4, 0x3e, 0xa4, 0x22, 0x3a);
 		
 		/// <summary>
 		/// Storage for FolderPath
@@ -798,8 +1243,9 @@ namespace Ultramarine.Generators.Language
 		/// Description for Ultramarine.Generators.Language.CreateFolder.Folder Path
 		/// </summary>
 		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CreateFolder/FolderPath.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.CreateFolder/FolderPath.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateFolder/FolderPath.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainObjectId("5b7b713f-a14e-46f3-a6ee-13c915fbbcc7")]
+		[DslModeling::DomainObjectId("0bd209e8-d065-4beb-a785-b4b43ea4223a")]
 		public global::System.String FolderPath
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
@@ -873,7 +1319,7 @@ namespace Ultramarine.Generators.Language
 		/// <summary>
 		/// BasePath domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid BasePathDomainPropertyId = new global::System.Guid(0x3b4e683a, 0x8927, 0x4652, 0xaa, 0xb5, 0xee, 0x7d, 0x46, 0xd6, 0xf1, 0x32);
+		public static readonly global::System.Guid BasePathDomainPropertyId = new global::System.Guid(0x360efd74, 0xa299, 0x49c0, 0x88, 0xf4, 0xf0, 0x1f, 0x34, 0x5b, 0x23, 0x87);
 		
 		/// <summary>
 		/// Storage for BasePath
@@ -885,8 +1331,9 @@ namespace Ultramarine.Generators.Language
 		/// Description for Ultramarine.Generators.Language.CreateFolder.Base Path
 		/// </summary>
 		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CreateFolder/BasePath.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.CreateFolder/BasePath.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateFolder/BasePath.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainObjectId("3b4e683a-8927-4652-aab5-ee7d46d6f132")]
+		[DslModeling::DomainObjectId("360efd74-a299-49c0-88f4-f01f345b2387")]
 		public global::System.String BasePath
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
@@ -955,146 +1402,33 @@ namespace Ultramarine.Generators.Language
 		}
 		
 		#endregion
-		#region Setting opposite domain role accessor
-		
-		/// <summary>
-		/// Gets a list of Setting.
-		/// Description for
-		/// Ultramarine.Generators.Language.CreateFolderHasSetting.CreateFolder
-		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<Settings> Setting
-		{
-			[global::System.Diagnostics.DebuggerStepThrough]
-			get
-			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Settings>, Settings>(global::Ultramarine.Generators.Language.CreateFolderHasSetting.CreateFolderDomainRoleId);
-			}
-		}
-		#endregion
-		#region ElementGroupPrototype Merge methods
-		/// <summary>
-		/// Returns a value indicating whether the source element represented by the
-		/// specified root ProtoElement can be added to this element.
-		/// </summary>
-		/// <param name="rootElement">
-		/// The root ProtoElement representing a source element.  This can be null, 
-		/// in which case the ElementGroupPrototype does not contain an ProtoElements
-		/// and the code should inspect the ElementGroupPrototype context information.
-		/// </param>
-		/// <param name="elementGroupPrototype">The ElementGroupPrototype that contains the root ProtoElement.</param>
-		/// <returns>true if the source element represented by the ProtoElement can be added to this target element.</returns>
-		protected override bool CanMerge(DslModeling::ProtoElementBase rootElement, DslModeling::ElementGroupPrototype elementGroupPrototype)
-		{
-			if ( elementGroupPrototype == null ) throw new global::System.ArgumentNullException("elementGroupPrototype");
-			
-			if (rootElement != null)
-			{
-				DslModeling::DomainClassInfo rootElementDomainInfo = this.Partition.DomainDataDirectory.GetDomainClass(rootElement.DomainClassId);
-				
-				if (rootElementDomainInfo.IsDerivedFrom(global::Ultramarine.Generators.Language.Settings.DomainClassId)) 
-				{
-					return true;
-				}
-			}
-			return base.CanMerge(rootElement, elementGroupPrototype);
-		}
-		
-		/// <summary>
-		/// Called by the Merge process to create a relationship between 
-		/// this target element and the specified source element. 
-		/// Typically, a parent-child relationship is established
-		/// between the target element (the parent) and the source element 
-		/// (the child), but any relationship can be established.
-		/// </summary>
-		/// <param name="sourceElement">The element that is to be related to this model element.</param>
-		/// <param name="elementGroup">The group of source ModelElements that have been rehydrated into the target store.</param>
-		/// <remarks>
-		/// This method is overriden to create the relationship between the target element and the specified source element.
-		/// The base method does nothing.
-		/// </remarks>
-		protected override void MergeRelate(DslModeling::ModelElement sourceElement, DslModeling::ElementGroup elementGroup)
-		{
-			// In general, sourceElement is allowed to be null, meaning that the elementGroup must be parsed for special cases.
-			// However this is not supported in generated code.  Use double-deriving on this class and then override MergeRelate completely if you 
-			// need to support this case.
-			if ( sourceElement == null ) throw new global::System.ArgumentNullException("sourceElement");
-		
-				
-			global::Ultramarine.Generators.Language.Settings sourceSettings1 = sourceElement as global::Ultramarine.Generators.Language.Settings;
-			if (sourceSettings1 != null)
-			{
-				// Create link for path CreateFolderHasSetting.Setting
-				this.Setting.Add(sourceSettings1);
-
-				return;
-			}
-		
-			// Sdk workaround to runtime bug #879350 (DSL: can't copy and paste a MEL that has a MEX). Avoid MergeRelate on ModelElementExtension
-			// during a "Paste".
-			if (sourceElement is DslModeling::ExtensionElement
-				&& sourceElement.Store.TransactionManager.CurrentTransaction.TopLevelTransaction.Context.ContextInfo.ContainsKey("{9DAFD42A-DC0E-4d78-8C3F-8266B2CF8B33}"))
-			{
-				return;
-			}
-		
-			// Fall through to base class if this class hasn't handled the merge.
-			base.MergeRelate(sourceElement, elementGroup);
-		}
-		
-		/// <summary>
-		/// Performs operation opposite to MergeRelate - i.e. disconnects a given
-		/// element from the current one (removes links created by MergeRelate).
-		/// </summary>
-		/// <param name="sourceElement">Element to be unmerged/disconnected.</param>
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-		protected override void MergeDisconnect(DslModeling::ModelElement sourceElement)
-		{
-			if (sourceElement == null) throw new global::System.ArgumentNullException("sourceElement");
-				
-			global::Ultramarine.Generators.Language.Settings sourceSettings1 = sourceElement as global::Ultramarine.Generators.Language.Settings;
-			if (sourceSettings1 != null)
-			{
-				// Delete link for path CreateFolderHasSetting.Setting
-				
-				foreach (DslModeling::ElementLink link in global::Ultramarine.Generators.Language.CreateFolderHasSetting.GetLinks((global::Ultramarine.Generators.Language.CreateFolder)this, sourceSettings1))
-				{
-					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::Ultramarine.Generators.Language.CreateFolderHasSetting.CreateFolderDomainRoleId, global::Ultramarine.Generators.Language.CreateFolderHasSetting.SettingsDomainRoleId);
-				}
-
-				return;
-			}
-			// Fall through to base class if this class hasn't handled the unmerge.
-			base.MergeDisconnect(sourceElement);
-		}
-		#endregion
 	}
 }
 namespace Ultramarine.Generators.Language
 {
 	/// <summary>
-	/// DomainClass Settings
-	/// Description for Ultramarine.Generators.Language.Settings
+	/// DomainClass CreateProjectItem
+	/// Description for Ultramarine.Generators.Language.CreateProjectItem
 	/// </summary>
-	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.Settings.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.Settings.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CreateProjectItem.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateProjectItem.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
 	[global::System.CLSCompliant(true)]
-	[DslModeling::DomainObjectId("dbf0da59-5949-4c55-a59c-2a0ff2343ea2")]
-	public sealed partial class Settings : DslModeling::ModelElement
+	[DslModeling::DomainObjectId("82ab47c8-1755-4e0d-b939-2f5aa4eb8e33")]
+	public partial class CreateProjectItem : Task
 	{
 		#region Constructors, domain class Id
 	
 		/// <summary>
-		/// Settings domain class Id.
+		/// CreateProjectItem domain class Id.
 		/// </summary>
-		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xdbf0da59, 0x5949, 0x4c55, 0xa5, 0x9c, 0x2a, 0x0f, 0xf2, 0x34, 0x3e, 0xa2);
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x82ab47c8, 0x1755, 0x4e0d, 0xb9, 0x39, 0x2f, 0x5a, 0xa4, 0xeb, 0x8e, 0x33);
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		/// <param name="store">Store where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Settings(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public CreateProjectItem(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
@@ -1104,64 +1438,65 @@ namespace Ultramarine.Generators.Language
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Settings(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public CreateProjectItem(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
 		#endregion
-		#region Value domain property code
+		#region ItemName domain property code
 		
 		/// <summary>
-		/// Value domain property Id.
+		/// ItemName domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid ValueDomainPropertyId = new global::System.Guid(0xbfd881b2, 0x142f, 0x45f0, 0x8a, 0x26, 0xb0, 0x1b, 0x4a, 0xeb, 0xda, 0xc3);
+		public static readonly global::System.Guid ItemNameDomainPropertyId = new global::System.Guid(0x739ebe60, 0x22b8, 0x4209, 0x81, 0x9b, 0x93, 0x7a, 0xf6, 0xc3, 0x27, 0x4a);
 		
 		/// <summary>
-		/// Storage for Value
+		/// Storage for ItemName
 		/// </summary>
-		private global::System.String valuePropertyStorage = string.Empty;
+		private global::System.String itemNamePropertyStorage = string.Empty;
 		
 		/// <summary>
-		/// Gets or sets the value of Value domain property.
-		/// Description for Ultramarine.Generators.Language.Settings.Value
+		/// Gets or sets the value of ItemName domain property.
+		/// Description for Ultramarine.Generators.Language.CreateProjectItem.Item Name
 		/// </summary>
-		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.Settings/Value.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.Settings/Value.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainObjectId("bfd881b2-142f-45f0-8a26-b01b4aebdac3")]
-		public global::System.String Value
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CreateProjectItem/ItemName.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.CreateProjectItem/ItemName.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateProjectItem/ItemName.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("739ebe60-22b8-4209-819b-937af6c3274a")]
+		public global::System.String ItemName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return valuePropertyStorage;
+				return itemNamePropertyStorage;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				ValuePropertyHandler.Instance.SetValue(this, value);
+				ItemNamePropertyHandler.Instance.SetValue(this, value);
 			}
 		}
 		/// <summary>
-		/// Value handler for the Settings.Value domain property.
+		/// Value handler for the CreateProjectItem.ItemName domain property.
 		/// </summary>
-		internal sealed partial class ValuePropertyHandler : DslModeling::DomainPropertyValueHandler<Settings, global::System.String>
+		internal sealed partial class ItemNamePropertyHandler : DslModeling::DomainPropertyValueHandler<CreateProjectItem, global::System.String>
 		{
-			private ValuePropertyHandler() { }
+			private ItemNamePropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the Settings.Value domain property value handler.
+			/// Gets the singleton instance of the CreateProjectItem.ItemName domain property value handler.
 			/// </summary>
-			public static readonly ValuePropertyHandler Instance = new ValuePropertyHandler();
+			public static readonly ItemNamePropertyHandler Instance = new ItemNamePropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the Settings.Value domain property.
+			/// Gets the Id of the CreateProjectItem.ItemName domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
 				[global::System.Diagnostics.DebuggerStepThrough]
 				get
 				{
-					return ValueDomainPropertyId;
+					return ItemNameDomainPropertyId;
 				}
 			}
 			
@@ -1170,10 +1505,10 @@ namespace Ultramarine.Generators.Language
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Settings element)
+			public override sealed global::System.String GetValue(CreateProjectItem element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.valuePropertyStorage;
+				return element.itemNamePropertyStorage;
 			}
 		
 			/// <summary>
@@ -1181,7 +1516,7 @@ namespace Ultramarine.Generators.Language
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Settings element, global::System.String newValue)
+			public override sealed void SetValue(CreateProjectItem element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -1189,30 +1524,1438 @@ namespace Ultramarine.Generators.Language
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.valuePropertyStorage = newValue;
+					element.itemNamePropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}
 		}
 		
 		#endregion
-		#region CreateFolder opposite domain role accessor
+		#region FolderPath domain property code
+		
 		/// <summary>
-		/// Gets or sets CreateFolder.
-		/// Description for Ultramarine.Generators.Language.CreateFolderHasSetting.Settings
+		/// FolderPath domain property Id.
 		/// </summary>
-		public CreateFolder CreateFolder
+		public static readonly global::System.Guid FolderPathDomainPropertyId = new global::System.Guid(0x38d4fe11, 0x243a, 0x4767, 0xa3, 0x7c, 0xde, 0xc0, 0x47, 0xd5, 0x51, 0x5b);
+		
+		/// <summary>
+		/// Storage for FolderPath
+		/// </summary>
+		private global::System.String folderPathPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of FolderPath domain property.
+		/// Description for Ultramarine.Generators.Language.CreateProjectItem.Folder Path
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CreateProjectItem/FolderPath.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.CreateProjectItem/FolderPath.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateProjectItem/FolderPath.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("38d4fe11-243a-4767-a37c-dec047d5515b")]
+		public global::System.String FolderPath
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Ultramarine.Generators.Language.CreateFolderHasSetting.SettingsDomainRoleId) as CreateFolder;
+				return folderPathPropertyStorage;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Ultramarine.Generators.Language.CreateFolderHasSetting.SettingsDomainRoleId, value);
+				FolderPathPropertyHandler.Instance.SetValue(this, value);
 			}
+		}
+		/// <summary>
+		/// Value handler for the CreateProjectItem.FolderPath domain property.
+		/// </summary>
+		internal sealed partial class FolderPathPropertyHandler : DslModeling::DomainPropertyValueHandler<CreateProjectItem, global::System.String>
+		{
+			private FolderPathPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the CreateProjectItem.FolderPath domain property value handler.
+			/// </summary>
+			public static readonly FolderPathPropertyHandler Instance = new FolderPathPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the CreateProjectItem.FolderPath domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return FolderPathDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(CreateProjectItem element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.folderPathPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(CreateProjectItem element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.folderPathPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region LinkedWith domain property code
+		
+		/// <summary>
+		/// LinkedWith domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid LinkedWithDomainPropertyId = new global::System.Guid(0xa814346f, 0x0fb9, 0x465e, 0xb6, 0xff, 0xe3, 0xd5, 0xdf, 0x39, 0xa9, 0xb3);
+		
+		/// <summary>
+		/// Storage for LinkedWith
+		/// </summary>
+		private global::System.String linkedWithPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of LinkedWith domain property.
+		/// Description for Ultramarine.Generators.Language.CreateProjectItem.Linked With
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CreateProjectItem/LinkedWith.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.CreateProjectItem/LinkedWith.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateProjectItem/LinkedWith.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("a814346f-0fb9-465e-b6ff-e3d5df39a9b3")]
+		public global::System.String LinkedWith
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return linkedWithPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				LinkedWithPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the CreateProjectItem.LinkedWith domain property.
+		/// </summary>
+		internal sealed partial class LinkedWithPropertyHandler : DslModeling::DomainPropertyValueHandler<CreateProjectItem, global::System.String>
+		{
+			private LinkedWithPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the CreateProjectItem.LinkedWith domain property value handler.
+			/// </summary>
+			public static readonly LinkedWithPropertyHandler Instance = new LinkedWithPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the CreateProjectItem.LinkedWith domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return LinkedWithDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(CreateProjectItem element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.linkedWithPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(CreateProjectItem element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.linkedWithPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region ProjectName domain property code
+		
+		/// <summary>
+		/// ProjectName domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ProjectNameDomainPropertyId = new global::System.Guid(0xaf1ceb4a, 0xec36, 0x437c, 0xb8, 0x10, 0x8f, 0xb3, 0x1e, 0x5e, 0x37, 0x4b);
+		
+		/// <summary>
+		/// Storage for ProjectName
+		/// </summary>
+		private global::System.String projectNamePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ProjectName domain property.
+		/// Description for Ultramarine.Generators.Language.CreateProjectItem.Project Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CreateProjectItem/ProjectName.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.CreateProjectItem/ProjectName.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateProjectItem/ProjectName.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("af1ceb4a-ec36-437c-b810-8fb31e5e374b")]
+		public global::System.String ProjectName
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return projectNamePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ProjectNamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the CreateProjectItem.ProjectName domain property.
+		/// </summary>
+		internal sealed partial class ProjectNamePropertyHandler : DslModeling::DomainPropertyValueHandler<CreateProjectItem, global::System.String>
+		{
+			private ProjectNamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the CreateProjectItem.ProjectName domain property value handler.
+			/// </summary>
+			public static readonly ProjectNamePropertyHandler Instance = new ProjectNamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the CreateProjectItem.ProjectName domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ProjectNameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(CreateProjectItem element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.projectNamePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(CreateProjectItem element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.projectNamePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Overwrite domain property code
+		
+		/// <summary>
+		/// Overwrite domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid OverwriteDomainPropertyId = new global::System.Guid(0x7bcd5863, 0x138d, 0x4692, 0xba, 0x1a, 0x09, 0xb6, 0xdd, 0xa2, 0x62, 0x85);
+		
+		/// <summary>
+		/// Storage for Overwrite
+		/// </summary>
+		private global::System.Boolean overwritePropertyStorage;
+		
+		/// <summary>
+		/// Gets or sets the value of Overwrite domain property.
+		/// Description for Ultramarine.Generators.Language.CreateProjectItem.Overwrite
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CreateProjectItem/Overwrite.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.CreateProjectItem/Overwrite.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateProjectItem/Overwrite.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("7bcd5863-138d-4692-ba1a-09b6dda26285")]
+		public global::System.Boolean Overwrite
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return overwritePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				OverwritePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the CreateProjectItem.Overwrite domain property.
+		/// </summary>
+		internal sealed partial class OverwritePropertyHandler : DslModeling::DomainPropertyValueHandler<CreateProjectItem, global::System.Boolean>
+		{
+			private OverwritePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the CreateProjectItem.Overwrite domain property value handler.
+			/// </summary>
+			public static readonly OverwritePropertyHandler Instance = new OverwritePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the CreateProjectItem.Overwrite domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return OverwriteDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.Boolean GetValue(CreateProjectItem element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.overwritePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(CreateProjectItem element, global::System.Boolean newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.Boolean oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.overwritePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+	}
+}
+namespace Ultramarine.Generators.Language
+{
+	/// <summary>
+	/// DomainClass LoadProjectItem
+	/// Description for Ultramarine.Generators.Language.LoadProjectItem
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.LoadProjectItem.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.LoadProjectItem.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("feaf6d65-bedd-4b04-91c5-d0226176c21a")]
+	public partial class LoadProjectItem : Task
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// LoadProjectItem domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xfeaf6d65, 0xbedd, 0x4b04, 0x91, 0xc5, 0xd0, 0x22, 0x61, 0x76, 0xc2, 0x1a);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public LoadProjectItem(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public LoadProjectItem(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region ProjectName domain property code
+		
+		/// <summary>
+		/// ProjectName domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ProjectNameDomainPropertyId = new global::System.Guid(0xd2100451, 0x3c56, 0x434a, 0x8c, 0x7f, 0xb6, 0x93, 0x5b, 0x11, 0xc6, 0x5a);
+		
+		/// <summary>
+		/// Storage for ProjectName
+		/// </summary>
+		private global::System.String projectNamePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ProjectName domain property.
+		/// Description for Ultramarine.Generators.Language.LoadProjectItem.Project Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.LoadProjectItem/ProjectName.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.LoadProjectItem/ProjectName.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("d2100451-3c56-434a-8c7f-b6935b11c65a")]
+		public global::System.String ProjectName
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return projectNamePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ProjectNamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the LoadProjectItem.ProjectName domain property.
+		/// </summary>
+		internal sealed partial class ProjectNamePropertyHandler : DslModeling::DomainPropertyValueHandler<LoadProjectItem, global::System.String>
+		{
+			private ProjectNamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the LoadProjectItem.ProjectName domain property value handler.
+			/// </summary>
+			public static readonly ProjectNamePropertyHandler Instance = new ProjectNamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the LoadProjectItem.ProjectName domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ProjectNameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(LoadProjectItem element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.projectNamePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(LoadProjectItem element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.projectNamePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region ItemName domain property code
+		
+		/// <summary>
+		/// ItemName domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ItemNameDomainPropertyId = new global::System.Guid(0x6b3c9a64, 0xadab, 0x4d9f, 0xbe, 0x52, 0x3e, 0x27, 0xa3, 0x19, 0x48, 0x52);
+		
+		/// <summary>
+		/// Storage for ItemName
+		/// </summary>
+		private global::System.String itemNamePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ItemName domain property.
+		/// Description for Ultramarine.Generators.Language.LoadProjectItem.Item Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.LoadProjectItem/ItemName.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.LoadProjectItem/ItemName.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("6b3c9a64-adab-4d9f-be52-3e27a3194852")]
+		public global::System.String ItemName
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return itemNamePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ItemNamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the LoadProjectItem.ItemName domain property.
+		/// </summary>
+		internal sealed partial class ItemNamePropertyHandler : DslModeling::DomainPropertyValueHandler<LoadProjectItem, global::System.String>
+		{
+			private ItemNamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the LoadProjectItem.ItemName domain property value handler.
+			/// </summary>
+			public static readonly ItemNamePropertyHandler Instance = new ItemNamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the LoadProjectItem.ItemName domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ItemNameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(LoadProjectItem element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.itemNamePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(LoadProjectItem element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.itemNamePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region LinkedWith domain property code
+		
+		/// <summary>
+		/// LinkedWith domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid LinkedWithDomainPropertyId = new global::System.Guid(0xd82e00ed, 0xcdd4, 0x4d86, 0x8d, 0x4b, 0x34, 0x0f, 0x79, 0x44, 0xfb, 0x46);
+		
+		/// <summary>
+		/// Storage for LinkedWith
+		/// </summary>
+		private global::System.String linkedWithPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of LinkedWith domain property.
+		/// Description for Ultramarine.Generators.Language.LoadProjectItem.Linked With
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.LoadProjectItem/LinkedWith.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.LoadProjectItem/LinkedWith.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("d82e00ed-cdd4-4d86-8d4b-340f7944fb46")]
+		public global::System.String LinkedWith
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return linkedWithPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				LinkedWithPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the LoadProjectItem.LinkedWith domain property.
+		/// </summary>
+		internal sealed partial class LinkedWithPropertyHandler : DslModeling::DomainPropertyValueHandler<LoadProjectItem, global::System.String>
+		{
+			private LinkedWithPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the LoadProjectItem.LinkedWith domain property value handler.
+			/// </summary>
+			public static readonly LinkedWithPropertyHandler Instance = new LinkedWithPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the LoadProjectItem.LinkedWith domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return LinkedWithDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(LoadProjectItem element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.linkedWithPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(LoadProjectItem element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.linkedWithPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+	}
+}
+namespace Ultramarine.Generators.Language
+{
+	/// <summary>
+	/// DomainClass ReadProperty
+	/// Description for Ultramarine.Generators.Language.ReadProperty
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.ReadProperty.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.ReadProperty.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("2a2726ef-e0e8-4b0d-a8f2-37d2f7d03b4c")]
+	public partial class ReadProperty : Task
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// ReadProperty domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x2a2726ef, 0xe0e8, 0x4b0d, 0xa8, 0xf2, 0x37, 0xd2, 0xf7, 0xd0, 0x3b, 0x4c);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ReadProperty(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ReadProperty(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region PropertyName domain property code
+		
+		/// <summary>
+		/// PropertyName domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid PropertyNameDomainPropertyId = new global::System.Guid(0x47796921, 0xbf6b, 0x49db, 0x8e, 0x5c, 0x24, 0x8c, 0x34, 0x08, 0xe0, 0xf4);
+		
+		/// <summary>
+		/// Storage for PropertyName
+		/// </summary>
+		private global::System.String propertyNamePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of PropertyName domain property.
+		/// Description for Ultramarine.Generators.Language.ReadProperty.Property Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.ReadProperty/PropertyName.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.ReadProperty/PropertyName.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("47796921-bf6b-49db-8e5c-248c3408e0f4")]
+		public global::System.String PropertyName
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return propertyNamePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				PropertyNamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ReadProperty.PropertyName domain property.
+		/// </summary>
+		internal sealed partial class PropertyNamePropertyHandler : DslModeling::DomainPropertyValueHandler<ReadProperty, global::System.String>
+		{
+			private PropertyNamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ReadProperty.PropertyName domain property value handler.
+			/// </summary>
+			public static readonly PropertyNamePropertyHandler Instance = new PropertyNamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ReadProperty.PropertyName domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return PropertyNameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ReadProperty element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.propertyNamePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ReadProperty element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.propertyNamePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+	}
+}
+namespace Ultramarine.Generators.Language
+{
+	/// <summary>
+	/// DomainClass SetVariable
+	/// Description for Ultramarine.Generators.Language.SetVariable
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.SetVariable.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.SetVariable.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("9e35266d-2d6f-4d1c-9ea2-40677ffdaee1")]
+	public partial class SetVariable : Task
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// SetVariable domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x9e35266d, 0x2d6f, 0x4d1c, 0x9e, 0xa2, 0x40, 0x67, 0x7f, 0xfd, 0xae, 0xe1);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public SetVariable(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public SetVariable(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region VariableName domain property code
+		
+		/// <summary>
+		/// VariableName domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid VariableNameDomainPropertyId = new global::System.Guid(0x9f4ba5ed, 0x94b9, 0x460c, 0xa9, 0x12, 0xba, 0x76, 0x42, 0xb0, 0xdb, 0x2e);
+		
+		/// <summary>
+		/// Storage for VariableName
+		/// </summary>
+		private global::System.String variableNamePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of VariableName domain property.
+		/// Description for Ultramarine.Generators.Language.SetVariable.Variable Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.SetVariable/VariableName.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.SetVariable/VariableName.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("9f4ba5ed-94b9-460c-a912-ba7642b0db2e")]
+		public global::System.String VariableName
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return variableNamePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				VariableNamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the SetVariable.VariableName domain property.
+		/// </summary>
+		internal sealed partial class VariableNamePropertyHandler : DslModeling::DomainPropertyValueHandler<SetVariable, global::System.String>
+		{
+			private VariableNamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the SetVariable.VariableName domain property value handler.
+			/// </summary>
+			public static readonly VariableNamePropertyHandler Instance = new VariableNamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the SetVariable.VariableName domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return VariableNameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(SetVariable element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.variableNamePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(SetVariable element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.variableNamePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region VariableValue domain property code
+		
+		/// <summary>
+		/// VariableValue domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid VariableValueDomainPropertyId = new global::System.Guid(0x509a5ec0, 0x99b0, 0x48f9, 0xa9, 0xb0, 0x2c, 0xba, 0x1d, 0xc3, 0x78, 0x55);
+		
+		/// <summary>
+		/// Storage for VariableValue
+		/// </summary>
+		private global::System.String variableValuePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of VariableValue domain property.
+		/// Description for Ultramarine.Generators.Language.SetVariable.Variable Value
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.SetVariable/VariableValue.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.SetVariable/VariableValue.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("509a5ec0-99b0-48f9-a9b0-2cba1dc37855")]
+		public global::System.String VariableValue
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return variableValuePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				VariableValuePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the SetVariable.VariableValue domain property.
+		/// </summary>
+		internal sealed partial class VariableValuePropertyHandler : DslModeling::DomainPropertyValueHandler<SetVariable, global::System.String>
+		{
+			private VariableValuePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the SetVariable.VariableValue domain property value handler.
+			/// </summary>
+			public static readonly VariableValuePropertyHandler Instance = new VariableValuePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the SetVariable.VariableValue domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return VariableValueDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(SetVariable element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.variableValuePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(SetVariable element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.variableValuePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region ParentTask domain property code
+		
+		/// <summary>
+		/// ParentTask domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ParentTaskDomainPropertyId = new global::System.Guid(0x9417475f, 0x713c, 0x4983, 0xa4, 0x81, 0xaf, 0x96, 0xeb, 0xf0, 0xe1, 0x23);
+		
+		/// <summary>
+		/// Storage for ParentTask
+		/// </summary>
+		private global::System.String parentTaskPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ParentTask domain property.
+		/// Description for Ultramarine.Generators.Language.SetVariable.Parent Task
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.SetVariable/ParentTask.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.SetVariable/ParentTask.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("9417475f-713c-4983-a481-af96ebf0e123")]
+		public global::System.String ParentTask
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return parentTaskPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ParentTaskPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the SetVariable.ParentTask domain property.
+		/// </summary>
+		internal sealed partial class ParentTaskPropertyHandler : DslModeling::DomainPropertyValueHandler<SetVariable, global::System.String>
+		{
+			private ParentTaskPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the SetVariable.ParentTask domain property value handler.
+			/// </summary>
+			public static readonly ParentTaskPropertyHandler Instance = new ParentTaskPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the SetVariable.ParentTask domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ParentTaskDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(SetVariable element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.parentTaskPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(SetVariable element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.parentTaskPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+	}
+}
+namespace Ultramarine.Generators.Language
+{
+	/// <summary>
+	/// DomainClass TextTransformation
+	/// Description for Ultramarine.Generators.Language.TextTransformation
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.TextTransformation.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.TextTransformation.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("cf3a6e86-268d-4c5d-85e5-54f790a850c5")]
+	public partial class TextTransformation : Task
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// TextTransformation domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xcf3a6e86, 0x268d, 0x4c5d, 0x85, 0xe5, 0x54, 0xf7, 0x90, 0xa8, 0x50, 0xc5);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public TextTransformation(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public TextTransformation(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region FileName domain property code
+		
+		/// <summary>
+		/// FileName domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid FileNameDomainPropertyId = new global::System.Guid(0x0ec6bd04, 0x5eab, 0x4522, 0x98, 0x88, 0xe6, 0x8d, 0xef, 0x81, 0x17, 0x53);
+		
+		/// <summary>
+		/// Storage for FileName
+		/// </summary>
+		private global::System.String fileNamePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of FileName domain property.
+		/// Description for Ultramarine.Generators.Language.TextTransformation.File Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.TextTransformation/FileName.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.TextTransformation/FileName.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("0ec6bd04-5eab-4522-9888-e68def811753")]
+		public global::System.String FileName
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return fileNamePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				FileNamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the TextTransformation.FileName domain property.
+		/// </summary>
+		internal sealed partial class FileNamePropertyHandler : DslModeling::DomainPropertyValueHandler<TextTransformation, global::System.String>
+		{
+			private FileNamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the TextTransformation.FileName domain property value handler.
+			/// </summary>
+			public static readonly FileNamePropertyHandler Instance = new FileNamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the TextTransformation.FileName domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return FileNameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(TextTransformation element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.fileNamePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(TextTransformation element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.fileNamePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region ProjectName domain property code
+		
+		/// <summary>
+		/// ProjectName domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ProjectNameDomainPropertyId = new global::System.Guid(0x62ae3e3d, 0xad13, 0x4bee, 0x91, 0xd7, 0xa5, 0xd4, 0x19, 0x1e, 0xde, 0x17);
+		
+		/// <summary>
+		/// Storage for ProjectName
+		/// </summary>
+		private global::System.String projectNamePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ProjectName domain property.
+		/// Description for Ultramarine.Generators.Language.TextTransformation.Project Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.TextTransformation/ProjectName.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.TextTransformation/ProjectName.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("62ae3e3d-ad13-4bee-91d7-a5d4191ede17")]
+		public global::System.String ProjectName
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return projectNamePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ProjectNamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the TextTransformation.ProjectName domain property.
+		/// </summary>
+		internal sealed partial class ProjectNamePropertyHandler : DslModeling::DomainPropertyValueHandler<TextTransformation, global::System.String>
+		{
+			private ProjectNamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the TextTransformation.ProjectName domain property value handler.
+			/// </summary>
+			public static readonly ProjectNamePropertyHandler Instance = new ProjectNamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the TextTransformation.ProjectName domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ProjectNameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(TextTransformation element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.projectNamePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(TextTransformation element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.projectNamePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Parameters domain property code
+		
+		/// <summary>
+		/// Parameters domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ParametersDomainPropertyId = new global::System.Guid(0x3fbda026, 0x81a0, 0x408e, 0xbb, 0x53, 0x4f, 0xc0, 0x2d, 0x25, 0x73, 0x17);
+		
+		/// <summary>
+		/// Storage for Parameters
+		/// </summary>
+		private global::System.String parametersPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Parameters domain property.
+		/// Description for Ultramarine.Generators.Language.TextTransformation.Parameters
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.TextTransformation/Parameters.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.TextTransformation/Parameters.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("3fbda026-81a0-408e-bb53-4fc02d257317")]
+		public global::System.String Parameters
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return parametersPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ParametersPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the TextTransformation.Parameters domain property.
+		/// </summary>
+		internal sealed partial class ParametersPropertyHandler : DslModeling::DomainPropertyValueHandler<TextTransformation, global::System.String>
+		{
+			private ParametersPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the TextTransformation.Parameters domain property value handler.
+			/// </summary>
+			public static readonly ParametersPropertyHandler Instance = new ParametersPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the TextTransformation.Parameters domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ParametersDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(TextTransformation element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.parametersPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(TextTransformation element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.parametersPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+	}
+}
+namespace Ultramarine.Generators.Language
+{
+	/// <summary>
+	/// DomainClass Iterator
+	/// Description for Ultramarine.Generators.Language.Iterator
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.Iterator.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.Iterator.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("0f981f24-ba7b-496f-aa88-c64c5c8c9a90")]
+	public partial class Iterator : CompositeTask
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// Iterator domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x0f981f24, 0xba7b, 0x496f, 0xaa, 0x88, 0xc6, 0x4c, 0x5c, 0x8c, 0x9a, 0x90);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Iterator(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Iterator(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
 		}
 		#endregion
 	}

@@ -73,17 +73,28 @@ namespace Ultramarine.Generators.Language
 				typeof(LoadCodeElement),
 				typeof(BuildProject),
 				typeof(CreateFolder),
-				typeof(Settings),
+				typeof(CreateProjectItem),
+				typeof(LoadProjectItem),
+				typeof(ReadProperty),
+				typeof(SetVariable),
+				typeof(TextTransformation),
+				typeof(Iterator),
 				typeof(ConnectedWith),
 				typeof(GeneratorModelHasTasks),
-				typeof(CompositeTaskReferencesTasked),
-				typeof(CreateFolderHasSetting),
+				typeof(ChildTasks),
 				typeof(GeneratorLanguageDiagram),
 				typeof(ConnectedWithConnector),
+				typeof(IteratorConnector),
 				typeof(LoadCodeElementShape),
 				typeof(TaskShape),
 				typeof(BuildProjectShape),
 				typeof(CreateFolderShape),
+				typeof(CreateProjectItemShape),
+				typeof(LoadProjectItemShape),
+				typeof(ReadPropertyShape),
+				typeof(SetVariableShape),
+				typeof(TextTransformationShape),
+				typeof(IteratorShape),
 				typeof(global::Ultramarine.Generators.Language.FixUpDiagram),
 				typeof(global::Ultramarine.Generators.Language.ConnectorRolePlayerChanged),
 				typeof(global::Ultramarine.Generators.Language.CompartmentItemAddRule),
@@ -104,13 +115,30 @@ namespace Ultramarine.Generators.Language
 			{
 				new DomainMemberInfo(typeof(Task), "Name", Task.NameDomainPropertyId, typeof(Task.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Task), "Description", Task.DescriptionDomainPropertyId, typeof(Task.DescriptionPropertyHandler)),
+				new DomainMemberInfo(typeof(LoadCodeElement), "ElementName", LoadCodeElement.ElementNameDomainPropertyId, typeof(LoadCodeElement.ElementNamePropertyHandler)),
+				new DomainMemberInfo(typeof(LoadCodeElement), "ElementType", LoadCodeElement.ElementTypeDomainPropertyId, typeof(LoadCodeElement.ElementTypePropertyHandler)),
+				new DomainMemberInfo(typeof(LoadCodeElement), "ElementAccess", LoadCodeElement.ElementAccessDomainPropertyId, typeof(LoadCodeElement.ElementAccessPropertyHandler)),
+				new DomainMemberInfo(typeof(LoadCodeElement), "ElementOverride", LoadCodeElement.ElementOverrideDomainPropertyId, typeof(LoadCodeElement.ElementOverridePropertyHandler)),
+				new DomainMemberInfo(typeof(LoadCodeElement), "TypeOf", LoadCodeElement.TypeOfDomainPropertyId, typeof(LoadCodeElement.TypeOfPropertyHandler)),
 				new DomainMemberInfo(typeof(BuildProject), "ProjectName", BuildProject.ProjectNameDomainPropertyId, typeof(BuildProject.ProjectNamePropertyHandler)),
 				new DomainMemberInfo(typeof(BuildProject), "Configuration", BuildProject.ConfigurationDomainPropertyId, typeof(BuildProject.ConfigurationPropertyHandler)),
 				new DomainMemberInfo(typeof(CreateFolder), "FolderPath", CreateFolder.FolderPathDomainPropertyId, typeof(CreateFolder.FolderPathPropertyHandler)),
 				new DomainMemberInfo(typeof(CreateFolder), "BasePath", CreateFolder.BasePathDomainPropertyId, typeof(CreateFolder.BasePathPropertyHandler)),
-				new DomainMemberInfo(typeof(Settings), "Value", Settings.ValueDomainPropertyId, typeof(Settings.ValuePropertyHandler)),
-				new DomainMemberInfo(typeof(BuildProjectShape), "ProjectName", BuildProjectShape.ProjectNameDomainPropertyId, typeof(BuildProjectShape.ProjectNamePropertyHandler)),
-				new DomainMemberInfo(typeof(BuildProjectShape), "Configuration", BuildProjectShape.ConfigurationDomainPropertyId, typeof(BuildProjectShape.ConfigurationPropertyHandler)),
+				new DomainMemberInfo(typeof(CreateProjectItem), "ItemName", CreateProjectItem.ItemNameDomainPropertyId, typeof(CreateProjectItem.ItemNamePropertyHandler)),
+				new DomainMemberInfo(typeof(CreateProjectItem), "FolderPath", CreateProjectItem.FolderPathDomainPropertyId, typeof(CreateProjectItem.FolderPathPropertyHandler)),
+				new DomainMemberInfo(typeof(CreateProjectItem), "LinkedWith", CreateProjectItem.LinkedWithDomainPropertyId, typeof(CreateProjectItem.LinkedWithPropertyHandler)),
+				new DomainMemberInfo(typeof(CreateProjectItem), "ProjectName", CreateProjectItem.ProjectNameDomainPropertyId, typeof(CreateProjectItem.ProjectNamePropertyHandler)),
+				new DomainMemberInfo(typeof(CreateProjectItem), "Overwrite", CreateProjectItem.OverwriteDomainPropertyId, typeof(CreateProjectItem.OverwritePropertyHandler)),
+				new DomainMemberInfo(typeof(LoadProjectItem), "ProjectName", LoadProjectItem.ProjectNameDomainPropertyId, typeof(LoadProjectItem.ProjectNamePropertyHandler)),
+				new DomainMemberInfo(typeof(LoadProjectItem), "ItemName", LoadProjectItem.ItemNameDomainPropertyId, typeof(LoadProjectItem.ItemNamePropertyHandler)),
+				new DomainMemberInfo(typeof(LoadProjectItem), "LinkedWith", LoadProjectItem.LinkedWithDomainPropertyId, typeof(LoadProjectItem.LinkedWithPropertyHandler)),
+				new DomainMemberInfo(typeof(ReadProperty), "PropertyName", ReadProperty.PropertyNameDomainPropertyId, typeof(ReadProperty.PropertyNamePropertyHandler)),
+				new DomainMemberInfo(typeof(SetVariable), "VariableName", SetVariable.VariableNameDomainPropertyId, typeof(SetVariable.VariableNamePropertyHandler)),
+				new DomainMemberInfo(typeof(SetVariable), "VariableValue", SetVariable.VariableValueDomainPropertyId, typeof(SetVariable.VariableValuePropertyHandler)),
+				new DomainMemberInfo(typeof(SetVariable), "ParentTask", SetVariable.ParentTaskDomainPropertyId, typeof(SetVariable.ParentTaskPropertyHandler)),
+				new DomainMemberInfo(typeof(TextTransformation), "FileName", TextTransformation.FileNameDomainPropertyId, typeof(TextTransformation.FileNamePropertyHandler)),
+				new DomainMemberInfo(typeof(TextTransformation), "ProjectName", TextTransformation.ProjectNameDomainPropertyId, typeof(TextTransformation.ProjectNamePropertyHandler)),
+				new DomainMemberInfo(typeof(TextTransformation), "Parameters", TextTransformation.ParametersDomainPropertyId, typeof(TextTransformation.ParametersPropertyHandler)),
 			};
 		}
 		/// <summary>
@@ -125,10 +153,8 @@ namespace Ultramarine.Generators.Language
 				new DomainRolePlayerInfo(typeof(ConnectedWith), "TargetTask", ConnectedWith.TargetTaskDomainRoleId),
 				new DomainRolePlayerInfo(typeof(GeneratorModelHasTasks), "GeneratorModel", GeneratorModelHasTasks.GeneratorModelDomainRoleId),
 				new DomainRolePlayerInfo(typeof(GeneratorModelHasTasks), "Task", GeneratorModelHasTasks.TaskDomainRoleId),
-				new DomainRolePlayerInfo(typeof(CompositeTaskReferencesTasked), "CompositeTask", CompositeTaskReferencesTasked.CompositeTaskDomainRoleId),
-				new DomainRolePlayerInfo(typeof(CompositeTaskReferencesTasked), "Task", CompositeTaskReferencesTasked.TaskDomainRoleId),
-				new DomainRolePlayerInfo(typeof(CreateFolderHasSetting), "CreateFolder", CreateFolderHasSetting.CreateFolderDomainRoleId),
-				new DomainRolePlayerInfo(typeof(CreateFolderHasSetting), "Settings", CreateFolderHasSetting.SettingsDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ChildTasks), "CompositeTask", ChildTasks.CompositeTaskDomainRoleId),
+				new DomainRolePlayerInfo(typeof(ChildTasks), "Task", ChildTasks.TaskDomainRoleId),
 			};
 		}
 		#endregion
@@ -150,17 +176,29 @@ namespace Ultramarine.Generators.Language
 	
 			if (createElementMap == null)
 			{
-				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(13);
+				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(25);
 				createElementMap.Add(typeof(GeneratorModel), 0);
 				createElementMap.Add(typeof(LoadCodeElement), 1);
 				createElementMap.Add(typeof(BuildProject), 2);
 				createElementMap.Add(typeof(CreateFolder), 3);
-				createElementMap.Add(typeof(Settings), 4);
-				createElementMap.Add(typeof(GeneratorLanguageDiagram), 5);
-				createElementMap.Add(typeof(ConnectedWithConnector), 6);
-				createElementMap.Add(typeof(LoadCodeElementShape), 7);
-				createElementMap.Add(typeof(BuildProjectShape), 8);
-				createElementMap.Add(typeof(CreateFolderShape), 9);
+				createElementMap.Add(typeof(CreateProjectItem), 4);
+				createElementMap.Add(typeof(LoadProjectItem), 5);
+				createElementMap.Add(typeof(ReadProperty), 6);
+				createElementMap.Add(typeof(SetVariable), 7);
+				createElementMap.Add(typeof(TextTransformation), 8);
+				createElementMap.Add(typeof(Iterator), 9);
+				createElementMap.Add(typeof(GeneratorLanguageDiagram), 10);
+				createElementMap.Add(typeof(ConnectedWithConnector), 11);
+				createElementMap.Add(typeof(IteratorConnector), 12);
+				createElementMap.Add(typeof(LoadCodeElementShape), 13);
+				createElementMap.Add(typeof(BuildProjectShape), 14);
+				createElementMap.Add(typeof(CreateFolderShape), 15);
+				createElementMap.Add(typeof(CreateProjectItemShape), 16);
+				createElementMap.Add(typeof(LoadProjectItemShape), 17);
+				createElementMap.Add(typeof(ReadPropertyShape), 18);
+				createElementMap.Add(typeof(SetVariableShape), 19);
+				createElementMap.Add(typeof(TextTransformationShape), 20);
+				createElementMap.Add(typeof(IteratorShape), 21);
 			}
 			int index;
 			if (!createElementMap.TryGetValue(elementType, out index))
@@ -178,12 +216,24 @@ namespace Ultramarine.Generators.Language
 				case 1: return new LoadCodeElement(partition, propertyAssignments);
 				case 2: return new BuildProject(partition, propertyAssignments);
 				case 3: return new CreateFolder(partition, propertyAssignments);
-				case 4: return new Settings(partition, propertyAssignments);
-				case 5: return new GeneratorLanguageDiagram(partition, propertyAssignments);
-				case 6: return new ConnectedWithConnector(partition, propertyAssignments);
-				case 7: return new LoadCodeElementShape(partition, propertyAssignments);
-				case 8: return new BuildProjectShape(partition, propertyAssignments);
-				case 9: return new CreateFolderShape(partition, propertyAssignments);
+				case 4: return new CreateProjectItem(partition, propertyAssignments);
+				case 5: return new LoadProjectItem(partition, propertyAssignments);
+				case 6: return new ReadProperty(partition, propertyAssignments);
+				case 7: return new SetVariable(partition, propertyAssignments);
+				case 8: return new TextTransformation(partition, propertyAssignments);
+				case 9: return new Iterator(partition, propertyAssignments);
+				case 10: return new GeneratorLanguageDiagram(partition, propertyAssignments);
+				case 11: return new ConnectedWithConnector(partition, propertyAssignments);
+				case 12: return new IteratorConnector(partition, propertyAssignments);
+				case 13: return new LoadCodeElementShape(partition, propertyAssignments);
+				case 14: return new BuildProjectShape(partition, propertyAssignments);
+				case 15: return new CreateFolderShape(partition, propertyAssignments);
+				case 16: return new CreateProjectItemShape(partition, propertyAssignments);
+				case 17: return new LoadProjectItemShape(partition, propertyAssignments);
+				case 18: return new ReadPropertyShape(partition, propertyAssignments);
+				case 19: return new SetVariableShape(partition, propertyAssignments);
+				case 20: return new TextTransformationShape(partition, propertyAssignments);
+				case 21: return new IteratorShape(partition, propertyAssignments);
 				default: return null;
 			}
 		}
@@ -206,11 +256,10 @@ namespace Ultramarine.Generators.Language
 	
 			if (createElementLinkMap == null)
 			{
-				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(4);
+				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(3);
 				createElementLinkMap.Add(typeof(ConnectedWith), 0);
 				createElementLinkMap.Add(typeof(GeneratorModelHasTasks), 1);
-				createElementLinkMap.Add(typeof(CompositeTaskReferencesTasked), 2);
-				createElementLinkMap.Add(typeof(CreateFolderHasSetting), 3);
+				createElementLinkMap.Add(typeof(ChildTasks), 2);
 			}
 			int index;
 			if (!createElementLinkMap.TryGetValue(elementLinkType, out index))
@@ -227,8 +276,7 @@ namespace Ultramarine.Generators.Language
 			{
 				case 0: return new ConnectedWith(partition, roleAssignments, propertyAssignments);
 				case 1: return new GeneratorModelHasTasks(partition, roleAssignments, propertyAssignments);
-				case 2: return new CompositeTaskReferencesTasked(partition, roleAssignments, propertyAssignments);
-				case 3: return new CreateFolderHasSetting(partition, roleAssignments, propertyAssignments);
+				case 2: return new ChildTasks(partition, roleAssignments, propertyAssignments);
 				default: return null;
 			}
 		}
@@ -408,7 +456,7 @@ namespace Ultramarine.Generators.Language
 		{
 			#region Initialize DomainData Table
 			DomainRoles.Add(global::Ultramarine.Generators.Language.GeneratorModelHasTasks.TaskDomainRoleId, true);
-			DomainRoles.Add(global::Ultramarine.Generators.Language.CreateFolderHasSetting.SettingsDomainRoleId, true);
+			DomainRoles.Add(global::Ultramarine.Generators.Language.ChildTasks.CompositeTaskDomainRoleId, true);
 			#endregion
 		}
 		/// <summary>

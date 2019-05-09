@@ -491,33 +491,33 @@ namespace Ultramarine.Generators.Language
 namespace Ultramarine.Generators.Language
 {
 	/// <summary>
-	/// DomainRelationship CompositeTaskReferencesTasked
-	/// Description for Ultramarine.Generators.Language.CompositeTaskReferencesTasked
+	/// DomainRelationship ChildTasks
+	/// Description for Ultramarine.Generators.Language.ChildTasks
 	/// </summary>
-	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CompositeTaskReferencesTasked.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CompositeTaskReferencesTasked.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.ChildTasks.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.ChildTasks.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainRelationship()]
 	[DslModeling::DomainObjectId("0ae4d88d-d086-4dbd-9ef8-bb70cff9b8d9")]
-	public partial class CompositeTaskReferencesTasked : DslModeling::ElementLink
+	public partial class ChildTasks : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
 		
 		/// <summary>
-		/// CompositeTaskReferencesTasked domain class Id.
+		/// ChildTasks domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x0ae4d88d, 0xd086, 0x4dbd, 0x9e, 0xf8, 0xbb, 0x70, 0xcf, 0xf9, 0xb8, 0xd9);
 	
 				
 		/// <summary>
 		/// Constructor
-		/// Creates a CompositeTaskReferencesTasked link in the same Partition as the given CompositeTask
+		/// Creates a ChildTasks link in the same Partition as the given CompositeTask
 		/// </summary>
 		/// <param name="source">CompositeTask to use as the source of the relationship.</param>
 		/// <param name="target">Task to use as the target of the relationship.</param>
-		public CompositeTaskReferencesTasked(CompositeTask source, Task target)
-			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(CompositeTaskReferencesTasked.CompositeTaskDomainRoleId, source), new DslModeling::RoleAssignment(CompositeTaskReferencesTasked.TaskDomainRoleId, target)}, null)
+		public ChildTasks(CompositeTask source, Task target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ChildTasks.CompositeTaskDomainRoleId, source), new DslModeling::RoleAssignment(ChildTasks.TaskDomainRoleId, target)}, null)
 		{
 		}
 		
@@ -526,7 +526,7 @@ namespace Ultramarine.Generators.Language
 		/// </summary>
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public CompositeTaskReferencesTasked(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+		public ChildTasks(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
@@ -537,7 +537,7 @@ namespace Ultramarine.Generators.Language
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public CompositeTaskReferencesTasked(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public ChildTasks(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
@@ -547,7 +547,7 @@ namespace Ultramarine.Generators.Language
 		/// </summary>
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public CompositeTaskReferencesTasked(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+		public ChildTasks(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(partition, roleAssignments, null)
 		{
 		}
@@ -558,7 +558,7 @@ namespace Ultramarine.Generators.Language
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public CompositeTaskReferencesTasked(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public ChildTasks(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, roleAssignments, propertyAssignments)
 		{
 		}
@@ -572,12 +572,11 @@ namespace Ultramarine.Generators.Language
 		
 		/// <summary>
 		/// DomainRole CompositeTask
-		/// Description for
-		/// Ultramarine.Generators.Language.CompositeTaskReferencesTasked.CompositeTask
+		/// Description for Ultramarine.Generators.Language.ChildTasks.CompositeTask
 		/// </summary>
-		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CompositeTaskReferencesTasked/CompositeTask.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CompositeTaskReferencesTasked/CompositeTask.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Tasked", PropertyDisplayNameKey="Ultramarine.Generators.Language.CompositeTaskReferencesTasked/CompositeTask.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.ChildTasks/CompositeTask.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.ChildTasks/CompositeTask.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Tasks", PropertyDisplayNameKey="Ultramarine.Generators.Language.ChildTasks/CompositeTask.PropertyDisplayName", PropagatesDelete = true,  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
 		[DslModeling::DomainObjectId("7d858091-54ed-4846-b5a0-31b87d001bd7")]
 		public virtual CompositeTask CompositeTask
 		{
@@ -594,15 +593,25 @@ namespace Ultramarine.Generators.Language
 		}
 				
 		#endregion
-		#region Static methods to access CompositeTasked of a Task
+		#region Static methods to access Parent of a Task
 		/// <summary>
-		/// Gets a list of CompositeTasked.
+		/// Gets Parent.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<CompositeTask> GetCompositeTasked(Task element)
+		public static CompositeTask GetParent(Task element)
 		{
-			return GetRoleCollection<DslModeling::LinkedElementCollection<CompositeTask>, CompositeTask>(element, TaskDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, TaskDomainRoleId) as CompositeTask;
+		}
+		
+		/// <summary>
+		/// Sets Parent.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetParent(Task element, CompositeTask newCompositeTask)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, TaskDomainRoleId, newCompositeTask);
 		}
 		#endregion
 		#region Task domain role code
@@ -614,12 +623,11 @@ namespace Ultramarine.Generators.Language
 		
 		/// <summary>
 		/// DomainRole Task
-		/// Description for
-		/// Ultramarine.Generators.Language.CompositeTaskReferencesTasked.Task
+		/// Description for Ultramarine.Generators.Language.ChildTasks.Task
 		/// </summary>
-		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CompositeTaskReferencesTasked/Task.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CompositeTaskReferencesTasked/Task.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "CompositeTasked", PropertyDisplayNameKey="Ultramarine.Generators.Language.CompositeTaskReferencesTasked/Task.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.ChildTasks/Task.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.ChildTasks/Task.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "Parent", PropertyDisplayNameKey="Ultramarine.Generators.Language.ChildTasks/Task.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.One)]
 		[DslModeling::DomainObjectId("6f1c3c60-10b8-40a1-b6d2-3f1fe7b5ca6b")]
 		public virtual Task Task
 		{
@@ -636,269 +644,38 @@ namespace Ultramarine.Generators.Language
 		}
 				
 		#endregion
-		#region Static methods to access Tasked of a CompositeTask
+		#region Static methods to access Tasks of a CompositeTask
 		/// <summary>
-		/// Gets a list of Tasked.
+		/// Gets a list of Tasks.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<Task> GetTasked(CompositeTask element)
+		public static DslModeling::LinkedElementCollection<Task> GetTasks(CompositeTask element)
 		{
 			return GetRoleCollection<DslModeling::LinkedElementCollection<Task>, Task>(element, CompositeTaskDomainRoleId);
 		}
 		#endregion
 		#region CompositeTask link accessor
 		/// <summary>
-		/// Get the list of CompositeTaskReferencesTasked links to a CompositeTask.
+		/// Get the list of ChildTasks links to a CompositeTask.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked> GetLinksToTasked ( global::Ultramarine.Generators.Language.CompositeTask compositeTaskInstance )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ultramarine.Generators.Language.ChildTasks> GetLinksToTasks ( global::Ultramarine.Generators.Language.CompositeTask compositeTaskInstance )
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked>(compositeTaskInstance, global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked.CompositeTaskDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.ChildTasks>(compositeTaskInstance, global::Ultramarine.Generators.Language.ChildTasks.CompositeTaskDomainRoleId);
 		}
 		#endregion
 		#region Task link accessor
 		/// <summary>
-		/// Get the list of CompositeTaskReferencesTasked links to a Task.
+		/// Get the ChildTasks link to a Task.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked> GetLinksToCompositeTasked ( global::Ultramarine.Generators.Language.Task taskInstance )
+		public static global::Ultramarine.Generators.Language.ChildTasks GetLinkToParent (global::Ultramarine.Generators.Language.Task taskInstance)
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked>(taskInstance, global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked.TaskDomainRoleId);
-		}
-		#endregion
-		#region CompositeTaskReferencesTasked instance accessors
-		
-		/// <summary>
-		/// Get any CompositeTaskReferencesTasked links between a given CompositeTask and a Task.
-		/// </summary>
-		[global::System.Diagnostics.DebuggerStepThrough]
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked> GetLinks( global::Ultramarine.Generators.Language.CompositeTask source, global::Ultramarine.Generators.Language.Task target )
-		{
-			global::System.Collections.Generic.List<global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked> outLinks = new global::System.Collections.Generic.List<global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked>();
-			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked>(source, global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked.CompositeTaskDomainRoleId);
-			foreach ( global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked link in links )
-			{
-				if ( target.Equals(link.Task) )
-				{
-					outLinks.Add(link);
-				}
-			}
-			return outLinks.AsReadOnly();
-		}
-		/// <summary>
-		/// Get the one CompositeTaskReferencesTasked link between a given CompositeTaskand a Task.
-		/// </summary>
-		[global::System.Diagnostics.DebuggerStepThrough]
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked GetLink( global::Ultramarine.Generators.Language.CompositeTask source, global::Ultramarine.Generators.Language.Task target )
-		{
-			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked>(source, global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked.CompositeTaskDomainRoleId);
-			foreach ( global::Ultramarine.Generators.Language.CompositeTaskReferencesTasked link in links )
-			{
-				if ( target.Equals(link.Task) )
-				{
-					return link;
-				}
-			}
-			return null;
-		}
-		
-		#endregion
-	}
-}
-namespace Ultramarine.Generators.Language
-{
-	/// <summary>
-	/// DomainRelationship CreateFolderHasSetting
-	/// Description for Ultramarine.Generators.Language.CreateFolderHasSetting
-	/// </summary>
-	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CreateFolderHasSetting.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateFolderHasSetting.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
-	[global::System.CLSCompliant(true)]
-	[DslModeling::DomainRelationship(IsEmbedding=true)]
-	[DslModeling::DomainObjectId("6d9be41d-8491-4587-a01c-2656c2b7c759")]
-	public partial class CreateFolderHasSetting : DslModeling::ElementLink
-	{
-		#region Constructors, domain class Id
-		
-		/// <summary>
-		/// CreateFolderHasSetting domain class Id.
-		/// </summary>
-		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x6d9be41d, 0x8491, 0x4587, 0xa0, 0x1c, 0x26, 0x56, 0xc2, 0xb7, 0xc7, 0x59);
-	
-				
-		/// <summary>
-		/// Constructor
-		/// Creates a CreateFolderHasSetting link in the same Partition as the given CreateFolder
-		/// </summary>
-		/// <param name="source">CreateFolder to use as the source of the relationship.</param>
-		/// <param name="target">Settings to use as the target of the relationship.</param>
-		public CreateFolderHasSetting(CreateFolder source, Settings target)
-			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(CreateFolderHasSetting.CreateFolderDomainRoleId, source), new DslModeling::RoleAssignment(CreateFolderHasSetting.SettingsDomainRoleId, target)}, null)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new link is to be created.</param>
-		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public CreateFolderHasSetting(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
-			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="store">Store where new link is to be created.</param>
-		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public CreateFolderHasSetting(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
-			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="partition">Partition where new link is to be created.</param>
-		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public CreateFolderHasSetting(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
-			: base(partition, roleAssignments, null)
-		{
-		}
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="partition">Partition where new link is to be created.</param>
-		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public CreateFolderHasSetting(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
-			: base(partition, roleAssignments, propertyAssignments)
-		{
-		}
-		#endregion
-		#region CreateFolder domain role code
-		
-		/// <summary>
-		/// CreateFolder domain role Id.
-		/// </summary>
-		public static readonly global::System.Guid CreateFolderDomainRoleId = new global::System.Guid(0x2d95806b, 0x94e5, 0x450c, 0xaf, 0x9d, 0x30, 0x91, 0x70, 0x59, 0xf0, 0x48);
-		
-		/// <summary>
-		/// DomainRole CreateFolder
-		/// Description for
-		/// Ultramarine.Generators.Language.CreateFolderHasSetting.CreateFolder
-		/// </summary>
-		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CreateFolderHasSetting/CreateFolder.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateFolderHasSetting/CreateFolder.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Setting", PropertyDisplayNameKey="Ultramarine.Generators.Language.CreateFolderHasSetting/CreateFolder.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
-		[DslModeling::DomainObjectId("2d95806b-94e5-450c-af9d-30917059f048")]
-		public virtual CreateFolder CreateFolder
-		{
-			[global::System.Diagnostics.DebuggerStepThrough]
-			get
-			{
-				return (CreateFolder)DslModeling::DomainRoleInfo.GetRolePlayer(this, CreateFolderDomainRoleId);
-			}
-			[global::System.Diagnostics.DebuggerStepThrough]
-			set
-			{
-				DslModeling::DomainRoleInfo.SetRolePlayer(this, CreateFolderDomainRoleId, value);
-			}
-		}
-				
-		#endregion
-		#region Static methods to access CreateFolder of a Settings
-		/// <summary>
-		/// Gets CreateFolder.
-		/// </summary>
-		[global::System.Diagnostics.DebuggerStepThrough]
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static CreateFolder GetCreateFolder(Settings element)
-		{
-			return DslModeling::DomainRoleInfo.GetLinkedElement(element, SettingsDomainRoleId) as CreateFolder;
-		}
-		
-		/// <summary>
-		/// Sets CreateFolder.
-		/// </summary>
-		[global::System.Diagnostics.DebuggerStepThrough]
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static void SetCreateFolder(Settings element, CreateFolder newCreateFolder)
-		{
-			DslModeling::DomainRoleInfo.SetLinkedElement(element, SettingsDomainRoleId, newCreateFolder);
-		}
-		#endregion
-		#region Settings domain role code
-		
-		/// <summary>
-		/// Settings domain role Id.
-		/// </summary>
-		public static readonly global::System.Guid SettingsDomainRoleId = new global::System.Guid(0x1b25d5e4, 0x8eaf, 0x4663, 0x87, 0xa9, 0x0b, 0x61, 0x68, 0x8a, 0x5c, 0xb2);
-		
-		/// <summary>
-		/// DomainRole Settings
-		/// Description for Ultramarine.Generators.Language.CreateFolderHasSetting.Settings
-		/// </summary>
-		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.CreateFolderHasSetting/Settings.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.CreateFolderHasSetting/Settings.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "CreateFolder", PropertyDisplayNameKey="Ultramarine.Generators.Language.CreateFolderHasSetting/Settings.PropertyDisplayName", PropagatesDelete = true,  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.One)]
-		[DslModeling::DomainObjectId("1b25d5e4-8eaf-4663-87a9-0b61688a5cb2")]
-		public virtual Settings Settings
-		{
-			[global::System.Diagnostics.DebuggerStepThrough]
-			get
-			{
-				return (Settings)DslModeling::DomainRoleInfo.GetRolePlayer(this, SettingsDomainRoleId);
-			}
-			[global::System.Diagnostics.DebuggerStepThrough]
-			set
-			{
-				DslModeling::DomainRoleInfo.SetRolePlayer(this, SettingsDomainRoleId, value);
-			}
-		}
-				
-		#endregion
-		#region Static methods to access Setting of a CreateFolder
-		/// <summary>
-		/// Gets a list of Setting.
-		/// </summary>
-		[global::System.Diagnostics.DebuggerStepThrough]
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<Settings> GetSetting(CreateFolder element)
-		{
-			return GetRoleCollection<DslModeling::LinkedElementCollection<Settings>, Settings>(element, CreateFolderDomainRoleId);
-		}
-		#endregion
-		#region CreateFolder link accessor
-		/// <summary>
-		/// Get the list of CreateFolderHasSetting links to a CreateFolder.
-		/// </summary>
-		[global::System.Diagnostics.DebuggerStepThrough]
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ultramarine.Generators.Language.CreateFolderHasSetting> GetLinksToSetting ( global::Ultramarine.Generators.Language.CreateFolder createFolderInstance )
-		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.CreateFolderHasSetting>(createFolderInstance, global::Ultramarine.Generators.Language.CreateFolderHasSetting.CreateFolderDomainRoleId);
-		}
-		#endregion
-		#region Settings link accessor
-		/// <summary>
-		/// Get the CreateFolderHasSetting link to a Settings.
-		/// </summary>
-		[global::System.Diagnostics.DebuggerStepThrough]
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Ultramarine.Generators.Language.CreateFolderHasSetting GetLinkToCreateFolder (global::Ultramarine.Generators.Language.Settings settingsInstance)
-		{
-			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.CreateFolderHasSetting> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.CreateFolderHasSetting>(settingsInstance, global::Ultramarine.Generators.Language.CreateFolderHasSetting.SettingsDomainRoleId);
-			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Settings not obeyed.");
+			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.ChildTasks> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.ChildTasks>(taskInstance, global::Ultramarine.Generators.Language.ChildTasks.TaskDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Task not obeyed.");
 			if ( links.Count == 0 )
 			{
 				return null;
@@ -909,20 +686,20 @@ namespace Ultramarine.Generators.Language
 			}
 		}
 		#endregion
-		#region CreateFolderHasSetting instance accessors
+		#region ChildTasks instance accessors
 		
 		/// <summary>
-		/// Get any CreateFolderHasSetting links between a given CreateFolder and a Settings.
+		/// Get any ChildTasks links between a given CompositeTask and a Task.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ultramarine.Generators.Language.CreateFolderHasSetting> GetLinks( global::Ultramarine.Generators.Language.CreateFolder source, global::Ultramarine.Generators.Language.Settings target )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ultramarine.Generators.Language.ChildTasks> GetLinks( global::Ultramarine.Generators.Language.CompositeTask source, global::Ultramarine.Generators.Language.Task target )
 		{
-			global::System.Collections.Generic.List<global::Ultramarine.Generators.Language.CreateFolderHasSetting> outLinks = new global::System.Collections.Generic.List<global::Ultramarine.Generators.Language.CreateFolderHasSetting>();
-			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.CreateFolderHasSetting> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.CreateFolderHasSetting>(source, global::Ultramarine.Generators.Language.CreateFolderHasSetting.CreateFolderDomainRoleId);
-			foreach ( global::Ultramarine.Generators.Language.CreateFolderHasSetting link in links )
+			global::System.Collections.Generic.List<global::Ultramarine.Generators.Language.ChildTasks> outLinks = new global::System.Collections.Generic.List<global::Ultramarine.Generators.Language.ChildTasks>();
+			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.ChildTasks> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.ChildTasks>(source, global::Ultramarine.Generators.Language.ChildTasks.CompositeTaskDomainRoleId);
+			foreach ( global::Ultramarine.Generators.Language.ChildTasks link in links )
 			{
-				if ( target.Equals(link.Settings) )
+				if ( target.Equals(link.Task) )
 				{
 					outLinks.Add(link);
 				}
@@ -930,16 +707,16 @@ namespace Ultramarine.Generators.Language
 			return outLinks.AsReadOnly();
 		}
 		/// <summary>
-		/// Get the one CreateFolderHasSetting link between a given CreateFolderand a Settings.
+		/// Get the one ChildTasks link between a given CompositeTaskand a Task.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Ultramarine.Generators.Language.CreateFolderHasSetting GetLink( global::Ultramarine.Generators.Language.CreateFolder source, global::Ultramarine.Generators.Language.Settings target )
+		public static global::Ultramarine.Generators.Language.ChildTasks GetLink( global::Ultramarine.Generators.Language.CompositeTask source, global::Ultramarine.Generators.Language.Task target )
 		{
-			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.CreateFolderHasSetting> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.CreateFolderHasSetting>(source, global::Ultramarine.Generators.Language.CreateFolderHasSetting.CreateFolderDomainRoleId);
-			foreach ( global::Ultramarine.Generators.Language.CreateFolderHasSetting link in links )
+			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.ChildTasks> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.ChildTasks>(source, global::Ultramarine.Generators.Language.ChildTasks.CompositeTaskDomainRoleId);
+			foreach ( global::Ultramarine.Generators.Language.ChildTasks link in links )
 			{
-				if ( target.Equals(link.Settings) )
+				if ( target.Equals(link.Task) )
 				{
 					return link;
 				}
