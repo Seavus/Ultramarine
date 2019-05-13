@@ -7,12 +7,37 @@ using System.Collections;
 
 namespace Ultramarine.Generators.Tasks
 {
+    /// <summary>
+    /// Executes a SQL command or a query
+    /// </summary>
     [Export(typeof(Task))]
     public class SqlCommand : Task
     {
-        public string ConnectionString { get; set; }
-        public string Statement { get; set; }
+        private string _connectionString;
+        private string _statement;
+
+        /// <summary>
+        /// SQL connection string
+        /// <para>This property supports Variables</para>
+        /// </summary>
+        public string ConnectionString { get => TryGetSettingValue(_connectionString) as string; set => _connectionString = value; }
+        
+        /// <summary>
+        /// Statement to execute
+        /// <para>This property supports Variables</para>
+        /// </summary>
+        public string Statement { get => TryGetSettingValue(_statement) as string; set => _statement = value; }
+
+        /// <summary>
+        /// Command type
+        /// <seealso cref="System.Data.CommandType"/>
+        /// <para>Defaults to Text</para>
+        /// </summary>
         public CommandType CommandType { get; set; } = CommandType.Text;
+        
+        /// <summary>
+        /// Query type - shapes the type of a result
+        /// </summary>
         public QueryType QueryType { get; set; } = QueryType.Reader;
 
         protected override ValidationResult Validate()
