@@ -30,7 +30,6 @@ namespace Ultramarine.Generators.Tasks
         public string ItemName { get => TryGetSettingValue(_itemName) as string; set => _itemName = value; }
         /// <summary>
         /// Name of the Project Item that the Item to load is linked with or dependant upon
-        /// <para>This property supports Variables and QueryLanguage Conditions</para>
         /// </summary>
         public string LinkedWith { get => TryGetSettingValue(_linkedWith) as string; set => _linkedWith = value; }
 

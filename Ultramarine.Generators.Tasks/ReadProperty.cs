@@ -4,15 +4,24 @@ using Ultramarine.Generators.Tasks.Library.Contracts;
 
 namespace Ultramarine.Generators.Tasks
 {
+    /// <summary>
+    /// Reads a value of the property from an input
+    /// </summary>
     [Export(typeof(Task))]
     public class ReadProperty : Task
     {
-        public string PropertyName { get; set; }
+        private string _propertyName;
+
+        /// <summary>
+        /// Name of the Code Element to load
+        /// <para>This property supports Variables</para>
+        /// </summary>
+        public string PropertyName { get => TryGetSettingValue(_propertyName) as string; set => _propertyName = value; }
 
         protected override object OnExecute()
         {
             var propertyInfo = Input.GetType().GetProperty(PropertyName);
-            if(propertyInfo == null)
+            if (propertyInfo == null)
                 throw new ArgumentException($"Property {PropertyName} doesn't exist.\n{GetInputDescriptor(Input)}");
             var value = propertyInfo.GetValue(Input);
             if (value == null)
