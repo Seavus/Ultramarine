@@ -125,13 +125,13 @@
     <value>GeneratorLanguage</value>
     <comment>DisplayName for DslLibrary &apos;GeneratorLanguage&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.GeneratorModel.Description" xml:space="preserve">
+  <data name="Ultramarine.Generators.Language.Generator.Description" xml:space="preserve">
     <value>The root in which all other elements are embedded. Appears as a diagram.</value>
-    <comment>Description for DomainClass &apos;GeneratorModel&apos;</comment>
+    <comment>Description for DomainClass &apos;Generator&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.GeneratorModel.DisplayName" xml:space="preserve">
-    <value>Generator Model</value>
-    <comment>DisplayName for DomainClass &apos;GeneratorModel&apos;</comment>
+  <data name="Ultramarine.Generators.Language.Generator.DisplayName" xml:space="preserve">
+    <value>Generator</value>
+    <comment>DisplayName for DomainClass &apos;Generator&apos;</comment>
   </data>
   <data name="Ultramarine.Generators.Language.Task.Description" xml:space="preserve">
     <value>Description for Ultramarine.Generators.Language.Task</value>
@@ -156,6 +156,14 @@
   <data name="Ultramarine.Generators.Language.Task/Description.DisplayName" xml:space="preserve">
     <value>Description</value>
     <comment>DisplayName for DomainProperty &apos;Description&apos; on DomainClass &apos;Task&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.Task/Type.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.Task.Type</value>
+    <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;Task&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.Task/Type.DisplayName" xml:space="preserve">
+    <value>Type</value>
+    <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;Task&apos;</comment>
   </data>
   <data name="Ultramarine.Generators.Language.CompositeTask.Description" xml:space="preserve">
     <value>Description for Ultramarine.Generators.Language.CompositeTask</value>
@@ -517,69 +525,37 @@
     <value>Connected Tasked</value>
     <comment>PropertyDisplayName for DomainRole &apos;TargetTask&apos; on DomainRelationship &apos;ConnectedWith&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.GeneratorModelHasTasks.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.GeneratorModelHasTasks</value>
-    <comment>Description for DomainClass &apos;GeneratorModelHasTasks&apos;</comment>
+  <data name="Ultramarine.Generators.Language.Children.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.Children</value>
+    <comment>Description for DomainClass &apos;Children&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.GeneratorModelHasTasks.DisplayName" xml:space="preserve">
-    <value>Generator Model Has Tasks</value>
-    <comment>DisplayName for DomainClass &apos;GeneratorModelHasTasks&apos;</comment>
+  <data name="Ultramarine.Generators.Language.Children.DisplayName" xml:space="preserve">
+    <value>Children</value>
+    <comment>DisplayName for DomainClass &apos;Children&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.GeneratorModelHasTasks/GeneratorModel.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.GeneratorModelHasTasks.GeneratorModel</value>
-    <comment>Description for DomainRole &apos;GeneratorModel&apos; on DomainRelationship &apos;GeneratorModelHasTasks&apos;</comment>
+  <data name="Ultramarine.Generators.Language.Children/CompositeTask.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.Children.CompositeTask</value>
+    <comment>Description for DomainRole &apos;CompositeTask&apos; on DomainRelationship &apos;Children&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.GeneratorModelHasTasks/GeneratorModel.DisplayName" xml:space="preserve">
-    <value>Generator Model</value>
-    <comment>DisplayName for DomainRole &apos;GeneratorModel&apos; on DomainRelationship &apos;GeneratorModelHasTasks&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.GeneratorModelHasTasks/GeneratorModel.PropertyDisplayName" xml:space="preserve">
-    <value>Tasks</value>
-    <comment>PropertyDisplayName for DomainRole &apos;GeneratorModel&apos; on DomainRelationship &apos;GeneratorModelHasTasks&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.GeneratorModelHasTasks/Task.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.GeneratorModelHasTasks.Task</value>
-    <comment>Description for DomainRole &apos;Task&apos; on DomainRelationship &apos;GeneratorModelHasTasks&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.GeneratorModelHasTasks/Task.DisplayName" xml:space="preserve">
-    <value>Task</value>
-    <comment>DisplayName for DomainRole &apos;Task&apos; on DomainRelationship &apos;GeneratorModelHasTasks&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.GeneratorModelHasTasks/Task.PropertyDisplayName" xml:space="preserve">
-    <value>Generator</value>
-    <comment>PropertyDisplayName for DomainRole &apos;Task&apos; on DomainRelationship &apos;GeneratorModelHasTasks&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.ChildTasks.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.ChildTasks</value>
-    <comment>Description for DomainClass &apos;ChildTasks&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.ChildTasks.DisplayName" xml:space="preserve">
-    <value>Child Tasks</value>
-    <comment>DisplayName for DomainClass &apos;ChildTasks&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.ChildTasks/CompositeTask.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.ChildTasks.CompositeTask</value>
-    <comment>Description for DomainRole &apos;CompositeTask&apos; on DomainRelationship &apos;ChildTasks&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.ChildTasks/CompositeTask.DisplayName" xml:space="preserve">
+  <data name="Ultramarine.Generators.Language.Children/CompositeTask.DisplayName" xml:space="preserve">
     <value>Composite Task</value>
-    <comment>DisplayName for DomainRole &apos;CompositeTask&apos; on DomainRelationship &apos;ChildTasks&apos;</comment>
+    <comment>DisplayName for DomainRole &apos;CompositeTask&apos; on DomainRelationship &apos;Children&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.ChildTasks/CompositeTask.PropertyDisplayName" xml:space="preserve">
+  <data name="Ultramarine.Generators.Language.Children/CompositeTask.PropertyDisplayName" xml:space="preserve">
     <value>Tasks</value>
-    <comment>PropertyDisplayName for DomainRole &apos;CompositeTask&apos; on DomainRelationship &apos;ChildTasks&apos;</comment>
+    <comment>PropertyDisplayName for DomainRole &apos;CompositeTask&apos; on DomainRelationship &apos;Children&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.ChildTasks/Task.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.ChildTasks.Task</value>
-    <comment>Description for DomainRole &apos;Task&apos; on DomainRelationship &apos;ChildTasks&apos;</comment>
+  <data name="Ultramarine.Generators.Language.Children/Task.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.Children.Task</value>
+    <comment>Description for DomainRole &apos;Task&apos; on DomainRelationship &apos;Children&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.ChildTasks/Task.DisplayName" xml:space="preserve">
+  <data name="Ultramarine.Generators.Language.Children/Task.DisplayName" xml:space="preserve">
     <value>Task</value>
-    <comment>DisplayName for DomainRole &apos;Task&apos; on DomainRelationship &apos;ChildTasks&apos;</comment>
+    <comment>DisplayName for DomainRole &apos;Task&apos; on DomainRelationship &apos;Children&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.ChildTasks/Task.PropertyDisplayName" xml:space="preserve">
+  <data name="Ultramarine.Generators.Language.Children/Task.PropertyDisplayName" xml:space="preserve">
     <value>Parent</value>
-    <comment>PropertyDisplayName for DomainRole &apos;Task&apos; on DomainRelationship &apos;ChildTasks&apos;</comment>
+    <comment>PropertyDisplayName for DomainRole &apos;Task&apos; on DomainRelationship &apos;Children&apos;</comment>
   </data>
   <data name="Ultramarine.Generators.Language.LoadCodeElementShape.Description" xml:space="preserve">
     <value>Shape used to represent ExampleElements on a Diagram.</value>
@@ -665,25 +641,13 @@
     <value>Text Transformation Shape</value>
     <comment>DisplayName for DomainClass &apos;TextTransformationShape&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.IteratorShape.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.IteratorShape</value>
-    <comment>Description for DomainClass &apos;IteratorShape&apos;</comment>
+  <data name="Ultramarine.Generators.Language.CompositeShape.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.CompositeShape</value>
+    <comment>Description for DomainClass &apos;CompositeShape&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.IteratorShape.DisplayName" xml:space="preserve">
-    <value>Iterator Shape</value>
-    <comment>DisplayName for DomainClass &apos;IteratorShape&apos;</comment>
-  </data>
-  <data name="IteratorShapeTasksTitle" xml:space="preserve">
-    <value></value>
-    <comment>Compartment title</comment>
-  </data>
-  <data name="IteratorShapeNameDecoratorDefaultText" xml:space="preserve">
-    <value>NameDecorator</value>
-    <comment>Text decorator default text</comment>
-  </data>
-  <data name="IteratorShapeDescriptionDecoratorDefaultText" xml:space="preserve">
-    <value>DescriptionDecorator</value>
-    <comment>Text decorator default text</comment>
+  <data name="Ultramarine.Generators.Language.CompositeShape.DisplayName" xml:space="preserve">
+    <value>Composite Shape</value>
+    <comment>DisplayName for DomainClass &apos;CompositeShape&apos;</comment>
   </data>
   <data name="Ultramarine.Generators.Language.ConnectedWithConnector.Description" xml:space="preserve">
     <value>Connector between the ExampleShapes. Represents ExampleRelationships on the Diagram.</value>
@@ -692,14 +656,6 @@
   <data name="Ultramarine.Generators.Language.ConnectedWithConnector.DisplayName" xml:space="preserve">
     <value>Connected With Connector</value>
     <comment>DisplayName for DomainClass &apos;ConnectedWithConnector&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.IteratorConnector.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.IteratorConnector</value>
-    <comment>Description for DomainClass &apos;IteratorConnector&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.IteratorConnector.DisplayName" xml:space="preserve">
-    <value>Iterator Connector</value>
-    <comment>DisplayName for DomainClass &apos;IteratorConnector&apos;</comment>
   </data>
   <data name="FormatList" xml:space="preserve">
     <value>GeneratorLanguage (*.ugen)|*.ugen</value>
@@ -783,14 +739,6 @@
   </data>
   <data name="SetVariableToolboxTooltip" xml:space="preserve">
     <value>Set Variable</value>
-    <comment>Toolbox tooltip text</comment>
-  </data>
-  <data name="ParentRelationshipToolboxItem" xml:space="preserve">
-    <value>ParentRelationship</value>
-    <comment>Toolbox item name</comment>
-  </data>
-  <data name="ParentRelationshipToolboxTooltip" xml:space="preserve">
-    <value>Parent Relationship</value>
     <comment>Toolbox tooltip text</comment>
   </data>
   <data name="IteratorToolboxItem" xml:space="preserve">
@@ -965,18 +913,6 @@ A DomainClass can be serialized as a moniker only if
   <data name="SetVariableToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
     <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Toolbox item image</comment>
-  </data>
-  <data name="ParentRelationshipToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
-    <value>..\Resources\ExampleConnectorToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Toolbox item image</comment>
-  </data>
-  <data name="ParentRelationshipSourceCursor" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
-    <value>..\Resources\ConnectorSourceSearch.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Custom connection tool cursor</comment>
-  </data>
-  <data name="ParentRelationshipTargetCursor" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
-    <value>..\Resources\ConnectorTargetSearch.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Custom connection tool cursor</comment>
   </data>
   <data name="IteratorToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
     <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

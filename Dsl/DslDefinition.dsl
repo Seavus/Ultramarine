@@ -1,17 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Dsl xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="fa460004-c689-4b79-9838-fd3850db6a1e" Description="Description for Ultramarine.Generators.Language.GeneratorLanguage" Name="GeneratorLanguage" DisplayName="GeneratorLanguage" Namespace="Ultramarine.Generators.Language" ProductName="Ultramarine" CompanyName="Seavus" PackageGuid="253eb726-92cb-4387-9f64-2ca8bbc1e16a" PackageNamespace="Ultramarine.Generators.Language" xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/DslDefinitionModel">
   <Classes>
-    <DomainClass Id="998d169c-4479-4c51-afb7-ac84ad68d0a9" Description="The root in which all other elements are embedded. Appears as a diagram." Name="GeneratorModel" DisplayName="Generator Model" Namespace="Ultramarine.Generators.Language">
-      <ElementMergeDirectives>
-        <ElementMergeDirective>
-          <Index>
-            <DomainClassMoniker Name="Task" />
-          </Index>
-          <LinkCreationPaths>
-            <DomainPath>GeneratorModelHasTasks.Tasks</DomainPath>
-          </LinkCreationPaths>
-        </ElementMergeDirective>
-      </ElementMergeDirectives>
+    <DomainClass Id="998d169c-4479-4c51-afb7-ac84ad68d0a9" Description="The root in which all other elements are embedded. Appears as a diagram." Name="Generator" DisplayName="Generator" Namespace="Ultramarine.Generators.Language">
+      <BaseClass>
+        <DomainClassMoniker Name="CompositeTask" />
+      </BaseClass>
     </DomainClass>
     <DomainClass Id="eb42e64f-0ae3-4a9b-9435-7bc6dee5d967" Description="Description for Ultramarine.Generators.Language.Task" Name="Task" DisplayName="Task" InheritanceModifier="Abstract" Namespace="Ultramarine.Generators.Language">
       <Properties>
@@ -31,6 +24,16 @@
       <BaseClass>
         <DomainClassMoniker Name="Task" />
       </BaseClass>
+      <ElementMergeDirectives>
+        <ElementMergeDirective>
+          <Index>
+            <DomainClassMoniker Name="Task" />
+          </Index>
+          <LinkCreationPaths>
+            <DomainPath>Children.Tasks</DomainPath>
+          </LinkCreationPaths>
+        </ElementMergeDirective>
+      </ElementMergeDirectives>
     </DomainClass>
     <DomainClass Id="e88bb8c2-2e3e-4337-9b4a-ba0134771eb0" Description="Description for Ultramarine.Generators.Language.LoadCodeElement" Name="LoadCodeElement" DisplayName="Load Code Element" Namespace="Ultramarine.Generators.Language">
       <BaseClass>
@@ -231,32 +234,16 @@
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="0b9a8be5-4293-4fd4-ab23-9b0d87cd9ab0" Description="Description for Ultramarine.Generators.Language.GeneratorModelHasTasks" Name="GeneratorModelHasTasks" DisplayName="Generator Model Has Tasks" Namespace="Ultramarine.Generators.Language" IsEmbedding="true">
+    <DomainRelationship Id="11653440-f9a0-4749-a4d5-f01ac7ba4a7b" Description="Description for Ultramarine.Generators.Language.Children" Name="Children" DisplayName="Children" Namespace="Ultramarine.Generators.Language" IsEmbedding="true">
       <Source>
-        <DomainRole Id="67029348-434b-4181-8d46-275aca3f819c" Description="Description for Ultramarine.Generators.Language.GeneratorModelHasTasks.GeneratorModel" Name="GeneratorModel" DisplayName="Generator Model" PropertyName="Tasks" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Tasks">
-          <RolePlayer>
-            <DomainClassMoniker Name="GeneratorModel" />
-          </RolePlayer>
-        </DomainRole>
-      </Source>
-      <Target>
-        <DomainRole Id="f0d4bbec-a402-4af6-a1e9-2694d6e98ae4" Description="Description for Ultramarine.Generators.Language.GeneratorModelHasTasks.Task" Name="Task" DisplayName="Task" PropertyName="Generator" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Generator">
-          <RolePlayer>
-            <DomainClassMoniker Name="Task" />
-          </RolePlayer>
-        </DomainRole>
-      </Target>
-    </DomainRelationship>
-    <DomainRelationship Id="0ae4d88d-d086-4dbd-9ef8-bb70cff9b8d9" Description="Description for Ultramarine.Generators.Language.ChildTasks" Name="ChildTasks" DisplayName="Child Tasks" Namespace="Ultramarine.Generators.Language">
-      <Source>
-        <DomainRole Id="7d858091-54ed-4846-b5a0-31b87d001bd7" Description="Description for Ultramarine.Generators.Language.ChildTasks.CompositeTask" Name="CompositeTask" DisplayName="Composite Task" PropertyName="Tasks" PropagatesDelete="true" PropertyDisplayName="Tasks">
+        <DomainRole Id="c9435b94-9cb4-48f4-afc9-0944201baa28" Description="Description for Ultramarine.Generators.Language.Children.CompositeTask" Name="CompositeTask" DisplayName="Composite Task" PropertyName="Tasks" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Tasks">
           <RolePlayer>
             <DomainClassMoniker Name="CompositeTask" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="6f1c3c60-10b8-40a1-b6d2-3f1fe7b5ca6b" Description="Description for Ultramarine.Generators.Language.ChildTasks.Task" Name="Task" DisplayName="Task" PropertyName="Parent" Multiplicity="One" PropertyDisplayName="Parent">
+        <DomainRole Id="5b59018b-041e-4314-85bc-fa5f2838fcf2" Description="Description for Ultramarine.Generators.Language.Children.Task" Name="Task" DisplayName="Task" PropertyName="Parent" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Parent">
           <RolePlayer>
             <DomainClassMoniker Name="Task" />
           </RolePlayer>
@@ -337,29 +324,19 @@
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
     </GeometryShape>
-    <CompartmentShape Id="fe69f575-c5c4-4a36-a483-3543adafdb19" Description="Description for Ultramarine.Generators.Language.IteratorShape" Name="IteratorShape" DisplayName="Iterator Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Iterator Shape" InitialHeight="1" Geometry="Rectangle">
-      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" FontStyle="Bold" />
-      </ShapeHasDecorators>
-      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0.12">
-        <TextDecorator Name="DescriptionDecorator" DisplayName="Description Decorator" DefaultText="DescriptionDecorator" />
-      </ShapeHasDecorators>
-      <Compartment Name="Tasks" />
-    </CompartmentShape>
+    <GeometryShape Id="0d385b92-226f-4b28-a27f-ad784ccb5864" Description="Description for Ultramarine.Generators.Language.CompositeShape" Name="CompositeShape" DisplayName="Composite Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Composite Shape" InitialHeight="1" Geometry="Rectangle">
+      <BaseGeometryShape>
+        <GeometryShapeMoniker Name="TaskShape" />
+      </BaseGeometryShape>
+    </GeometryShape>
   </Shapes>
   <Connectors>
     <Connector Id="dab655e0-7fef-4a35-9d0f-6847eb0c9a37" Description="Connector between the ExampleShapes. Represents ExampleRelationships on the Diagram." Name="ConnectedWithConnector" DisplayName="Connected With Connector" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Connected With Connector" Color="113, 111, 110" TargetEndStyle="EmptyArrow" Thickness="0.01" />
-    <Connector Id="1f82a4c0-b0ee-4277-901c-8c5b43647f88" Description="Description for Ultramarine.Generators.Language.IteratorConnector" Name="IteratorConnector" DisplayName="Iterator Connector" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Iterator Connector" Color="Maroon" />
   </Connectors>
   <XmlSerializationBehavior Name="GeneratorLanguageSerializationBehavior" Namespace="Ultramarine.Generators.Language">
     <ClassData>
-      <XmlClassData TypeName="GeneratorModel" MonikerAttributeName="" SerializeId="true" MonikerElementName="generatorModelMoniker" ElementName="generatorModel" MonikerTypeName="GeneratorModelMoniker">
-        <DomainClassMoniker Name="GeneratorModel" />
-        <ElementData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="tasks">
-            <DomainRelationshipMoniker Name="GeneratorModelHasTasks" />
-          </XmlRelationshipData>
-        </ElementData>
+      <XmlClassData TypeName="Generator" MonikerAttributeName="" SerializeId="true" MonikerElementName="generatorMoniker" ElementName="generator" MonikerTypeName="GeneratorMoniker">
+        <DomainClassMoniker Name="Generator" />
       </XmlClassData>
       <XmlClassData TypeName="LoadCodeElementShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="loadCodeElementShapeMoniker" ElementName="loadCodeElementShape" MonikerTypeName="LoadCodeElementShapeMoniker">
         <GeometryShapeMoniker Name="LoadCodeElementShape" />
@@ -388,7 +365,7 @@
         <DomainClassMoniker Name="CompositeTask" />
         <ElementData>
           <XmlRelationshipData UseFullForm="true" RoleElementName="tasks">
-            <DomainRelationshipMoniker Name="ChildTasks" />
+            <DomainRelationshipMoniker Name="Children" />
           </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
@@ -414,12 +391,6 @@
       </XmlClassData>
       <XmlClassData TypeName="ConnectedWith" MonikerAttributeName="" SerializeId="true" MonikerElementName="connectedWithMoniker" ElementName="connectedWith" MonikerTypeName="ConnectedWithMoniker">
         <DomainRelationshipMoniker Name="ConnectedWith" />
-      </XmlClassData>
-      <XmlClassData TypeName="GeneratorModelHasTasks" MonikerAttributeName="" SerializeId="true" MonikerElementName="generatorModelHasTasksMoniker" ElementName="generatorModelHasTasks" MonikerTypeName="GeneratorModelHasTasksMoniker">
-        <DomainRelationshipMoniker Name="GeneratorModelHasTasks" />
-      </XmlClassData>
-      <XmlClassData TypeName="ChildTasks" MonikerAttributeName="" SerializeId="true" MonikerElementName="childTasksMoniker" ElementName="childTasks" MonikerTypeName="ChildTasksMoniker">
-        <DomainRelationshipMoniker Name="ChildTasks" />
       </XmlClassData>
       <XmlClassData TypeName="BuildProject" MonikerAttributeName="" SerializeId="true" MonikerElementName="buildProjectMoniker" ElementName="buildProject" MonikerTypeName="BuildProjectMoniker">
         <DomainClassMoniker Name="BuildProject" />
@@ -540,11 +511,11 @@
       <XmlClassData TypeName="Iterator" MonikerAttributeName="" SerializeId="true" MonikerElementName="iteratorMoniker" ElementName="iterator" MonikerTypeName="IteratorMoniker">
         <DomainClassMoniker Name="Iterator" />
       </XmlClassData>
-      <XmlClassData TypeName="IteratorShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="iteratorShapeMoniker" ElementName="iteratorShape" MonikerTypeName="IteratorShapeMoniker">
-        <CompartmentShapeMoniker Name="IteratorShape" />
+      <XmlClassData TypeName="Children" MonikerAttributeName="" SerializeId="true" MonikerElementName="childrenMoniker" ElementName="children" MonikerTypeName="ChildrenMoniker">
+        <DomainRelationshipMoniker Name="Children" />
       </XmlClassData>
-      <XmlClassData TypeName="IteratorConnector" MonikerAttributeName="" SerializeId="true" MonikerElementName="iteratorConnectorMoniker" ElementName="iteratorConnector" MonikerTypeName="IteratorConnectorMoniker">
-        <ConnectorMoniker Name="IteratorConnector" />
+      <XmlClassData TypeName="CompositeShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="compositeShapeMoniker" ElementName="compositeShape" MonikerTypeName="CompositeShapeMoniker">
+        <GeometryShapeMoniker Name="CompositeShape" />
       </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
@@ -569,35 +540,16 @@
         </TargetDirectives>
       </LinkConnectDirective>
     </ConnectionBuilder>
-    <ConnectionBuilder Name="ChildTasksBuilder">
-      <LinkConnectDirective>
-        <DomainRelationshipMoniker Name="ChildTasks" />
-        <SourceDirectives>
-          <RolePlayerConnectDirective>
-            <AcceptingClass>
-              <DomainClassMoniker Name="CompositeTask" />
-            </AcceptingClass>
-          </RolePlayerConnectDirective>
-        </SourceDirectives>
-        <TargetDirectives>
-          <RolePlayerConnectDirective>
-            <AcceptingClass>
-              <DomainClassMoniker Name="Task" />
-            </AcceptingClass>
-          </RolePlayerConnectDirective>
-        </TargetDirectives>
-      </LinkConnectDirective>
-    </ConnectionBuilder>
   </ConnectionBuilders>
   <Diagram Id="3ccf8b1b-babe-4fd9-b228-5c88a4ed854e" Description="Description for Ultramarine.Generators.Language.GeneratorLanguageDiagram" Name="GeneratorLanguageDiagram" DisplayName="Minimal Language Diagram" Namespace="Ultramarine.Generators.Language">
     <Class>
-      <DomainClassMoniker Name="GeneratorModel" />
+      <DomainClassMoniker Name="Generator" />
     </Class>
     <ShapeMaps>
       <ShapeMap>
         <DomainClassMoniker Name="LoadCodeElement" />
         <ParentElementPath>
-          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+          <DomainPath>Children.Parent/!CompositeTask</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
           <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
@@ -620,7 +572,7 @@
       <ShapeMap>
         <DomainClassMoniker Name="BuildProject" />
         <ParentElementPath>
-          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+          <DomainPath>Children.Parent/!CompositeTask</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
           <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
@@ -643,7 +595,7 @@
       <ShapeMap>
         <DomainClassMoniker Name="CreateFolder" />
         <ParentElementPath>
-          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+          <DomainPath>Children.Parent/!CompositeTask</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
           <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
@@ -666,7 +618,7 @@
       <ShapeMap>
         <DomainClassMoniker Name="CreateProjectItem" />
         <ParentElementPath>
-          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+          <DomainPath>Children.Parent/!CompositeTask</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
           <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
@@ -689,7 +641,7 @@
       <ShapeMap>
         <DomainClassMoniker Name="LoadProjectItem" />
         <ParentElementPath>
-          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+          <DomainPath>Children.Parent/!CompositeTask</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
           <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
@@ -712,7 +664,7 @@
       <ShapeMap>
         <DomainClassMoniker Name="ReadProperty" />
         <ParentElementPath>
-          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+          <DomainPath>Children.Parent/!CompositeTask</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
           <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
@@ -735,7 +687,7 @@
       <ShapeMap>
         <DomainClassMoniker Name="SetVariable" />
         <ParentElementPath>
-          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+          <DomainPath>Children.Parent/!CompositeTask</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
           <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
@@ -758,7 +710,7 @@
       <ShapeMap>
         <DomainClassMoniker Name="TextTransformation" />
         <ParentElementPath>
-          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+          <DomainPath>Children.Parent/!CompositeTask</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
           <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
@@ -778,13 +730,13 @@
         </DecoratorMap>
         <GeometryShapeMoniker Name="TextTransformationShape" />
       </ShapeMap>
-      <CompartmentShapeMap>
-        <DomainClassMoniker Name="Iterator" />
+      <ShapeMap HasCustomParentElement="true">
+        <DomainClassMoniker Name="CompositeTask" />
         <ParentElementPath>
-          <DomainPath>GeneratorModelHasTasks.Generator/!GeneratorModel</DomainPath>
+          <DomainPath />
         </ParentElementPath>
         <DecoratorMap>
-          <TextDecoratorMoniker Name="IteratorShape/NameDecorator" />
+          <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="Task/Name" />
@@ -792,41 +744,26 @@
           </PropertyDisplayed>
         </DecoratorMap>
         <DecoratorMap>
-          <TextDecoratorMoniker Name="IteratorShape/DescriptionDecorator" />
+          <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="Task/Description" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
-        <CompartmentShapeMoniker Name="IteratorShape" />
-        <CompartmentMap>
-          <CompartmentMoniker Name="IteratorShape/Tasks" />
-          <ElementsDisplayed>
-            <DomainPath>ChildTasks.Tasks/!Task</DomainPath>
-          </ElementsDisplayed>
-          <PropertyDisplayed>
-            <PropertyPath>
-              <DomainPropertyMoniker Name="Task/Name" />
-            </PropertyPath>
-          </PropertyDisplayed>
-        </CompartmentMap>
-      </CompartmentShapeMap>
+        <GeometryShapeMoniker Name="CompositeShape" />
+      </ShapeMap>
     </ShapeMaps>
     <ConnectorMaps>
       <ConnectorMap>
         <ConnectorMoniker Name="ConnectedWithConnector" />
         <DomainRelationshipMoniker Name="ConnectedWith" />
       </ConnectorMap>
-      <ConnectorMap>
-        <ConnectorMoniker Name="IteratorConnector" />
-        <DomainRelationshipMoniker Name="ChildTasks" />
-      </ConnectorMap>
     </ConnectorMaps>
   </Diagram>
   <Designer CopyPasteGeneration="CopyPasteOnly" FileExtension="ugen" EditorGuid="d2ea36cb-2ed1-4ccc-81c2-e69de04d530e">
     <RootClass>
-      <DomainClassMoniker Name="GeneratorModel" />
+      <DomainClassMoniker Name="Generator" />
     </RootClass>
     <XmlSerializationDefinition CustomPostLoad="false">
       <XmlSerializationBehaviorMoniker Name="GeneratorLanguageSerializationBehavior" />
@@ -856,9 +793,6 @@
       <ElementTool Name="SetVariable" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="SetVariable" Tooltip="Set Variable" HelpKeyword="SetVariable">
         <DomainClassMoniker Name="SetVariable" />
       </ElementTool>
-      <ConnectionTool Name="ParentRelationship" ToolboxIcon="Resources\ExampleConnectorToolBitmap.bmp" Caption="ParentRelationship" Tooltip="Parent Relationship" HelpKeyword="ParentRelationship" SourceCursorIcon="Resources\ConnectorSourceSearch.cur" TargetCursorIcon="Resources\ConnectorTargetSearch.cur">
-        <ConnectionBuilderMoniker Name="GeneratorLanguage/ChildTasksBuilder" />
-      </ConnectionTool>
       <ElementTool Name="Iterator" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="Iterator" Tooltip="Iterator" HelpKeyword="Iterator">
         <DomainClassMoniker Name="Iterator" />
       </ElementTool>

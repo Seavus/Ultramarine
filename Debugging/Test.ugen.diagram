@@ -1,86 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<generatorLanguageDiagram dslVersion="1.0.0.0" Id="6f9240f6-b71d-4c15-bdcb-9ce9a6825dfd" absoluteBounds="0, 0, 11, 9.375" name="Test">
-  <generatorModelMoniker Id="0eebe70d-08ee-41a7-91c8-ce229e51f8a1" />
+<generatorLanguageDiagram dslVersion="1.0.0.0" Id="6f9240f6-b71d-4c15-bdcb-9ce9a6825dfd" absoluteBounds="0, 0, 11, 8.5" name="Test">
+  <generatorMoniker Id="406161bd-bd26-44e1-8ddf-57b08d67e33d" />
   <nestedChildShapes>
-    <loadProjectItemShape Id="4a04ede8-89d0-420c-8e9f-89da0e72176f" absoluteBounds="1.125, 2.25, 1.5, 0.75">
-      <loadProjectItemMoniker Id="2bc1689d-d1f1-4793-ad80-545c08f945bc" />
-    </loadProjectItemShape>
-    <loadCodeElementShape Id="9afce392-0fff-4140-adc6-73d856459553" absoluteBounds="1, 3.375, 2, 0.75">
-      <loadCodeElementMoniker Id="aa61765a-e7ff-4353-be30-8f6452a0267f" />
-    </loadCodeElementShape>
-    <connectedWithConnector Id="480e6808-e320-4879-b5b2-4d7e1786ced7" edgePoints="[(1.875 : 3.375); (1.875 : 3)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <connectedWithMoniker Id="7613213b-252e-458f-a956-bd138b1404ec" />
-      <nodes>
-        <loadCodeElementShapeMoniker Id="9afce392-0fff-4140-adc6-73d856459553" />
-        <loadProjectItemShapeMoniker Id="4a04ede8-89d0-420c-8e9f-89da0e72176f" />
-      </nodes>
-    </connectedWithConnector>
-    <iteratorShape Id="5463130f-1b66-44a6-b0e8-3bc830b4cc98" absoluteBounds="1.125, 4.75, 1.5, 2.1285953776041664">
-      <iteratorMoniker Id="eaca37c6-1c9f-4e7c-8ca0-cf4925975de2" />
+    <compositeShape Id="789815c4-98c7-4124-8623-d9037d737fbc" absoluteBounds="0.5, 0.5, 3.375, 2.75">
+      <iteratorMoniker Id="aa6f158a-ea8f-4726-b845-355aeb0302ef" />
       <nestedChildShapes>
-        <elementListCompartment Id="956a341d-44b8-4064-b5c7-3a2f2757e083" absoluteBounds="1.14, 5.76, 1.4700000000000002, 1.0185953776041665" name="Tasks" titleTextColor="Black" itemTextColor="Black" />
+        <buildProjectShape Id="1f1dc69f-26ad-4605-bd9f-22b946612562" absoluteBounds="0.75, 1, 1.25, 0.75">
+          <buildProjectMoniker Id="1869644e-5e2b-4b01-9937-ed2130516df0" />
+        </buildProjectShape>
+        <loadCodeElementShape Id="1233e1bc-d1e5-4ccc-8040-e64d49689ecf" absoluteBounds="0.75, 2.25, 2, 0.75">
+          <loadCodeElementMoniker Id="5b1665df-cdc1-4773-882e-95d8239375a0" />
+        </loadCodeElementShape>
       </nestedChildShapes>
-    </iteratorShape>
-    <connectedWithConnector Id="7eb92d1d-aa40-4562-b76a-e2467d64f087" edgePoints="[(1.875 : 4.75); (1.875 : 4.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <connectedWithMoniker Id="e49f6e76-fc9d-4b7f-8936-5fe50560d4d0" />
+    </compositeShape>
+    <buildProjectShape Id="7d6822ea-5364-456b-a0e9-95e89da276a0" isExpanded="false" absoluteBounds="6.875, 1.25, 1.5, 0.25">
+      <buildProjectMoniker Id="fdf58fd7-6aaf-419f-9efb-1cb9e68d8d9f" />
+    </buildProjectShape>
+    <createFolderShape Id="28bb6ec7-4a14-42ad-8f0a-746b28709af8" isExpanded="false" absoluteBounds="7.25, 2.375, 1.5, 0.25">
+      <createFolderMoniker Id="39fcb0b7-062b-4c1b-b1cc-7c9af7f9d45a" />
+    </createFolderShape>
+    <connectedWithConnector Id="18744ef7-a199-41bd-8868-97e06f128b2b" edgePoints="[(3.875 : 1.375); (6.875 : 1.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <connectedWithMoniker Id="0940e829-6b0d-4e38-b060-db7005f72f4a" />
       <nodes>
-        <iteratorShapeMoniker Id="5463130f-1b66-44a6-b0e8-3bc830b4cc98" />
-        <loadCodeElementShapeMoniker Id="9afce392-0fff-4140-adc6-73d856459553" />
+        <compositeShapeMoniker Id="789815c4-98c7-4124-8623-d9037d737fbc" />
+        <buildProjectShapeMoniker Id="7d6822ea-5364-456b-a0e9-95e89da276a0" />
       </nodes>
     </connectedWithConnector>
-    <readPropertyShape Id="552fb5e9-fec5-419a-bbf7-f2b1bf5b216a" absoluteBounds="4, 4.875, 1.25, 0.75">
-      <readPropertyMoniker Id="09fe2af2-b226-48aa-87b6-ff9fb2644c50" />
-    </readPropertyShape>
-    <iteratorConnector Id="2adb001e-74a5-4814-b38a-b040206def87" edgePoints="[(2.625 : 5.25); (4 : 5.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <childTasksMoniker Id="f5c48246-005c-4fa0-93f7-2df5d7fb89d4" />
+    <connectedWithConnector Id="35a2c643-4159-49e5-a304-c3cdc05072d4" edgePoints="[(7.8125 : 1.5); (7.8125 : 2.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <connectedWithMoniker Id="475042af-26f5-4c61-8ff3-06a9efd7ce69" />
       <nodes>
-        <iteratorShapeMoniker Id="5463130f-1b66-44a6-b0e8-3bc830b4cc98" />
-        <readPropertyShapeMoniker Id="552fb5e9-fec5-419a-bbf7-f2b1bf5b216a" />
-      </nodes>
-    </iteratorConnector>
-    <setVariableShape Id="39b16ac3-1b37-4fe7-b858-7ef2cd819b6e" absoluteBounds="4, 6.125, 1.25, 0.75">
-      <setVariableMoniker Id="8346d2ed-86ca-4c38-9644-74d776577b4a" />
-    </setVariableShape>
-    <connectedWithConnector Id="229acc40-17a1-4d69-bab5-f5a26573efa1" edgePoints="[(4.625 : 6.125); (4.625 : 5.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <connectedWithMoniker Id="d9bd883b-f5cf-45c9-8cf9-23d24906e596" />
-      <nodes>
-        <setVariableShapeMoniker Id="39b16ac3-1b37-4fe7-b858-7ef2cd819b6e" />
-        <readPropertyShapeMoniker Id="552fb5e9-fec5-419a-bbf7-f2b1bf5b216a" />
+        <buildProjectShapeMoniker Id="7d6822ea-5364-456b-a0e9-95e89da276a0" />
+        <createFolderShapeMoniker Id="28bb6ec7-4a14-42ad-8f0a-746b28709af8" />
       </nodes>
     </connectedWithConnector>
-    <iteratorConnector Id="2ae46be1-c9f0-417e-a6bf-508d8c6895f6" edgePoints="[(2.625 : 6.5); (4 : 6.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <childTasksMoniker Id="aab64cab-7f97-4d1a-a13f-223cd3cdf6df" />
+    <loadCodeElementShape Id="549be9ad-569d-4dbc-8af0-87392a8637e8" absoluteBounds="4.625, 3.875, 2, 0.75">
+      <loadCodeElementMoniker Id="c74c42c2-e560-410f-b795-b2489afd16b2" />
+    </loadCodeElementShape>
+    <connectedWithConnector Id="8864ab1b-1aa0-428f-9b32-4f4a3811da3e" edgePoints="[(4.625 : 4.25); (2.1875 : 4.25); (2.1875 : 3.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <connectedWithMoniker Id="dde81a39-fe40-455d-bc2c-694c28f7769e" />
       <nodes>
-        <iteratorShapeMoniker Id="5463130f-1b66-44a6-b0e8-3bc830b4cc98" />
-        <setVariableShapeMoniker Id="39b16ac3-1b37-4fe7-b858-7ef2cd819b6e" />
-      </nodes>
-    </iteratorConnector>
-    <textTransformationShape Id="aa8c7e3b-20cf-4f1b-a579-b6f5f60de1b5" absoluteBounds="4, 7.375, 1.25, 0.75">
-      <textTransformationMoniker Id="db2ef8ef-a52c-43d6-b6e9-3b91ba6baa90" />
-    </textTransformationShape>
-    <createProjectItemShape Id="cefe957f-882a-449e-8f97-d700cc3226f9" absoluteBounds="4, 8.375, 1.25, 0.75">
-      <createProjectItemMoniker Id="cd28b6fb-7c64-404f-bb1a-043e0560effa" />
-    </createProjectItemShape>
-    <iteratorConnector Id="430657f5-11fa-4c81-8afa-9ddc09dee3b4" edgePoints="[(1.875 : 6.87859537760417); (1.875 : 7.75); (2.19791916666667 : 7.75 : JumpStart); (2.36458583333333 : 7.75 : JumpEnd); (4 : 7.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <childTasksMoniker Id="ddec6d43-e02b-4fd6-8016-d5583a7ff3dc" />
-      <nodes>
-        <iteratorShapeMoniker Id="5463130f-1b66-44a6-b0e8-3bc830b4cc98" />
-        <textTransformationShapeMoniker Id="aa8c7e3b-20cf-4f1b-a579-b6f5f60de1b5" />
-      </nodes>
-    </iteratorConnector>
-    <connectedWithConnector Id="e605752c-8f6d-4cf3-a078-fbd152906bbb" edgePoints="[(4.625 : 8.375); (4.625 : 8.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <connectedWithMoniker Id="d260ff58-b215-4fba-974e-2185472e7f5a" />
-      <nodes>
-        <createProjectItemShapeMoniker Id="cefe957f-882a-449e-8f97-d700cc3226f9" />
-        <textTransformationShapeMoniker Id="aa8c7e3b-20cf-4f1b-a579-b6f5f60de1b5" />
+        <loadCodeElementShapeMoniker Id="549be9ad-569d-4dbc-8af0-87392a8637e8" />
+        <compositeShapeMoniker Id="789815c4-98c7-4124-8623-d9037d737fbc" />
       </nodes>
     </connectedWithConnector>
-    <iteratorConnector Id="70b6996c-d830-4619-89cf-63dcbeb1e912" edgePoints="[(2.2812525 : 6.87859537760417); (2.2812525 : 8.75); (4 : 8.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <childTasksMoniker Id="1f984678-7061-4a48-af7b-b153c483c6fa" />
+    <connectedWithConnector Id="b33c1b09-e4b1-4d19-82e9-ba496f3ffd24" edgePoints="[(1.375 : 1.75); (1.375 : 2.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <connectedWithMoniker Id="0659369e-bca0-4ec8-9c43-89439ef3f55e" />
       <nodes>
-        <iteratorShapeMoniker Id="5463130f-1b66-44a6-b0e8-3bc830b4cc98" />
-        <createProjectItemShapeMoniker Id="cefe957f-882a-449e-8f97-d700cc3226f9" />
+        <buildProjectShapeMoniker Id="1f1dc69f-26ad-4605-bd9f-22b946612562" />
+        <loadCodeElementShapeMoniker Id="1233e1bc-d1e5-4ccc-8040-e64d49689ecf" />
       </nodes>
-    </iteratorConnector>
+    </connectedWithConnector>
   </nestedChildShapes>
 </generatorLanguageDiagram>

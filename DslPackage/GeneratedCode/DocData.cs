@@ -305,7 +305,7 @@ namespace Ultramarine.Generators.Language
 		protected override void Load(string fileName, bool isReload)
 		{
 			DslModeling::SerializationResult serializationResult = new DslModeling::SerializationResult();
-			global::Ultramarine.Generators.Language.GeneratorModel modelRoot = null;
+			global::Ultramarine.Generators.Language.Generator modelRoot = null;
 			DslModeling::ISchemaResolver schemaResolver = new DslShell::ModelingSchemaResolver(this.ServiceProvider);
 			//clear the current root element
 			this.SetRootElement(null);
@@ -366,46 +366,6 @@ namespace Ultramarine.Generators.Language
 			}
 		}
 
-		/// <summary>
-		/// Called after the document is opened.
-		/// </summary>
-		/// <param name="e">Event Args.</param>
-		protected override void OnDocumentLoaded(global::System.EventArgs e)
-		{
-			base.OnDocumentLoaded(e);
-			this.OnDocumentLoaded();
-		}
-
-		/// <summary>
-		/// Called after the document is reloaded.
-		/// </summary>
-		protected override void OnDocumentReloaded(global::System.EventArgs e)
-		{
-			base.OnDocumentReloaded(e);
-			this.OnDocumentLoaded();
-		}
-		
-		/// <summary>
-		/// Called on both document load and reload.
-		/// </summary>
-		protected virtual void OnDocumentLoaded()
-		{
-			// Enable CompartmentItems events.
-			global::Ultramarine.Generators.Language.GeneratorModel modelRoot = this.RootElement as global::Ultramarine.Generators.Language.GeneratorModel;
-			if (modelRoot != null)
-			{
-				global::System.Collections.Generic.IList<DslDiagrams::PresentationElement> diagrams = DslDiagrams::PresentationViewsSubject.GetPresentation(modelRoot);
-				if (diagrams.Count > 0)
-				{
-					global::Ultramarine.Generators.Language.GeneratorLanguageDiagram diagram = diagrams[0] as global::Ultramarine.Generators.Language.GeneratorLanguageDiagram;
-					if (diagram != null)
-					{
-						diagram.SubscribeCompartmentItemsEvents();
-					}
-				}
-			}
-		}
-
 
 			
 		/// <summary>
@@ -450,7 +410,7 @@ namespace Ultramarine.Generators.Language
 		protected override void Save(string fileName)
 		{
 			DslModeling::SerializationResult serializationResult = new DslModeling::SerializationResult();
-			global::Ultramarine.Generators.Language.GeneratorModel modelRoot = (global::Ultramarine.Generators.Language.GeneratorModel)this.RootElement;
+			global::Ultramarine.Generators.Language.Generator modelRoot = (global::Ultramarine.Generators.Language.Generator)this.RootElement;
 
 			
 			// Only save the diagrams if
@@ -596,7 +556,7 @@ namespace Ultramarine.Generators.Language
 		{
 			get
 			{
-				global::Ultramarine.Generators.Language.GeneratorModel modelRoot = this.RootElement as global::Ultramarine.Generators.Language.GeneratorModel;
+				global::Ultramarine.Generators.Language.Generator modelRoot = this.RootElement as global::Ultramarine.Generators.Language.Generator;
 				string modelFile = string.Empty;
 				if (modelRoot != null)
 				{

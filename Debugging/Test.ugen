@@ -1,64 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<generatorModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0eebe70d-08ee-41a7-91c8-ce229e51f8a1" xmlns="http://schemas.microsoft.com/dsltools/GeneratorLanguage">
+<generator xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="406161bd-bd26-44e1-8ddf-57b08d67e33d" xmlns="http://schemas.microsoft.com/dsltools/GeneratorLanguage">
   <tasks>
-    <generatorModelHasTasks Id="b9247bb1-0377-4dab-983c-73572819b107">
-      <loadProjectItem Id="2bc1689d-d1f1-4793-ad80-545c08f945bc" name="loadDomainAggregates" description="Load domain aggregates from SeaQ Core" />
-    </generatorModelHasTasks>
-    <generatorModelHasTasks Id="7b4bd441-1cc1-46d1-a031-b24deafc972d">
-      <loadCodeElement Id="aa61765a-e7ff-4353-be30-8f6452a0267f" name="loadDomainAggregateClasses" description="Load domain aggregate classes">
+    <children Id="83430e60-0f21-4640-8587-88916d001d43">
+      <iterator Id="aa6f158a-ea8f-4726-b845-355aeb0302ef" name="Iterator1">
         <targetTask>
-          <connectedWith Id="7613213b-252e-458f-a956-bd138b1404ec">
-            <loadProjectItemMoniker Id="2bc1689d-d1f1-4793-ad80-545c08f945bc" />
-          </connectedWith>
-        </targetTask>
-      </loadCodeElement>
-    </generatorModelHasTasks>
-    <generatorModelHasTasks Id="d890ce22-1b2d-4f1b-ac9d-e08938e5e7e9">
-      <iterator Id="eaca37c6-1c9f-4e7c-8ca0-cf4925975de2" name="foreachDomainAggregateClass" description="Iterates through aggregate classes">
-        <targetTask>
-          <connectedWith Id="e49f6e76-fc9d-4b7f-8936-5fe50560d4d0">
-            <loadCodeElementMoniker Id="aa61765a-e7ff-4353-be30-8f6452a0267f" />
+          <connectedWith Id="0940e829-6b0d-4e38-b060-db7005f72f4a">
+            <buildProjectMoniker Id="fdf58fd7-6aaf-419f-9efb-1cb9e68d8d9f" />
           </connectedWith>
         </targetTask>
         <tasks>
-          <childTasks Id="f5c48246-005c-4fa0-93f7-2df5d7fb89d4">
-            <readPropertyMoniker Id="09fe2af2-b226-48aa-87b6-ff9fb2644c50" />
-          </childTasks>
-          <childTasks Id="aab64cab-7f97-4d1a-a13f-223cd3cdf6df">
-            <setVariableMoniker Id="8346d2ed-86ca-4c38-9644-74d776577b4a" />
-          </childTasks>
-          <childTasks Id="ddec6d43-e02b-4fd6-8016-d5583a7ff3dc">
-            <textTransformationMoniker Id="db2ef8ef-a52c-43d6-b6e9-3b91ba6baa90" />
-          </childTasks>
-          <childTasks Id="1f984678-7061-4a48-af7b-b153c483c6fa">
-            <createProjectItemMoniker Id="cd28b6fb-7c64-404f-bb1a-043e0560effa" />
-          </childTasks>
+          <children Id="cf048fdb-2053-40df-aa69-61e3e71b0bda">
+            <buildProject Id="1869644e-5e2b-4b01-9937-ed2130516df0" name="BuildProject1">
+              <targetTask>
+                <connectedWith Id="0659369e-bca0-4ec8-9c43-89439ef3f55e">
+                  <loadCodeElementMoniker Id="5b1665df-cdc1-4773-882e-95d8239375a0" />
+                </connectedWith>
+              </targetTask>
+            </buildProject>
+          </children>
+          <children Id="cbca4a7f-06f9-416e-9558-40859a48dad1">
+            <loadCodeElement Id="5b1665df-cdc1-4773-882e-95d8239375a0" name="LoadCodeElement1" />
+          </children>
         </tasks>
       </iterator>
-    </generatorModelHasTasks>
-    <generatorModelHasTasks Id="d8db6659-c960-413a-a902-8f04799ca9d5">
-      <readProperty Id="09fe2af2-b226-48aa-87b6-ff9fb2644c50" name="readAggregateName" description="Reads an aggregate name" propertyName="Name" />
-    </generatorModelHasTasks>
-    <generatorModelHasTasks Id="a8412b7a-1eb6-4e3b-93c4-d3946fbdf958">
-      <setVariable Id="8346d2ed-86ca-4c38-9644-74d776577b4a" name="setAggregateName" description="Sets an aggregate name inside of a local variable" variableName="AggregateName">
+    </children>
+    <children Id="596dafc0-bb61-4798-ab60-965f36ba91c6">
+      <buildProject Id="fdf58fd7-6aaf-419f-9efb-1cb9e68d8d9f" name="BuildProject1">
         <targetTask>
-          <connectedWith Id="d9bd883b-f5cf-45c9-8cf9-23d24906e596">
-            <readPropertyMoniker Id="09fe2af2-b226-48aa-87b6-ff9fb2644c50" />
+          <connectedWith Id="475042af-26f5-4c61-8ff3-06a9efd7ce69">
+            <createFolderMoniker Id="39fcb0b7-062b-4c1b-b1cc-7c9af7f9d45a" />
           </connectedWith>
         </targetTask>
-      </setVariable>
-    </generatorModelHasTasks>
-    <generatorModelHasTasks Id="782c0cf0-db77-47cc-b244-2fdc34b0efe6">
-      <textTransformation Id="db2ef8ef-a52c-43d6-b6e9-3b91ba6baa90" name="transformAggregateToRepository" description="Transforms an aggregate to repository using an T4 template" fileName="$this equals 'RepositoryInterface.tt'" projectName="$this equals 'Seaq.Recipes'" />
-    </generatorModelHasTasks>
-    <generatorModelHasTasks Id="12ee49dc-cd74-49b5-b932-430bdc700805">
-      <createProjectItem Id="cd28b6fb-7c64-404f-bb1a-043e0560effa" name="generateAggregateRepository" itemName="I{AggregateName}Repository.generated.cs" folderPath="Repositories\Generated" overwrite="true">
+      </buildProject>
+    </children>
+    <children Id="727cf729-576b-4d6b-a894-b1a3b269812c">
+      <createFolder Id="39fcb0b7-062b-4c1b-b1cc-7c9af7f9d45a" name="CreateFolder1" />
+    </children>
+    <children Id="b159c3ff-ba2b-4b11-9cda-99b35d36c314">
+      <loadCodeElement Id="c74c42c2-e560-410f-b795-b2489afd16b2" name="LoadCodeElement1">
         <targetTask>
-          <connectedWith Id="d260ff58-b215-4fba-974e-2185472e7f5a">
-            <textTransformationMoniker Id="db2ef8ef-a52c-43d6-b6e9-3b91ba6baa90" />
+          <connectedWith Id="dde81a39-fe40-455d-bc2c-694c28f7769e">
+            <iteratorMoniker Id="aa6f158a-ea8f-4726-b845-355aeb0302ef" />
           </connectedWith>
         </targetTask>
-      </createProjectItem>
-    </generatorModelHasTasks>
+      </loadCodeElement>
+    </children>
   </tasks>
-</generatorModel>
+</generator>

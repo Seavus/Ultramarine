@@ -67,7 +67,7 @@ namespace Ultramarine.Generators.Language
 		///</summary>
 		protected override global::System.Guid RootElementDomainClassId
 		{
-			get { return global::Ultramarine.Generators.Language.GeneratorModel.DomainClassId; }
+			get { return global::Ultramarine.Generators.Language.Generator.DomainClassId; }
 		}
 		
 		/// <summary>

@@ -93,21 +93,13 @@ namespace Ultramarine.Generators.Language
 					0xff00ff,
 					Index = 7)]
 	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
-					"@ParentRelationshipToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
-					"Ultramarine.Generators.Language.ParentRelationshipToolboxItem", 
-					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
-					"ParentRelationship", 
-					"@ParentRelationshipToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
-					0xff00ff,
-					Index = 8)]
-	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
 					"@IteratorToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
 					"Ultramarine.Generators.Language.IteratorToolboxItem", 
 					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
 					"Iterator", 
 					"@IteratorToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
 					0xff00ff,
-					Index = 9)]
+					Index = 8)]
 	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.GeneratorLanguageToolboxTab",
 					"@TextTransformationToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
 					"Ultramarine.Generators.Language.TextTransformationToolboxItem", 
@@ -115,7 +107,7 @@ namespace Ultramarine.Generators.Language
 					"TextTransformation", 
 					"@TextTransformationToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
 					0xff00ff,
-					Index = 10)]
+					Index = 9)]
 	[VSShell::ProvideEditorFactory(typeof(GeneratorLanguageEditorFactory), 103, TrustLevel = VSShellInterop::__VSEDITORTRUSTLEVEL.ETL_AlwaysTrusted)]
 	[VSShell::ProvideEditorExtension(typeof(GeneratorLanguageEditorFactory), "." + Constants.DesignerFileExtension, 50)]
 	[VSShell::ProvideEditorLogicalView(typeof(GeneratorLanguageEditorFactory), "{7651A702-06E5-11D1-8EBD-00A0C90F26EA}")] // Designer logical view GUID i.e. VSConstants.LOGVIEWID_Designer

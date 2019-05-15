@@ -1,31 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xsd:schema id="GeneratorLanguageSchema" targetNamespace="http://schemas.microsoft.com/dsltools/GeneratorLanguage" elementFormDefault="qualified" xmlns="http://schemas.microsoft.com/dsltools/GeneratorLanguage" xmlns:core="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <xsd:import id="CoreSchema" namespace="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" />
-  <!-- GeneratorModel -->
-  <xsd:element name="generatorModel" type="GeneratorModel" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="GeneratorModel">
+  <!-- Generator -->
+  <xsd:element name="generator" type="Generator" substitutionGroup="compositeTask" />
+  <xsd:complexType name="Generator">
     <xsd:annotation>
       <xsd:documentation>The root in which all other elements are embedded. Appears as a diagram.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="core:ModelElement">
-        <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: GeneratorModelHasTasks -->
-          <xsd:element name="tasks" minOccurs="0" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>Instances of GeneratorModelHasTasks</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element ref="generatorModelHasTasks" minOccurs="0" maxOccurs="unbounded">
-                  <xsd:annotation>
-                    <xsd:documentation>[Instance of GeneratorModelHasTasks needs to be serialized in full-form]</xsd:documentation>
-                  </xsd:annotation>
-                </xsd:element>
-              </xsd:sequence>
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:sequence>
+      <xsd:extension base="CompositeTask">
         <!-- Id -->
         <xsd:attribute name="Id" type="xsd:string">
           <xsd:annotation>
@@ -42,19 +25,14 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- GeneratorModel Moniker -->
-  <xsd:element name="generatorModelMoniker" type="GeneratorModelMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="GeneratorModelMoniker">
+  <!-- Generator Moniker -->
+  <xsd:element name="generatorMoniker" type="GeneratorMoniker" substitutionGroup="compositeTaskMoniker" />
+  <xsd:complexType name="GeneratorMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for GeneratorModel instance.</xsd:documentation>
+      <xsd:documentation>Moniker for Generator instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="core:ModelElementMoniker">
-        <xsd:attribute name="Id" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+      <xsd:extension base="CompositeTaskMoniker">
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -91,6 +69,8 @@
         <xsd:attribute name="name" type="xsd:string" />
         <!-- Property: Description -->
         <xsd:attribute name="description" type="xsd:string" />
+        <!-- Property: Type -->
+        <xsd:attribute name="type" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -118,16 +98,16 @@
     <xsd:complexContent>
       <xsd:extension base="Task">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: ChildTasks -->
+          <!-- Relationship: Children -->
           <xsd:element name="tasks" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of ChildTasks</xsd:documentation>
+              <xsd:documentation>Instances of Children</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="childTasks" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="children" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of ChildTasks needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of Children needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -495,9 +475,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- GeneratorModelHasTasks -->
-  <xsd:element name="generatorModelHasTasks" type="GeneratorModelHasTasks" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="GeneratorModelHasTasks">
+  <!-- Children -->
+  <xsd:element name="children" type="Children" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Children">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -518,51 +498,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- GeneratorModelHasTasks Moniker -->
-  <xsd:element name="generatorModelHasTasksMoniker" type="GeneratorModelHasTasksMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="GeneratorModelHasTasksMoniker">
+  <!-- Children Moniker -->
+  <xsd:element name="childrenMoniker" type="ChildrenMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ChildrenMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for GeneratorModelHasTasks instance.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="core:ModelElementMoniker">
-        <xsd:attribute name="Id" type="xsd:string" >
-          <xsd:annotation>
-            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  
-  <!-- ChildTasks -->
-  <xsd:element name="childTasks" type="ChildTasks" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="ChildTasks">
-    <xsd:complexContent>
-      <xsd:extension base="core:ModelElement">
-        <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Target end Task -->
-          <xsd:element ref="taskMoniker" minOccurs="1" maxOccurs="1">
-            <xsd:annotation>
-              <xsd:documentation>[Target role-player]</xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
-        </xsd:sequence>
-        <!-- Id -->
-        <xsd:attribute name="Id" type="xsd:string">
-          <xsd:annotation>
-            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  
-  <!-- ChildTasks Moniker -->
-  <xsd:element name="childTasksMoniker" type="ChildTasksMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ChildTasksMoniker">
-    <xsd:annotation>
-      <xsd:documentation>Moniker for ChildTasks instance.</xsd:documentation>
+      <xsd:documentation>Moniker for Children instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
