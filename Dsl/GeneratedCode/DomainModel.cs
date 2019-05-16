@@ -79,7 +79,7 @@ namespace Ultramarine.Generators.Language
 				typeof(SetVariable),
 				typeof(TextTransformation),
 				typeof(Iterator),
-				typeof(ConnectedWith),
+				typeof(Connection),
 				typeof(Children),
 				typeof(GeneratorLanguageDiagram),
 				typeof(ConnectedWithConnector),
@@ -108,7 +108,6 @@ namespace Ultramarine.Generators.Language
 			{
 				new DomainMemberInfo(typeof(Task), "Name", Task.NameDomainPropertyId, typeof(Task.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Task), "Description", Task.DescriptionDomainPropertyId, typeof(Task.DescriptionPropertyHandler)),
-				new DomainMemberInfo(typeof(Task), "Type", Task.TypeDomainPropertyId, typeof(Task.TypePropertyHandler)),
 				new DomainMemberInfo(typeof(LoadCodeElement), "ElementName", LoadCodeElement.ElementNameDomainPropertyId, typeof(LoadCodeElement.ElementNamePropertyHandler)),
 				new DomainMemberInfo(typeof(LoadCodeElement), "ElementType", LoadCodeElement.ElementTypeDomainPropertyId, typeof(LoadCodeElement.ElementTypePropertyHandler)),
 				new DomainMemberInfo(typeof(LoadCodeElement), "ElementAccess", LoadCodeElement.ElementAccessDomainPropertyId, typeof(LoadCodeElement.ElementAccessPropertyHandler)),
@@ -143,8 +142,8 @@ namespace Ultramarine.Generators.Language
 		{
 			return new DomainRolePlayerInfo[]
 			{
-				new DomainRolePlayerInfo(typeof(ConnectedWith), "ConnectedTask", ConnectedWith.ConnectedTaskDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ConnectedWith), "TargetTask", ConnectedWith.TargetTaskDomainRoleId),
+				new DomainRolePlayerInfo(typeof(Connection), "ConnectedTask", Connection.ConnectedTaskDomainRoleId),
+				new DomainRolePlayerInfo(typeof(Connection), "TargetTask", Connection.TargetTaskDomainRoleId),
 				new DomainRolePlayerInfo(typeof(Children), "CompositeTask", Children.CompositeTaskDomainRoleId),
 				new DomainRolePlayerInfo(typeof(Children), "Task", Children.TaskDomainRoleId),
 			};
@@ -247,7 +246,7 @@ namespace Ultramarine.Generators.Language
 			if (createElementLinkMap == null)
 			{
 				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(2);
-				createElementLinkMap.Add(typeof(ConnectedWith), 0);
+				createElementLinkMap.Add(typeof(Connection), 0);
 				createElementLinkMap.Add(typeof(Children), 1);
 			}
 			int index;
@@ -263,7 +262,7 @@ namespace Ultramarine.Generators.Language
 			}
 			switch (index)
 			{
-				case 0: return new ConnectedWith(partition, roleAssignments, propertyAssignments);
+				case 0: return new Connection(partition, roleAssignments, propertyAssignments);
 				case 1: return new Children(partition, roleAssignments, propertyAssignments);
 				default: return null;
 			}

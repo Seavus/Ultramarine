@@ -157,14 +157,6 @@
     <value>Description</value>
     <comment>DisplayName for DomainProperty &apos;Description&apos; on DomainClass &apos;Task&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.Task/Type.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.Task.Type</value>
-    <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;Task&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.Task/Type.DisplayName" xml:space="preserve">
-    <value>Type</value>
-    <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;Task&apos;</comment>
-  </data>
   <data name="Ultramarine.Generators.Language.CompositeTask.Description" xml:space="preserve">
     <value>Description for Ultramarine.Generators.Language.CompositeTask</value>
     <comment>Description for DomainClass &apos;CompositeTask&apos;</comment>
@@ -493,37 +485,37 @@
     <value>Iterator</value>
     <comment>DisplayName for DomainClass &apos;Iterator&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.ConnectedWith.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.ConnectedWith</value>
-    <comment>Description for DomainClass &apos;ConnectedWith&apos;</comment>
+  <data name="Ultramarine.Generators.Language.Connection.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.Connection</value>
+    <comment>Description for DomainClass &apos;Connection&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.ConnectedWith.DisplayName" xml:space="preserve">
-    <value>Connected With</value>
-    <comment>DisplayName for DomainClass &apos;ConnectedWith&apos;</comment>
+  <data name="Ultramarine.Generators.Language.Connection.DisplayName" xml:space="preserve">
+    <value>Connection</value>
+    <comment>DisplayName for DomainClass &apos;Connection&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.ConnectedWith/ConnectedTask.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.ConnectedWith.ConnectedTask</value>
-    <comment>Description for DomainRole &apos;ConnectedTask&apos; on DomainRelationship &apos;ConnectedWith&apos;</comment>
+  <data name="Ultramarine.Generators.Language.Connection/ConnectedTask.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.Connection.ConnectedTask</value>
+    <comment>Description for DomainRole &apos;ConnectedTask&apos; on DomainRelationship &apos;Connection&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.ConnectedWith/ConnectedTask.DisplayName" xml:space="preserve">
+  <data name="Ultramarine.Generators.Language.Connection/ConnectedTask.DisplayName" xml:space="preserve">
     <value>Connected Task</value>
-    <comment>DisplayName for DomainRole &apos;ConnectedTask&apos; on DomainRelationship &apos;ConnectedWith&apos;</comment>
+    <comment>DisplayName for DomainRole &apos;ConnectedTask&apos; on DomainRelationship &apos;Connection&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.ConnectedWith/ConnectedTask.PropertyDisplayName" xml:space="preserve">
+  <data name="Ultramarine.Generators.Language.Connection/ConnectedTask.PropertyDisplayName" xml:space="preserve">
+    <value>Connected With</value>
+    <comment>PropertyDisplayName for DomainRole &apos;ConnectedTask&apos; on DomainRelationship &apos;Connection&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.Connection/TargetTask.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.Connection.TargetTask</value>
+    <comment>Description for DomainRole &apos;TargetTask&apos; on DomainRelationship &apos;Connection&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.Connection/TargetTask.DisplayName" xml:space="preserve">
     <value>Target Task</value>
-    <comment>PropertyDisplayName for DomainRole &apos;ConnectedTask&apos; on DomainRelationship &apos;ConnectedWith&apos;</comment>
+    <comment>DisplayName for DomainRole &apos;TargetTask&apos; on DomainRelationship &apos;Connection&apos;</comment>
   </data>
-  <data name="Ultramarine.Generators.Language.ConnectedWith/TargetTask.Description" xml:space="preserve">
-    <value>Description for Ultramarine.Generators.Language.ConnectedWith.TargetTask</value>
-    <comment>Description for DomainRole &apos;TargetTask&apos; on DomainRelationship &apos;ConnectedWith&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.ConnectedWith/TargetTask.DisplayName" xml:space="preserve">
-    <value>Target Task</value>
-    <comment>DisplayName for DomainRole &apos;TargetTask&apos; on DomainRelationship &apos;ConnectedWith&apos;</comment>
-  </data>
-  <data name="Ultramarine.Generators.Language.ConnectedWith/TargetTask.PropertyDisplayName" xml:space="preserve">
+  <data name="Ultramarine.Generators.Language.Connection/TargetTask.PropertyDisplayName" xml:space="preserve">
     <value>Connected Tasked</value>
-    <comment>PropertyDisplayName for DomainRole &apos;TargetTask&apos; on DomainRelationship &apos;ConnectedWith&apos;</comment>
+    <comment>PropertyDisplayName for DomainRole &apos;TargetTask&apos; on DomainRelationship &apos;Connection&apos;</comment>
   </data>
   <data name="Ultramarine.Generators.Language.Children.Description" xml:space="preserve">
     <value>Description for Ultramarine.Generators.Language.Children</value>

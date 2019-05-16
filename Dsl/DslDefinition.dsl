@@ -218,16 +218,16 @@
     </DomainClass>
   </Classes>
   <Relationships>
-    <DomainRelationship Id="190a9443-8fc2-4c0d-9f96-284b404f4f02" Description="Description for Ultramarine.Generators.Language.ConnectedWith" Name="ConnectedWith" DisplayName="Connected With" Namespace="Ultramarine.Generators.Language">
+    <DomainRelationship Id="190a9443-8fc2-4c0d-9f96-284b404f4f02" Description="Description for Ultramarine.Generators.Language.Connection" Name="Connection" DisplayName="Connection" Namespace="Ultramarine.Generators.Language">
       <Source>
-        <DomainRole Id="612cd04d-891f-4238-853a-42d3043d2950" Description="Description for Ultramarine.Generators.Language.ConnectedWith.ConnectedTask" Name="ConnectedTask" DisplayName="Connected Task" PropertyName="TargetTask" Multiplicity="ZeroOne" PropertyDisplayName="Target Task">
+        <DomainRole Id="612cd04d-891f-4238-853a-42d3043d2950" Description="Description for Ultramarine.Generators.Language.Connection.ConnectedTask" Name="ConnectedTask" DisplayName="Connected Task" PropertyName="ConnectedWith" Multiplicity="ZeroOne" PropertyDisplayName="Connected With">
           <RolePlayer>
             <DomainClassMoniker Name="Task" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="aac64dbc-d054-4374-8d09-cf143ba2017b" Description="Description for Ultramarine.Generators.Language.ConnectedWith.TargetTask" Name="TargetTask" DisplayName="Target Task" PropertyName="ConnectedTasked" PropertyDisplayName="Connected Tasked">
+        <DomainRole Id="aac64dbc-d054-4374-8d09-cf143ba2017b" Description="Description for Ultramarine.Generators.Language.Connection.TargetTask" Name="TargetTask" DisplayName="Target Task" PropertyName="ConnectedTasked" PropertyDisplayName="Connected Tasked">
           <RolePlayer>
             <DomainClassMoniker Name="Task" />
           </RolePlayer>
@@ -269,7 +269,7 @@
     <ExternalType Name="Char" Namespace="System" />
   </Types>
   <Shapes>
-    <GeometryShape Id="58d67238-c826-4929-9037-ad4ca1327d43" Description="Shape used to represent ExampleElements on a Diagram." Name="LoadCodeElementShape" DisplayName="Load Code Element Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Load Code Element Shape" FillColor="255, 153, 204" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" Geometry="Rectangle">
+    <GeometryShape Id="58d67238-c826-4929-9037-ad4ca1327d43" Description="Shape used to represent ExampleElements on a Diagram." Name="LoadCodeElementShape" DisplayName="Load Code Element Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Load Code Element Shape" FillColor="255, 201, 254" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" Geometry="Rectangle">
       <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
@@ -289,42 +289,42 @@
         <TextDecorator Name="TypeDecorator" DisplayName="Type" DefaultText="Type" />
       </ShapeHasDecorators>
     </GeometryShape>
-    <GeometryShape Id="450ca504-4e61-482d-aad1-c82e46ac7fd4" Description="Description for Ultramarine.Generators.Language.BuildProjectShape" Name="BuildProjectShape" DisplayName="Build Project Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Build Project Shape" FillColor="215, 220, 230" OutlineColor="Silver" InitialHeight="1" Geometry="RoundedRectangle">
+    <GeometryShape Id="450ca504-4e61-482d-aad1-c82e46ac7fd4" Description="Description for Ultramarine.Generators.Language.BuildProjectShape" Name="BuildProjectShape" DisplayName="Build Project Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Build Project Shape" FillColor="201, 255, 201" OutlineColor="Silver" InitialHeight="1" Geometry="RoundedRectangle">
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
     </GeometryShape>
-    <GeometryShape Id="2cf43689-bcb0-4e2f-9239-b3cbc86a4c64" Description="Description for Ultramarine.Generators.Language.CreateFolderShape" Name="CreateFolderShape" DisplayName="Create Folder Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Create Folder Shape" InitialHeight="1" Geometry="Rectangle">
+    <GeometryShape Id="2cf43689-bcb0-4e2f-9239-b3cbc86a4c64" Description="Description for Ultramarine.Generators.Language.CreateFolderShape" Name="CreateFolderShape" DisplayName="Create Folder Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Create Folder Shape" FillColor="201, 255, 254" InitialHeight="1" Geometry="Rectangle">
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
     </GeometryShape>
-    <GeometryShape Id="883ab655-c59b-4963-99e5-2edfdb58bbd8" Description="Description for Ultramarine.Generators.Language.CreateProjectItemShape" Name="CreateProjectItemShape" DisplayName="Create Project Item Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Create Project Item Shape" InitialHeight="1" Geometry="Rectangle">
+    <GeometryShape Id="883ab655-c59b-4963-99e5-2edfdb58bbd8" Description="Description for Ultramarine.Generators.Language.CreateProjectItemShape" Name="CreateProjectItemShape" DisplayName="Create Project Item Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Create Project Item Shape" FillColor="201, 227, 255" InitialHeight="1" Geometry="Rectangle">
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
     </GeometryShape>
-    <GeometryShape Id="857210ba-a7b4-4fca-9f1c-4a337520227a" Description="Description for Ultramarine.Generators.Language.LoadProjectItemShape" Name="LoadProjectItemShape" DisplayName="Load Project Item Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Load Project Item Shape" InitialHeight="1" Geometry="Rectangle">
+    <GeometryShape Id="857210ba-a7b4-4fca-9f1c-4a337520227a" Description="Description for Ultramarine.Generators.Language.LoadProjectItemShape" Name="LoadProjectItemShape" DisplayName="Load Project Item Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Load Project Item Shape" FillColor="255, 201, 213" InitialHeight="1" Geometry="Rectangle">
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
     </GeometryShape>
-    <GeometryShape Id="9ba526a8-3267-41f5-a7b1-767e66ee3463" Description="Description for Ultramarine.Generators.Language.ReadPropertyShape" Name="ReadPropertyShape" DisplayName="Read Property Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Read Property Shape" InitialHeight="1" Geometry="Rectangle">
+    <GeometryShape Id="9ba526a8-3267-41f5-a7b1-767e66ee3463" Description="Description for Ultramarine.Generators.Language.ReadPropertyShape" Name="ReadPropertyShape" DisplayName="Read Property Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Read Property Shape" FillColor="255, 244, 201" InitialHeight="1" Geometry="Rectangle">
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
     </GeometryShape>
-    <GeometryShape Id="a7fab263-fe32-4091-a1b1-db97327d3be5" Description="Description for Ultramarine.Generators.Language.SetVariableShape" Name="SetVariableShape" DisplayName="Set Variable Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Set Variable Shape" InitialHeight="1" Geometry="Rectangle">
+    <GeometryShape Id="a7fab263-fe32-4091-a1b1-db97327d3be5" Description="Description for Ultramarine.Generators.Language.SetVariableShape" Name="SetVariableShape" DisplayName="Set Variable Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Set Variable Shape" FillColor="244, 255, 201" InitialHeight="1" Geometry="Rectangle">
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
     </GeometryShape>
-    <GeometryShape Id="ae5903c3-0190-4edd-a9dd-7175f9c738ab" Description="Description for Ultramarine.Generators.Language.TextTransformationShape" Name="TextTransformationShape" DisplayName="Text Transformation Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Text Transformation Shape" InitialHeight="1" Geometry="Rectangle">
+    <GeometryShape Id="ae5903c3-0190-4edd-a9dd-7175f9c738ab" Description="Description for Ultramarine.Generators.Language.TextTransformationShape" Name="TextTransformationShape" DisplayName="Text Transformation Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Text Transformation Shape" FillColor="255, 244, 244" InitialHeight="1" Geometry="Rectangle">
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
     </GeometryShape>
-    <GeometryShape Id="0d385b92-226f-4b28-a27f-ad784ccb5864" Description="Description for Ultramarine.Generators.Language.CompositeShape" Name="CompositeShape" DisplayName="Composite Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Composite Shape" InitialHeight="1" Geometry="Rectangle">
+    <GeometryShape Id="0d385b92-226f-4b28-a27f-ad784ccb5864" Description="Description for Ultramarine.Generators.Language.CompositeShape" Name="CompositeShape" DisplayName="Composite Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Composite Shape" FillColor="Gainsboro" OutlineColor="LightGray" InitialHeight="1" Geometry="RoundedRectangle">
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
@@ -356,8 +356,8 @@
           <XmlPropertyData XmlName="description">
             <DomainPropertyMoniker Name="Task/Description" />
           </XmlPropertyData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="targetTask">
-            <DomainRelationshipMoniker Name="ConnectedWith" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="connectedWith">
+            <DomainRelationshipMoniker Name="Connection" />
           </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
@@ -389,8 +389,8 @@
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
-      <XmlClassData TypeName="ConnectedWith" MonikerAttributeName="" SerializeId="true" MonikerElementName="connectedWithMoniker" ElementName="connectedWith" MonikerTypeName="ConnectedWithMoniker">
-        <DomainRelationshipMoniker Name="ConnectedWith" />
+      <XmlClassData TypeName="Connection" MonikerAttributeName="" SerializeId="true" MonikerElementName="connectionMoniker" ElementName="connection" MonikerTypeName="ConnectionMoniker">
+        <DomainRelationshipMoniker Name="Connection" />
       </XmlClassData>
       <XmlClassData TypeName="BuildProject" MonikerAttributeName="" SerializeId="true" MonikerElementName="buildProjectMoniker" ElementName="buildProject" MonikerTypeName="BuildProjectMoniker">
         <DomainClassMoniker Name="BuildProject" />
@@ -521,9 +521,9 @@
   </XmlSerializationBehavior>
   <ExplorerBehavior Name="GeneratorLanguageExplorer" />
   <ConnectionBuilders>
-    <ConnectionBuilder Name="ConnectedWithBuilder">
+    <ConnectionBuilder Name="ConnectionBuilder">
       <LinkConnectDirective>
-        <DomainRelationshipMoniker Name="ConnectedWith" />
+        <DomainRelationshipMoniker Name="Connection" />
         <SourceDirectives>
           <RolePlayerConnectDirective>
             <AcceptingClass>
@@ -757,7 +757,7 @@
     <ConnectorMaps>
       <ConnectorMap>
         <ConnectorMoniker Name="ConnectedWithConnector" />
-        <DomainRelationshipMoniker Name="ConnectedWith" />
+        <DomainRelationshipMoniker Name="Connection" />
       </ConnectorMap>
     </ConnectorMaps>
   </Diagram>
@@ -770,7 +770,7 @@
     </XmlSerializationDefinition>
     <ToolboxTab TabText="GeneratorLanguage">
       <ConnectionTool Name="ConnectedWithRelationship" ToolboxIcon="resources\exampleconnectortoolbitmap.bmp" Caption="ConnectedWith" Tooltip="Drag between ExampleElements to create an ExampleRelationship" HelpKeyword="ConnectExampleRelationF1Keyword">
-        <ConnectionBuilderMoniker Name="GeneratorLanguage/ConnectedWithBuilder" />
+        <ConnectionBuilderMoniker Name="GeneratorLanguage/ConnectionBuilder" />
       </ConnectionTool>
       <ElementTool Name="BuildProject" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="BuildProject" Tooltip="Build Project" HelpKeyword="BuildProject">
         <DomainClassMoniker Name="BuildProject" />

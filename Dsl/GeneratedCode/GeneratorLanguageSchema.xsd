@@ -43,16 +43,16 @@
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: ConnectedWith -->
-          <xsd:element name="targetTask" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: Connection -->
+          <xsd:element name="connectedWith" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instance of ConnectedWith</xsd:documentation>
+              <xsd:documentation>Instance of Connection</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="connectedWith" minOccurs="0" maxOccurs="1">
+                <xsd:element ref="connection" minOccurs="0" maxOccurs="1">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of ConnectedWith needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of Connection needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -69,8 +69,6 @@
         <xsd:attribute name="name" type="xsd:string" />
         <!-- Property: Description -->
         <xsd:attribute name="description" type="xsd:string" />
-        <!-- Property: Type -->
-        <xsd:attribute name="type" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -435,9 +433,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConnectedWith -->
-  <xsd:element name="connectedWith" type="ConnectedWith" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="ConnectedWith">
+  <!-- Connection -->
+  <xsd:element name="connection" type="Connection" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Connection">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -458,11 +456,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ConnectedWith Moniker -->
-  <xsd:element name="connectedWithMoniker" type="ConnectedWithMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ConnectedWithMoniker">
+  <!-- Connection Moniker -->
+  <xsd:element name="connectionMoniker" type="ConnectionMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConnectionMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for ConnectedWith instance.</xsd:documentation>
+      <xsd:documentation>Moniker for Connection instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">

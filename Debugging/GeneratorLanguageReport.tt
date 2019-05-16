@@ -1,24 +1,23 @@
 ﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
 <#@ output extension=".gen.json" #>
-<#@ GeneratorLanguage processor="GeneratorLanguageDirectiveProcessor" requires="fileName='Test.ugen'" #>
-
-// Generated material. Generating code in C#.
+<#@ GeneratorLanguage processor="GeneratorLanguageDirectiveProcessor" requires="fileName='Test.ugen'" #>// Generated material. Generating code in C#.
 {
 	"generator": {
-		"name": "test1",
-		"description": "test1",
+		"name": "<#= this.Generator.Name #>",
+		"description": "<#= this.Generator.Description#>",
 		"tasks": [
 <#
   // When you change the DSL Definition, some of the code below may not work.
 
-  foreach (Task element in this.GeneratorModel.Tasked)
+  foreach (Task task in this.Generator.Tasks)
   {
-#>		 {
-		  	 "<#=element.GetType().Name #>": {
-			 "name": "<#= element.Name #>",
-			 "description": "<#=element.Description #>"
-			 }
-		 },
+#>			{
+		  	"<#= task.GetType().Name #>": {
+					"name": "<#= task.Name #>",
+					"description": "<#= task.Description #>",
+					"settings": "<#= task #>"
+			  }
+			},
 <#    
   }
 #>

@@ -15,7 +15,7 @@ namespace Ultramarine.Generators.Language
 	/// <summary>
 	/// ConnectionBuilder class to provide logic for constructing connections between elements.
 	/// </summary>
-	public static partial class ConnectedWithBuilder
+	public static partial class ConnectionBuilder
 	{
 		#region Accept Connection Methods
 		/// <summary>
@@ -89,8 +89,8 @@ namespace Ultramarine.Generators.Language
 					{
 						global::Ultramarine.Generators.Language.Task sourceTask = (global::Ultramarine.Generators.Language.Task)candidateSource;
 						global::Ultramarine.Generators.Language.Task targetTask = (global::Ultramarine.Generators.Language.Task)candidateTarget;
-						if(sourceTask == null || global::Ultramarine.Generators.Language.ConnectedWith.GetLinkToTargetTask(sourceTask) != null) return false;
-						if(targetTask == null || sourceTask == null || global::Ultramarine.Generators.Language.ConnectedWith.GetLinks(sourceTask, targetTask).Count > 0) return false;
+						if(sourceTask == null || global::Ultramarine.Generators.Language.Connection.GetLinkToConnectedWith(sourceTask) != null) return false;
+						if(targetTask == null || sourceTask == null || global::Ultramarine.Generators.Language.Connection.GetLinks(sourceTask, targetTask).Count > 0) return false;
 						return true;
 					}
 				}
@@ -128,7 +128,7 @@ namespace Ultramarine.Generators.Language
 					{
 						global::Ultramarine.Generators.Language.Task sourceAccepted = (global::Ultramarine.Generators.Language.Task)source;
 						global::Ultramarine.Generators.Language.Task targetAccepted = (global::Ultramarine.Generators.Language.Task)target;
-						DslModeling::ElementLink result = new global::Ultramarine.Generators.Language.ConnectedWith(sourceAccepted, targetAccepted);
+						DslModeling::ElementLink result = new global::Ultramarine.Generators.Language.Connection(sourceAccepted, targetAccepted);
 						if (DslModeling::DomainClassInfo.HasNameProperty(result))
 						{
 							DslModeling::DomainClassInfo.SetUniqueName(result);
@@ -221,7 +221,7 @@ namespace Ultramarine.Generators.Language
 			/// Called by the base ConnectAction class to determine if the given shapes can be connected.
 			/// </summary>
 			/// <remarks>
-			/// This implementation delegates calls to the ConnectionBuilder ConnectedWithBuilder.
+			/// This implementation delegates calls to the ConnectionBuilder ConnectionBuilder.
 			/// </remarks>
 			public override bool CanCreateConnection(DslDiagrams::ShapeElement sourceShapeElement, DslDiagrams::ShapeElement targetShapeElement, ref string connectionWarning)
 			{
@@ -247,11 +247,11 @@ namespace Ultramarine.Generators.Language
 				{				
 					if(targetShapeElement == null)
 					{
-						return ConnectedWithBuilder.CanAcceptSource(sourceElement);
+						return ConnectionBuilder.CanAcceptSource(sourceElement);
 					}
 					else
 					{				
-						return ConnectedWithBuilder.CanAcceptSourceAndTarget(sourceElement, targetElement);
+						return ConnectionBuilder.CanAcceptSourceAndTarget(sourceElement, targetElement);
 					}
 				}
 				else
@@ -276,7 +276,7 @@ namespace Ultramarine.Generators.Language
 			/// Called by the base ConnectAction class to create the underlying relationship.
 			/// </summary>
 			/// <remarks>
-			/// This implementation delegates calls to the ConnectionBuilder ConnectedWithBuilder.
+			/// This implementation delegates calls to the ConnectionBuilder ConnectionBuilder.
 			/// </remarks>
 			public override void CreateConnection(DslDiagrams::ShapeElement sourceShapeElement, DslDiagrams::ShapeElement targetShapeElement, DslDiagrams::PaintFeedbackArgs paintFeedbackArgs)
 			{
@@ -290,7 +290,7 @@ namespace Ultramarine.Generators.Language
 				if(sourceElement == null) sourceElement = sourceShapeElement;
 				DslModeling::ModelElement targetElement = targetShapeElement.ModelElement;
 				if(targetElement == null) targetElement = targetShapeElement;
-				ConnectedWithBuilder.Connect(sourceElement, targetElement);
+				ConnectionBuilder.Connect(sourceElement, targetElement);
 			}
 		}
 		

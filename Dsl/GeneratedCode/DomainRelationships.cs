@@ -12,33 +12,33 @@ using DslDesign = global::Microsoft.VisualStudio.Modeling.Design;
 namespace Ultramarine.Generators.Language
 {
 	/// <summary>
-	/// DomainRelationship ConnectedWith
-	/// Description for Ultramarine.Generators.Language.ConnectedWith
+	/// DomainRelationship Connection
+	/// Description for Ultramarine.Generators.Language.Connection
 	/// </summary>
-	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.ConnectedWith.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.ConnectedWith.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.Connection.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.Connection.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainRelationship()]
 	[DslModeling::DomainObjectId("190a9443-8fc2-4c0d-9f96-284b404f4f02")]
-	public partial class ConnectedWith : DslModeling::ElementLink
+	public partial class Connection : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
 		
 		/// <summary>
-		/// ConnectedWith domain class Id.
+		/// Connection domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x190a9443, 0x8fc2, 0x4c0d, 0x9f, 0x96, 0x28, 0x4b, 0x40, 0x4f, 0x4f, 0x02);
 	
 				
 		/// <summary>
 		/// Constructor
-		/// Creates a ConnectedWith link in the same Partition as the given Task
+		/// Creates a Connection link in the same Partition as the given Task
 		/// </summary>
 		/// <param name="source">Task to use as the source of the relationship.</param>
 		/// <param name="target">Task to use as the target of the relationship.</param>
-		public ConnectedWith(Task source, Task target)
-			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ConnectedWith.ConnectedTaskDomainRoleId, source), new DslModeling::RoleAssignment(ConnectedWith.TargetTaskDomainRoleId, target)}, null)
+		public Connection(Task source, Task target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(Connection.ConnectedTaskDomainRoleId, source), new DslModeling::RoleAssignment(Connection.TargetTaskDomainRoleId, target)}, null)
 		{
 		}
 		
@@ -47,7 +47,7 @@ namespace Ultramarine.Generators.Language
 		/// </summary>
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ConnectedWith(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+		public Connection(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
@@ -58,7 +58,7 @@ namespace Ultramarine.Generators.Language
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ConnectedWith(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public Connection(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
@@ -68,7 +68,7 @@ namespace Ultramarine.Generators.Language
 		/// </summary>
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ConnectedWith(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+		public Connection(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(partition, roleAssignments, null)
 		{
 		}
@@ -79,7 +79,7 @@ namespace Ultramarine.Generators.Language
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ConnectedWith(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public Connection(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, roleAssignments, propertyAssignments)
 		{
 		}
@@ -93,11 +93,11 @@ namespace Ultramarine.Generators.Language
 		
 		/// <summary>
 		/// DomainRole ConnectedTask
-		/// Description for Ultramarine.Generators.Language.ConnectedWith.ConnectedTask
+		/// Description for Ultramarine.Generators.Language.Connection.ConnectedTask
 		/// </summary>
-		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.ConnectedWith/ConnectedTask.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.ConnectedWith/ConnectedTask.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "TargetTask", PropertyDisplayNameKey="Ultramarine.Generators.Language.ConnectedWith/ConnectedTask.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.Connection/ConnectedTask.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.Connection/ConnectedTask.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "ConnectedWith", PropertyDisplayNameKey="Ultramarine.Generators.Language.Connection/ConnectedTask.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroOne)]
 		[DslModeling::DomainObjectId("612cd04d-891f-4238-853a-42d3043d2950")]
 		public virtual Task ConnectedTask
 		{
@@ -134,11 +134,11 @@ namespace Ultramarine.Generators.Language
 		
 		/// <summary>
 		/// DomainRole TargetTask
-		/// Description for Ultramarine.Generators.Language.ConnectedWith.TargetTask
+		/// Description for Ultramarine.Generators.Language.Connection.TargetTask
 		/// </summary>
-		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.ConnectedWith/TargetTask.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.ConnectedWith/TargetTask.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "ConnectedTasked", PropertyDisplayNameKey="Ultramarine.Generators.Language.ConnectedWith/TargetTask.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.Connection/TargetTask.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.Connection/TargetTask.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "ConnectedTasked", PropertyDisplayNameKey="Ultramarine.Generators.Language.Connection/TargetTask.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
 		[DslModeling::DomainObjectId("aac64dbc-d054-4374-8d09-cf143ba2017b")]
 		public virtual Task TargetTask
 		{
@@ -155,36 +155,36 @@ namespace Ultramarine.Generators.Language
 		}
 				
 		#endregion
-		#region Static methods to access TargetTask of a Task
+		#region Static methods to access ConnectedWith of a Task
 		/// <summary>
-		/// Gets TargetTask.
+		/// Gets ConnectedWith.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static Task GetTargetTask(Task element)
+		public static Task GetConnectedWith(Task element)
 		{
 			return DslModeling::DomainRoleInfo.GetLinkedElement(element, ConnectedTaskDomainRoleId) as Task;
 		}
 		
 		/// <summary>
-		/// Sets TargetTask.
+		/// Sets ConnectedWith.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static void SetTargetTask(Task element, Task newTargetTask)
+		public static void SetConnectedWith(Task element, Task newTargetTask)
 		{
 			DslModeling::DomainRoleInfo.SetLinkedElement(element, ConnectedTaskDomainRoleId, newTargetTask);
 		}
 		#endregion
 		#region ConnectedTask link accessor
 		/// <summary>
-		/// Get the ConnectedWith link to a Task.
+		/// Get the Connection link to a Task.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Ultramarine.Generators.Language.ConnectedWith GetLinkToTargetTask (global::Ultramarine.Generators.Language.Task connectedTaskInstance)
+		public static global::Ultramarine.Generators.Language.Connection GetLinkToConnectedWith (global::Ultramarine.Generators.Language.Task connectedTaskInstance)
 		{
-			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.ConnectedWith> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.ConnectedWith>(connectedTaskInstance, global::Ultramarine.Generators.Language.ConnectedWith.ConnectedTaskDomainRoleId);
+			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.Connection> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.Connection>(connectedTaskInstance, global::Ultramarine.Generators.Language.Connection.ConnectedTaskDomainRoleId);
 			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of ConnectedTask not obeyed.");
 			if ( links.Count == 0 )
 			{
@@ -198,27 +198,27 @@ namespace Ultramarine.Generators.Language
 		#endregion
 		#region TargetTask link accessor
 		/// <summary>
-		/// Get the list of ConnectedWith links to a Task.
+		/// Get the list of Connection links to a Task.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ultramarine.Generators.Language.ConnectedWith> GetLinksToConnectedTasked ( global::Ultramarine.Generators.Language.Task targetTaskInstance )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ultramarine.Generators.Language.Connection> GetLinksToConnectedTasked ( global::Ultramarine.Generators.Language.Task targetTaskInstance )
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.ConnectedWith>(targetTaskInstance, global::Ultramarine.Generators.Language.ConnectedWith.TargetTaskDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.Connection>(targetTaskInstance, global::Ultramarine.Generators.Language.Connection.TargetTaskDomainRoleId);
 		}
 		#endregion
-		#region ConnectedWith instance accessors
+		#region Connection instance accessors
 		
 		/// <summary>
-		/// Get any ConnectedWith links between a given Task and a Task.
+		/// Get any Connection links between a given Task and a Task.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ultramarine.Generators.Language.ConnectedWith> GetLinks( global::Ultramarine.Generators.Language.Task source, global::Ultramarine.Generators.Language.Task target )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ultramarine.Generators.Language.Connection> GetLinks( global::Ultramarine.Generators.Language.Task source, global::Ultramarine.Generators.Language.Task target )
 		{
-			global::System.Collections.Generic.List<global::Ultramarine.Generators.Language.ConnectedWith> outLinks = new global::System.Collections.Generic.List<global::Ultramarine.Generators.Language.ConnectedWith>();
-			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.ConnectedWith> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.ConnectedWith>(source, global::Ultramarine.Generators.Language.ConnectedWith.ConnectedTaskDomainRoleId);
-			foreach ( global::Ultramarine.Generators.Language.ConnectedWith link in links )
+			global::System.Collections.Generic.List<global::Ultramarine.Generators.Language.Connection> outLinks = new global::System.Collections.Generic.List<global::Ultramarine.Generators.Language.Connection>();
+			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.Connection> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.Connection>(source, global::Ultramarine.Generators.Language.Connection.ConnectedTaskDomainRoleId);
+			foreach ( global::Ultramarine.Generators.Language.Connection link in links )
 			{
 				if ( target.Equals(link.TargetTask) )
 				{
@@ -228,14 +228,14 @@ namespace Ultramarine.Generators.Language
 			return outLinks.AsReadOnly();
 		}
 		/// <summary>
-		/// Get the one ConnectedWith link between a given Taskand a Task.
+		/// Get the one Connection link between a given Taskand a Task.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Ultramarine.Generators.Language.ConnectedWith GetLink( global::Ultramarine.Generators.Language.Task source, global::Ultramarine.Generators.Language.Task target )
+		public static global::Ultramarine.Generators.Language.Connection GetLink( global::Ultramarine.Generators.Language.Task source, global::Ultramarine.Generators.Language.Task target )
 		{
-			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.ConnectedWith> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.ConnectedWith>(source, global::Ultramarine.Generators.Language.ConnectedWith.ConnectedTaskDomainRoleId);
-			foreach ( global::Ultramarine.Generators.Language.ConnectedWith link in links )
+			global::System.Collections.Generic.IList<global::Ultramarine.Generators.Language.Connection> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ultramarine.Generators.Language.Connection>(source, global::Ultramarine.Generators.Language.Connection.ConnectedTaskDomainRoleId);
+			foreach ( global::Ultramarine.Generators.Language.Connection link in links )
 			{
 				if ( target.Equals(link.TargetTask) )
 				{

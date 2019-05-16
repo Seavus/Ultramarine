@@ -245,7 +245,7 @@ namespace Ultramarine.Generators.Language
 				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
 				return newShape;
 			}
-			if(element is global::Ultramarine.Generators.Language.ConnectedWith)
+			if(element is global::Ultramarine.Generators.Language.Connection)
 			{
 				global::Ultramarine.Generators.Language.ConnectedWithConnector newShape = new global::Ultramarine.Generators.Language.ConnectedWithConnector(this.Partition);
 				return newShape;
@@ -328,9 +328,6 @@ namespace Ultramarine.Generators.Language
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
-				
-				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.TypeDomainPropertyId);
-				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -655,7 +652,7 @@ namespace Ultramarine.Generators.Language
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.SetVariable), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.TextTransformation), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.CompositeTask), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
-		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.ConnectedWith), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.Connection), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
 		internal sealed partial class FixUpDiagram : FixUpDiagramBase
 		{
 			[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
@@ -868,7 +865,7 @@ namespace Ultramarine.Generators.Language
 		/// <summary>
 		/// Reroute a connector when the role players of its underlying relationship change
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.ConnectedWith), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.Connection), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
 		internal sealed class ConnectorRolePlayerChanged : DslModeling::RolePlayerChangeRule
 		{
 			/// <summary>

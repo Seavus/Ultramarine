@@ -1,28 +1,23 @@
-﻿
-// Generated material. Generating code in C#.
+﻿// Generated material. Generating code in C#.
 {
 	"generator": {
-		"name": "test1",
-		"description": "test1",
+		"name": "vscode.task.generator",
+		"description": "generate task implementation",
 		"tasks": [
-		 {
-		  	 "LoadCodeElement": {
-			 "name": "LoadCodeElement1",
-			 "description": ""
-			 }
-		 },
-		 {
-		  	 "LoadCodeElement": {
-			 "name": "LoadCodeElement2",
-			 "description": ""
-			 }
-		 },
-		 {
-		  	 "BuildProject": {
-			 "name": "BuildProject1",
-			 "description": ""
-			 }
-		 },
+			{
+		  	"LoadProjectItem": {
+					"name": "loadCSharpTasks",
+					"description": "",
+					"settings": "Ultramarine.Generators.Language.LoadProjectItem"
+			  }
+			},
+			{
+		  	"LoadCodeElement": {
+					"name": "loadCSharpTaskClasses",
+					"description": "",
+					"settings": "Ultramarine.Generators.Language.LoadCodeElement"
+			  }
+			},
 
 		]
 	}

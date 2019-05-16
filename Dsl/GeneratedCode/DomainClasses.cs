@@ -255,109 +255,22 @@ namespace Ultramarine.Generators.Language
 		}
 		
 		#endregion
-		#region Type domain property code
-		
+		#region ConnectedWith opposite domain role accessor
 		/// <summary>
-		/// Type domain property Id.
+		/// Gets or sets ConnectedWith.
+		/// Description for Ultramarine.Generators.Language.Connection.ConnectedTask
 		/// </summary>
-		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0xe18d40a0, 0xddc6, 0x4cff, 0xa6, 0xf0, 0x24, 0x5c, 0x35, 0x1d, 0xe5, 0x69);
-		
-		/// <summary>
-		/// Storage for Type
-		/// </summary>
-		private global::System.String typePropertyStorage = string.Empty;
-		
-		/// <summary>
-		/// Gets or sets the value of Type domain property.
-		/// Description for Ultramarine.Generators.Language.Task.Type
-		/// </summary>
-		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.Task/Type.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.Task/Type.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainObjectId("e18d40a0-ddc6-4cff-a6f0-245c351de569")]
-		public global::System.String Type
+		public virtual Task ConnectedWith
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return typePropertyStorage;
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Ultramarine.Generators.Language.Connection.ConnectedTaskDomainRoleId) as Task;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				TypePropertyHandler.Instance.SetValue(this, value);
-			}
-		}
-		/// <summary>
-		/// Value handler for the Task.Type domain property.
-		/// </summary>
-		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<Task, global::System.String>
-		{
-			private TypePropertyHandler() { }
-		
-			/// <summary>
-			/// Gets the singleton instance of the Task.Type domain property value handler.
-			/// </summary>
-			public static readonly TypePropertyHandler Instance = new TypePropertyHandler();
-		
-			/// <summary>
-			/// Gets the Id of the Task.Type domain property.
-			/// </summary>
-			public sealed override global::System.Guid DomainPropertyId
-			{
-				[global::System.Diagnostics.DebuggerStepThrough]
-				get
-				{
-					return TypeDomainPropertyId;
-				}
-			}
-			
-			/// <summary>
-			/// Gets a strongly-typed value of the property on specified element.
-			/// </summary>
-			/// <param name="element">Element which owns the property.</param>
-			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Task element)
-			{
-				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.typePropertyStorage;
-			}
-		
-			/// <summary>
-			/// Sets property value on an element.
-			/// </summary>
-			/// <param name="element">Element which owns the property.</param>
-			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Task element, global::System.String newValue)
-			{
-				if (element == null) throw new global::System.ArgumentNullException("element");
-		
-				global::System.String oldValue = GetValue(element);
-				if (newValue != oldValue)
-				{
-					ValueChanging(element, oldValue, newValue);
-					element.typePropertyStorage = newValue;
-					ValueChanged(element, oldValue, newValue);
-				}
-			}
-		}
-		
-		#endregion
-		#region TargetTask opposite domain role accessor
-		/// <summary>
-		/// Gets or sets TargetTask.
-		/// Description for Ultramarine.Generators.Language.ConnectedWith.ConnectedTask
-		/// </summary>
-		public virtual Task TargetTask
-		{
-			[global::System.Diagnostics.DebuggerStepThrough]
-			get
-			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Ultramarine.Generators.Language.ConnectedWith.ConnectedTaskDomainRoleId) as Task;
-			}
-			[global::System.Diagnostics.DebuggerStepThrough]
-			set
-			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Ultramarine.Generators.Language.ConnectedWith.ConnectedTaskDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Ultramarine.Generators.Language.Connection.ConnectedTaskDomainRoleId, value);
 			}
 		}
 		#endregion
@@ -365,14 +278,14 @@ namespace Ultramarine.Generators.Language
 		
 		/// <summary>
 		/// Gets a list of ConnectedTasked.
-		/// Description for Ultramarine.Generators.Language.ConnectedWith.TargetTask
+		/// Description for Ultramarine.Generators.Language.Connection.TargetTask
 		/// </summary>
 		public virtual DslModeling::LinkedElementCollection<Task> ConnectedTasked
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Task>, Task>(global::Ultramarine.Generators.Language.ConnectedWith.TargetTaskDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Task>, Task>(global::Ultramarine.Generators.Language.Connection.TargetTaskDomainRoleId);
 			}
 		}
 		#endregion
