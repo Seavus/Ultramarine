@@ -1,0 +1,24 @@
+﻿// Generated material. Generating code in C#.
+{
+	"generator": {
+		"name": "vscode.task.generator",
+		"description": "generate task implementation",
+		"tasks": [
+			{
+		  	"LoadProjectItem": {
+					"name": "loadCSharpTasks",
+					"description": "",
+					"settings": "Ultramarine.Generators.Language.LoadProjectItem"
+			  }
+			},
+			{
+		  	"LoadCodeElement": {
+					"name": "loadCSharpTaskClasses",
+					"description": "",
+					"settings": "Ultramarine.Generators.Language.LoadCodeElement"
+			  }
+			},
+
+		]
+	}
+}

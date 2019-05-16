@@ -11,13 +11,35 @@ using Ultramarine.Workspaces.CodeElements;
 
 namespace Ultramarine.Generators.Tasks
 {
+    /// <summary>
+    /// Loads a code element from an input
+    /// </summary>
     [Export(typeof(Task))]
     public class LoadCodeElement : Task
     {
-        public string ElementName { get; set; }
+        private string _elementName;
+
+        /// <summary>
+        /// Name of the Code Element to load
+        /// <para>This property supports Variables and QueryLanguage Conditions</para>
+        /// </summary>
+        public string ElementName { get => TryGetSettingValue(_elementName) as string; set => _elementName = value; }
+        /// <summary>
+        /// Type of the element to load
+        /// </summary>
         public ElementType? ElementType { get; set; }
+        /// <summary>
+        /// Access of the element to load
+        /// </summary>
         public ElementAccess? ElementAccess { get; set; }
+        /// <summary>
+        /// Override of the element to load
+        /// </summary>
         public ElementOverride? ElementOverride { get; set; }
+        /// <summary>
+        /// Base type of the element to load
+        /// <para>For example, this can be used to load all classes that inherit (or implement) base type</para>
+        /// </summary>
         public string TypeOf { get; set; }
 
         protected override object OnExecute()

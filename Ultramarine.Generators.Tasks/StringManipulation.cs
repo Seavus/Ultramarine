@@ -7,13 +7,32 @@ using Ultramarine.Generators.Tasks.Library.Contracts;
 
 namespace Ultramarine.Generators.Tasks
 {
+    /// <summary>
+    /// Converts, formats and replaces a string
+    /// </summary>
     [Export(typeof(Task))]
     public class StringManipulation : Task
     {
-        public string Format { get; set; }
+        private string _format;
+        private string _pattern;
+        private string _replacement;
+
+        /// <summary>
+        /// String format to apply
+        /// <para>This property supports Variables</para>
+        /// </summary>
+        public string Format { get => TryGetSettingValue(_format) as string; set => _format = value; }
         public CaseType? Type { get; set; }
-        public string Pattern { get; set; }
-        public string Replacement { get; set; }
+        /// <summary>
+        /// String pattern to apply
+        /// <para>This property supports Variables</para>
+        /// </summary>
+        public string Pattern { get => TryGetSettingValue(_pattern) as string; set => _pattern = value; }
+        /// <summary>
+        /// String replacement to apply (usually a Regex)
+        /// <para>This property supports Variables</para>
+        /// </summary>
+        public string Replacement { get => TryGetSettingValue(_replacement) as string; set => _replacement = value; }
 
 
         protected override object OnExecute()
@@ -74,7 +93,7 @@ namespace Ultramarine.Generators.Tasks
         private static string ToHungarianCase(string value)
         {
             return value.Substring(0, 1).ToUpper() + value.Substring(1);
-            
+
             //var type = Input.GetType().Name;
             //var prefix = string.Empty;
             //Helper.HungarianPrefixes.TryGetValue(type, out prefix);

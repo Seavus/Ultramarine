@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generatorLanguageDiagram dslVersion="1.0.0.0" Id="517f964d-3e43-41e5-a279-00ec5b91f4bb" absoluteBounds="0, 0, 11, 8.5" name="Sample">
+  <generatorModelMoniker Id="ecb6e581-86cb-4729-b43a-855f98bccc8f" />
+  <nestedChildShapes>
+    <buildProjectShape Id="f764fc8e-2b3b-44d5-a8ce-1ce1d186fb00" absoluteBounds="3.625, 1.25, 1.5, 1">
+      <buildProjectMoniker Id="49447c78-8743-4f16-a6fc-8938d694865a" />
+    </buildProjectShape>
+  </nestedChildShapes>
+</generatorLanguageDiagram>

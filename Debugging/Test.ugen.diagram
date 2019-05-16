@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generatorLanguageDiagram dslVersion="1.0.0.0" Id="6f9240f6-b71d-4c15-bdcb-9ce9a6825dfd" absoluteBounds="0, 0, 11, 8.5" name="Test">
+  <generatorMoniker Id="406161bd-bd26-44e1-8ddf-57b08d67e33d" />
+  <nestedChildShapes>
+    <loadProjectItemShape Id="be659d46-7304-4847-8ae5-b52cd4bed64f" absoluteBounds="1.125, 0.75, 1.25, 0.75">
+      <loadProjectItemMoniker Id="6ebf201f-8f88-4249-9605-711d18fe25af" />
+    </loadProjectItemShape>
+    <loadCodeElementShape Id="6744d789-6eef-412a-9f30-0440a6eb7bb1" absoluteBounds="1.125, 2, 1.25, 0.75">
+      <loadCodeElementMoniker Id="cacc3908-1585-4fa9-8812-2910a4a78596" />
+    </loadCodeElementShape>
+    <connectedWithConnector Id="da577174-b9a1-4a3c-a10b-218e2cd716af" edgePoints="[(1.75 : 2); (1.75 : 1.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <connectionMoniker Id="dac65252-745b-4620-9a84-db279e906e63" />
+      <nodes>
+        <loadCodeElementShapeMoniker Id="6744d789-6eef-412a-9f30-0440a6eb7bb1" />
+        <loadProjectItemShapeMoniker Id="be659d46-7304-4847-8ae5-b52cd4bed64f" />
+      </nodes>
+    </connectedWithConnector>
+  </nestedChildShapes>
+</generatorLanguageDiagram>

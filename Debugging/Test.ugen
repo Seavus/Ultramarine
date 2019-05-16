@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generator xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="406161bd-bd26-44e1-8ddf-57b08d67e33d" name="vscode.task.generator" description="generate task implementation" xmlns="http://schemas.microsoft.com/dsltools/GeneratorLanguage">
+  <tasks>
+    <children Id="a6e84f95-f87a-48f2-8fd0-fc23a5caba94">
+      <loadProjectItem Id="6ebf201f-8f88-4249-9605-711d18fe25af" name="loadCSharpTasks" projectName="$this equals 'Ultramarine.Generators.Tasks'" />
+    </children>
+    <children Id="499acf93-5813-4dfe-8b48-4e1e4046434d">
+      <loadCodeElement Id="cacc3908-1585-4fa9-8812-2910a4a78596" name="loadCSharpTaskClasses" elementType="class" typeOf="Task">
+        <connectedWith>
+          <connection Id="dac65252-745b-4620-9a84-db279e906e63">
+            <loadProjectItemMoniker Id="6ebf201f-8f88-4249-9605-711d18fe25af" />
+          </connection>
+        </connectedWith>
+      </loadCodeElement>
+    </children>
+  </tasks>
+</generator>

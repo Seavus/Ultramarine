@@ -1,0 +1,27 @@
+﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
+<#@ output extension=".gen.json" #>
+<#@ GeneratorLanguage processor="GeneratorLanguageDirectiveProcessor" requires="fileName='Test.ugen'" #>// Generated material. Generating code in C#.
+{
+	"generator": {
+		"name": "<#= this.Generator.Name #>",
+		"description": "<#= this.Generator.Description#>",
+		"tasks": [
+<#
+  // When you change the DSL Definition, some of the code below may not work.
+
+  foreach (Task task in this.Generator.Tasks)
+  {
+#>			{
+		  	"<#= task.GetType().Name #>": {
+					"name": "<#= task.Name #>",
+					"description": "<#= task.Description #>",
+					"settings": "<#= task #>"
+			  }
+			},
+<#    
+  }
+#>
+
+		]
+	}
+}

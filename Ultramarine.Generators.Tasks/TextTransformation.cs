@@ -7,12 +7,29 @@ using Ultramarine.Workspaces;
 
 namespace Ultramarine.Generators.Tasks
 {
+    /// <summary>
+    /// Applies a text transformation template
+    /// </summary>
     [Export(typeof(Task))]
     public class TextTransformation : Task
     {
+        private string _fileName;
+        private string _projectName;
+
+        /// <summary>
+        /// Additional parameters to send to the generation process
+        /// </summary>
         public Parameters Parameters { get; set; } = new Parameters();
-        public string FileName { get; set; }
-        public string ProjectName { get; set; }
+        /// <summary>
+        /// T4 file name to use
+        /// <para>This property supports Variables and QueryLanguage Conditions</para>
+        /// </summary>
+        public string FileName { get => TryGetSettingValue(_fileName) as string; set => _fileName = value; }
+        /// <summary>
+        /// Name of the Project containing the T4 file
+        /// <para>This property supports Variables and QueryLanguage Conditions</para>
+        /// </summary>
+        public string ProjectName { get => TryGetSettingValue(_projectName) as string; set => _projectName = value; }
 
         protected override object OnExecute()
         {
@@ -23,8 +40,8 @@ namespace Ultramarine.Generators.Tasks
 
         private string GetT4FilePath()
         {
-            var projects = string.IsNullOrEmpty(ProjectName) 
-                ? new List<IProjectModel> { ExecutionContext } 
+            var projects = string.IsNullOrEmpty(ProjectName)
+                ? new List<IProjectModel> { ExecutionContext }
                 : ExecutionContext.GetProjects(ProjectName);
 
             var templateItems = new List<IProjectItemModel>();
