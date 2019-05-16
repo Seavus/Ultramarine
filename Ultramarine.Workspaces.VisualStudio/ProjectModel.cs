@@ -151,7 +151,10 @@ namespace Ultramarine.Workspaces.VisualStudio
 
                 var subItems = item.GetProjectItems(expression);
                 if (subItems != null)
+                {
+                    subItems.Remove(item);
                     result.AddRange(subItems);
+                }
             }
             return result;
         }

@@ -9,5 +9,6 @@ namespace Ultramarine.Workspaces.CodeElements
         ElementAccess? Access { get; set; }
         ElementOverride Override { get; set; }
         List<string> TypeOf { get; set; }
+        List<ICodeElementModel> Children { get; set; }
     }
 }
