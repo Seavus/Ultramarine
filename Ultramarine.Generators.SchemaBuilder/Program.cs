@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
 using Newtonsoft.Json.Serialization;
+using NJsonSchema;
+using Ultramarine.Generators.Serialization.Providers;
 using Ultramarine.Generators.Tasks.Library;
 using Ultramarine.Generators.Tasks.Library.Contracts;
 
@@ -17,12 +22,25 @@ namespace Ultramarine.Generators.SchemaBuilder
             Console.WriteLine("Ultramarine SchemaBuilder");
             Console.ResetColor();
 
-            var generator = new JSchemaGenerator();
+            //var objectTypes = AssemblyHelpers.GetAllExportedTypes<Task>();
+
+            //List<JSchema> schemas = new List<JSchema>();
+            //foreach (var o in objectTypes)
+            //{
+            //    var generator = new JSchemaGenerator();
+            //    //generator.GenerationProviders.Add(new TaskProvider());
+            //    var schema = generator.Generate(o);
+            //    schemas.Add(schema);
+            //}
+
+            JSchemaGenerator generator = new JSchemaGenerator();
             generator.GenerationProviders.Add(new TaskProvider());
-            generator.Generate(typeof(Generator));
+
+            var schema = generator.Generate(typeof(Generator));
+            Console.Write(schema.ToString());
+            Console.ReadLine();
         }
     }
-
 
     public class TaskProvider : JSchemaGenerationProvider
     {
@@ -37,10 +55,24 @@ namespace Ultramarine.Generators.SchemaBuilder
         {
             JSchemaGenerator generator = new JSchemaGenerator();
             JSchema schema = generator.Generate(typeof(TaskCollection));
-            //schema.Properties.Add()
+            
+            var objectTypes = AssemblyHelpers.GetAllExportedTypes<Task>();
+
+            JSchema sssss = new JSchema();
+            foreach (var type in objectTypes)
+            {
+                sssss.AnyOf.Add(generator.Generate(type));
+            }
+
+            JSchemaGenerator stringEnumGenerator = new JSchemaGenerator();
+            stringEnumGenerator.GenerationProviders.Add(new StringEnumGenerationProvider());
+
             return schema;
         }
     }
+
+    
+
     public class TaskResolver : IContractResolver
     {
         public JsonContract ResolveContract(Type type)

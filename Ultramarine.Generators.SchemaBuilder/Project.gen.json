@@ -1,0 +1,37 @@
+{
+  "$schema": "schema.json",
+  "description": "ProjectDescription",
+  "name": "Project",
+  "tasks": [
+    {
+      "loadProjectItem": {
+        "name": "loadCSharpTasks",
+        "projectName": "$this equals 'Ultramarine.Generators.Tasks'"
+      }
+    },
+    {
+      "loadCodeElement": {
+        "connectedWith": "loadCSharpTasks",
+        "elementType": "class",
+        "name": "loadCSharpTaskClasses",
+        "typeOf": "Task"
+      }
+    },
+    {
+      "textTransformation": {
+        "name": "transformToEs6",
+        "connectedWith": "loadCSharpTaskClasses",
+        "fileName": "$this equals 'JsonSchemaTemplate.tt'",
+        "projectName": "$this equals 'Ultramarine.GeneratorRecipes'"
+      }
+    },
+    {
+      "createProjectItem": {
+        "name": "createTaskItem",
+        "connectedWith": "transformToEs6",
+        "itemName": "schema.json",
+        "overwrite": true
+      }
+    }
+  ]
+}

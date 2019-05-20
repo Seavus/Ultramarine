@@ -43,6 +43,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="JsonSchemaTemplate.tt" />
     <Content Include="TransformTask.tt" />
   </ItemGroup>
   <ItemGroup>

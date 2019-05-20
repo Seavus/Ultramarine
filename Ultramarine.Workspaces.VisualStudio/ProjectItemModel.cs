@@ -9,6 +9,7 @@ using Ultramarine.Workspaces.VisualStudio.CodeElements;
 
 namespace Ultramarine.Workspaces.VisualStudio
 {
+    [Serializable]
     public class ProjectItemModel : IProjectItemModel
     {
         private ProjectItem _projectItem;
