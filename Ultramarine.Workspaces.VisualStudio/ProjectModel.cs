@@ -104,8 +104,6 @@ namespace Ultramarine.Workspaces.VisualStudio
             return CreateProjectItem(path, contentStream, overwrite);
         }
 
-
-
         public IEnumerable<IProjectModel> GetProjects(string projectNameExpression)
         {
             var projects = Dte.Instance.GetProjects(projectNameExpression);
@@ -140,12 +138,13 @@ namespace Ultramarine.Workspaces.VisualStudio
             return projectItem;
         }
 
-        public IEnumerable<IProjectItemModel> GetProjectItems(string expression)
+        
+        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string propertyName = "Name")
         {
             var result = new List<IProjectItemModel>();
             foreach (var item in ProjectItems)
             {
-                var condition = new ConditionCompiler(expression, item.Name);
+                var condition = new ConditionCompiler(expression, item.GetProperty(propertyName));
                 if (condition.Execute())
                     result.Add(item);
 
@@ -159,10 +158,10 @@ namespace Ultramarine.Workspaces.VisualStudio
             return result;
         }
 
-        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon)
+        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon, string propertyName = "Name")
         {
             var result = new List<IProjectItemModel>();
-            var dependentProjectItems = GetProjectItems($"$this equals {dependentUpon}");
+            var dependentProjectItems = GetProjectItems($"$this equals {dependentUpon}", propertyName);
             foreach (var dpi in dependentProjectItems)
             {
                 var items = dpi.GetProjectItems(expression);
@@ -259,6 +258,15 @@ namespace Ultramarine.Workspaces.VisualStudio
             return result;
         }
 
+        public IProjectItemModel GetProjectItem(string path)
+        {
+            return GetProjectItems($"$this equals '{path}'", "FullPath").FirstOrDefault();
+        }
+
+        public IWorkspaceModel GetWorkspace()
+        {
+            return new WorkspaceModel(Dte.Instance.Host.Solution);
+        }
         
     }
 

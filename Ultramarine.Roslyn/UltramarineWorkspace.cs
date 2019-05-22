@@ -10,5 +10,10 @@ namespace Ultramarine.Roslyn
         public UltramarineWorkspace(HostServices host, string workspaceKind) : base(host, workspaceKind)
         {
         }
+
+        public IProjectItemModel GetProjectItem(string path)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

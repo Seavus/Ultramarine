@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dsl", "Dsl\Dsl.csproj", "{8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Language", "Language", "{2FC4CC57-2EF0-4711-8687-75368B78DBF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ultramarine.Generators.Tasks.Complex", "Ultramarine.Generators.Tasks.Complex\Ultramarine.Generators.Tasks.Complex.csproj", "{40B827EC-852C-4820-B7D1-7045D622C1DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -151,6 +153,10 @@ Global
 		{80C8917C-AB3B-423F-9DC2-462DFCF9CF1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80C8917C-AB3B-423F-9DC2-462DFCF9CF1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80C8917C-AB3B-423F-9DC2-462DFCF9CF1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40B827EC-852C-4820-B7D1-7045D622C1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40B827EC-852C-4820-B7D1-7045D622C1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40B827EC-852C-4820-B7D1-7045D622C1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40B827EC-852C-4820-B7D1-7045D622C1DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -177,6 +183,7 @@ Global
 		{BE9B3AE5-CA6A-4408-B06C-8B410A72CB46} = {2FC4CC57-2EF0-4711-8687-75368B78DBF1}
 		{80C8917C-AB3B-423F-9DC2-462DFCF9CF1D} = {2FC4CC57-2EF0-4711-8687-75368B78DBF1}
 		{2FC4CC57-2EF0-4711-8687-75368B78DBF1} = {BCDC8113-7331-4D96-A091-D91E3D4452A8}
+		{40B827EC-852C-4820-B7D1-7045D622C1DD} = {BCDC8113-7331-4D96-A091-D91E3D4452A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A86E2D6F-253D-4A78-955E-7A75E9CE4EBA}

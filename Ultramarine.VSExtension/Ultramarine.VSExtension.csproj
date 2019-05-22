@@ -356,6 +356,10 @@
       <Project>{89047a1d-c0f6-4fcb-a77d-798a30c424ea}</Project>
       <Name>Ultramarine.Generators.Serialization</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ultramarine.Generators.Tasks.Complex\Ultramarine.Generators.Tasks.Complex.csproj">
+      <Project>{40b827ec-852c-4820-b7d1-7045d622c1dd}</Project>
+      <Name>Ultramarine.Generators.Tasks.Complex</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ultramarine.Generators.Tasks.Library\Ultramarine.Generators.Tasks.Library.csproj">
       <Project>{4CD4FF45-5D29-459A-BB2E-CD760A95AAF5}</Project>
       <Name>Ultramarine.Generators.Tasks.Library</Name>
