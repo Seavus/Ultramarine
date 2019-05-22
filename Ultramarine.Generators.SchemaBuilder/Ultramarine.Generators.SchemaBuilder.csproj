@@ -17,4 +17,6 @@
     <ProjectReference Include="..\Ultramarine.Generators.Tasks\Ultramarine.Generators.Tasks.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties TEST_1json__JSONSchema="JsonSchemas\schema.json" /></VisualStudio></ProjectExtensions>
+
 </Project>

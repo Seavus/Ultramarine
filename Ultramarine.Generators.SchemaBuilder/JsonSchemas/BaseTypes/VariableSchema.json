@@ -1,0 +1,19 @@
+{
+  "type": [
+    "object",
+    "null"
+  ],
+  "properties": {
+    "key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "value": {}
+  },
+  "required": [
+    "key",
+    "value"
+  ]
+}

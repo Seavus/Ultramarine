@@ -1,0 +1,64 @@
+{ 
+  "task": {
+    "type": [
+      "object",
+      "null"
+    ],
+    "properties": {
+      "name": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "description": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "input": {},
+      "output": {},
+      "parent": {
+        "$ref": "#/properties/Tasks/definitions/task"
+      },
+      "connectedWith": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "variables": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "key": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "value": {}
+          },
+          "required": [
+            "key",
+            "value"
+          ]
+        }
+      }
+    },
+    "required": [
+      "name"
+    ]
+  },
+  "variable": {
+    "$ref": "#/properties/tasks/definitions/task/properties/variables/items"
+  }
+}

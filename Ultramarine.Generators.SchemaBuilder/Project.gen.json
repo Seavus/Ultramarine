@@ -18,6 +18,44 @@
       }
     },
     {
+      "iterator": {
+        "name": "foreachCSharptTaskClass",
+        "connectedWith": "loadCSharpTaskClasses",
+        "tasks": [
+          {
+            "readProperty": {
+              "name": "readTaskName",
+              "propertyName": "Name"
+            }
+          },
+          {
+            "setVariable": {
+              "name": "setTaskName",
+              "description": "",
+              "variableName": "TaskName",
+              "connectedWith": "readTaskName"
+            }
+          },
+          {
+            "textTransformation": {
+              "name": "transformToEs6",
+              "fileName": "$this equals 'JsonSchemaTaskTemplate.tt'",
+              "projectName": "$this equals 'Ultramarine.GeneratorRecipes'"
+            }
+          },
+          {
+            "createProjectItem": {
+              "name": "createTaskItem",
+              "connectedWith": "transformToEs6",
+              "itemName": "{TaskName}Schema.json",
+              "folderPath": "JsonSchemas",
+              "overwrite": true
+            }
+          }
+        ]
+      }
+    },
+    {
       "textTransformation": {
         "name": "transformToEs6",
         "connectedWith": "loadCSharpTaskClasses",
