@@ -98,7 +98,7 @@ namespace Ultramarine.Generators.Language
 		{
 			get
 			{
-				return 10;
+				return 11;
 			}
 		}
 		
@@ -305,6 +305,22 @@ namespace Ultramarine.Generators.Language
 						"TextTransformation", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("TextTransformationToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.TextTransformation.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
+						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
+						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
+						});
+					break;
+				case "Ultramarine.Generators.Language.ImporterToolboxItem":
+					// Add Importer shape tool.
+					result = new DslDesign::ModelingToolboxItem(
+						"Ultramarine.Generators.Language.ImporterToolboxItem", // Unique identifier (non-localized) for the toolbox item.
+						11, // Position relative to other items in the same toolbox tab.
+						resourceManager.GetString("ImporterToolboxItem", resourceCulture), // Localized display name for the item.
+						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("ImporterToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"Importer", // F1 help keyword for the toolbox item.
+						resourceManager.GetString("ImporterToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
+						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.Importer.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
 						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
 						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
 						});

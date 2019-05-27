@@ -108,6 +108,14 @@ namespace Ultramarine.Generators.Language
 					"@TextTransformationToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
 					0xff00ff,
 					Index = 9)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.Generator LanguageToolboxTab",
+					"@ImporterToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.ImporterToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"Importer", 
+					"@ImporterToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
+					Index = 10)]
 	[VSShell::ProvideEditorFactory(typeof(GeneratorLanguageEditorFactory), 103, TrustLevel = VSShellInterop::__VSEDITORTRUSTLEVEL.ETL_AlwaysTrusted)]
 	[VSShell::ProvideEditorExtension(typeof(GeneratorLanguageEditorFactory), "." + Constants.DesignerFileExtension, 50)]
 	[VSShell::ProvideEditorLogicalView(typeof(GeneratorLanguageEditorFactory), "{7651A702-06E5-11D1-8EBD-00A0C90F26EA}")] // Designer logical view GUID i.e. VSConstants.LOGVIEWID_Designer
