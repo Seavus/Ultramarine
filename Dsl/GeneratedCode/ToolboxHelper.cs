@@ -86,7 +86,7 @@ namespace Ultramarine.Generators.Language
 		{
 			get
 			{
-				return global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel.SingletonResourceManager.GetString("GeneratorLanguageToolboxTab", global::System.Globalization.CultureInfo.CurrentUICulture);
+				return global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel.SingletonResourceManager.GetString("Generator LanguageToolboxTab", global::System.Globalization.CultureInfo.CurrentUICulture);
 			}
 		}
 		
@@ -155,8 +155,8 @@ namespace Ultramarine.Generators.Language
 						1, // Position relative to other items in the same toolbox tab.
 						resourceManager.GetString("ConnectedWithRelationshipToolboxItem", resourceCulture), // Localized display name for the item.
 						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("ConnectedWithRelationshipToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.				
-						"Ultramarine.Generators.Language.GeneratorLanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("GeneratorLanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
 						"ConnectExampleRelationF1Keyword", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("ConnectedWithRelationshipToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						null, // Connector toolbox items do not have an underlying data object.
@@ -172,8 +172,8 @@ namespace Ultramarine.Generators.Language
 						2, // Position relative to other items in the same toolbox tab.
 						resourceManager.GetString("BuildProjectToolboxItem", resourceCulture), // Localized display name for the item.
 						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("BuildProjectToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
-						"Ultramarine.Generators.Language.GeneratorLanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("GeneratorLanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
 						"BuildProject", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("BuildProjectToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.BuildProject.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
@@ -188,8 +188,8 @@ namespace Ultramarine.Generators.Language
 						3, // Position relative to other items in the same toolbox tab.
 						resourceManager.GetString("CreateFolderToolboxItem", resourceCulture), // Localized display name for the item.
 						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("CreateFolderToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
-						"Ultramarine.Generators.Language.GeneratorLanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("GeneratorLanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
 						"CreateFolder", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("CreateFolderToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.CreateFolder.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
@@ -204,8 +204,8 @@ namespace Ultramarine.Generators.Language
 						4, // Position relative to other items in the same toolbox tab.
 						resourceManager.GetString("CreateProjectItemToolboxItem", resourceCulture), // Localized display name for the item.
 						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("CreateProjectItemToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
-						"Ultramarine.Generators.Language.GeneratorLanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("GeneratorLanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
 						"CreateProjectItem", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("CreateProjectItemToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.CreateProjectItem.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
@@ -220,8 +220,8 @@ namespace Ultramarine.Generators.Language
 						5, // Position relative to other items in the same toolbox tab.
 						resourceManager.GetString("LoadCodeElementToolboxItem", resourceCulture), // Localized display name for the item.
 						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("LoadCodeElementToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
-						"Ultramarine.Generators.Language.GeneratorLanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("GeneratorLanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
 						"CreateExampleClassF1Keyword", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("LoadCodeElementToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.LoadCodeElement.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
@@ -236,8 +236,8 @@ namespace Ultramarine.Generators.Language
 						6, // Position relative to other items in the same toolbox tab.
 						resourceManager.GetString("LoadProjectItemToolboxItem", resourceCulture), // Localized display name for the item.
 						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("LoadProjectItemToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
-						"Ultramarine.Generators.Language.GeneratorLanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("GeneratorLanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
 						"LoadProjectItem", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("LoadProjectItemToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.LoadProjectItem.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
@@ -252,8 +252,8 @@ namespace Ultramarine.Generators.Language
 						7, // Position relative to other items in the same toolbox tab.
 						resourceManager.GetString("ReadPropertyToolboxItem", resourceCulture), // Localized display name for the item.
 						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("ReadPropertyToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
-						"Ultramarine.Generators.Language.GeneratorLanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("GeneratorLanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
 						"ReadProperty", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("ReadPropertyToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.ReadProperty.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
@@ -268,8 +268,8 @@ namespace Ultramarine.Generators.Language
 						8, // Position relative to other items in the same toolbox tab.
 						resourceManager.GetString("SetVariableToolboxItem", resourceCulture), // Localized display name for the item.
 						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("SetVariableToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
-						"Ultramarine.Generators.Language.GeneratorLanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("GeneratorLanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
 						"SetVariable", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("SetVariableToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.SetVariable.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
@@ -284,8 +284,8 @@ namespace Ultramarine.Generators.Language
 						9, // Position relative to other items in the same toolbox tab.
 						resourceManager.GetString("IteratorToolboxItem", resourceCulture), // Localized display name for the item.
 						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("IteratorToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
-						"Ultramarine.Generators.Language.GeneratorLanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("GeneratorLanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
 						"Iterator", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("IteratorToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.Iterator.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
@@ -300,8 +300,8 @@ namespace Ultramarine.Generators.Language
 						10, // Position relative to other items in the same toolbox tab.
 						resourceManager.GetString("TextTransformationToolboxItem", resourceCulture), // Localized display name for the item.
 						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("TextTransformationToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
-						"Ultramarine.Generators.Language.GeneratorLanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("GeneratorLanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
 						"TextTransformation", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("TextTransformationToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.TextTransformation.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.

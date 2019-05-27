@@ -7,7 +7,11 @@ using Microsoft.VisualStudio.Modeling.Diagrams;
 
 namespace Ultramarine.Generators.Language
 {
-    public partial class TaskShape
+    partial class Task
     {
-    }
+        public string GetBaseTypeValue()
+        {
+            return GetType().Name;
+        }
+    }    
 }

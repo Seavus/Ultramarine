@@ -13,5 +13,23 @@
         </connectedWith>
       </loadCodeElement>
     </children>
+    <children Id="1f5b1e0e-d7f6-4ce5-b608-131b4eab3f85">
+      <buildProject Id="d76d2c5d-99f2-4afe-aaf9-49c081e516fc" name="BuildProject1" />
+    </children>
+    <children Id="a714f4b8-31e3-4420-a7bb-6436f79d2782">
+      <iterator Id="31b11903-061b-4160-b6f9-7ebcd6c111f4" name="Iterator1" />
+    </children>
+    <children Id="b98aaf68-cafa-4595-8345-a5e148d69d8c">
+      <buildProject Id="2bb0e13c-db8e-4b7c-90be-51ee68fda9a4" name="BuildProject2" />
+    </children>
+    <children Id="791bb9bb-ee62-473d-9bbb-084077da25a6">
+      <buildProject Id="ef48b890-2db1-496b-8aed-24b7154cbdd3" name="BuildProject3" />
+    </children>
+    <children Id="5e0a1250-9540-45da-a50b-e30a5e0eafaa">
+      <buildProject Id="43c486c0-4950-4a40-afff-36f08ee25284" name="BuildProject4" />
+    </children>
+    <children Id="270b520b-e878-4302-8adb-c1c82d564731">
+      <createFolder Id="b8c23bf5-15a1-483e-b3b2-a5938664f4cf" name="CreateFolder1" />
+    </children>
   </tasks>
 </generator>

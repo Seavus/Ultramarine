@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Dsl xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="fa460004-c689-4b79-9838-fd3850db6a1e" Description="Description for Ultramarine.Generators.Language.GeneratorLanguage" Name="GeneratorLanguage" DisplayName="GeneratorLanguage" Namespace="Ultramarine.Generators.Language" ProductName="Ultramarine" CompanyName="Seavus" PackageGuid="253eb726-92cb-4387-9f64-2ca8bbc1e16a" PackageNamespace="Ultramarine.Generators.Language" xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/DslDefinitionModel">
+<Dsl xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="fa460004-c689-4b79-9838-fd3850db6a1e" Description="Description for Ultramarine.Generators.Language.GeneratorLanguage" Name="GeneratorLanguage" DisplayName="Generator Language" Namespace="Ultramarine.Generators.Language" ProductName="Ultramarine" CompanyName="Seavus" PackageGuid="253eb726-92cb-4387-9f64-2ca8bbc1e16a" PackageNamespace="Ultramarine.Generators.Language" xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/DslDefinitionModel">
   <Classes>
     <DomainClass Id="998d169c-4479-4c51-afb7-ac84ad68d0a9" Description="The root in which all other elements are embedded. Appears as a diagram." Name="Generator" DisplayName="Generator" Namespace="Ultramarine.Generators.Language">
       <BaseClass>
@@ -14,6 +14,11 @@
           </Type>
         </DomainProperty>
         <DomainProperty Id="2bafcdc0-ca91-45b0-ad72-8cdd1dc8a35b" Description="Description for Ultramarine.Generators.Language.Task.Description" Name="Description" DisplayName="Description">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="ca067019-e9aa-45d0-a388-27b1dfd96016" Description="Description for Ultramarine.Generators.Language.Task.Base Type" Name="BaseType" DisplayName="Base Type" Kind="Calculated" SetterAccessModifier="Assembly" IsBrowsable="false" IsUIReadOnly="true">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -216,6 +221,23 @@
         <DomainClassMoniker Name="CompositeTask" />
       </BaseClass>
     </DomainClass>
+    <DomainClass Id="7e22cf59-997d-4e4e-bc8c-0db74bfb4081" Description="Description for Ultramarine.Generators.Language.Importer" Name="Importer" DisplayName="Importer" Namespace="Ultramarine.Generators.Language">
+      <BaseClass>
+        <DomainClassMoniker Name="Task" />
+      </BaseClass>
+      <Properties>
+        <DomainProperty Id="7115bc07-5693-42ee-abc5-0f73ca664f6c" Description="Description for Ultramarine.Generators.Language.Importer.Path" Name="Path" DisplayName="Path">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="29bb276f-08d5-476f-aa20-6d40aa37916d" Description="Description for Ultramarine.Generators.Language.Importer.Project Name" Name="ProjectName" DisplayName="Project Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
   </Classes>
   <Relationships>
     <DomainRelationship Id="190a9443-8fc2-4c0d-9f96-284b404f4f02" Description="Description for Ultramarine.Generators.Language.Connection" Name="Connection" DisplayName="Connection" Namespace="Ultramarine.Generators.Language">
@@ -329,6 +351,11 @@
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
     </GeometryShape>
+    <GeometryShape Id="31e19623-0939-4511-a169-69196cb043e2" Description="Description for Ultramarine.Generators.Language.ImporterShape" Name="ImporterShape" DisplayName="Importer" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Importer" FillColor="DarkRed" OutlineColor="Gainsboro" InitialHeight="1" Geometry="Rectangle">
+      <BaseGeometryShape>
+        <GeometryShapeMoniker Name="TaskShape" />
+      </BaseGeometryShape>
+    </GeometryShape>
   </Shapes>
   <Connectors>
     <Connector Id="dab655e0-7fef-4a35-9d0f-6847eb0c9a37" Description="Connector between the ExampleShapes. Represents ExampleRelationships on the Diagram." Name="ConnectedWithConnector" DisplayName="Connected With Connector" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Connected With Connector" Color="113, 111, 110" TargetEndStyle="EmptyArrow" Thickness="0.01" />
@@ -359,6 +386,9 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="connectedWith">
             <DomainRelationshipMoniker Name="Connection" />
           </XmlRelationshipData>
+          <XmlPropertyData XmlName="baseType" Representation="Ignore">
+            <DomainPropertyMoniker Name="Task/BaseType" />
+          </XmlPropertyData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="CompositeTask" MonikerAttributeName="" SerializeId="true" MonikerElementName="compositeTaskMoniker" ElementName="compositeTask" MonikerTypeName="CompositeTaskMoniker">
@@ -517,6 +547,20 @@
       <XmlClassData TypeName="CompositeShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="compositeShapeMoniker" ElementName="compositeShape" MonikerTypeName="CompositeShapeMoniker">
         <GeometryShapeMoniker Name="CompositeShape" />
       </XmlClassData>
+      <XmlClassData TypeName="Importer" MonikerAttributeName="" SerializeId="true" MonikerElementName="importerMoniker" ElementName="importer" MonikerTypeName="ImporterMoniker">
+        <DomainClassMoniker Name="Importer" />
+        <ElementData>
+          <XmlPropertyData XmlName="path">
+            <DomainPropertyMoniker Name="Importer/Path" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="projectName">
+            <DomainPropertyMoniker Name="Importer/ProjectName" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="ImporterShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="importerShapeMoniker" ElementName="importerShape" MonikerTypeName="ImporterShapeMoniker">
+        <GeometryShapeMoniker Name="ImporterShape" />
+      </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
   <ExplorerBehavior Name="GeneratorLanguageExplorer" />
@@ -567,6 +611,14 @@
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/BaseType" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
         <GeometryShapeMoniker Name="LoadCodeElementShape" />
       </ShapeMap>
       <ShapeMap>
@@ -587,6 +639,14 @@
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="Task/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/BaseType" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
@@ -613,6 +673,14 @@
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/BaseType" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
         <GeometryShapeMoniker Name="CreateFolderShape" />
       </ShapeMap>
       <ShapeMap>
@@ -633,6 +701,14 @@
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="CreateProjectItem/FolderPath" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/BaseType" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
@@ -659,6 +735,14 @@
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/BaseType" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
         <GeometryShapeMoniker Name="LoadProjectItemShape" />
       </ShapeMap>
       <ShapeMap>
@@ -679,6 +763,14 @@
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="Task/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/BaseType" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
@@ -705,6 +797,14 @@
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/BaseType" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
         <GeometryShapeMoniker Name="SetVariableShape" />
       </ShapeMap>
       <ShapeMap>
@@ -725,6 +825,14 @@
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="Task/Description" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/BaseType" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
@@ -751,7 +859,46 @@
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/BaseType" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
         <GeometryShapeMoniker Name="CompositeShape" />
+      </ShapeMap>
+      <ShapeMap>
+        <DomainClassMoniker Name="Importer" />
+        <ParentElementPath>
+          <DomainPath>Children.Parent/!CompositeTask</DomainPath>
+        </ParentElementPath>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/Description" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Task/BaseType" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <GeometryShapeMoniker Name="ImporterShape" />
       </ShapeMap>
     </ShapeMaps>
     <ConnectorMaps>
@@ -768,7 +915,7 @@
     <XmlSerializationDefinition CustomPostLoad="false">
       <XmlSerializationBehaviorMoniker Name="GeneratorLanguageSerializationBehavior" />
     </XmlSerializationDefinition>
-    <ToolboxTab TabText="GeneratorLanguage">
+    <ToolboxTab TabText="Generator Language">
       <ConnectionTool Name="ConnectedWithRelationship" ToolboxIcon="resources\exampleconnectortoolbitmap.bmp" Caption="ConnectedWith" Tooltip="Drag between ExampleElements to create an ExampleRelationship" HelpKeyword="ConnectExampleRelationF1Keyword">
         <ConnectionBuilderMoniker Name="GeneratorLanguage/ConnectionBuilder" />
       </ConnectionTool>
@@ -799,11 +946,14 @@
       <ElementTool Name="TextTransformation" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="TextTransformation" Tooltip="Text Transformation" HelpKeyword="TextTransformation">
         <DomainClassMoniker Name="TextTransformation" />
       </ElementTool>
+      <ElementTool Name="Importer" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="Importer" Tooltip="Importer" HelpKeyword="Importer">
+        <DomainClassMoniker Name="Importer" />
+      </ElementTool>
     </ToolboxTab>
     <Validation UsesMenu="false" UsesOpen="false" UsesSave="false" UsesLoad="false" />
     <DiagramMoniker Name="GeneratorLanguageDiagram" />
   </Designer>
-  <Explorer ExplorerGuid="9ae95886-a985-4bc2-9475-fc20306b55a6" Title="GeneratorLanguage Explorer">
+  <Explorer ExplorerGuid="9ae95886-a985-4bc2-9475-fc20306b55a6" Title="Generator Language Explorer">
     <ExplorerBehaviorMoniker Name="GeneratorLanguage/GeneratorLanguageExplorer" />
   </Explorer>
 </Dsl>
