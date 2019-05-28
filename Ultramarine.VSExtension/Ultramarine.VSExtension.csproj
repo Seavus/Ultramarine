@@ -359,10 +359,14 @@
     <ProjectReference Include="..\Ultramarine.Generators.Tasks.Library\Ultramarine.Generators.Tasks.Library.csproj">
       <Project>{4CD4FF45-5D29-459A-BB2E-CD760A95AAF5}</Project>
       <Name>Ultramarine.Generators.Tasks.Library</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
     <ProjectReference Include="..\Ultramarine.Generators.Tasks\Ultramarine.Generators.Tasks.csproj">
       <Project>{82d1ce89-82ef-47ff-a702-f67c3e030de4}</Project>
       <Name>Ultramarine.Generators.Tasks</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
     <ProjectReference Include="..\Ultramarine.ProjectGenerator.Json\Ultramarine.ProjectGenerator.Json.csproj">
       <Project>{D5F07703-6192-4C4E-8B39-4D87DF054C0D}</Project>

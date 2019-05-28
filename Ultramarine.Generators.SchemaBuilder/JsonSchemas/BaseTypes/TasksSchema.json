@@ -1,4 +1,5 @@
-{ 
+{
+  "$id": "http://ultramarine.seavus.com/schemas/tasksschema.json",
   "task": {
     "type": [
       "object",
@@ -20,7 +21,7 @@
       "input": {},
       "output": {},
       "parent": {
-        "$ref": "#/properties/Tasks/definitions/task"
+        "$ref": "TaskSchema.json#"
       },
       "connectedWith": {
         "type": [
@@ -59,6 +60,6 @@
     ]
   },
   "variable": {
-    "$ref": "#/properties/tasks/definitions/task/properties/variables/items"
+    "$ref": "VariableSchema.json#"
   }
 }

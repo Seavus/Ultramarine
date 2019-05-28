@@ -1,92 +1,106 @@
+ 
 {
-	"definitions": {
-		"task": {
-			"$ref": "JsonSchemas/BaseTypes/TaskSchema.json#"
-		},
-		"variable": {
-			"$ref": "JsonSchemas/BaseTypes/VariableSchema.json#"
-		}
-	},
-	"type": "object",
-	"properties": {
-		"tasks": {
-			"definitions": {
-				"task": {
-					"$ref": "JsonSchemas/BaseTypes/TaskSchema.json#"
-				},
-				"variable": {
-					"$ref": "JsonSchemas/BaseTypes/VariableSchema.json#"
-				}
-			},
-			"type": "array",
-			"items": {
-				"anyOf": [
-					{
-						"buildProject": {
-							"$ref": "JsonSchemas/BuildProjectSchema.json#"
-						}
-					},
-					{
-						"createFolder": {
-							"$ref": "JsonSchemas/CreateFolderSchema.json#"
-						}
-					},
-					{
-						"createProjectItem": {
-							"$ref": "JsonSchemas/CreateProjectItemSchema.json#"
-						}
-					},
-					{
-						"iterator": {
-							"$ref": "JsonSchemas/IteratorSchema.json#"
-						}
-					},
-					{
-						"loadCodeElement": {
-							"$ref": "JsonSchemas/LoadCodeElementSchema.json#"
-						}
-					},
-					{
-						"loadProjectItem": {
-							"$ref": "JsonSchemas/LoadProjectItemSchema.json#"
-						}
-					},
-					{
-						"readProperty": {
-							"$ref": "JsonSchemas/ReadPropertySchema.json#"
-						}
-					},
-					{
-						"setVariable": {
-							"$ref": "JsonSchemas/SetVariableSchema.json#"
-						}
-					},
-					{
-						"sqlCommand": {
-							"$ref": "JsonSchemas/SqlCommandSchema.json#"
-						}
-					},
-					{
-						"stringManipulation": {
-							"$ref": "JsonSchemas/StringManipulationSchema.json#"
-						}
-					},
-					{
-						"textTransformation": {
-							"$ref": "JsonSchemas/TextTransformationSchema.json#"
-						}
-					},
-					{
-						"webDownload": {
-							"$ref": "JsonSchemas/WebDownloadSchema.json#"
-						}
-					}
-				]
-			}
-		}
-	},
-	"required": [
-		"name",
-		"tasks"
-	]
+  "definitions": {
+    "task": {
+		  "$ref": "JsonSchemas/BaseTypes/TaskSchema.json#"
+    },
+    "variable": {
+		  "$ref": "JsonSchemas/BaseTypes/VariableSchema.json#"
+	  }
+  },
+  "type": "object",
+  "properties": {
+    "tasks": {
+      "definitions": {
+        "task": {
+          "$ref": "JsonSchemas/BaseTypes/TaskSchema.json#"
+		    },
+        "variable": {
+          "$ref": "JsonSchemas/BaseTypes/VariableSchema.json#"
+        }
+      },
+      "type": "array",
+      "items": {
+		"anyOf": [
+
+	
+{
+	"buildProject": {
+		"$ref": "JsonSchemas/BuildProjectSchema.json#"
+	}
+}, 
+	
+{
+	"createFolder": {
+		"$ref": "JsonSchemas/CreateFolderSchema.json#"
+	}
+}, 
+	
+{
+	"createProjectItem": {
+		"$ref": "JsonSchemas/CreateProjectItemSchema.json#"
+	}
+}, 
+	
+{
+	"iterator": {
+		"$ref": "JsonSchemas/IteratorSchema.json#"
+	}
+}, 
+	
+{
+	"loadCodeElement": {
+		"$ref": "JsonSchemas/LoadCodeElementSchema.json#"
+	}
+}, 
+	
+{
+	"loadProjectItem": {
+		"$ref": "JsonSchemas/LoadProjectItemSchema.json#"
+	}
+}, 
+	
+{
+	"readProperty": {
+		"$ref": "JsonSchemas/ReadPropertySchema.json#"
+	}
+}, 
+	
+{
+	"setVariable": {
+		"$ref": "JsonSchemas/SetVariableSchema.json#"
+	}
+}, 
+	
+{
+	"sqlCommand": {
+		"$ref": "JsonSchemas/SqlCommandSchema.json#"
+	}
+}, 
+	
+{
+	"stringManipulation": {
+		"$ref": "JsonSchemas/StringManipulationSchema.json#"
+	}
+}, 
+	
+{
+	"textTransformation": {
+		"$ref": "JsonSchemas/TextTransformationSchema.json#"
+	}
+}, 
+	
+{
+	"webDownload": {
+		"$ref": "JsonSchemas/WebDownloadSchema.json#"
+	}
+}	   ]
+      }
+	}    
+  },
+  "required": [
+    "name",
+    "tasks"
+  ]
 }
+

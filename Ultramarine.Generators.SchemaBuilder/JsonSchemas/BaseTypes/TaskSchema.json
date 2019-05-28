@@ -1,4 +1,5 @@
-{ 
+{
+  "$id":  "http://ultramarine.seavus.com/schemas/taskschema.json",
   "type": [
     "object",
     "null"
@@ -33,7 +34,7 @@
         "null"
       ],
       "items": {
-        "$ref": "#/definitions/variable"
+        "$ref": "VariableSchema.json#"
       }
     }
   },

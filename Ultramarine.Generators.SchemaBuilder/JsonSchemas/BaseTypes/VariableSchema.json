@@ -1,4 +1,5 @@
 {
+  "$id": "http://ultramarine.seavus.com/schemas/variableschema.json",
   "type": [
     "object",
     "null"
