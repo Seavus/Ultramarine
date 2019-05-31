@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generatorLanguageDiagram dslVersion="1.0.0.0" Id="6f9240f6-b71d-4c15-bdcb-9ce9a6825dfd" absoluteBounds="0, 0, 11, 8.5" name="Test">
+  <generatorMoniker Id="406161bd-bd26-44e1-8ddf-57b08d67e33d" />
+  <nestedChildShapes>
+    <loadProjectItemShape Id="be659d46-7304-4847-8ae5-b52cd4bed64f" absoluteBounds="3.75, 1.875, 1.25, 0.75">
+      <loadProjectItemMoniker Id="6ebf201f-8f88-4249-9605-711d18fe25af" />
+    </loadProjectItemShape>
+    <loadCodeElementShape Id="6744d789-6eef-412a-9f30-0440a6eb7bb1" absoluteBounds="3.75, 3.25, 1.25, 0.75">
+      <loadCodeElementMoniker Id="cacc3908-1585-4fa9-8812-2910a4a78596" />
+    </loadCodeElementShape>
+    <connectedWithConnector Id="da577174-b9a1-4a3c-a10b-218e2cd716af" edgePoints="[(4.375 : 3.25); (4.375 : 2.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <connectionMoniker Id="dac65252-745b-4620-9a84-db279e906e63" />
+      <nodes>
+        <loadCodeElementShapeMoniker Id="6744d789-6eef-412a-9f30-0440a6eb7bb1" />
+        <loadProjectItemShapeMoniker Id="be659d46-7304-4847-8ae5-b52cd4bed64f" />
+      </nodes>
+    </connectedWithConnector>
+    <buildProjectShape Id="dfb19541-4662-4140-b92a-a9e6ef772d59" absoluteBounds="3.875, 0.625, 1.25, 0.75">
+      <buildProjectMoniker Id="d76d2c5d-99f2-4afe-aaf9-49c081e516fc" />
+    </buildProjectShape>
+    <compositeShape Id="2470ccd7-27b1-48fa-bab6-d9a2d38a77f2" absoluteBounds="3.25, 4.75, 1.25, 0.75">
+      <iteratorMoniker Id="31b11903-061b-4160-b6f9-7ebcd6c111f4" />
+    </compositeShape>
+    <buildProjectShape Id="3d03f620-75c7-41df-9ff2-95d42c9eeed2" absoluteBounds="2.25, 3, 1.25, 0.75">
+      <buildProjectMoniker Id="2bb0e13c-db8e-4b7c-90be-51ee68fda9a4" />
+    </buildProjectShape>
+    <buildProjectShape Id="146a18aa-a4da-4d78-8633-45f85ae7caee" absoluteBounds="1.75, 1.625, 1.25, 0.75">
+      <buildProjectMoniker Id="ef48b890-2db1-496b-8aed-24b7154cbdd3" />
+    </buildProjectShape>
+    <buildProjectShape Id="8719deee-764e-4b6c-aec4-e2be9e45cf10" absoluteBounds="6.375, 2.375, 1.25, 0.75">
+      <buildProjectMoniker Id="43c486c0-4950-4a40-afff-36f08ee25284" />
+    </buildProjectShape>
+    <createFolderShape Id="2cc9551f-70b2-4c07-b5bb-f42a6ced943c" absoluteBounds="5.625, 3.625, 1.25, 0.75">
+      <createFolderMoniker Id="b8c23bf5-15a1-483e-b3b2-a5938664f4cf" />
+    </createFolderShape>
+  </nestedChildShapes>
+</generatorLanguageDiagram>

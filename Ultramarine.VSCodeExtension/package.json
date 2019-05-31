@@ -29,12 +29,12 @@
     "menus": {
       "explorer/context": [
         {
-          "when": "resourceFilename == project.gen.json",
+          "when": "resourceFilename == Project.gen.json",
           "command": "ultramarine.showGeneratorEditor",
           "group": "7_modification"
         },
         {
-          "when": "resourceFilename == project.gen.json",
+          "when": "resourceFilename == Project.gen.json",
           "command": "ultramarine.runProjectGenerator",
           "group": "7_modification"
         }
@@ -46,7 +46,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "react-hot-loader": "^4.8.0"
+    "react-hot-loader": "^4.8.0",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -62,9 +63,12 @@
     "babel-preset-react-app": "^7.0.2",
     "bfj": "6.1.1",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "concurrently": "^4.1.0",
     "css-loader": "1.0.0",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16.3": "^1.7.0",
     "eslint": "5.12.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
@@ -72,9 +76,11 @@
     "eslint-loader": "2.1.1",
     "eslint-plugin-flowtype": "2.50.1",
     "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-jsx-a11y": "6.1.2",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "7.12.4",
+    "express": "^4.16.4",
     "file-loader": "2.0.0",
     "fs-extra": "7.0.1",
     "html-webpack-plugin": "4.0.0-alpha.2",
@@ -84,7 +90,7 @@
     "jest-resolve": "23.6.0",
     "jest-watch-typeahead": "^0.2.1",
     "mini-css-extract-plugin": "0.5.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.2.1",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -100,25 +106,26 @@
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "1.2.2",
     "url-loader": "1.1.2",
-    "vscode": "^1.1.33",
+    "vscode": "^1.1.28",
     "webpack": "4.28.3",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "3.1.14",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3",
-    "express": "^4.16.4",
-    "concurrently": "^4.1.0"
+    "cross-env": "^5.2.0"
   },
   "scripts": {
     "build": "npm run clean && npm run release",
     "start": "webpack-dev-server --config webpack.develop.js",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "clean": "rimraf ./build",
-    "release": "set NODE_ENV=\"production\" && webpack --config ./webpack.production.js -p --progress --color",
+    "release": "cross-env NODE_ENV=production webpack --config ./webpack.production.js -p --progress --color",
     "web": "concurrently \"node server.js\" \"npm run web:start\"",
     "web:start": "webpack-dev-server --config webpack.web.js",
-    "test": "node scripts/test.js",
-    "pretty": "prettier --check src/**/*.js"
+    "test": "node ./node_modules/vscode/bin/test",
+    "test:components": "jest src --config jest.config.json",
+    "pretty": "prettier --check src/**/*.js",
+    "coverage:components": "jest --coverage src --config jest.config.json"
   },
   "browserslist": [
     ">0.2%",

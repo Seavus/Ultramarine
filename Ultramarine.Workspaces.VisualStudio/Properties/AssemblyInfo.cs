@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Ultramarine.Workspaces.VisualStudio")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Ultramarine Visual Studio Workspace abstractions")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("Ultramarine.Workspaces.VisualStudio")]
-[assembly: AssemblyCopyright("Copyright © HP Inc. 2019")]
+[assembly: AssemblyCompany("Seavus")]
+[assembly: AssemblyProduct("Ultramarine")]
+[assembly: AssemblyCopyright("Copyright © Seavus 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

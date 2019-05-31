@@ -1,17 +1,34 @@
-﻿using System.Xml.Serialization;
+﻿using System.Xml;
+using System.Xml.Serialization;
 
 namespace Ultramarine.Generators.Serialization.Contracts
 {
     public abstract class BaseXmlConfigurationSerializer<T> : XmlSerializer, IConfigurationSerializer<T>
     {
-        public T Load()
+        public string Path { get; }
+        public BaseXmlConfigurationSerializer(string path, XmlAttributeOverrides overrides): base(typeof(T), overrides)
         {
-            throw new System.NotImplementedException();
+            Path = path;
         }
 
-        public void OnConfigurationDeserialized(T generator)
+        public T Load()
         {
-            throw new System.NotImplementedException();
+            var reader = ReadXml(Path);
+            var generator = (T)Deserialize(reader);
+            OnConfigurationDeserialized(generator);
+            return generator;
+        }
+
+        public static XmlTextReader ReadXml(string path)
+        {
+            var reader = new XmlTextReader(path);
+            reader.Read();
+            return reader;
+        }
+
+        public virtual void OnConfigurationDeserialized(T generator)
+        {
+            
         }
     }
 }

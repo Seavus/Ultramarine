@@ -19,8 +19,8 @@ const WebDownload = props => {
     return (
       <Task {...props}>
         <Input
-          label="Address"
-          htmlFor="address"
+          id="address"
+          text="Address"
           value={address}
           onChange={onChange}
         />

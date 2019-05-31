@@ -14,9 +14,7 @@ namespace Ultramarine.Generators.Serialization.Providers
             switch (extension)
             {
                 case SerializatorFileTypes.Xml:
-                    //return new XmlConfigurationSerializer<Generator>(refGeneratorPath, executionContext,
-                    //ConfigurationOverrides.FindTaskOverrides());
-                    throw new NotImplementedException();
+                    return new XmlConfigurationSerializer<Generator>(refGeneratorPath, Converters.ScanTaskOverrides());                    
                 case SerializatorFileTypes.Json:
                     return new JsonConfigurationSerializer<Generator>(refGeneratorPath, Converters.ScanTaskConverters());
                 default:

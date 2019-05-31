@@ -1,0 +1,13 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "importer": {
+        "name": "impoterTask2",
+        "description": "importerTask2description",
+        "path": "Generator2.gen.json"
+      }
+    }
+  ]
+}

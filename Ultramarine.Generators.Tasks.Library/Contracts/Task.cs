@@ -1,9 +1,16 @@
-﻿using Ultramarine.Workspaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using Ultramarine.Workspaces;
 
 namespace Ultramarine.Generators.Tasks.Library.Contracts
 {
     public abstract class Task : ITask
     {
+        private const string GlobalVariableNameExpression = @"(\$\{(\w+)\})";
+        private const string LocalVariableNameExpression = @"(\{(\w+)\})";
+
         protected Task() : this(null)
         {
 
@@ -11,6 +18,7 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
         protected Task(string name)
         {
             Name = name;
+            Variables = new List<Variable>();
         }
 
         public string Name { get; set; }
@@ -21,6 +29,8 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
         public object Output { get; set; }
         public Task Parent { get; set; }
         public string ConnectedWith { get; set; }
+
+        public List<Variable> Variables { get; set; }
         protected virtual ValidationResult Validate()
         {
             var validationResult = new ValidationResult();
@@ -56,6 +66,91 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
             Logger.Info($"Ending {GetType()} execution: {Name}");
         }
 
-    }
+        private static bool IsVariable(string variableName, string variableExpression)
+        {
+            if (string.IsNullOrWhiteSpace(variableName))
+                return false;
+            return Regex.IsMatch(variableName, variableExpression);
+        }
 
+        public static bool IsGlobalVariable(string variableName)
+        {
+            return IsVariable(variableName, GlobalVariableNameExpression);
+        }
+
+        public static bool IsLocalVariable(string variableName)
+        {
+            return IsVariable(variableName, LocalVariableNameExpression);
+        }
+        public static object GetGlobalVariableValue(string variableName)
+        {
+            return GlobalRegistrar.Variables == null ? null : PrepareGlobalVariableName(variableName);
+        }
+
+        public static object GetLocalVariableValue(string variableName, Task parentTask)
+        {
+            return parentTask.Variables == null ? null : PrepareLocalVariableName(variableName, parentTask);
+        }
+
+        private static string PrepareGlobalVariableName(string variableName)
+        {
+            string compositeVariableName = variableName;
+            var variables = GetGlobalVariables(variableName);
+            foreach (var variable in variables)
+            {
+                var globalVariable = GlobalRegistrar.Variables.FirstOrDefault(v => v.Name == StripVariableName(variable));
+                if (globalVariable == null)
+                    throw new ArgumentNullException(variableName, "Referenced global variable was not set!");
+
+                compositeVariableName = compositeVariableName.Replace(variable, globalVariable.Value.ToString());
+            }
+
+            return compositeVariableName;
+
+        }
+        private static List<string> GetVariables(string variableName, string variableExpression)
+        {
+            var matches = Regex.Matches(variableName, variableExpression);
+            return (from object match in matches select match.ToString()).ToList();
+        }
+        public static List<string> GetGlobalVariables(string variableName)
+        {
+            return GetVariables(variableName, GlobalVariableNameExpression);
+        }
+
+        public static List<string> GetLocalVariables(string variableName)
+        {
+            return GetVariables(variableName, LocalVariableNameExpression);
+        }
+
+        private static string StripVariableName(string variableName)
+        {
+            return variableName.Split('{', '}')[1];
+        }
+        private static string PrepareLocalVariableName(string variableName, Task parentTask)
+        {
+            string compositeVariableName = variableName;
+            var variables = GetLocalVariables(variableName);
+            foreach (var variable in variables)
+            {
+                var localVariable = parentTask.Variables.FirstOrDefault(v => v.Key == StripVariableName(variable));
+                if (localVariable == null)
+                    throw new ArgumentNullException(variableName, "Referenced local variable was not set!");
+
+                compositeVariableName = compositeVariableName.Replace(variable, localVariable.Value.ToString());
+            }
+
+            return compositeVariableName;
+
+        }
+
+        protected object TryGetSettingValue(string setting)
+        {
+            if (IsGlobalVariable(setting))
+                return GetGlobalVariableValue(setting);
+            if (IsLocalVariable(setting) && Parent != null)
+                return GetLocalVariableValue(setting, Parent);
+            return setting;
+        }
+    }
 }

@@ -12,7 +12,7 @@ namespace Ultramarine.Generators.Serialization.Providers
         {
             var containerConfiguration = new ContainerConfiguration();
             var currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var taskLibraries = Directory.EnumerateFiles(currentPath, "*Tasks*.dll", SearchOption.AllDirectories);
+            var taskLibraries = Directory.EnumerateFiles(currentPath, "Ultramarine*Tasks*.dll", SearchOption.AllDirectories);
             foreach (var taskLibrary in taskLibraries)
             {
                 try

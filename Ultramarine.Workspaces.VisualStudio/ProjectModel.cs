@@ -1,10 +1,13 @@
 ﻿using EnvDTE;
+using Microsoft.VisualStudio.TextTemplating;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Ultramarine.QueryLanguage;
 using Ultramarine.QueryLanguage.Comparers;
+using Ultramarine.Workspaces.VisualStudio.T4;
 
 namespace Ultramarine.Workspaces.VisualStudio
 {
@@ -15,7 +18,7 @@ namespace Ultramarine.Workspaces.VisualStudio
         {
             FilePath = project.Properties.Item("FullPath").Value.ToString();
             Name = project.Name;
-            Language = project.CodeModel.Language;
+            Language = project.CodeModel == null ? null : project.CodeModel.Language;
             ProjectItems = MapProjectItems(project.ProjectItems);
             _project = project;
         }
@@ -71,6 +74,36 @@ namespace Ultramarine.Workspaces.VisualStudio
             return new ProjectItemModel(projectItem);
         }
 
+        public IProjectItemModel CreateProjectItem(string path, MemoryStream content, bool overwrite)
+        {
+            if (!overwrite)
+                if (File.Exists(path))
+                    throw new Exception($"Failed to create project item. File '{path}' already exists on file system.");
+            var directoryPath = Path.GetDirectoryName(path);
+            Directory.CreateDirectory(directoryPath);
+            using(var fs = new FileStream(path, FileMode.Create, FileAccess.Write))
+            {
+                byte[] bytes = new byte[content.Length];
+                content.Read(bytes, 0, (int)content.Length);
+                fs.Write(bytes, 0, bytes.Length);
+                content.Close();
+            }
+
+            var projectItem = _project.ProjectItems.AddFromFile(path);
+            return new ProjectItemModel(projectItem);
+        }
+
+        public IProjectItemModel CreateProjectItem(string path, object content, bool overwrite)
+        {
+            return CreateProjectItem(path, JsonConvert.SerializeObject(content), overwrite);
+        }
+
+        public IProjectItemModel CreateProjectItem(string path, byte[] content, bool overwrite)
+        {
+            var contentStream = new MemoryStream(content);
+            return CreateProjectItem(path, contentStream, overwrite);
+        }
+
         public IEnumerable<IProjectModel> GetProjects(string projectNameExpression)
         {
             var projects = Dte.Instance.GetProjects(projectNameExpression);
@@ -105,26 +138,30 @@ namespace Ultramarine.Workspaces.VisualStudio
             return projectItem;
         }
 
-        public IEnumerable<IProjectItemModel> GetProjectItems(string expression)
+        
+        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string propertyName = "Name")
         {
             var result = new List<IProjectItemModel>();
             foreach (var item in ProjectItems)
             {
-                var condition = new ConditionCompiler(expression, item.Name);
+                var condition = new ConditionCompiler(expression, item.GetProperty(propertyName));
                 if (condition.Execute())
                     result.Add(item);
 
                 var subItems = item.GetProjectItems(expression);
                 if (subItems != null)
+                {
+                    subItems.Remove(item);
                     result.AddRange(subItems);
+                }
             }
             return result;
         }
 
-        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon)
+        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon, string propertyName = "Name")
         {
             var result = new List<IProjectItemModel>();
-            var dependentProjectItems = GetProjectItems($"$this equals {dependentUpon}");
+            var dependentProjectItems = GetProjectItems($"$this equals {dependentUpon}", propertyName);
             foreach (var dpi in dependentProjectItems)
             {
                 var items = dpi.GetProjectItems(expression);
@@ -182,9 +219,55 @@ namespace Ultramarine.Workspaces.VisualStudio
             return result;
         }
 
+        public string ProcessTextTemplate(string t4File, object input, Dictionary<string, object> parameters)
+        {
+            var textTemplating = Dte.Instance.TextTemplating;
+            var sessionHost = textTemplating as ITextTemplatingSessionHost;
+
+            if (input == null)
+                input = new object();
+
+            sessionHost.Session = sessionHost.CreateSession();
+            sessionHost.Session["Input"] = input;
+            sessionHost.Session["Parameters"] = parameters;
+
+            var t4FileContent = File.ReadAllText(t4File);
+            var logger = new TransformationLogger();
+
+            textTemplating.BeginErrorSession();
+            var result = textTemplating.ProcessTemplate(t4File, t4FileContent, logger);
+            textTemplating.EndErrorSession();
+
+            if (logger.HasMessages)
+            {
+                foreach (var transformationError in logger.Errors)
+                {
+                    var type = transformationError.IsWarning ? "WARNING" : "ERROR";
+                    //TODO: logger
+                    //Extensions.DteExtensions.Instance.Log(string.Format("{0} in line {1}, column {2}", type, transformationError.Line, transformationError.Column));
+                    //Extensions.DteExtensions.Instance.Log(transformationError.Message);
+                    //Extensions.DteExtensions.Instance.Log(string.Format("//{0}", type));
+                }
+            }
+
+            if (logger.HasErrors)
+                throw new Exception("Errors executing T4 transformation. See output log for details.");
 
 
 
+            return result;
+        }
+
+        public IProjectItemModel GetProjectItem(string path)
+        {
+            return GetProjectItems($"$this equals '{path}'", "FullPath").FirstOrDefault();
+        }
+
+        public IWorkspaceModel GetWorkspace()
+        {
+            return new WorkspaceModel(Dte.Instance.Host.Solution);
+        }
+        
     }
 
 }

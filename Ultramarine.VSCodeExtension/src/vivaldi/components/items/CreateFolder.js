@@ -12,14 +12,14 @@ const CreateFolder = props => {
     return (
       <Task {...props}>
         <Input
-          label="Path"
-          htmlFor="folderPath"
+          id="folderPath"
+          text="Path"
           value={folderPath}
           onChange={onChange}
         />
         <Input
-          label="Project Name"
-          htmlFor="projectName"
+          id="projectName"
+          text="Project Name"
           value={projectName}
           onChange={onChange}
         />

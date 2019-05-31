@@ -95,7 +95,7 @@ namespace Ultramarine.Workspaces.VisualStudio
                 // subProject is another solution folder, go deep
                 if (subProject.Kind == Constants.vsProjectKindSolutionItems)
                 {
-                    var projects = GetProjects(solutionFolder);
+                    var projects = GetProjects(subProject);
                     result.AddRange(projects);
                 }
                 else

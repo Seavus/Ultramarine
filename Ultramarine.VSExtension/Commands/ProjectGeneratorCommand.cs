@@ -24,7 +24,6 @@ namespace Ultramarine.VSExtension.Commands
     {
         private const string ProjectGeneratorXmlConfigurationFileName = "Project.gen.config";
         private const string ProjectGeneratorJsonConfigurationFileName = "Project.gen.json";
-
         /// <summary>
         /// Command ID.
         /// </summary>
@@ -40,7 +39,6 @@ namespace Ultramarine.VSExtension.Commands
         /// </summary>
         private readonly AsyncPackage package;
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectGeneratorCommand"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
@@ -49,32 +47,32 @@ namespace Ultramarine.VSExtension.Commands
         /// <param name="commandService">Command service to add command to, not null.</param>
         private ProjectGeneratorCommand(AsyncPackage package, OleMenuCommandService commandService)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
             this.package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
             var menuCommandID = new CommandID(CommandSet, CommandId);
-            var menuItem = new OleMenuCommand(this.Execute, menuCommandID);
+            var menuItem = new OleMenuCommand(ExecuteAsync, menuCommandID);
             menuItem.Enabled = false;
             menuItem.BeforeQueryStatus += OnProjectGeneratorReady;
             commandService.AddCommand(menuItem);
         }
 
-        private async void OnProjectGeneratorReady(object sender, EventArgs e)
+        private void OnProjectGeneratorReady(object sender, EventArgs e)
         {
-            var menuCommand = (OleMenuCommand)sender;            
-            menuCommand.Enabled = await HasConfigurationAsync(ProjectGeneratorXmlConfigurationFileName) || await HasConfigurationAsync(ProjectGeneratorJsonConfigurationFileName);
+            var menuCommand = (OleMenuCommand)sender;
+            menuCommand.Enabled = HasConfiguration(ProjectGeneratorXmlConfigurationFileName) || HasConfiguration(ProjectGeneratorJsonConfigurationFileName);
 
         }
 
-        private async Task<bool> HasConfigurationAsync(string configurationName)
+        private bool HasConfiguration(string configurationName)
         {
-            var selectedProjects = await GetSelectedProjectsAsync();
-            var selectedProjectItems = await FindProjectConfigurationItemsAsync(selectedProjects, configurationName);
+            var selectedProjects = GetSelectedProjects();
+            var selectedProjectItems = FindProjectConfigurationItems(selectedProjects, configurationName);
             return selectedProjectItems.Any();
         }
-        private async Task<List<ProjectItem>> FindProjectConfigurationItemsAsync(List<Project> projects, string configurationName)
+        private List<ProjectItem> FindProjectConfigurationItems(List<Project> projects, string configurationName)
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
             var projectItems = new List<ProjectItem>();
             foreach (var project in projects)
             {
@@ -91,16 +89,10 @@ namespace Ultramarine.VSExtension.Commands
             return projectItems;
         }
 
-        private async Task<List<Project>> GetSelectedProjectsAsync()
+        private List<Project> GetSelectedProjects()
         {
-            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
-
             var selectedProjects = new List<Project>();
-
-            if (!(await ServiceProvider.GetServiceAsync(typeof(SDTE)) is DTE dte))
-                return null;
-
-            var selectedItems = dte.SelectedItems;
+            var selectedItems = Dte.Instance.Host.SelectedItems;
             if (selectedItems.MultiSelect)
                 for (var i = 1; i < selectedItems.Count; i++)
                 {
@@ -159,12 +151,13 @@ namespace Ultramarine.VSExtension.Commands
         /// </summary>
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Event args.</param>
-        private void Execute(object sender, EventArgs e)
+        private async void ExecuteAsync(object sender, EventArgs e)
         {
-            ThreadHelper.ThrowIfNotOnUIThread();
+            // ThreadHelper.ThrowIfNotOnUIThread();
             //string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
             //string title = "GeneratorCommand";
-            var host = ServiceProvider.GetServiceAsync(typeof(SDTE)).Result as DTE;
+            await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
+            var host = await ServiceProvider.GetServiceAsync(typeof(SDTE)) as DTE;
             if (host.SelectedItems.MultiSelect)
             {
                 VsShellUtilities.ShowMessageBox(
@@ -190,13 +183,24 @@ namespace Ultramarine.VSExtension.Commands
             //var workspace = componentModel.GetService<Microsoft.VisualStudio.LanguageServices.VisualStudioWorkspace>();
 
             //var project = workspace.CurrentSolution.Projects.First(c => c.Name == selectedProject.Name);
-            
-            var generatorPath = Path.Combine(Path.GetDirectoryName(projectPath), "Project.gen.json");
-            var generator = GeneratorSerializer.Instance.Load(generatorPath);
-            generator.SetExecutionContext(new ProjectModel(selectedProject));
-            generator.SetLogger(new OutputLogger());
-            
-            generator.Execute();
+            await Task.Run(() =>
+            {
+                var logger = new OutputLogger();
+
+                var generatorPath = Path.Combine(Path.GetDirectoryName(projectPath), "Project.gen.json");
+                var generator = GeneratorSerializer.Instance.Load(generatorPath);
+                generator.SetExecutionContext(new ProjectModel(selectedProject));
+                generator.SetLogger(logger);
+                try
+                {
+                    generator.Execute();
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex);
+                    MessageBox.Show("Generator execution completed with errors. See output window for details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            });
             // Show a message box to prove we were here
             //VsShellUtilities.ShowMessageBox(
             //    this.package,

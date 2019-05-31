@@ -1,0 +1,14 @@
+{
+  "name": "generator1",
+  "description": "generator1description",
+  "tasks": [
+    {
+      "sqlCommand": {
+        "name": "SqlCommandTextDelete",
+        "description": "SqlCommandTextDeleteDecription",
+        "connectionstring": "Server=.\\sqlexpress;Database=AdventureWorks;Trusted_Connection=True;MultipleActiveResultSets=true",
+        "statement": "Delete from Sales.Currency where CurrencyCode = 'ALL'"
+      }
+    }
+  ]
+}

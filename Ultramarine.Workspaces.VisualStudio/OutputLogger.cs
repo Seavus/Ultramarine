@@ -25,7 +25,13 @@ namespace Ultramarine.Workspaces.VisualStudio
             var message = string.Format(messageFormat, parameters);
             var outputWindowPane = GetOutputWindow();
             outputWindowPane.OutputString($"{DateTime.Now.ToString("T")}\nWARNING: { message}\n");
-            
+
+        }
+
+        public void Error(Exception ex)
+        {
+            var outputWindowPane = GetOutputWindow();
+            outputWindowPane.OutputString($"{DateTime.Now.ToString("T")}\nERROR: { ex.Message }\n{ex.StackTrace}");
         }
 
         private OutputWindowPane GetOutputWindow()

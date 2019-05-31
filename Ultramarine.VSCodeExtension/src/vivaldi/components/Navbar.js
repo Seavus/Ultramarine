@@ -34,7 +34,7 @@ class Navbar extends Component {
                 }}
               />
               <Button
-                name="Open file"
+                text="Open file"
                 className="btn-flat"
                 onClick={this.handleOpenFileClick}
               />

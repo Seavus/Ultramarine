@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<generator xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="44a11d26-553a-4c29-9372-451f0eee2cd2" xmlns="http://schemas.microsoft.com/dsltools/GeneratorLanguage">
+  <tasks>
+    <children Id="57864125-7197-4713-ab2f-3243bca3c351">
+      <buildProject Id="9d659c74-6487-4617-ad9c-3e25c23175cd" name="BuildProject1" />
+    </children>
+  </tasks>
+</generator>

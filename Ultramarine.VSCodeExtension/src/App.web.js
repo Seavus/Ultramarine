@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
 import './App.css'
-import Composer, { Navbar } from './vivaldi'
+import { Navbar } from './vivaldi'
+import Configuration from './vivaldi/components/configuration'
 
 class App extends Component {
-  state = {}
+  constructor(props) {
+    super(props)
+    this.state = {
+      configuration: undefined
+    }
+  }
 
   handleFileRead = e => {
     const content = e.target.result
     const generatorContent = JSON.parse(content)
-    window.postMessage({ generator: generatorContent })
+
+    this.setState({ configuration: generatorContent })
   }
 
   handleFileChoosen = e => {
@@ -19,10 +26,11 @@ class App extends Component {
   }
 
   render() {
+    const { configuration } = this.state
     return (
       <div>
         <Navbar handleFileChoosen={this.handleFileChoosen} />
-        <Composer />
+        <Configuration settings={configuration} />
       </div>
     )
   }

@@ -28,7 +28,6 @@ class TaskBuilder extends Component {
   }
 
   handleTaskUpdated = () => {
-    debugger
     const { type, onTaskUpdated } = this.props
     const item = { ...this.state }
     item.type = type

@@ -1,0 +1,548 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema id="GeneratorLanguageSchema" targetNamespace="http://schemas.microsoft.com/dsltools/GeneratorLanguage" elementFormDefault="qualified" xmlns="http://schemas.microsoft.com/dsltools/GeneratorLanguage" xmlns:core="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import id="CoreSchema" namespace="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" />
+  <!-- Generator -->
+  <xsd:element name="generator" type="Generator" substitutionGroup="compositeTask" />
+  <xsd:complexType name="Generator">
+    <xsd:annotation>
+      <xsd:documentation>The root in which all other elements are embedded. Appears as a diagram.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="CompositeTask">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- dslVersion -->
+        <xsd:attribute name="dslVersion" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Version of the model serialized in this file.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Generator Moniker -->
+  <xsd:element name="generatorMoniker" type="GeneratorMoniker" substitutionGroup="compositeTaskMoniker" />
+  <xsd:complexType name="GeneratorMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Generator instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="CompositeTaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Task -->
+  <xsd:element name="task" abstract="true" type="Task" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Task" abstract="true" >
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: Connection -->
+          <xsd:element name="connectedWith" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instance of Connection</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="connection" minOccurs="0" maxOccurs="1">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of Connection needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Name -->
+        <xsd:attribute name="name" type="xsd:string" />
+        <!-- Property: Description -->
+        <xsd:attribute name="description" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Task Moniker -->
+  <xsd:element name="taskMoniker" abstract="true" type="TaskMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="TaskMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Task instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CompositeTask -->
+  <xsd:element name="compositeTask" abstract="true" type="CompositeTask" substitutionGroup="task" />
+  <xsd:complexType name="CompositeTask" abstract="true" >
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Relationship: Children -->
+          <xsd:element name="tasks" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of Children</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="children" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of Children needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CompositeTask Moniker -->
+  <xsd:element name="compositeTaskMoniker" abstract="true" type="CompositeTaskMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="CompositeTaskMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for CompositeTask instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- LoadCodeElement -->
+  <xsd:element name="loadCodeElement" type="LoadCodeElement" substitutionGroup="task" />
+  <xsd:complexType name="LoadCodeElement">
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ElementName -->
+        <xsd:attribute name="elementName" type="xsd:string" />
+        <!-- Property: ElementType -->
+        <xsd:attribute name="elementType" type="xsd:string" />
+        <!-- Property: ElementAccess -->
+        <xsd:attribute name="elementAccess" type="xsd:string" />
+        <!-- Property: ElementOverride -->
+        <xsd:attribute name="elementOverride" type="xsd:string" />
+        <!-- Property: TypeOf -->
+        <xsd:attribute name="typeOf" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- LoadCodeElement Moniker -->
+  <xsd:element name="loadCodeElementMoniker" type="LoadCodeElementMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="LoadCodeElementMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for LoadCodeElement instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- BuildProject -->
+  <xsd:element name="buildProject" type="BuildProject" substitutionGroup="task" />
+  <xsd:complexType name="BuildProject">
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ProjectName -->
+        <xsd:attribute name="projectName" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Name of the project to build</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Configuration -->
+        <xsd:attribute name="configuration" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Project configuration to build</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- BuildProject Moniker -->
+  <xsd:element name="buildProjectMoniker" type="BuildProjectMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="BuildProjectMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for BuildProject instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CreateFolder -->
+  <xsd:element name="createFolder" type="CreateFolder" substitutionGroup="task" />
+  <xsd:complexType name="CreateFolder">
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: FolderPath -->
+        <xsd:attribute name="folderPath" type="xsd:string" />
+        <!-- Property: BasePath -->
+        <xsd:attribute name="basePath" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CreateFolder Moniker -->
+  <xsd:element name="createFolderMoniker" type="CreateFolderMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="CreateFolderMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for CreateFolder instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CreateProjectItem -->
+  <xsd:element name="createProjectItem" type="CreateProjectItem" substitutionGroup="task" />
+  <xsd:complexType name="CreateProjectItem">
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ItemName -->
+        <xsd:attribute name="itemName" type="xsd:string" />
+        <!-- Property: FolderPath -->
+        <xsd:attribute name="folderPath" type="xsd:string" />
+        <!-- Property: LinkedWith -->
+        <xsd:attribute name="linkedWith" type="xsd:string" />
+        <!-- Property: ProjectName -->
+        <xsd:attribute name="projectName" type="xsd:string" />
+        <!-- Property: Overwrite -->
+        <xsd:attribute name="overwrite" type="xsd:boolean" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- CreateProjectItem Moniker -->
+  <xsd:element name="createProjectItemMoniker" type="CreateProjectItemMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="CreateProjectItemMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for CreateProjectItem instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- LoadProjectItem -->
+  <xsd:element name="loadProjectItem" type="LoadProjectItem" substitutionGroup="task" />
+  <xsd:complexType name="LoadProjectItem">
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ProjectName -->
+        <xsd:attribute name="projectName" type="xsd:string" />
+        <!-- Property: ItemName -->
+        <xsd:attribute name="itemName" type="xsd:string" />
+        <!-- Property: LinkedWith -->
+        <xsd:attribute name="linkedWith" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- LoadProjectItem Moniker -->
+  <xsd:element name="loadProjectItemMoniker" type="LoadProjectItemMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="LoadProjectItemMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for LoadProjectItem instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ReadProperty -->
+  <xsd:element name="readProperty" type="ReadProperty" substitutionGroup="task" />
+  <xsd:complexType name="ReadProperty">
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: PropertyName -->
+        <xsd:attribute name="propertyName" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ReadProperty Moniker -->
+  <xsd:element name="readPropertyMoniker" type="ReadPropertyMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="ReadPropertyMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ReadProperty instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SetVariable -->
+  <xsd:element name="setVariable" type="SetVariable" substitutionGroup="task" />
+  <xsd:complexType name="SetVariable">
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: VariableName -->
+        <xsd:attribute name="variableName" type="xsd:string" />
+        <!-- Property: VariableValue -->
+        <xsd:attribute name="variableValue" type="xsd:string" />
+        <!-- Property: ParentTask -->
+        <xsd:attribute name="parentTask" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SetVariable Moniker -->
+  <xsd:element name="setVariableMoniker" type="SetVariableMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="SetVariableMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for SetVariable instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- TextTransformation -->
+  <xsd:element name="textTransformation" type="TextTransformation" substitutionGroup="task" />
+  <xsd:complexType name="TextTransformation">
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: FileName -->
+        <xsd:attribute name="fileName" type="xsd:string" />
+        <!-- Property: ProjectName -->
+        <xsd:attribute name="projectName" type="xsd:string" />
+        <!-- Property: Parameters -->
+        <xsd:attribute name="parameters" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- TextTransformation Moniker -->
+  <xsd:element name="textTransformationMoniker" type="TextTransformationMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="TextTransformationMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for TextTransformation instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Iterator -->
+  <xsd:element name="iterator" type="Iterator" substitutionGroup="compositeTask" />
+  <xsd:complexType name="Iterator">
+    <xsd:complexContent>
+      <xsd:extension base="CompositeTask">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Iterator Moniker -->
+  <xsd:element name="iteratorMoniker" type="IteratorMoniker" substitutionGroup="compositeTaskMoniker" />
+  <xsd:complexType name="IteratorMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Iterator instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="CompositeTaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Importer -->
+  <xsd:element name="importer" type="Importer" substitutionGroup="task" />
+  <xsd:complexType name="Importer">
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Path -->
+        <xsd:attribute name="path" type="xsd:string" />
+        <!-- Property: ProjectName -->
+        <xsd:attribute name="projectName" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Importer Moniker -->
+  <xsd:element name="importerMoniker" type="ImporterMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="ImporterMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Importer instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Connection -->
+  <xsd:element name="connection" type="Connection" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Connection">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end Task -->
+          <xsd:element ref="taskMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Connection Moniker -->
+  <xsd:element name="connectionMoniker" type="ConnectionMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ConnectionMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Connection instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Children -->
+  <xsd:element name="children" type="Children" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Children">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end Task -->
+          <xsd:element ref="task" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Children Moniker -->
+  <xsd:element name="childrenMoniker" type="ChildrenMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ChildrenMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Children instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+</xsd:schema>
+

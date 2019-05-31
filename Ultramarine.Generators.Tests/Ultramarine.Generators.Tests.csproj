@@ -8,15 +8,47 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="Moq" Version="4.10.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
     <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Ultramarine.Generators.Serialization.Providers\Ultramarine.Generators.Serialization.Providers.csproj" />
+    <ProjectReference Include="..\Ultramarine.Generators.Tasks.Complex\Ultramarine.Generators.Tasks.Complex.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Samples\Importer\Generator1.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Importer\Generator2.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\Importer\ImporterTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\SqlCommand\SqlCommandStoredProcedureSelectTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\SqlCommand\SqlCommandTextDeleteTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\SqlCommand\SqlCommandTextSelectTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\SqlCommand\SqlCommandTextUpdateTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\StringManipulation\CaseType\StringManipulationCamelCaseTypeTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\StringManipulation\CaseType\StringManipulationHungarianCaseTypeTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\StringManipulation\CaseType\StringManipulationLowerCaseTypeTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Samples\CreateFolderTest.gen.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -27,6 +59,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Samples\LoadProjectItemTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\StringManipulation\StringManipulationReplaceTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\StringManipulation\CaseType\StringManipulationUpperCaseTypeTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\StringManipulation\StringManipulationFormatTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\StringManipulation\StringManipulationTest.gen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Samples\WebDownload\WebDownload.gen.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

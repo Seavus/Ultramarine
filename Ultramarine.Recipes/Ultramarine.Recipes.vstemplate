@@ -17,4 +17,14 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
     </Project>
   </TemplateContent>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <packages repository="extension" repositoryId="Ultramarine.VSExtension.c6864a82-8152-47f4-adfa-3d481fc1c4c9">
+      <package id="Ultramarine.Workspaces" version="1.0.0" />
+      <package id="Ultramarine.Workspaces.VisualStudio" version="1.0.0" />
+    </packages>
+  </WizardData>
 </VSTemplate>

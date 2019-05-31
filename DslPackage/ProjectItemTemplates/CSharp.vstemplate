@@ -1,0 +1,17 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<TemplateID>{943d22fd-f1e9-485a-a646-ef07418435c5}</TemplateID>
+		<Name Package="{253eb726-92cb-4387-9f64-2ca8bbc1e16a}" ID="103"/>
+		<Description Package="{253eb726-92cb-4387-9f64-2ca8bbc1e16a}" ID="102"/>
+		<Icon Package="{253eb726-92cb-4387-9f64-2ca8bbc1e16a}" ID="201" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>360</SortOrder>
+		<DefaultName>GeneratorLanguage.ugen</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.ugen">ugen.ugen</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.ugen.diagram">ugen.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
+
