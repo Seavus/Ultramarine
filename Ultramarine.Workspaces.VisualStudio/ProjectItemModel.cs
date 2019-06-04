@@ -197,7 +197,7 @@ namespace Ultramarine.Workspaces.VisualStudio
             }
         }
 
-        public string GetProperty(string propertyName = "Name")
+        public string GetProperty(string propertyName = "FileName")
         {
             try
             {

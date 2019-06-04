@@ -2,19 +2,19 @@
 {
   "definitions": {
     "task": {
-		  "$ref": "JsonSchemas/BaseTypes/TaskSchema.json#"
+		"$ref": "JsonSchemas/BaseTypes/TaskSchema.json#"
     },
     "variable": {
-		  "$ref": "JsonSchemas/BaseTypes/VariableSchema.json#"
-	  }
+		"$ref": "JsonSchemas/BaseTypes/VariableSchema.json#"
+	}
   },
   "type": "object",
   "properties": {
     "tasks": {
       "definitions": {
         "task": {
-          "$ref": "JsonSchemas/BaseTypes/TaskSchema.json#"
-		    },
+         "$ref": "JsonSchemas/BaseTypes/TaskSchema.json#"
+		 },
         "variable": {
           "$ref": "JsonSchemas/BaseTypes/VariableSchema.json#"
         }
