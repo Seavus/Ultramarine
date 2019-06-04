@@ -18,6 +18,34 @@
 					"settings": "Ultramarine.Generators.Language.LoadCodeElement"
 			  }
 			},
+			{
+		  	"BuildProject": {
+					"name": "BuildProject1",
+					"description": "",
+					"settings": "Ultramarine.Generators.Language.BuildProject"
+			  }
+			},
+			{
+		  	"Iterator": {
+					"name": "Iterator1",
+					"description": "",
+					"settings": "Ultramarine.Generators.Language.Iterator"
+			  }
+			},
+			{
+		  	"BuildProject": {
+					"name": "BuildProject2",
+					"description": "",
+					"settings": "Ultramarine.Generators.Language.BuildProject"
+			  }
+			},
+			{
+		  	"BuildProject": {
+					"name": "BuildProject3",
+					"description": "",
+					"settings": "Ultramarine.Generators.Language.BuildProject"
+			  }
+			},
 
 		]
 	}

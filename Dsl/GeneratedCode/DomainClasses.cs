@@ -255,6 +255,72 @@ namespace Ultramarine.Generators.Language
 		}
 		
 		#endregion
+		#region BaseType domain property code
+		
+		/// <summary>
+		/// BaseType domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid BaseTypeDomainPropertyId = new global::System.Guid(0xca067019, 0xe9aa, 0x45d0, 0xa3, 0x88, 0x27, 0xb1, 0xdf, 0xd9, 0x60, 0x16);
+		
+		/// <summary>
+		/// Gets or sets the value of BaseType domain property.
+		/// Description for Ultramarine.Generators.Language.Task.Base Type
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.Task/BaseType.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.Task/BaseType.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.Browsable(false)]
+		[global::System.ComponentModel.ReadOnly(true)]
+		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.Calculated)]
+		[DslModeling::DomainObjectId("ca067019-e9aa-45d0-a388-27b1dfd96016")]
+		public global::System.String BaseType
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return BaseTypePropertyHandler.Instance.GetValue(this);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Task.BaseType domain property.
+		/// </summary>
+		internal sealed partial class BaseTypePropertyHandler : DslModeling::CalculatedPropertyValueHandler<Task, global::System.String>
+		{
+			private BaseTypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Task.BaseType domain property value handler.
+			/// </summary>
+			public static readonly BaseTypePropertyHandler Instance = new BaseTypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Task.BaseType domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return BaseTypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Task element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				// There is no storage for BaseType because its Kind is
+				// set to Calculated. Please provide the GetBaseTypeValue()
+				// method on the domain class.
+				return element.GetBaseTypeValue();
+			}
+		
+		}
+		
+		#endregion
 		#region ConnectedWith opposite domain role accessor
 		/// <summary>
 		/// Gets or sets ConnectedWith.
@@ -2922,6 +2988,221 @@ namespace Ultramarine.Generators.Language
 			: base(partition, propertyAssignments)
 		{
 		}
+		#endregion
+	}
+}
+namespace Ultramarine.Generators.Language
+{
+	/// <summary>
+	/// DomainClass Importer
+	/// Description for Ultramarine.Generators.Language.Importer
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.Importer.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.Importer.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("7e22cf59-997d-4e4e-bc8c-0db74bfb4081")]
+	public partial class Importer : Task
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// Importer domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x7e22cf59, 0x997d, 0x4e4e, 0xbc, 0x8c, 0x0d, 0xb7, 0x4b, 0xfb, 0x40, 0x81);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Importer(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Importer(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Path domain property code
+		
+		/// <summary>
+		/// Path domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid PathDomainPropertyId = new global::System.Guid(0x7115bc07, 0x5693, 0x42ee, 0xab, 0xc5, 0x0f, 0x73, 0xca, 0x66, 0x4f, 0x6c);
+		
+		/// <summary>
+		/// Storage for Path
+		/// </summary>
+		private global::System.String pathPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Path domain property.
+		/// Description for Ultramarine.Generators.Language.Importer.Path
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.Importer/Path.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.Importer/Path.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("7115bc07-5693-42ee-abc5-0f73ca664f6c")]
+		public global::System.String Path
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return pathPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				PathPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Importer.Path domain property.
+		/// </summary>
+		internal sealed partial class PathPropertyHandler : DslModeling::DomainPropertyValueHandler<Importer, global::System.String>
+		{
+			private PathPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Importer.Path domain property value handler.
+			/// </summary>
+			public static readonly PathPropertyHandler Instance = new PathPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Importer.Path domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return PathDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Importer element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.pathPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Importer element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.pathPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region ProjectName domain property code
+		
+		/// <summary>
+		/// ProjectName domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ProjectNameDomainPropertyId = new global::System.Guid(0x29bb276f, 0x08d5, 0x476f, 0xaa, 0x20, 0x6d, 0x40, 0xaa, 0x37, 0x91, 0x6d);
+		
+		/// <summary>
+		/// Storage for ProjectName
+		/// </summary>
+		private global::System.String projectNamePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ProjectName domain property.
+		/// Description for Ultramarine.Generators.Language.Importer.Project Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.Importer/ProjectName.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.Importer/ProjectName.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("29bb276f-08d5-476f-aa20-6d40aa37916d")]
+		public global::System.String ProjectName
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return projectNamePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ProjectNamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Importer.ProjectName domain property.
+		/// </summary>
+		internal sealed partial class ProjectNamePropertyHandler : DslModeling::DomainPropertyValueHandler<Importer, global::System.String>
+		{
+			private ProjectNamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Importer.ProjectName domain property value handler.
+			/// </summary>
+			public static readonly ProjectNamePropertyHandler Instance = new ProjectNamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Importer.ProjectName domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ProjectNameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Importer element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.projectNamePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Importer element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.projectNamePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
 		#endregion
 	}
 }

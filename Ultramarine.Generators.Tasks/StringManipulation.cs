@@ -13,15 +13,13 @@ namespace Ultramarine.Generators.Tasks
     [Export(typeof(Task))]
     public class StringManipulation : Task
     {
-        private string _format;
         private string _pattern;
         private string _replacement;
 
         /// <summary>
         /// String format to apply
-        /// <para>This property supports Variables</para>
         /// </summary>
-        public string Format { get => TryGetSettingValue(_format) as string; set => _format = value; }
+        public string Format { get; set; }
         public CaseType? Type { get; set; }
         /// <summary>
         /// String pattern to apply

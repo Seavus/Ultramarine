@@ -433,6 +433,37 @@
     </xsd:complexContent>
   </xsd:complexType>
   
+  <!-- Importer -->
+  <xsd:element name="importer" type="Importer" substitutionGroup="task" />
+  <xsd:complexType name="Importer">
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Path -->
+        <xsd:attribute name="path" type="xsd:string" />
+        <!-- Property: ProjectName -->
+        <xsd:attribute name="projectName" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- Importer Moniker -->
+  <xsd:element name="importerMoniker" type="ImporterMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="ImporterMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for Importer instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
   <!-- Connection -->
   <xsd:element name="connection" type="Connection" substitutionGroup="core:modelElement" />
   <xsd:complexType name="Connection">

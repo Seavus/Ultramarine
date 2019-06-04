@@ -15,7 +15,7 @@
       <Parent guid="guidCmdSet" id="menuidContext" />
       <CommandFlag>AlwaysCreate</CommandFlag>
       <Strings>
-        <CanonicalName>GeneratorLanguage Designer Context Menu</CanonicalName>
+        <CanonicalName>Generator Language Designer Context Menu</CanonicalName>
         <ButtonText>GeneratorLanguage Context</ButtonText>
       </Strings>
     </Menu>
@@ -23,8 +23,8 @@
       <Parent guid="guidCmdSet" id="menuidExplorer" />
       <CommandFlag>AlwaysCreate</CommandFlag>
       <Strings>
-        <CanonicalName>GeneratorLanguage Explorer Context Menu</CanonicalName>
-        <ButtonText>GeneratorLanguage Explorer</ButtonText>
+        <CanonicalName>Generator Language Explorer Context Menu</CanonicalName>
+        <ButtonText>Generator Language Explorer</ButtonText>
       </Strings>
     </Menu>
   </Menus>
@@ -43,7 +43,7 @@
             <CommandFlag>DefaultInvisible</CommandFlag>
             <CommandFlag>DynamicVisibility</CommandFlag>
             <Strings>
-                <ButtonText>GeneratorLanguage Explorer</ButtonText>
+                <ButtonText>Generator Language Explorer</ButtonText>
             </Strings>
         </Button>
     </Buttons>

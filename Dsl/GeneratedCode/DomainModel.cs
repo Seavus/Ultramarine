@@ -79,6 +79,7 @@ namespace Ultramarine.Generators.Language
 				typeof(SetVariable),
 				typeof(TextTransformation),
 				typeof(Iterator),
+				typeof(Importer),
 				typeof(Connection),
 				typeof(Children),
 				typeof(GeneratorLanguageDiagram),
@@ -93,6 +94,7 @@ namespace Ultramarine.Generators.Language
 				typeof(SetVariableShape),
 				typeof(TextTransformationShape),
 				typeof(CompositeShape),
+				typeof(ImporterShape),
 				typeof(global::Ultramarine.Generators.Language.FixUpDiagram),
 				typeof(global::Ultramarine.Generators.Language.ConnectorRolePlayerChanged),
 			};
@@ -108,6 +110,7 @@ namespace Ultramarine.Generators.Language
 			{
 				new DomainMemberInfo(typeof(Task), "Name", Task.NameDomainPropertyId, typeof(Task.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Task), "Description", Task.DescriptionDomainPropertyId, typeof(Task.DescriptionPropertyHandler)),
+				new DomainMemberInfo(typeof(Task), "BaseType", Task.BaseTypeDomainPropertyId, typeof(Task.BaseTypePropertyHandler)),
 				new DomainMemberInfo(typeof(LoadCodeElement), "ElementName", LoadCodeElement.ElementNameDomainPropertyId, typeof(LoadCodeElement.ElementNamePropertyHandler)),
 				new DomainMemberInfo(typeof(LoadCodeElement), "ElementType", LoadCodeElement.ElementTypeDomainPropertyId, typeof(LoadCodeElement.ElementTypePropertyHandler)),
 				new DomainMemberInfo(typeof(LoadCodeElement), "ElementAccess", LoadCodeElement.ElementAccessDomainPropertyId, typeof(LoadCodeElement.ElementAccessPropertyHandler)),
@@ -132,6 +135,8 @@ namespace Ultramarine.Generators.Language
 				new DomainMemberInfo(typeof(TextTransformation), "FileName", TextTransformation.FileNameDomainPropertyId, typeof(TextTransformation.FileNamePropertyHandler)),
 				new DomainMemberInfo(typeof(TextTransformation), "ProjectName", TextTransformation.ProjectNameDomainPropertyId, typeof(TextTransformation.ProjectNamePropertyHandler)),
 				new DomainMemberInfo(typeof(TextTransformation), "Parameters", TextTransformation.ParametersDomainPropertyId, typeof(TextTransformation.ParametersPropertyHandler)),
+				new DomainMemberInfo(typeof(Importer), "Path", Importer.PathDomainPropertyId, typeof(Importer.PathPropertyHandler)),
+				new DomainMemberInfo(typeof(Importer), "ProjectName", Importer.ProjectNameDomainPropertyId, typeof(Importer.ProjectNamePropertyHandler)),
 			};
 		}
 		/// <summary>
@@ -167,7 +172,7 @@ namespace Ultramarine.Generators.Language
 	
 			if (createElementMap == null)
 			{
-				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(24);
+				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(26);
 				createElementMap.Add(typeof(Generator), 0);
 				createElementMap.Add(typeof(LoadCodeElement), 1);
 				createElementMap.Add(typeof(BuildProject), 2);
@@ -178,17 +183,19 @@ namespace Ultramarine.Generators.Language
 				createElementMap.Add(typeof(SetVariable), 7);
 				createElementMap.Add(typeof(TextTransformation), 8);
 				createElementMap.Add(typeof(Iterator), 9);
-				createElementMap.Add(typeof(GeneratorLanguageDiagram), 10);
-				createElementMap.Add(typeof(ConnectedWithConnector), 11);
-				createElementMap.Add(typeof(LoadCodeElementShape), 12);
-				createElementMap.Add(typeof(BuildProjectShape), 13);
-				createElementMap.Add(typeof(CreateFolderShape), 14);
-				createElementMap.Add(typeof(CreateProjectItemShape), 15);
-				createElementMap.Add(typeof(LoadProjectItemShape), 16);
-				createElementMap.Add(typeof(ReadPropertyShape), 17);
-				createElementMap.Add(typeof(SetVariableShape), 18);
-				createElementMap.Add(typeof(TextTransformationShape), 19);
-				createElementMap.Add(typeof(CompositeShape), 20);
+				createElementMap.Add(typeof(Importer), 10);
+				createElementMap.Add(typeof(GeneratorLanguageDiagram), 11);
+				createElementMap.Add(typeof(ConnectedWithConnector), 12);
+				createElementMap.Add(typeof(LoadCodeElementShape), 13);
+				createElementMap.Add(typeof(BuildProjectShape), 14);
+				createElementMap.Add(typeof(CreateFolderShape), 15);
+				createElementMap.Add(typeof(CreateProjectItemShape), 16);
+				createElementMap.Add(typeof(LoadProjectItemShape), 17);
+				createElementMap.Add(typeof(ReadPropertyShape), 18);
+				createElementMap.Add(typeof(SetVariableShape), 19);
+				createElementMap.Add(typeof(TextTransformationShape), 20);
+				createElementMap.Add(typeof(CompositeShape), 21);
+				createElementMap.Add(typeof(ImporterShape), 22);
 			}
 			int index;
 			if (!createElementMap.TryGetValue(elementType, out index))
@@ -212,17 +219,19 @@ namespace Ultramarine.Generators.Language
 				case 7: return new SetVariable(partition, propertyAssignments);
 				case 8: return new TextTransformation(partition, propertyAssignments);
 				case 9: return new Iterator(partition, propertyAssignments);
-				case 10: return new GeneratorLanguageDiagram(partition, propertyAssignments);
-				case 11: return new ConnectedWithConnector(partition, propertyAssignments);
-				case 12: return new LoadCodeElementShape(partition, propertyAssignments);
-				case 13: return new BuildProjectShape(partition, propertyAssignments);
-				case 14: return new CreateFolderShape(partition, propertyAssignments);
-				case 15: return new CreateProjectItemShape(partition, propertyAssignments);
-				case 16: return new LoadProjectItemShape(partition, propertyAssignments);
-				case 17: return new ReadPropertyShape(partition, propertyAssignments);
-				case 18: return new SetVariableShape(partition, propertyAssignments);
-				case 19: return new TextTransformationShape(partition, propertyAssignments);
-				case 20: return new CompositeShape(partition, propertyAssignments);
+				case 10: return new Importer(partition, propertyAssignments);
+				case 11: return new GeneratorLanguageDiagram(partition, propertyAssignments);
+				case 12: return new ConnectedWithConnector(partition, propertyAssignments);
+				case 13: return new LoadCodeElementShape(partition, propertyAssignments);
+				case 14: return new BuildProjectShape(partition, propertyAssignments);
+				case 15: return new CreateFolderShape(partition, propertyAssignments);
+				case 16: return new CreateProjectItemShape(partition, propertyAssignments);
+				case 17: return new LoadProjectItemShape(partition, propertyAssignments);
+				case 18: return new ReadPropertyShape(partition, propertyAssignments);
+				case 19: return new SetVariableShape(partition, propertyAssignments);
+				case 20: return new TextTransformationShape(partition, propertyAssignments);
+				case 21: return new CompositeShape(partition, propertyAssignments);
+				case 22: return new ImporterShape(partition, propertyAssignments);
 				default: return null;
 			}
 		}

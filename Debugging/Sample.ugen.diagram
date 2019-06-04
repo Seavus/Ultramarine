@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <generatorLanguageDiagram dslVersion="1.0.0.0" Id="517f964d-3e43-41e5-a279-00ec5b91f4bb" absoluteBounds="0, 0, 11, 8.5" name="Sample">
-  <generatorModelMoniker Id="ecb6e581-86cb-4729-b43a-855f98bccc8f" />
+  <generatorMoniker Id="44a11d26-553a-4c29-9372-451f0eee2cd2" />
   <nestedChildShapes>
-    <buildProjectShape Id="f764fc8e-2b3b-44d5-a8ce-1ce1d186fb00" absoluteBounds="3.625, 1.25, 1.5, 1">
-      <buildProjectMoniker Id="49447c78-8743-4f16-a6fc-8938d694865a" />
+    <buildProjectShape Id="f0d75527-76b8-46b5-b527-c849ced9de2b" absoluteBounds="3, 2.125, 1.25, 0.75">
+      <buildProjectMoniker Id="9d659c74-6487-4617-ad9c-3e25c23175cd" />
     </buildProjectShape>
   </nestedChildShapes>
 </generatorLanguageDiagram>

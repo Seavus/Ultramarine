@@ -122,7 +122,7 @@
     <comment>Description for DslLibrary &apos;GeneratorLanguage&apos;</comment>
   </data>
   <data name="Ultramarine.Generators.Language.GeneratorLanguageDomainModel.DisplayName" xml:space="preserve">
-    <value>GeneratorLanguage</value>
+    <value>Generator Language</value>
     <comment>DisplayName for DslLibrary &apos;GeneratorLanguage&apos;</comment>
   </data>
   <data name="Ultramarine.Generators.Language.Generator.Description" xml:space="preserve">
@@ -156,6 +156,14 @@
   <data name="Ultramarine.Generators.Language.Task/Description.DisplayName" xml:space="preserve">
     <value>Description</value>
     <comment>DisplayName for DomainProperty &apos;Description&apos; on DomainClass &apos;Task&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.Task/BaseType.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.Task.Base Type</value>
+    <comment>Description for DomainProperty &apos;BaseType&apos; on DomainClass &apos;Task&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.Task/BaseType.DisplayName" xml:space="preserve">
+    <value>Base Type</value>
+    <comment>DisplayName for DomainProperty &apos;BaseType&apos; on DomainClass &apos;Task&apos;</comment>
   </data>
   <data name="Ultramarine.Generators.Language.CompositeTask.Description" xml:space="preserve">
     <value>Description for Ultramarine.Generators.Language.CompositeTask</value>
@@ -485,6 +493,30 @@
     <value>Iterator</value>
     <comment>DisplayName for DomainClass &apos;Iterator&apos;</comment>
   </data>
+  <data name="Ultramarine.Generators.Language.Importer.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.Importer</value>
+    <comment>Description for DomainClass &apos;Importer&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.Importer.DisplayName" xml:space="preserve">
+    <value>Importer</value>
+    <comment>DisplayName for DomainClass &apos;Importer&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.Importer/Path.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.Importer.Path</value>
+    <comment>Description for DomainProperty &apos;Path&apos; on DomainClass &apos;Importer&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.Importer/Path.DisplayName" xml:space="preserve">
+    <value>Path</value>
+    <comment>DisplayName for DomainProperty &apos;Path&apos; on DomainClass &apos;Importer&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.Importer/ProjectName.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.Importer.Project Name</value>
+    <comment>Description for DomainProperty &apos;ProjectName&apos; on DomainClass &apos;Importer&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.Importer/ProjectName.DisplayName" xml:space="preserve">
+    <value>Project Name</value>
+    <comment>DisplayName for DomainProperty &apos;ProjectName&apos; on DomainClass &apos;Importer&apos;</comment>
+  </data>
   <data name="Ultramarine.Generators.Language.Connection.Description" xml:space="preserve">
     <value>Description for Ultramarine.Generators.Language.Connection</value>
     <comment>Description for DomainClass &apos;Connection&apos;</comment>
@@ -641,6 +673,14 @@
     <value>Composite Shape</value>
     <comment>DisplayName for DomainClass &apos;CompositeShape&apos;</comment>
   </data>
+  <data name="Ultramarine.Generators.Language.ImporterShape.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.ImporterShape</value>
+    <comment>Description for DomainClass &apos;ImporterShape&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.ImporterShape.DisplayName" xml:space="preserve">
+    <value>Importer</value>
+    <comment>DisplayName for DomainClass &apos;ImporterShape&apos;</comment>
+  </data>
   <data name="Ultramarine.Generators.Language.ConnectedWithConnector.Description" xml:space="preserve">
     <value>Connector between the ExampleShapes. Represents ExampleRelationships on the Diagram.</value>
     <comment>Description for DomainClass &apos;ConnectedWithConnector&apos;</comment>
@@ -650,11 +690,11 @@
     <comment>DisplayName for DomainClass &apos;ConnectedWithConnector&apos;</comment>
   </data>
   <data name="FormatList" xml:space="preserve">
-    <value>GeneratorLanguage (*.ugen)|*.ugen</value>
+    <value>Generator Language (*.ugen)|*.ugen</value>
     <comment>A list of file format specifiers for the Save dialog box</comment>
   </data>
   <data name="ModelExplorerTitle" xml:space="preserve">
-    <value>GeneratorLanguage Explorer</value>
+    <value>Generator Language Explorer</value>
     <comment>Model Explorer Toolwindow title</comment>
   </data>
   <data name="Ultramarine.Generators.Language.GeneratorLanguageDiagram.Description" xml:space="preserve">
@@ -665,8 +705,8 @@
     <value>Minimal Language Diagram</value>
     <comment>DisplayName for DomainClass &apos;GeneratorLanguageDiagram&apos;</comment>
   </data>
-  <data name="GeneratorLanguageToolboxTab" xml:space="preserve">
-    <value>GeneratorLanguage</value>
+  <data name="Generator LanguageToolboxTab" xml:space="preserve">
+    <value>Generator Language</value>
     <comment>Toolbox item tab name</comment>
   </data>
   <data name="ConnectedWithRelationshipToolboxItem" xml:space="preserve">
@@ -747,6 +787,14 @@
   </data>
   <data name="TextTransformationToolboxTooltip" xml:space="preserve">
     <value>Text Transformation</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="ImporterToolboxItem" xml:space="preserve">
+    <value>Importer</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="ImporterToolboxTooltip" xml:space="preserve">
+    <value>Importer</value>
     <comment>Toolbox tooltip text</comment>
   </data>
   <data name="UnresolvedToolboxItem" xml:space="preserve">
@@ -911,6 +959,10 @@ A DomainClass can be serialized as a moniker only if
     <comment>Toolbox item image</comment>
   </data>
   <data name="TextTransformationToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="ImporterToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
     <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Toolbox item image</comment>
   </data>

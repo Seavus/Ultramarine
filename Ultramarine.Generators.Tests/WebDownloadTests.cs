@@ -1,9 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Ultramarine.Generators.Serialization.Providers;
 using Ultramarine.Generators.Tasks;
 using Ultramarine.Workspaces;

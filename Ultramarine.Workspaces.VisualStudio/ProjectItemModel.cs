@@ -26,6 +26,10 @@ namespace Ultramarine.Workspaces.VisualStudio
         public string Name { get; set; }
         public string Language { get; set; }
         public List<IProjectItemModel> ProjectItems { get; set; }
+        public IProjectModel Project
+        {
+            get { return new ProjectModel(_projectItem.ContainingProject); }
+        }
 
         public List<IProjectItemModel> GetProjectItems(string expression)
         {
@@ -192,6 +196,21 @@ namespace Ultramarine.Workspaces.VisualStudio
                 return null;
             }
         }
+
+        public string GetProperty(string propertyName = "Name")
+        {
+            try
+            {
+                return _projectItem.Properties.Item(propertyName).Value.ToString();
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
+
+
+
     }
 
 }

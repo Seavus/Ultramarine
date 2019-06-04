@@ -245,6 +245,12 @@ namespace Ultramarine.Generators.Language
 				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
 				return newShape;
 			}
+			if(element is global::Ultramarine.Generators.Language.Importer)
+			{
+				global::Ultramarine.Generators.Language.ImporterShape newShape = new global::Ultramarine.Generators.Language.ImporterShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
 			if(element is global::Ultramarine.Generators.Language.Connection)
 			{
 				global::Ultramarine.Generators.Language.ConnectedWithConnector newShape = new global::Ultramarine.Generators.Language.ConnectedWithConnector(this.Partition);
@@ -270,6 +276,7 @@ namespace Ultramarine.Generators.Language
 			global::Ultramarine.Generators.Language.SetVariableShape.DecoratorsInitialized += SetVariableShapeDecoratorMap.OnDecoratorsInitialized;
 			global::Ultramarine.Generators.Language.TextTransformationShape.DecoratorsInitialized += TextTransformationShapeDecoratorMap.OnDecoratorsInitialized;
 			global::Ultramarine.Generators.Language.CompositeShape.DecoratorsInitialized += CompositeShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Ultramarine.Generators.Language.ImporterShape.DecoratorsInitialized += ImporterShapeDecoratorMap.OnDecoratorsInitialized;
 		}
 		
 		/// <summary>
@@ -305,6 +312,9 @@ namespace Ultramarine.Generators.Language
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -328,6 +338,9 @@ namespace Ultramarine.Generators.Language
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -351,6 +364,9 @@ namespace Ultramarine.Generators.Language
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -374,6 +390,9 @@ namespace Ultramarine.Generators.Language
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.CreateProjectItem.FolderPathDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -397,6 +416,9 @@ namespace Ultramarine.Generators.Language
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -420,6 +442,9 @@ namespace Ultramarine.Generators.Language
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -443,6 +468,9 @@ namespace Ultramarine.Generators.Language
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -466,6 +494,9 @@ namespace Ultramarine.Generators.Language
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -489,6 +520,35 @@ namespace Ultramarine.Generators.Language
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for ImporterShape.
+		/// </summary>
+		internal static partial class ImporterShapeDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for ImporterShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				TaskShapeDecoratorMap.OnDecoratorsInitialized(sender, e);
+				
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -652,6 +712,7 @@ namespace Ultramarine.Generators.Language
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.SetVariable), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.TextTransformation), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.CompositeTask), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.Importer), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.Connection), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
 		internal sealed partial class FixUpDiagram : FixUpDiagramBase
 		{
@@ -710,6 +771,10 @@ namespace Ultramarine.Generators.Language
 					// this method should return the parent model element that is associated with the shape or diagram that will be the parent 
 					// of the shape created for this child.  If no shape should be created, the method should return null.
 					parentElement = GetParentForCompositeTask((global::Ultramarine.Generators.Language.CompositeTask)childElement);
+				} else
+				if(childElement is global::Ultramarine.Generators.Language.Importer)
+				{
+					parentElement = GetParentForImporter((global::Ultramarine.Generators.Language.Importer)childElement);
 				} else
 				{
 					parentElement = null;
@@ -770,6 +835,13 @@ namespace Ultramarine.Generators.Language
 				return result;
 			}
 			public static global::Ultramarine.Generators.Language.CompositeTask GetParentForTextTransformation( global::Ultramarine.Generators.Language.Task root )
+			{
+				// Segments 0 and 1
+				global::Ultramarine.Generators.Language.CompositeTask result = root.Parent;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Ultramarine.Generators.Language.CompositeTask GetParentForImporter( global::Ultramarine.Generators.Language.Task root )
 			{
 				// Segments 0 and 1
 				global::Ultramarine.Generators.Language.CompositeTask result = root.Parent;
