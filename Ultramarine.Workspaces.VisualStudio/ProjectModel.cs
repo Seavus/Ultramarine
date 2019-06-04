@@ -139,7 +139,7 @@ namespace Ultramarine.Workspaces.VisualStudio
         }
 
         
-        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string propertyName = "Name")
+        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string propertyName = "FileName")
         {
             var result = new List<IProjectItemModel>();
             foreach (var item in ProjectItems)
@@ -158,7 +158,7 @@ namespace Ultramarine.Workspaces.VisualStudio
             return result;
         }
 
-        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon, string propertyName = "Name")
+        public IEnumerable<IProjectItemModel> GetProjectItems(string expression, string dependentUpon, string propertyName = "FileName")
         {
             var result = new List<IProjectItemModel>();
             var dependentProjectItems = GetProjectItems($"$this equals {dependentUpon}", propertyName);
