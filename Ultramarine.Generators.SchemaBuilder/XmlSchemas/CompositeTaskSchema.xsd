@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="TaskSchema.xsd" />
+    <xs:include schemaLocation="BuildProjectSchema.xsd"/>
+    <xs:include schemaLocation="CreateFolderSchema.xsd"/>
+    <xs:include schemaLocation="CreateProjectItemSchema.xsd"/>
+    <xs:include schemaLocation="IteratorSchema.xsd"/>
+    <xs:include schemaLocation="LoadCodeElementSchema.xsd"/>
+    <xs:include schemaLocation="LoadProjectItemSchema.xsd"/>
+    <xs:include schemaLocation="ReadPropertySchema.xsd"/>
+    <xs:include schemaLocation="SetVariableSchema.xsd"/>
+    <xs:include schemaLocation="SqlCommandSchema.xsd"/>
+    <xs:include schemaLocation="StringManipulationSchema.xsd"/>
+    <xs:include schemaLocation="TextTransformationSchema.xsd"/>
+    <xs:include schemaLocation="WebDownloadSchema.xsd"/>
+   
+		<xs:complexType name="CompositeTask">
+      <xs:complexContent>
+        <xs:extension base="TaskStruct">
+			    <xs:sequence>
+            <xs:element name="Tasks">
+              <xs:complexType>
+                <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                  <xs:choice>
+				          <xs:sequence>
+                    <xs:element ref="BuildProject">
+                    </xs:element>
+                  </xs:sequence>	
+				          <xs:sequence>
+                    <xs:element ref="CreateFolder">
+                    </xs:element>
+                  </xs:sequence>	
+				          <xs:sequence>
+                    <xs:element ref="CreateProjectItem">
+                    </xs:element>
+                  </xs:sequence>	
+				          <xs:sequence>
+                    <xs:element ref="Iterator">
+                    </xs:element>
+                  </xs:sequence>	
+				          <xs:sequence>
+                    <xs:element ref="LoadCodeElement">
+                    </xs:element>
+                  </xs:sequence>	
+				          <xs:sequence>
+                    <xs:element ref="LoadProjectItem">
+                    </xs:element>
+                  </xs:sequence>	
+				          <xs:sequence>
+                    <xs:element ref="ReadProperty">
+                    </xs:element>
+                  </xs:sequence>	
+				          <xs:sequence>
+                    <xs:element ref="SetVariable">
+                    </xs:element>
+                  </xs:sequence>	
+				          <xs:sequence>
+                    <xs:element ref="SqlCommand">
+                    </xs:element>
+                  </xs:sequence>	
+				          <xs:sequence>
+                    <xs:element ref="StringManipulation">
+                    </xs:element>
+                  </xs:sequence>	
+				          <xs:sequence>
+                    <xs:element ref="TextTransformation">
+                    </xs:element>
+                  </xs:sequence>	
+				          <xs:sequence>
+                    <xs:element ref="WebDownload">
+                    </xs:element>
+                  </xs:sequence>	
+				</xs:choice>                  
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+			</xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  
+</xs:schema>

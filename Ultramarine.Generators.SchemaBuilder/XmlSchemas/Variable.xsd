@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Variable" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Variable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Key" type="xs:string"/>
+        <xs:element name="Value">
+          <xs:complexType>
+            <xs:sequence maxOccurs="unbounded">
+              <xs:any processContents="lax"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
+  <xs:include schemaLocation="TaskSchema.xsd" />
+    <xs:element name="WebDownload">
+		<xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="TaskStruct">
+			    <xs:sequence>
+    
+ 				 								
+							<xs:element name="Url" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                													
+											 								
+							<xs:element name="Username" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                													
+											 								
+							<xs:element name="Password" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                													
+											 								
+							<xs:element name="Domain" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                													
+											 								
+							<xs:element name="UseSSL" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+                													
+											 								
+							<xs:element name="UserAgent" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                													
+							            
+			    </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+	</xs:schema>

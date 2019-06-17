@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<#@ template debug="true" hostSpecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="Ultramarine.Generators.Tasks" #>
+<#@ assembly name="Ultramarine.Generators.Tasks.Library" #>
+<#@ assembly name="Ultramarine.Workspaces.dll" #>
+<#@ assembly name="Ultramarine.Workspaces.VisualStudio.dll" #>
+<#@ assembly name="NetStandard" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="Ultramarine.Workspaces" #>
+<#@ import namespace="Ultramarine.Workspaces.CodeElements" #>
+<#@ import namespace="Ultramarine.Workspaces.VisualStudio.CodeElements" #> 
+<#@parameter name="Input" type="System.Object" #>
+<# 
+	var task = Input as CodeElementModel;
+	var id = string.Format("http://ultramarine.seavus.com/schemas/{0}schema.json", task.Name);
+	var ListOfComplexObjects = new List<CodeElementModel>();
+#>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
+<# 
+	if(task.Name == "Iterator") {
+#>
+  <xs:include schemaLocation="CompositeTaskSchema.xsd" />
+    <xs:element name="Iterator" type="CompositeTask"/>
+<# 
+	} else { #>
+  <xs:include schemaLocation="TaskSchema.xsd" />
+    <xs:element name="<#= task.Name #>">
+		<xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="TaskStruct">
+			    <xs:sequence>
+    
+ <# var properties = task.Children.Where(c => c.Type == ElementType.Property).ToList();
+		ListOfComplexObjects = new List<CodeElementModel>();
+	
+		foreach(CodeElementModel property in properties) { 
+
+			var propertyName = ToCamelCase(property.Name);	
+			var propertyTypes = GetPropertyDescriptor(property);
+			var t = GetType(property.TypeOf[0]);
+			 if(t.IsEnum) { #>
+				<xs:element name="<#= property.Name #>" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+					<xs:restriction base="xs:string">
+					<# 	foreach(var type in propertyTypes) { #>
+						<xs:enumeration value="<#= type #>"/>
+					<# 	} #>
+					</xs:restriction>
+				  </xs:simpleType>
+				</xs:element>
+				<# } #>
+				<# if(!t.IsEnum) {
+						var typeName = string.Empty; 
+						var alias = TryGetAlias(property.TypeOf[0]);
+						if (alias == null) {  
+							ListOfComplexObjects.Add(property);
+					#>              
+							<xs:element name="<#= property.Name #>" type="<#= property.Name #>" minOccurs="0" maxOccurs="1"/>
+          <# } else {
+							typeName = alias.ToLower(); 
+							if (typeName == "object") { #>
+							<xs:element name="<#= property.Name #>" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+								<xs:sequence maxOccurs="unbounded">
+								  <xs:any processContents="lax"/>
+								</xs:sequence>
+							  </xs:complexType>
+							</xs:element>
+							<# } else { #> 								
+							<xs:element name="<#= property.Name #>" type="xs:<#= typeName #>" minOccurs="0" maxOccurs="1"/>
+                <# } #>
+						<# } #>							
+					<# 	} #>
+		<# } #>
+            
+			    </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+<# 
+	}
+#>
+
+	<# if(ListOfComplexObjects.Count > 0) { #> 
+					<# foreach(var complexObject in ListOfComplexObjects) {
+						var complexObjectType = complexObject.TypeOf[0];  
+						var t = GetType(complexObjectType); 
+						var pos = complexObjectType.LastIndexOf(".") + 1;
+						var typeName = complexObjectType.Substring(pos, complexObjectType.Length - pos); #>
+						<# if(GetType(t.BaseType.FullName).Name == typeof(Dictionary<,>).Name) { /*checking by names because there is version in BaseType...*/ #>
+							<xs:complexType name="<#= complexObject.Name #>">
+                <xs:sequence>
+                  <xs:element name="Key" type="xs:string"/>
+                  <xs:element name="Value">
+                    <xs:complexType>
+                      <xs:sequence maxOccurs="unbounded">
+                        <xs:any processContents="lax"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+						<# } else { 
+							PropertyInfo[] myPropertyInfo = t.GetProperties(); #> 						  
+						<xs:element name="<#= complexObject.Name #>">
+						  <xs:complexType>
+							<xs:sequence>							
+								<# foreach(var prop in myPropertyInfo) { 
+										var propType = TryGetAlias(prop.PropertyType.FullName);
+										if(propType == null) propType = prop.PropertyType.Name; #>
+										<xs:element name="<#= prop.Name.ToLower() #>" type="<#= propType #>"/>
+ 								<# } #>
+							</xs:sequence>
+						  </xs:complexType>
+						</xs:element>
+ 						<# } #>
+ 					<# } #> 
+	<# } #>
+</xs:schema>
+<#+ 
+private static string ToCamelCase(string value) 
+{
+	return Char.ToLowerInvariant(value[0]) + value.Substring(1);
+}
+
+private static Dictionary<Type, string> GetAliases()
+{
+	return new Dictionary<Type, string>() {
+		{ typeof(byte), "byte" },
+		{ typeof(sbyte), "sbyte" },
+		{ typeof(short), "short" },
+		{ typeof(ushort), "ushort" },
+		{ typeof(int), "int" },
+		{ typeof(uint), "uint" },
+		{ typeof(long), "long" },
+		{ typeof(ulong), "ulong" },
+		{ typeof(float), "float" },
+		{ typeof(double), "double" },
+		{ typeof(decimal), "decimal" },
+		{ typeof(object), "object" },
+		{ typeof(bool), "boolean" },
+		{ typeof(char), "char" },
+		{ typeof(string), "string" },
+		{ typeof(void), "void" }
+	};
+}
+
+private static List<string> GetPropertyDescriptor(ICodeElementModel property)
+{
+	Debug.WriteLine("GetPropertyDescriptor called");
+	var result = new List<string>();
+	Debug.WriteLine("Has Property: " + property != null); 
+	
+	Debug.WriteLine(property.TypeOf);
+	try 
+	{
+		var type = property.TypeOf[0];			
+		var t = GetType(type);
+		Debug.WriteLine(t);
+		if(t.IsEnum)
+		{
+			Debug.WriteLine("Type is enum");
+			var enums = Enum.GetNames(t);
+			foreach(var e in enums)
+            {								
+				result.Add(e.ToLower());
+			};
+		}
+		else
+		{
+			result.Add(TryGetAlias(type));
+		}
+	}
+	catch(Exception ex)
+	{
+		Console.WriteLine(ex.Message);
+	}
+
+	return result;
+}
+
+private static string TryGetAlias(string typeName) 
+{
+	var aliases = GetAliases();
+	var key = aliases.Keys.FirstOrDefault(c => c.FullName == typeName);
+	return key != null ? aliases[key] : null;
+}
+
+private static Type GetType(string typeName)
+{
+	var regex = new Regex(@"System\.Nullable<(\S*)>");
+	var safeTypeName = typeName;
+	if (regex.IsMatch(typeName))
+	{
+		var match = regex.Match(typeName);
+		safeTypeName = match.Groups[1].Value;
+    }
+	var type = Type.GetType(safeTypeName);
+	if(type != null)
+		return type;
+
+	return AppDomain.CurrentDomain.GetAssemblies()
+				.SelectMany(t => t.GetTypes())
+				.Where(t => String.Equals(t.FullName, safeTypeName, StringComparison.Ordinal))
+				.First();
+}
+#>

@@ -1,0 +1,34 @@
+﻿<Task>
+  <Name>dssd</Name>
+  <Description></Description>
+  <Input>
+    <Inp></Inp>
+  </Input>
+  <Output>
+    <out>dsd</out>
+  </Output>
+  <ConnectedWith>dsd</ConnectedWith>
+  <Variables>
+    <Variable>
+      <Key>dsd</Key>
+      <Value>
+        <Val>dsd</Val>
+      </Value>
+    </Variable>
+  </Variables>
+  <Parent>
+    <Iterator>
+      <Name></Name>
+      <Description></Description>
+      <Input></Input>
+      <Output></Output>
+      <ConnectedWith></ConnectedWith>
+      <Variables></Variables>
+      <Parent></Parent>
+      <Tasks>
+        <BuildProject></BuildProject>
+      </Tasks>
+    </Iterator>
+    
+  </Parent>
+</Task>

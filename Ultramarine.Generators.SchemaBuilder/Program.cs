@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Schema.Generation;
 using Newtonsoft.Json.Serialization;
@@ -16,24 +17,22 @@ namespace Ultramarine.Generators.SchemaBuilder
     {
         static void Main(string[] args)
         {
+            JSchemaGenerator generator = new JSchemaGenerator();
+            var sschema = generator.Generate(typeof(Dictionary<object,int>));
+
+            var s = new Dictionary<int, int>();
+            s.Add(1, 1); s.Add(2, 2);
+
+            var json = JsonConvert.SerializeObject(s);
+
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.OutputEncoding = System.Text.Encoding.GetEncoding(28591);
-            Console.WriteLine(Logo.Art);
+            Console.WriteLine(json);
             Console.WriteLine("Ultramarine SchemaBuilder");
             Console.ResetColor();
+            Console.Write(sschema.ToString());
 
-            //var objectTypes = AssemblyHelpers.GetAllExportedTypes<Task>();
-
-            //List<JSchema> schemas = new List<JSchema>();
-            //foreach (var o in objectTypes)
-            //{
-            //    var generator = new JSchemaGenerator();
-            //    //generator.GenerationProviders.Add(new TaskProvider());
-            //    var schema = generator.Generate(o);
-            //    schemas.Add(schema);
-            //}
-
-            JSchemaGenerator generator = new JSchemaGenerator();
+            
             generator.GenerationProviders.Add(new TaskProvider());
 
             var schema = generator.Generate(typeof(Generator));

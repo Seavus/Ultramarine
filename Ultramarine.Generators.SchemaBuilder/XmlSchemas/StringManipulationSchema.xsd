@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
+  <xs:include schemaLocation="TaskSchema.xsd" />
+    <xs:element name="StringManipulation">
+		<xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="TaskStruct">
+			    <xs:sequence>
+    
+ 				 								
+							<xs:element name="Format" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                													
+											<xs:element name="Type" minOccurs="0" maxOccurs="1">
+          <xs:simpleType>
+					<xs:restriction base="xs:string">
+											<xs:enumeration value="upper"/>
+											<xs:enumeration value="lower"/>
+											<xs:enumeration value="camelcase"/>
+											<xs:enumeration value="hungarian"/>
+										</xs:restriction>
+				  </xs:simpleType>
+				</xs:element>
+														 								
+							<xs:element name="Pattern" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                													
+											 								
+							<xs:element name="Replacement" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                													
+							            
+			    </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+	</xs:schema>
