@@ -6,28 +6,26 @@
 		<xs:complexType>
       <xs:complexContent>
         <xs:extension base="TaskStruct">
-			    <xs:sequence>
     
- 				 								
-							<xs:element name="Url" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-											 								
-							<xs:element name="Username" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-											 								
-							<xs:element name="Password" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-											 								
-							<xs:element name="Domain" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-											 								
-							<xs:element name="UseSSL" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-                													
-											 								
-							<xs:element name="UserAgent" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-							            
-			    </xs:sequence>
+ 				                  <xs:attribute name="Url" type="xs:string" />
+                  						  							
+					                
+		    		  				                  <xs:attribute name="Username" type="xs:string" />
+                  						  							
+					                
+		    		  				                  <xs:attribute name="Password" type="xs:string" />
+                  						  							
+					                
+		    		  				                  <xs:attribute name="Domain" type="xs:string" />
+                  						  							
+					                
+		    		  				                  <xs:attribute name="UseSSL" type="xs:boolean" />
+                  						  							
+					                
+		    		  				                  <xs:attribute name="UserAgent" type="xs:string" />
+                  						  							
+					                
+		    		              
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>

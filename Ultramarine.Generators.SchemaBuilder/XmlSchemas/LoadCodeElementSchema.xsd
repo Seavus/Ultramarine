@@ -6,58 +6,59 @@
 		<xs:complexType>
       <xs:complexContent>
         <xs:extension base="TaskStruct">
-			    <xs:sequence>
     
- 				 								
-							<xs:element name="ElementName" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-											<xs:element name="ElementType" minOccurs="0" maxOccurs="1">
-          <xs:simpleType>
-					<xs:restriction base="xs:string">
-											<xs:enumeration value="other"/>
-											<xs:enumeration value="class"/>
-											<xs:enumeration value="function"/>
-											<xs:enumeration value="variable"/>
-											<xs:enumeration value="property"/>
-											<xs:enumeration value="namespace"/>
-											<xs:enumeration value="parameter"/>
-											<xs:enumeration value="attribute"/>
-											<xs:enumeration value="interface"/>
-											<xs:enumeration value="delegate"/>
-											<xs:enumeration value="enum"/>
-											<xs:enumeration value="struct"/>
-											<xs:enumeration value="union"/>
-										</xs:restriction>
-				  </xs:simpleType>
-				</xs:element>
-														<xs:element name="ElementAccess" minOccurs="0" maxOccurs="1">
-          <xs:simpleType>
-					<xs:restriction base="xs:string">
-											<xs:enumeration value="public"/>
-											<xs:enumeration value="private"/>
-											<xs:enumeration value="project"/>
-											<xs:enumeration value="protected"/>
-											<xs:enumeration value="default"/>
-										</xs:restriction>
-				  </xs:simpleType>
-				</xs:element>
-														<xs:element name="ElementOverride" minOccurs="0" maxOccurs="1">
-          <xs:simpleType>
-					<xs:restriction base="xs:string">
-											<xs:enumeration value="none"/>
-											<xs:enumeration value="abstract"/>
-											<xs:enumeration value="virtual"/>
-											<xs:enumeration value="override"/>
-											<xs:enumeration value="new"/>
-											<xs:enumeration value="sealed"/>
-										</xs:restriction>
-				  </xs:simpleType>
-				</xs:element>
-														 								
-							<xs:element name="TypeOf" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-							            
-			    </xs:sequence>
+ 				                  <xs:attribute name="ElementName" type="xs:string" />
+                  						  							
+					                
+		    		        <xs:attribute name="ElementType">
+            <xs:simpleType>
+					  <xs:restriction base="xs:string">
+					  						  <xs:enumeration value="other"/>
+					  						  <xs:enumeration value="class"/>
+					  						  <xs:enumeration value="function"/>
+					  						  <xs:enumeration value="variable"/>
+					  						  <xs:enumeration value="property"/>
+					  						  <xs:enumeration value="namespace"/>
+					  						  <xs:enumeration value="parameter"/>
+					  						  <xs:enumeration value="attribute"/>
+					  						  <xs:enumeration value="interface"/>
+					  						  <xs:enumeration value="delegate"/>
+					  						  <xs:enumeration value="enum"/>
+					  						  <xs:enumeration value="struct"/>
+					  						  <xs:enumeration value="union"/>
+					  					  </xs:restriction>
+				    </xs:simpleType>
+				  </xs:attribute>
+				  				                
+		    		        <xs:attribute name="ElementAccess">
+            <xs:simpleType>
+					  <xs:restriction base="xs:string">
+					  						  <xs:enumeration value="public"/>
+					  						  <xs:enumeration value="private"/>
+					  						  <xs:enumeration value="project"/>
+					  						  <xs:enumeration value="protected"/>
+					  						  <xs:enumeration value="default"/>
+					  					  </xs:restriction>
+				    </xs:simpleType>
+				  </xs:attribute>
+				  				                
+		    		        <xs:attribute name="ElementOverride">
+            <xs:simpleType>
+					  <xs:restriction base="xs:string">
+					  						  <xs:enumeration value="none"/>
+					  						  <xs:enumeration value="abstract"/>
+					  						  <xs:enumeration value="virtual"/>
+					  						  <xs:enumeration value="override"/>
+					  						  <xs:enumeration value="new"/>
+					  						  <xs:enumeration value="sealed"/>
+					  					  </xs:restriction>
+				    </xs:simpleType>
+				  </xs:attribute>
+				  				                
+		    		  				                  <xs:attribute name="TypeOf" type="xs:string" />
+                  						  							
+					                
+		    		              
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>

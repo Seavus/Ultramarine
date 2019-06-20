@@ -11,6 +11,7 @@
 <#@ import namespace="System.Diagnostics" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Xml.Serialization" #>
 <#@ import namespace="System.Collections" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
@@ -36,52 +37,54 @@
 		<xs:complexType>
       <xs:complexContent>
         <xs:extension base="TaskStruct">
-			    <xs:sequence>
     
  <# var properties = task.Children.Where(c => c.Type == ElementType.Property).ToList();
-		ListOfComplexObjects = new List<CodeElementModel>();
-	
-		foreach(CodeElementModel property in properties) { 
+		ListOfComplexObjects = new List<CodeElementModel>
+      ();
 
-			var propertyName = ToCamelCase(property.Name);	
-			var propertyTypes = GetPropertyDescriptor(property);
-			var t = GetType(property.TypeOf[0]);
-			 if(t.IsEnum) { #>
-				<xs:element name="<#= property.Name #>" minOccurs="0" maxOccurs="1">
-          <xs:simpleType>
-					<xs:restriction base="xs:string">
-					<# 	foreach(var type in propertyTypes) { #>
-						<xs:enumeration value="<#= type #>"/>
-					<# 	} #>
-					</xs:restriction>
-				  </xs:simpleType>
-				</xs:element>
-				<# } #>
-				<# if(!t.IsEnum) {
-						var typeName = string.Empty; 
-						var alias = TryGetAlias(property.TypeOf[0]);
-						if (alias == null) {  
-							ListOfComplexObjects.Add(property);
-					#>              
-							<xs:element name="<#= property.Name #>" type="<#= property.Name #>" minOccurs="0" maxOccurs="1"/>
-          <# } else {
-							typeName = alias.ToLower(); 
-							if (typeName == "object") { #>
-							<xs:element name="<#= property.Name #>" minOccurs="0" maxOccurs="1">
-                <xs:complexType>
-								<xs:sequence maxOccurs="unbounded">
-								  <xs:any processContents="lax"/>
-								</xs:sequence>
-							  </xs:complexType>
-							</xs:element>
-							<# } else { #> 								
-							<xs:element name="<#= property.Name #>" type="xs:<#= typeName #>" minOccurs="0" maxOccurs="1"/>
-                <# } #>
-						<# } #>							
-					<# 	} #>
-		<# } #>
+      foreach(CodeElementModel property in properties) {
+
+      var propertyName = ToCamelCase(property.Name);
+      var propertyTypes = GetPropertyDescriptor(property);
+      var t = GetType(property.TypeOf[0]);
+      var xmlIgnore = property.Attributes.FirstOrDefault(x => x.Name == "XmlIgnore");
+      if(xmlIgnore == null) {
+      if(t.IsEnum) { #>
+      <xs:attribute name="<#= property.Name #>">
+            <xs:simpleType>
+					  <xs:restriction base="xs:string">
+					  <# 	foreach(var type in propertyTypes) { #>
+						  <xs:enumeration value="<#= type #>"/>
+					  <# 	} #>
+					  </xs:restriction>
+				    </xs:simpleType>
+				  </xs:attribute>
+				  <# } #>
+				  <# if(!t.IsEnum) {
+						  var typeName = string.Empty; 
+						  var alias = TryGetAlias(property.TypeOf[0]);
+						  if (alias == null) {  
+							  ListOfComplexObjects.Add(property);
+					  #>              
+          
+            <# } else {
+							  typeName = alias.ToLower(); 
+							  if (typeName == "object") { #>
+							  <xs:attribute name=""<#= property.Name #>" minOccurs="0" maxOccurs="1">
+                  <xs:complexType>
+								  <xs:sequence maxOccurs="unbounded">
+								    <xs:any processContents="lax"/>
+								  </xs:sequence>
+							    </xs:complexType>
+							  </xs:attribute>
+							  <# } else { #>
+                <xs:attribute name="<#= property.Name #>" type="xs:<#= typeName #>" />
+                  <# } #>
+						  <# } #>							
+					  <# 	} #>              
+		    <# } #>
+		  <# } #>
             
-			    </xs:sequence>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>

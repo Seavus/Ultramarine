@@ -6,29 +6,28 @@
 		<xs:complexType>
       <xs:complexContent>
         <xs:extension base="TaskStruct">
-			    <xs:sequence>
     
- 				 								
-							<xs:element name="Format" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-											<xs:element name="Type" minOccurs="0" maxOccurs="1">
-          <xs:simpleType>
-					<xs:restriction base="xs:string">
-											<xs:enumeration value="upper"/>
-											<xs:enumeration value="lower"/>
-											<xs:enumeration value="camelcase"/>
-											<xs:enumeration value="hungarian"/>
-										</xs:restriction>
-				  </xs:simpleType>
-				</xs:element>
-														 								
-							<xs:element name="Pattern" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-											 								
-							<xs:element name="Replacement" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-							            
-			    </xs:sequence>
+ 				                  <xs:attribute name="Format" type="xs:string" />
+                  						  							
+					                
+		    		        <xs:attribute name="Type">
+            <xs:simpleType>
+					  <xs:restriction base="xs:string">
+					  						  <xs:enumeration value="upper"/>
+					  						  <xs:enumeration value="lower"/>
+					  						  <xs:enumeration value="camelcase"/>
+					  						  <xs:enumeration value="hungarian"/>
+					  					  </xs:restriction>
+				    </xs:simpleType>
+				  </xs:attribute>
+				  				                
+		    		  				                  <xs:attribute name="Pattern" type="xs:string" />
+                  						  							
+					                
+		    		  				                  <xs:attribute name="Replacement" type="xs:string" />
+                  						  							
+					                
+		    		              
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>

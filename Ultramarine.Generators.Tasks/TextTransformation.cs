@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Composition;
 using System.Linq;
+using System.Xml.Serialization;
 using Ultramarine.Generators.Tasks.Library.Contracts;
 using Ultramarine.Workspaces;
 
@@ -19,6 +20,7 @@ namespace Ultramarine.Generators.Tasks
         /// <summary>
         /// Additional parameters to send to the generation process
         /// </summary>
+        [XmlIgnore]
         public Parameters Parameters { get; set; } = new Parameters();
         /// <summary>
         /// T4 file name to use

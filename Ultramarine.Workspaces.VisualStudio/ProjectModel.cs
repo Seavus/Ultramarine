@@ -242,7 +242,6 @@ namespace Ultramarine.Workspaces.VisualStudio
             {
                 foreach (var transformationError in logger.Errors)
                 {
-                    var error = logger.Errors;
                     var type = transformationError.IsWarning ? "WARNING" : "ERROR";
                     //TODO: logger
                     //Extensions.DteExtensions.Instance.Log(string.Format("{0} in line {1}, column {2}", type, transformationError.Line, transformationError.Column));

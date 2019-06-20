@@ -6,25 +6,23 @@
 		<xs:complexType>
       <xs:complexContent>
         <xs:extension base="TaskStruct">
-			    <xs:sequence>
     
- 				 								
-							<xs:element name="ItemName" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-											 								
-							<xs:element name="FolderPath" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-											 								
-							<xs:element name="LinkedWith" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-											 								
-							<xs:element name="ProjectName" type="xs:string" minOccurs="0" maxOccurs="1"/>
-                													
-											 								
-							<xs:element name="Overwrite" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-                													
-							            
-			    </xs:sequence>
+ 				                  <xs:attribute name="ItemName" type="xs:string" />
+                  						  							
+					                
+		    		  				                  <xs:attribute name="FolderPath" type="xs:string" />
+                  						  							
+					                
+		    		  				                  <xs:attribute name="LinkedWith" type="xs:string" />
+                  						  							
+					                
+		    		  				                  <xs:attribute name="ProjectName" type="xs:string" />
+                  						  							
+					                
+		    		  				                  <xs:attribute name="Overwrite" type="xs:boolean" />
+                  						  							
+					                
+		    		              
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
