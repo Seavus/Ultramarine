@@ -2,27 +2,27 @@
  
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
   <xs:include schemaLocation="TaskSchema.xsd" />
-    <xs:element name="WebDownload">
-		<xs:complexType>
+    <xs:element name="webDownload">
+      <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
     
- 				                  <xs:attribute name="Url" type="xs:string" />
+ 			                <xs:attribute name="url" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="Username" type="xs:string" />
+		    		  			                <xs:attribute name="username" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="Password" type="xs:string" />
+		    		  			                <xs:attribute name="password" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="Domain" type="xs:string" />
+		    		  			                <xs:attribute name="domain" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="UseSSL" type="xs:boolean" />
+		    		  			                <xs:attribute name="useSSL" type="xs:boolean" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="UserAgent" type="xs:string" />
+		    		  			                <xs:attribute name="userAgent" type="xs:string" />
                   						  							
 					                
 		    		              

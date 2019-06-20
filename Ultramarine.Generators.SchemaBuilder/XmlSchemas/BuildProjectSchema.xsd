@@ -2,15 +2,18 @@
  
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
   <xs:include schemaLocation="TaskSchema.xsd" />
-    <xs:element name="BuildProject">
-		<xs:complexType>
+    <xs:element name="buildProject">
+      <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
     
- 				                  <xs:attribute name="ProjectName" type="xs:string" />
+ 			                <xs:attribute name="projectName" type="xs:string" />
                   						  							
 					                
-		    		  		              
+		    		  			                <xs:attribute name="configuration" type="xs:string" />
+                  						  							
+					                
+		    		              
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>

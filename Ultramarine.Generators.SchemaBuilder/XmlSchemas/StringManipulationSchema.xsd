@@ -2,16 +2,16 @@
  
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
   <xs:include schemaLocation="TaskSchema.xsd" />
-    <xs:element name="StringManipulation">
-		<xs:complexType>
+    <xs:element name="stringManipulation">
+      <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
     
- 				                  <xs:attribute name="Format" type="xs:string" />
+ 			                <xs:attribute name="format" type="xs:string" />
                   						  							
 					                
-		    		        <xs:attribute name="Type">
-            <xs:simpleType>
+		    		        <xs:attribute name="type">
+        <xs:simpleType>
 					  <xs:restriction base="xs:string">
 					  						  <xs:enumeration value="upper"/>
 					  						  <xs:enumeration value="lower"/>
@@ -20,11 +20,11 @@
 					  					  </xs:restriction>
 				    </xs:simpleType>
 				  </xs:attribute>
-				  				                
-		    		  				                  <xs:attribute name="Pattern" type="xs:string" />
+				  			              
+		    		  			                <xs:attribute name="pattern" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="Replacement" type="xs:string" />
+		    		  			                <xs:attribute name="replacement" type="xs:string" />
                   						  							
 					                
 		    		              

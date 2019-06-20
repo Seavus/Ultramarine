@@ -2,18 +2,18 @@
  
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
   <xs:include schemaLocation="TaskSchema.xsd" />
-    <xs:element name="LoadProjectItem">
-		<xs:complexType>
+    <xs:element name="loadProjectItem">
+      <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
     
- 				                  <xs:attribute name="ProjectName" type="xs:string" />
+ 			                <xs:attribute name="projectName" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="ItemName" type="xs:string" />
+		    		  			                <xs:attribute name="itemName" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="LinkedWith" type="xs:string" />
+		    		  			                <xs:attribute name="linkedWith" type="xs:string" />
                   						  							
 					                
 		    		              

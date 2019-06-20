@@ -2,24 +2,24 @@
  
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
   <xs:include schemaLocation="TaskSchema.xsd" />
-    <xs:element name="CreateProjectItem">
-		<xs:complexType>
+    <xs:element name="createProjectItem">
+      <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
     
- 				                  <xs:attribute name="ItemName" type="xs:string" />
+ 			                <xs:attribute name="itemName" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="FolderPath" type="xs:string" />
+		    		  			                <xs:attribute name="folderPath" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="LinkedWith" type="xs:string" />
+		    		  			                <xs:attribute name="linkedWith" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="ProjectName" type="xs:string" />
+		    		  			                <xs:attribute name="projectName" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="Overwrite" type="xs:boolean" />
+		    		  			                <xs:attribute name="overwrite" type="xs:boolean" />
                   						  							
 					                
 		    		              

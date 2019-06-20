@@ -2,15 +2,15 @@
  
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
   <xs:include schemaLocation="TaskSchema.xsd" />
-    <xs:element name="CreateFolder">
-		<xs:complexType>
+    <xs:element name="createFolder">
+      <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
     
- 				                  <xs:attribute name="FolderPath" type="xs:string" />
+ 			                <xs:attribute name="folderPath" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="BasePath" type="xs:string" />
+		    		  			                <xs:attribute name="basePath" type="xs:string" />
                   						  							
 					                
 		    		              

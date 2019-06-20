@@ -29,14 +29,15 @@
 	if(task.Name == "Iterator") {
 #>
   <xs:include schemaLocation="CompositeTaskSchema.xsd" />
-    <xs:element name="Iterator" type="CompositeTask"/>
+    <xs:element name="iterator" type="compositeTask"/>
 <# 
-	} else { #>
+	} else { 
+  var taskName = ToCamelCase(task.Name);#>
   <xs:include schemaLocation="TaskSchema.xsd" />
-    <xs:element name="<#= task.Name #>">
-		<xs:complexType>
+    <xs:element name="<#= taskName #>">
+      <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
     
  <# var properties = task.Children.Where(c => c.Type == ElementType.Property).ToList();
 		ListOfComplexObjects = new List<CodeElementModel>
@@ -49,9 +50,10 @@
       var t = GetType(property.TypeOf[0]);
       var xmlIgnore = property.Attributes.FirstOrDefault(x => x.Name == "XmlIgnore");
       if(xmlIgnore == null) {
-      if(t.IsEnum) { #>
-      <xs:attribute name="<#= property.Name #>">
-            <xs:simpleType>
+      if(t.IsEnum) {
+      var propName = ToCamelCase(property.Name);#>
+      <xs:attribute name="<#= propName #>">
+        <xs:simpleType>
 					  <xs:restriction base="xs:string">
 					  <# 	foreach(var type in propertyTypes) { #>
 						  <xs:enumeration value="<#= type #>"/>
@@ -60,7 +62,7 @@
 				    </xs:simpleType>
 				  </xs:attribute>
 				  <# } #>
-				  <# if(!t.IsEnum) {
+			<# if(!t.IsEnum) {
 						  var typeName = string.Empty; 
 						  var alias = TryGetAlias(property.TypeOf[0]);
 						  if (alias == null) {  
@@ -69,16 +71,18 @@
           
             <# } else {
 							  typeName = alias.ToLower(); 
-							  if (typeName == "object") { #>
-							  <xs:attribute name=""<#= property.Name #>" minOccurs="0" maxOccurs="1">
+							  if (typeName == "object") { 
+                var propName = ToCamelCase(property.Name); #>
+							  <xs:attribute name=""<#= propName #>" minOccurs="0" maxOccurs="1">
                   <xs:complexType>
 								  <xs:sequence maxOccurs="unbounded">
 								    <xs:any processContents="lax"/>
 								  </xs:sequence>
 							    </xs:complexType>
 							  </xs:attribute>
-							  <# } else { #>
-                <xs:attribute name="<#= property.Name #>" type="xs:<#= typeName #>" />
+							  <# } else { 
+                  var propName = ToCamelCase(property.Name); #>
+                <xs:attribute name="<#= propName #>" type="xs:<#= typeName #>" />
                   <# } #>
 						  <# } #>							
 					  <# 	} #>              
@@ -102,8 +106,8 @@
 						<# if(GetType(t.BaseType.FullName).Name == typeof(Dictionary<,>).Name) { /*checking by names because there is version in BaseType...*/ #>
 							<xs:complexType name="<#= complexObject.Name #>">
                 <xs:sequence>
-                  <xs:element name="Key" type="xs:string"/>
-                  <xs:element name="Value">
+                  <xs:element name="key" type="xs:string"/>
+                  <xs:element name="value">
                     <xs:complexType>
                       <xs:sequence maxOccurs="unbounded">
                         <xs:any processContents="lax"/>
@@ -129,7 +133,7 @@
  					<# } #> 
 	<# } #>
 </xs:schema>
-<#+ 
+<#+
 private static string ToCamelCase(string value) 
 {
 	return Char.ToLowerInvariant(value[0]) + value.Substring(1);

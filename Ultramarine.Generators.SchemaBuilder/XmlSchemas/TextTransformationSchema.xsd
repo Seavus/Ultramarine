@@ -2,15 +2,15 @@
  
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
   <xs:include schemaLocation="TaskSchema.xsd" />
-    <xs:element name="TextTransformation">
-		<xs:complexType>
+    <xs:element name="textTransformation">
+      <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
     
- 		  				                  <xs:attribute name="FileName" type="xs:string" />
+ 		  			                <xs:attribute name="fileName" type="xs:string" />
                   						  							
 					                
-		    		  				                  <xs:attribute name="ProjectName" type="xs:string" />
+		    		  			                <xs:attribute name="projectName" type="xs:string" />
                   						  							
 					                
 		    		              

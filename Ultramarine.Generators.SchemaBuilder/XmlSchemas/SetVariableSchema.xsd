@@ -2,15 +2,15 @@
  
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
   <xs:include schemaLocation="TaskSchema.xsd" />
-    <xs:element name="SetVariable">
-		<xs:complexType>
+    <xs:element name="setVariable">
+      <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
     
- 				                  <xs:attribute name="VariableName" type="xs:string" />
+ 			                <xs:attribute name="variableName" type="xs:string" />
                   						  							
 					                
-		    		  		  				                  <xs:attribute name="ParentTask" type="xs:string" />
+		    		  		  			                <xs:attribute name="parentTask" type="xs:string" />
                   						  							
 					                
 		    		              

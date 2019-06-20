@@ -23,5 +23,5 @@
 #>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <xs:include schemaLocation="XmlSchemas/CompositeTaskSchema.xsd" />
-  <xs:element name="Generator" type="CompositeTask"/>
+  <xs:element name="generator" type="compositeTask"/>
 </xs:schema>

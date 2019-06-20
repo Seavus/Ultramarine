@@ -2,16 +2,16 @@
  
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
   <xs:include schemaLocation="TaskSchema.xsd" />
-    <xs:element name="LoadCodeElement">
-		<xs:complexType>
+    <xs:element name="loadCodeElement">
+      <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
     
- 				                  <xs:attribute name="ElementName" type="xs:string" />
+ 			                <xs:attribute name="elementName" type="xs:string" />
                   						  							
 					                
-		    		        <xs:attribute name="ElementType">
-            <xs:simpleType>
+		    		        <xs:attribute name="elementType">
+        <xs:simpleType>
 					  <xs:restriction base="xs:string">
 					  						  <xs:enumeration value="other"/>
 					  						  <xs:enumeration value="class"/>
@@ -29,9 +29,9 @@
 					  					  </xs:restriction>
 				    </xs:simpleType>
 				  </xs:attribute>
-				  				                
-		    		        <xs:attribute name="ElementAccess">
-            <xs:simpleType>
+				  			              
+		    		        <xs:attribute name="elementAccess">
+        <xs:simpleType>
 					  <xs:restriction base="xs:string">
 					  						  <xs:enumeration value="public"/>
 					  						  <xs:enumeration value="private"/>
@@ -41,9 +41,9 @@
 					  					  </xs:restriction>
 				    </xs:simpleType>
 				  </xs:attribute>
-				  				                
-		    		        <xs:attribute name="ElementOverride">
-            <xs:simpleType>
+				  			              
+		    		        <xs:attribute name="elementOverride">
+        <xs:simpleType>
 					  <xs:restriction base="xs:string">
 					  						  <xs:enumeration value="none"/>
 					  						  <xs:enumeration value="abstract"/>
@@ -54,8 +54,8 @@
 					  					  </xs:restriction>
 				    </xs:simpleType>
 				  </xs:attribute>
-				  				                
-		    		  				                  <xs:attribute name="TypeOf" type="xs:string" />
+				  			              
+		    		  			                <xs:attribute name="typeOf" type="xs:string" />
                   						  							
 					                
 		    		              

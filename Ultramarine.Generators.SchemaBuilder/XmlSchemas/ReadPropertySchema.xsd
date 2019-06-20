@@ -2,12 +2,12 @@
  
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
   <xs:include schemaLocation="TaskSchema.xsd" />
-    <xs:element name="ReadProperty">
-		<xs:complexType>
+    <xs:element name="readProperty">
+      <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
     
- 				                  <xs:attribute name="PropertyName" type="xs:string" />
+ 			                <xs:attribute name="propertyName" type="xs:string" />
                   						  							
 					                
 		    		              

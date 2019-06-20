@@ -26,19 +26,20 @@
   #>
   <xs:include schemaLocation="<#= task.Name #>Schema.xsd"/>
   <# } #> 
-		<xs:complexType name="CompositeTask">
+		<xs:complexType name="compositeTask">
       <xs:complexContent>
-        <xs:extension base="TaskStruct">
+        <xs:extension base="taskStruct">
 			    <xs:sequence>
-            <xs:element name="Tasks">
+            <xs:element name="tasks">
               <xs:complexType>
                 <xs:sequence minOccurs="0" maxOccurs="unbounded">
                   <xs:choice>
 <# 
-foreach(CodeElementModel task in taskList) {
+foreach(CodeElementModel task in taskList) {  
+    var taskName = ToCamelCase(task.Name);
 #>
 				          <xs:sequence>
-                    <xs:element ref="<#= task.Name #>">
+                    <xs:element ref="<#= taskName #>">
                     </xs:element>
                   </xs:sequence>	
 <# 
@@ -54,3 +55,10 @@ foreach(CodeElementModel task in taskList) {
     </xs:complexType>
   
 </xs:schema>
+
+<#+
+  private static string ToCamelCase(string value)
+  {
+    return Char.ToLowerInvariant(value[0]) + value.Substring(1);
+  }
+#>
