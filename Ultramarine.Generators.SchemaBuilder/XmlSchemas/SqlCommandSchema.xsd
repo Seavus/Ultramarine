@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
+  <xs:include schemaLocation="TaskSchema.xsd" />
+    <xs:element name="sqlCommand">
+      <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="taskStruct">
+    
+ 			                <xs:attribute name="connectionString" type="xs:string" />
+                  						  							
+					                
+		    		  			                <xs:attribute name="statement" type="xs:string" />
+                  						  							
+					                
+		    		        <xs:attribute name="commandType">
+        <xs:simpleType>
+					  <xs:restriction base="xs:string">
+					  						  <xs:enumeration value="text"/>
+					  						  <xs:enumeration value="storedprocedure"/>
+					  						  <xs:enumeration value="tabledirect"/>
+					  					  </xs:restriction>
+				    </xs:simpleType>
+				  </xs:attribute>
+				  			              
+		    		        <xs:attribute name="queryType">
+        <xs:simpleType>
+					  <xs:restriction base="xs:string">
+					  						  <xs:enumeration value="reader"/>
+					  						  <xs:enumeration value="nonquery"/>
+					  						  <xs:enumeration value="scalar"/>
+					  					  </xs:restriction>
+				    </xs:simpleType>
+				  </xs:attribute>
+				  			              
+		    		              
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+	</xs:schema>

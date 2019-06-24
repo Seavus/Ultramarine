@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
+  <xs:include schemaLocation="TaskSchema.xsd" />
+    <xs:element name="createProjectItem">
+      <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="taskStruct">
+    
+ 			                <xs:attribute name="itemName" type="xs:string" />
+                  						  							
+					                
+		    		  			                <xs:attribute name="folderPath" type="xs:string" />
+                  						  							
+					                
+		    		  			                <xs:attribute name="linkedWith" type="xs:string" />
+                  						  							
+					                
+		    		  			                <xs:attribute name="projectName" type="xs:string" />
+                  						  							
+					                
+		    		  			                <xs:attribute name="overwrite" type="xs:boolean" />
+                  						  							
+					                
+		    		              
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+	</xs:schema>

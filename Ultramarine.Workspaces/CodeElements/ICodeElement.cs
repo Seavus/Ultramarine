@@ -10,5 +10,6 @@ namespace Ultramarine.Workspaces.CodeElements
         ElementOverride Override { get; set; }
         List<string> TypeOf { get; set; }
         List<ICodeElementModel> Children { get; set; }
+        List<ICodeElementModel> Attributes { get; }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Xml.Serialization;
 using Ultramarine.Workspaces;
 
 namespace Ultramarine.Generators.Tasks.Library.Contracts
@@ -27,6 +28,8 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
 
         public object Input { get; set; }
         public object Output { get; set; }
+
+        [XmlIgnore]
         public Task Parent { get; set; }
         public string ConnectedWith { get; set; }
 

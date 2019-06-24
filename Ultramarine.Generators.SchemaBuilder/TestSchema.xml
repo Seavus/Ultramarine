@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<generator name="sdd">
+  <tasks>
+    <buildProject name="dssd">
+      <variables>
+        <variable>
+          <key></key>
+          <value>
+            <val>dsd</val>
+          </value>
+        </variable>
+      </variables>
+    </buildProject>
+    <iterator name="sdd">
+      <tasks>
+        <buildProject name="dssd"></buildProject>
+        <buildProject name="dsddd"></buildProject>
+        <loadCodeElement name="sdd" elementOverride="abstract"></loadCodeElement>
+      </tasks>
+    </iterator>
+  </tasks>
+</generator>

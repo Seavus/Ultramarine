@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Composition;
+using System.Xml.Serialization;
 using Ultramarine.Generators.Tasks.Library.Contracts;
 using Ultramarine.Generators.Tasks.Library.Extensions;
 
@@ -21,6 +22,7 @@ namespace Ultramarine.Generators.Tasks
         /// <summary>
         /// Value of the variable to set
         /// </summary>
+        [XmlIgnore]
         public object VariableValue { get; set; }
         /// <summary>
         /// Name of the parent task to set a variable on

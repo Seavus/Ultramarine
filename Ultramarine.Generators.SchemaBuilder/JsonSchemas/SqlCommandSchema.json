@@ -1,0 +1,55 @@
+ 
+{
+
+	"$id": "http://ultramarine.seavus.com/schemas/SqlCommandschema.json",
+	"allOf": [
+	{
+		"$ref": "BaseTypes/TaskSchema.json#"
+	},
+	{	
+		"properties": {
+				"connectionString": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"statement": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"commandType": {
+					
+									"enum": [
+											"text"  , 
+									  	
+											"storedprocedure"  , 
+									  	
+											"tabledirect" 	
+										]
+													}  , 
+				  					"queryType": {
+					
+									"enum": [
+											"reader"  , 
+									  	
+											"nonquery"  , 
+									  	
+											"scalar" 	
+										]
+													} 				}
+		},
+		{
+					}
+	]
+        
+}
+

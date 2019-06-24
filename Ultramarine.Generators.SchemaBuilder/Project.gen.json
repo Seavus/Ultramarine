@@ -1,0 +1,107 @@
+{
+  "$schema": "./schema.json",
+  "description": "ProjectDescription",
+  "name": "Project",
+  "tasks": [
+    {
+      "loadProjectItem": {
+        "name": "loadCSharpTasks",
+        "projectName": "$this equals 'Ultramarine.Generators.Tasks'"
+      }
+    },
+    {
+      "loadCodeElement": {
+        "connectedWith": "loadCSharpTasks",
+        "elementType": "class",
+        "name": "loadCSharpTaskClasses",
+        "typeOf": "Task"
+      }
+    },
+    {
+      "iterator": {
+        "name": "foreachCSharptTaskClass",
+        "connectedWith": "loadCSharpTaskClasses",
+        "tasks": [
+          {
+            "readProperty": {
+              "name": "readTaskName",
+              "propertyName": "Name"
+            }
+          },
+          {
+            "setVariable": {
+              "name": "setTaskName",
+              "description": "",
+              "variableName": "TaskName",
+              "connectedWith": "readTaskName"
+            }
+          },
+          {
+            "textTransformation": {
+              "name": "transformToEs6",
+              "fileName": "$this equals 'XmlSchemaTaskTemplate.tt'",
+              "projectName": "$this equals 'Ultramarine.GeneratorRecipes'"
+            }
+          },
+          {
+            "createProjectItem": {
+              "name": "createTaskItem",
+              "connectedWith": "transformToEs6",
+              "itemName": "{TaskName}Schema.xsd",
+              "folderPath": "XmlSchemas",
+              "overwrite": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "textTransformation": {
+        "name": "transformToEs6CompositeTask",
+        "connectedWith": "loadCSharpTaskClasses",
+        "fileName": "$this equals 'XmlSchemaCompositeTask.tt'",
+        "projectName": "$this equals 'Ultramarine.GeneratorRecipes'"
+      }
+    },
+    {
+      "createProjectItem": {
+        "name": "createTaskItemIterator",
+        "connectedWith": "transformToEs6CompositeTask",
+        "itemName": "XmlSchemas/CompositeTaskSchema.xsd",
+        "overwrite": true
+      }
+    },
+    {
+      "textTransformation": {
+        "name": "transformToEs6BaseTask",
+        "connectedWith": "loadCSharpTaskClasses",
+        "fileName": "$this equals 'XmlSchemaBaseTask.tt'",
+        "projectName": "$this equals 'Ultramarine.GeneratorRecipes'"
+      }
+    },
+    {
+      "createProjectItem": {
+        "name": "createTaskItemBaseTask",
+        "connectedWith": "transformToEs6BaseTask",
+        "itemName": "XmlSchemas/TaskSchema.xsd",
+        "overwrite": true
+      }
+    },
+    {
+      "textTransformation": {
+        "name": "transformToEs6",
+        "connectedWith": "loadCSharpTaskClasses",
+        "fileName": "$this equals 'XmlSchemaTemplate.tt'",
+        "projectName": "$this equals 'Ultramarine.GeneratorRecipes'"
+      }
+    },
+    {
+      "createProjectItem": {
+        "name": "createTaskItem",
+        "connectedWith": "transformToEs6",
+        "itemName": "schema.xsd",
+        "overwrite": true
+      }
+    }
+  ]
+}

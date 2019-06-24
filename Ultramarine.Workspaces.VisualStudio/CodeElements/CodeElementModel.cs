@@ -2,6 +2,9 @@
 using EnvDTE80;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text.RegularExpressions;
 using Ultramarine.Workspaces.CodeElements;
 
 namespace Ultramarine.Workspaces.VisualStudio.CodeElements
@@ -17,6 +20,7 @@ namespace Ultramarine.Workspaces.VisualStudio.CodeElements
             Access = Convert(codeElement.GetAccess());
             TypeOf = GetTypeOf();
             Children = MapCodeElements(codeElement.Children);
+            Attributes = GetCustomAttributes();
         }
 
         public string Name { get; set; }
@@ -25,6 +29,7 @@ namespace Ultramarine.Workspaces.VisualStudio.CodeElements
         public ElementOverride Override { get; set; }
         public List<string> TypeOf { get; set; }
         public List<ICodeElementModel> Children { get; set; }
+        public List<ICodeElementModel> Attributes { get; }
 
         private CodeElement _codeElement;
 
@@ -79,6 +84,29 @@ namespace Ultramarine.Workspaces.VisualStudio.CodeElements
             if (codeProperty == null)
                 return null;
             return new List<string>() { codeProperty.Type.AsFullName };
+        }
+
+        private List<ICodeElementModel> GetCustomAttributes()
+        {
+            var result = new List<ICodeElementModel>();
+            if (_codeElement is CodeClass2)
+            {
+                foreach (CodeElement attribute in ((CodeClass2)_codeElement).Attributes)
+                {
+                    result.Add(new CodeElementModel(attribute));
+                }
+                return result;
+            }
+
+            if (_codeElement is CodeProperty2)
+            {
+                foreach (CodeElement attribute in ((CodeProperty2)_codeElement).Attributes)
+                    result.Add(new CodeElementModel(attribute));
+
+                return result;
+            }
+
+            return result;
         }
     }
 }

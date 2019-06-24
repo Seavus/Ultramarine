@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
+  <xs:include schemaLocation="TaskSchema.xsd" />
+    <xs:element name="loadCodeElement">
+      <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="taskStruct">
+    
+ 			                <xs:attribute name="elementName" type="xs:string" />
+                  						  							
+					                
+		    		        <xs:attribute name="elementType">
+        <xs:simpleType>
+					  <xs:restriction base="xs:string">
+					  						  <xs:enumeration value="other"/>
+					  						  <xs:enumeration value="class"/>
+					  						  <xs:enumeration value="function"/>
+					  						  <xs:enumeration value="variable"/>
+					  						  <xs:enumeration value="property"/>
+					  						  <xs:enumeration value="namespace"/>
+					  						  <xs:enumeration value="parameter"/>
+					  						  <xs:enumeration value="attribute"/>
+					  						  <xs:enumeration value="interface"/>
+					  						  <xs:enumeration value="delegate"/>
+					  						  <xs:enumeration value="enum"/>
+					  						  <xs:enumeration value="struct"/>
+					  						  <xs:enumeration value="union"/>
+					  					  </xs:restriction>
+				    </xs:simpleType>
+				  </xs:attribute>
+				  			              
+		    		        <xs:attribute name="elementAccess">
+        <xs:simpleType>
+					  <xs:restriction base="xs:string">
+					  						  <xs:enumeration value="public"/>
+					  						  <xs:enumeration value="private"/>
+					  						  <xs:enumeration value="project"/>
+					  						  <xs:enumeration value="protected"/>
+					  						  <xs:enumeration value="default"/>
+					  					  </xs:restriction>
+				    </xs:simpleType>
+				  </xs:attribute>
+				  			              
+		    		        <xs:attribute name="elementOverride">
+        <xs:simpleType>
+					  <xs:restriction base="xs:string">
+					  						  <xs:enumeration value="none"/>
+					  						  <xs:enumeration value="abstract"/>
+					  						  <xs:enumeration value="virtual"/>
+					  						  <xs:enumeration value="override"/>
+					  						  <xs:enumeration value="new"/>
+					  						  <xs:enumeration value="sealed"/>
+					  					  </xs:restriction>
+				    </xs:simpleType>
+				  </xs:attribute>
+				  			              
+		    		  			                <xs:attribute name="typeOf" type="xs:string" />
+                  						  							
+					                
+		    		              
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+	</xs:schema>

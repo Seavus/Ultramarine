@@ -1,0 +1,44 @@
+ 
+{
+
+	"$id": "http://ultramarine.seavus.com/schemas/SetVariableschema.json",
+	"allOf": [
+	{
+		"$ref": "BaseTypes/TaskSchema.json#"
+	},
+	{	
+		"properties": {
+				"variableName": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"variableValue": {
+					
+																	
+							"type": [
+							"object",							
+								"null"
+							]
+																				
+									}  , 
+				  					"parentTask": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									} 				}
+		},
+		{
+					}
+	]
+        
+}
+

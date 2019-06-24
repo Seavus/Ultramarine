@@ -41,14 +41,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlSchemaCompositeTask.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XmlSchemaCompositeTask.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="JsonSchemaTaskTemplate.tt" />
+    <Content Include="XmlSchemaBaseTask.tt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XmlSchemaCompositeTask.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>XmlSchemaCompositeTask.cs</LastGenOutput>
+    </Content>
+    <Content Include="XmlSchemaTemplate.tt" />
+    <Content Include="JsonSchemaTemplate.tt" />
     <Content Include="TransformTask.tt" />
+    <Content Include="XmlSchemaTaskTemplate.tt">
+      <LastGenOutput>XmlSchemaTaskTemplate1.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ultramarine.Generators.Tasks.Library\Ultramarine.Generators.Tasks.Library.csproj">
+      <Project>{4cd4ff45-5d29-459a-bb2e-cd760a95aaf5}</Project>
+      <Name>Ultramarine.Generators.Tasks.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ultramarine.Generators.Tasks\Ultramarine.Generators.Tasks.csproj">
+      <Project>{82d1ce89-82ef-47ff-a702-f67c3e030de4}</Project>
+      <Name>Ultramarine.Generators.Tasks</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ultramarine.Workspaces.VisualStudio\Ultramarine.Workspaces.VisualStudio.csproj">
       <Project>{596e2e43-b431-456b-9537-63570cca0807}</Project>
       <Name>Ultramarine.Workspaces.VisualStudio</Name>
