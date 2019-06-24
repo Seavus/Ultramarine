@@ -1,0 +1,47 @@
+ 
+{
+
+	"$id": "http://ultramarine.seavus.com/schemas/TextTransformationschema.json",
+	"allOf": [
+	{
+		"$ref": "BaseTypes/TaskSchema.json#"
+	},
+	{	
+		"properties": {
+				"parameters": {
+					
+																	"$ref": "#/allOf/2/definitions/Parameters"
+                            													
+									}  , 
+				  					"fileName": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"projectName": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									} 				}
+		},
+		{
+			 
+				"definitions": {
+											"Parameters":
+													{ 
+								"$ref": "BaseTypes/DictionarySchema.json#"
+							} 						 					 
+				}
+					}
+	]
+        
+}
+

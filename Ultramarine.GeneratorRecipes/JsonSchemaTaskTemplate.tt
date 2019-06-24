@@ -1,0 +1,214 @@
+﻿<#@ template debug="true" hostSpecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="Ultramarine.Generators.Tasks" #>
+<#@ assembly name="Ultramarine.Generators.Tasks.Library" #>
+<#@ assembly name="Ultramarine.Workspaces.dll" #>
+<#@ assembly name="Ultramarine.Workspaces.VisualStudio.dll" #>
+<#@ assembly name="NetStandard" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="Ultramarine.Workspaces" #>
+<#@ import namespace="Ultramarine.Workspaces.CodeElements" #>
+<#@ import namespace="Ultramarine.Workspaces.VisualStudio.CodeElements" #> 
+<#@parameter name="Input" type="System.Object" #>
+<# 
+	var task = Input as CodeElementModel;
+	var id = string.Format("http://ultramarine.seavus.com/schemas/{0}schema.json", task.Name);
+#>
+{
+
+	"$id": "<#= id #>",
+	"allOf": [
+	{
+		"$ref": "BaseTypes/TaskSchema.json#"
+	},
+	{	
+		"properties": {
+<# 
+	if(task.Name == "Iterator") { 
+#>
+			}
+		}
+	]
+<# 
+	} else {
+
+		var properties = task.Children.Where(c => c.Type == ElementType.Property).ToList();
+		var ListOfComplexObjects = new List<string>();
+	
+		foreach(CodeElementModel property in properties) { 
+
+			var propertyName = ToCamelCase(property.Name);	
+			var propertyTypes = GetPropertyDescriptor(property);
+			var t = GetType(property.TypeOf[0]);
+#>
+				"<#= propertyName #>": {
+					
+				<# if(t.IsEnum) { #>
+					"enum": [
+					<# 	foreach(var type in propertyTypes) { #>
+						"<#= type #>" <# if(type != propertyTypes[propertyTypes.Count - 1]) { #> , 
+									  <# } #>	
+					<# 	} #>
+					]
+				<# } #>
+					<# 	if(!t.IsEnum) {
+						var typeName = string.Empty; 
+						foreach(var type in propertyTypes) {
+							var alias = TryGetAlias(property.TypeOf[0]);
+							if(alias == null) {  
+								ListOfComplexObjects.Add(property.TypeOf[0]);								
+								var pos = property.TypeOf[0].LastIndexOf(".") + 1;
+								var Name = property.TypeOf[0].Substring(pos, property.TypeOf[0].Length - pos);
+								typeName = string.Format("#/allOf/2/definitions/{0}", Name); #>
+								"$ref": "<#= typeName #>"
+                            <# } else {
+								typeName = alias; #>
+								
+							"type": [
+							"<#= typeName #>",							
+								"null"
+							]
+							<# } #>
+					<# 	} #>								
+					<# 	} #>
+				} <# if(property != properties[properties.Count - 1]) { #> , 
+				  <# } #>
+	<# 
+		}
+	#>
+			}
+		},
+		{
+			<# if(ListOfComplexObjects.Count > 0) { #> 
+				"definitions": {
+					<# foreach(var complexObject in ListOfComplexObjects) { 
+						var t = GetType(complexObject); 
+						var pos = complexObject.LastIndexOf(".") + 1;
+						var typeName = complexObject.Substring(pos, complexObject.Length - pos); #>
+						"<#= typeName #>":
+						<# if(GetType(t.BaseType.FullName).Name == typeof(Dictionary<,>).Name) { /*checking by names because there is version in BaseType...*/ #>
+							{ 
+								"$ref": "BaseTypes/DictionarySchema.json#"
+							} <# if(complexObject != ListOfComplexObjects[ListOfComplexObjects.Count - 1]) { #>, <# } #>
+						<# } else { 
+							PropertyInfo[] myPropertyInfo = t.GetProperties(); #> 						  
+						{
+							"type" : "object",					
+							"properties" : {								
+								<# foreach(var prop in myPropertyInfo) { 
+										var propType = TryGetAlias(prop.PropertyType.FullName);
+										if(propType == null) propType = prop.PropertyType.Name; #>
+										"<#= prop.Name.ToLower() #>": {
+											"type" : [ "<#= propType #>",
+													 "null"
+													 ]
+										} <# if(complexObject != ListOfComplexObjects[ListOfComplexObjects.ToList().Count - 1]) { #>, <# } #>
+ 								<# } #>
+							 }
+						},
+ 						<# } #>
+ 					<# } #> 
+				}
+			<# } #>
+		}
+	]
+<# 
+	}
+#>        
+}
+
+<#+ 
+private static string ToCamelCase(string value) 
+{
+	return Char.ToLowerInvariant(value[0]) + value.Substring(1);
+}
+
+private static Dictionary<Type, string> GetAliases()
+{
+	return new Dictionary<Type, string>() {
+		{ typeof(byte), "byte" },
+		{ typeof(sbyte), "sbyte" },
+		{ typeof(short), "short" },
+		{ typeof(ushort), "ushort" },
+		{ typeof(int), "int" },
+		{ typeof(uint), "uint" },
+		{ typeof(long), "long" },
+		{ typeof(ulong), "ulong" },
+		{ typeof(float), "float" },
+		{ typeof(double), "double" },
+		{ typeof(decimal), "decimal" },
+		{ typeof(object), "object" },
+		{ typeof(bool), "boolean" },
+		{ typeof(char), "char" },
+		{ typeof(string), "string" },
+		{ typeof(void), "void" }
+	};
+}
+
+private static List<string> GetPropertyDescriptor(ICodeElementModel property)
+{
+	Debug.WriteLine("GetPropertyDescriptor called");
+	var result = new List<string>();
+	Debug.WriteLine("Has Property: " + property != null); 
+	
+	Debug.WriteLine(property.TypeOf);
+	try 
+	{
+		var type = property.TypeOf[0];			
+		var t = GetType(type);
+		Debug.WriteLine(t);
+		if(t.IsEnum)
+		{
+			Debug.WriteLine("Type is enum");
+			var enums = Enum.GetNames(t);
+			foreach(var e in enums)
+            {								
+				result.Add(e.ToLower());
+			};
+		}
+		else
+		{
+			result.Add(TryGetAlias(type));
+		}
+	}
+	catch(Exception ex)
+	{
+		Console.WriteLine(ex.Message);
+	}
+
+	return result;
+}
+
+private static string TryGetAlias(string typeName) 
+{
+	var aliases = GetAliases();
+	var key = aliases.Keys.FirstOrDefault(c => c.FullName == typeName);
+	return key != null ? aliases[key] : null;
+}
+
+private static Type GetType(string typeName)
+{
+	var regex = new Regex(@"System\.Nullable<(\S*)>");
+	var safeTypeName = typeName;
+	if (regex.IsMatch(typeName))
+	{
+		var match = regex.Match(typeName);
+		safeTypeName = match.Groups[1].Value;
+    }
+	var type = Type.GetType(safeTypeName);
+	if(type != null)
+		return type;
+
+	return AppDomain.CurrentDomain.GetAssemblies()
+				.SelectMany(t => t.GetTypes())
+				.Where(t => String.Equals(t.FullName, safeTypeName, StringComparison.Ordinal))
+				.First();
+}
+#>

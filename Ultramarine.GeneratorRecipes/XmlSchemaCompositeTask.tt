@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<#@ template debug="true" hostSpecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="Ultramarine.Workspaces.dll" #>
+<#@ assembly name="Ultramarine.Workspaces.VisualStudio.dll" #>
+<#@ assembly name="NetStandard" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="Ultramarine.Workspaces" #>
+<#@ import namespace="Ultramarine.Workspaces.CodeElements" #>
+<#@ import namespace="Ultramarine.Workspaces.VisualStudio.CodeElements" #> 
+<#@parameter name="Input" type="System.Object" #>
+<# 
+	var taskList = Input as List<ICodeElementModel>;
+#>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="TaskSchema.xsd" />
+  <#
+    foreach(CodeElementModel task in taskList) {
+  #>
+  <xs:include schemaLocation="<#= task.Name #>Schema.xsd"/>
+  <# } #> 
+		<xs:complexType name="compositeTask">
+      <xs:complexContent>
+        <xs:extension base="taskStruct">
+			    <xs:sequence>
+            <xs:element name="tasks">
+              <xs:complexType>
+                <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                  <xs:choice>
+<# 
+foreach(CodeElementModel task in taskList) {  
+    var taskName = ToCamelCase(task.Name);
+#>
+				          <xs:sequence>
+                    <xs:element ref="<#= taskName #>">
+                    </xs:element>
+                  </xs:sequence>	
+<# 
+	} 
+#>
+				</xs:choice>                  
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+			</xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  
+</xs:schema>
+
+<#+
+  private static string ToCamelCase(string value)
+  {
+    return Char.ToLowerInvariant(value[0]) + value.Substring(1);
+  }
+#>

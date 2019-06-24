@@ -1,0 +1,95 @@
+ 
+{
+
+	"$id": "http://ultramarine.seavus.com/schemas/LoadCodeElementschema.json",
+	"allOf": [
+	{
+		"$ref": "BaseTypes/TaskSchema.json#"
+	},
+	{	
+		"properties": {
+				"elementName": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"elementType": {
+					
+									"enum": [
+											"other"  , 
+									  	
+											"class"  , 
+									  	
+											"function"  , 
+									  	
+											"variable"  , 
+									  	
+											"property"  , 
+									  	
+											"namespace"  , 
+									  	
+											"parameter"  , 
+									  	
+											"attribute"  , 
+									  	
+											"interface"  , 
+									  	
+											"delegate"  , 
+									  	
+											"enum"  , 
+									  	
+											"struct"  , 
+									  	
+											"union" 	
+										]
+													}  , 
+				  					"elementAccess": {
+					
+									"enum": [
+											"public"  , 
+									  	
+											"private"  , 
+									  	
+											"project"  , 
+									  	
+											"protected"  , 
+									  	
+											"default" 	
+										]
+													}  , 
+				  					"elementOverride": {
+					
+									"enum": [
+											"none"  , 
+									  	
+											"abstract"  , 
+									  	
+											"virtual"  , 
+									  	
+											"override"  , 
+									  	
+											"new"  , 
+									  	
+											"sealed" 	
+										]
+													}  , 
+				  					"typeOf": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									} 				}
+		},
+		{
+					}
+	]
+        
+}
+

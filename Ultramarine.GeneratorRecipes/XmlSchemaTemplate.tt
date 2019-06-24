@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<#@ template debug="true" hostSpecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="Ultramarine.Generators.Tasks" #>
+<#@ assembly name="Ultramarine.Generators.Tasks.Library" #>
+<#@ assembly name="Ultramarine.Workspaces.dll" #>
+<#@ assembly name="Ultramarine.Workspaces.VisualStudio.dll" #>
+<#@ assembly name="NetStandard" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="Ultramarine.Workspaces" #>
+<#@ import namespace="Ultramarine.Workspaces.CodeElements" #>
+<#@ import namespace="Ultramarine.Workspaces.VisualStudio.CodeElements" #> 
+<#@parameter name="Input" type="System.Object" #>
+<# 
+	var taskList = Input as List<ICodeElementModel>;
+#>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:include schemaLocation="XmlSchemas/CompositeTaskSchema.xsd" />
+  <xs:element name="generator" type="compositeTask"/>
+</xs:schema>

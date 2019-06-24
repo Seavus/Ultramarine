@@ -1,0 +1,35 @@
+ 
+{
+
+	"$id": "http://ultramarine.seavus.com/schemas/BuildProjectschema.json",
+	"allOf": [
+	{
+		"$ref": "BaseTypes/TaskSchema.json#"
+	},
+	{	
+		"properties": {
+				"projectName": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"configuration": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									} 				}
+		},
+		{
+					}
+	]
+        
+}
+

@@ -1,0 +1,10 @@
+﻿<Task ConnectedWith="sds" >
+  <Variables>
+    <Variable>
+      <Key>dsd</Key>
+      <Value>
+        <obj>dsd</obj>
+      </Value>
+    </Variable>
+  </Variables>
+</Task>

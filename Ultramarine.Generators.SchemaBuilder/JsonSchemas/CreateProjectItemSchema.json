@@ -1,0 +1,62 @@
+ 
+{
+
+	"$id": "http://ultramarine.seavus.com/schemas/CreateProjectItemschema.json",
+	"allOf": [
+	{
+		"$ref": "BaseTypes/TaskSchema.json#"
+	},
+	{	
+		"properties": {
+				"itemName": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"folderPath": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"linkedWith": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"projectName": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"overwrite": {
+					
+																	
+							"type": [
+							"boolean",							
+								"null"
+							]
+																				
+									} 				}
+		},
+		{
+					}
+	]
+        
+}
+

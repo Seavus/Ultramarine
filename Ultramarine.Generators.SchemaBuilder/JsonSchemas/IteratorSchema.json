@@ -1,0 +1,16 @@
+ 
+{
+
+	"$id": "http://ultramarine.seavus.com/schemas/Iteratorschema.json",
+	"allOf": [
+	{
+		"$ref": "BaseTypes/TaskSchema.json#"
+	},
+	{	
+		"properties": {
+			}
+		}
+	]
+        
+}
+
