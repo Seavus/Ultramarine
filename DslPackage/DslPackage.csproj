@@ -17,7 +17,7 @@
     <AssemblyOriginatorKeyFile>..\Key.snk</AssemblyOriginatorKeyFile>
     <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
     <SignAssembly>true</SignAssembly>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <ClearToolboxCacheInExpHive>true</ClearToolboxCacheInExpHive>
     <StartupObject>
     </StartupObject>
@@ -176,6 +176,18 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Package.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>	
+    <ProjectReference Include="..\Dsl\Dsl.csproj">	
+      <Project>{80c8917c-ab3b-423f-9dc2-462dfcf9cf1d}</Project>	
+      <Name>Dsl</Name>	
+      <IncludeOutputGroupsInVSIX>	
+        BuiltProjectOutputGroup;	
+      </IncludeOutputGroupsInVSIX>	
+      <IncludeOutputGroupsInVSIXLocalOnly>	
+        DebugSymbolsProjectOutputGroup;	
+      </IncludeOutputGroupsInVSIXLocalOnly>	
+    </ProjectReference>	
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
