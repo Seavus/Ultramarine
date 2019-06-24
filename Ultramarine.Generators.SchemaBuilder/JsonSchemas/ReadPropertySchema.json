@@ -1,0 +1,26 @@
+ 
+{
+
+	"$id": "http://ultramarine.seavus.com/schemas/ReadPropertyschema.json",
+	"allOf": [
+	{
+		"$ref": "BaseTypes/TaskSchema.json#"
+	},
+	{	
+		"properties": {
+				"propertyName": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									} 				}
+		},
+		{
+					}
+	]
+        
+}
+

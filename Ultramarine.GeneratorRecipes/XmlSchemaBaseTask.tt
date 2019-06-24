@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<#@ template debug="true" hostSpecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="Ultramarine.Generators.Tasks" #>
+<#@ assembly name="Ultramarine.Generators.Tasks.Library" #>
+<#@ assembly name="Ultramarine.Workspaces.dll" #>
+<#@ assembly name="Ultramarine.Workspaces.VisualStudio.dll" #>
+<#@ assembly name="NetStandard" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="Ultramarine.Workspaces" #>
+<#@ import namespace="Ultramarine.Workspaces.CodeElements" #>
+<#@ import namespace="Ultramarine.Workspaces.VisualStudio.CodeElements" #> 
+<#@parameter name="Input" type="System.Object" #>
+<# 
+	var taskList = Input as List<ICodeElementModel>;
+#>
+
+<xs:schema id="TaskSchema" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="Variable.xsd" />
+
+    <xs:element name="task" type="taskStruct"/>
+
+    <xs:complexType name="taskStruct">
+      <xs:complexContent>
+        <xs:extension base="taskWithElements">
+          <xs:attribute name="name" type="xs:string" use="required"/>
+          <xs:attribute name="description" type="xs:string" />
+          <xs:attribute name="connectedWith" type="xs:string" />
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="taskWithElements">
+      <xs:sequence>
+        <xs:element name="variables" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="variable" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">  	
+  <xs:include schemaLocation="TaskSchema.xsd" />
+    <xs:element name="setVariable">
+      <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="taskStruct">
+    
+ 			                <xs:attribute name="variableName" type="xs:string" />
+                  						  							
+					                
+		    		  		  			                <xs:attribute name="parentTask" type="xs:string" />
+                  						  							
+					                
+		    		              
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+	</xs:schema>

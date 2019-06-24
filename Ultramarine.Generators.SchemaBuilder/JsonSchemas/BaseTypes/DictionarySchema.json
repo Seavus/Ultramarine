@@ -1,0 +1,12 @@
+{
+  "$id": "http://ultramarine.seavus.com/schemas/dictionaryschema.json",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "item": {
+        "type": "object"
+      }
+    }
+  }
+}

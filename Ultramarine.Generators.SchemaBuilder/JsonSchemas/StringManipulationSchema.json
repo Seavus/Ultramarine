@@ -1,0 +1,56 @@
+ 
+{
+
+	"$id": "http://ultramarine.seavus.com/schemas/StringManipulationschema.json",
+	"allOf": [
+	{
+		"$ref": "BaseTypes/TaskSchema.json#"
+	},
+	{	
+		"properties": {
+				"format": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"type": {
+					
+									"enum": [
+											"upper"  , 
+									  	
+											"lower"  , 
+									  	
+											"camelcase"  , 
+									  	
+											"hungarian" 	
+										]
+													}  , 
+				  					"pattern": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									}  , 
+				  					"replacement": {
+					
+																	
+							"type": [
+							"string",							
+								"null"
+							]
+																				
+									} 				}
+		},
+		{
+					}
+	]
+        
+}
+

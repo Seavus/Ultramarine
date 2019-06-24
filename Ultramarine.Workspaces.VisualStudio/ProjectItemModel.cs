@@ -9,6 +9,7 @@ using Ultramarine.Workspaces.VisualStudio.CodeElements;
 
 namespace Ultramarine.Workspaces.VisualStudio
 {
+    [Serializable]
     public class ProjectItemModel : IProjectItemModel
     {
         private ProjectItem _projectItem;
@@ -196,7 +197,7 @@ namespace Ultramarine.Workspaces.VisualStudio
             }
         }
 
-        public string GetProperty(string propertyName = "Name")
+        public string GetProperty(string propertyName = "FileName")
         {
             try
             {

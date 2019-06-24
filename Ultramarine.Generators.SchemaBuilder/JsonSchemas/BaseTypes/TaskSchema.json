@@ -1,0 +1,44 @@
+{
+  "$id":  "http://ultramarine.seavus.com/schemas/taskschema.json",
+  "type": [
+    "object",
+    "null"
+  ],
+  "properties": {
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "input": {},
+    "output": {},
+    "parent": {
+      "$ref": "#"
+    },
+    "connectedWith": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "variables": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "VariableSchema.json#"
+      }
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
