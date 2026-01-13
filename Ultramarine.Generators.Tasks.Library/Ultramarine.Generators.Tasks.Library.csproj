@@ -11,7 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="System.Composition" Version="1.0.31" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
   </ItemGroup>
 
   <ItemGroup>
