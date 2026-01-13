@@ -98,7 +98,7 @@ namespace Ultramarine.Generators.Language
 		{
 			get
 			{
-				return 11;
+				return 14;
 			}
 		}
 		
@@ -321,6 +321,54 @@ namespace Ultramarine.Generators.Language
 						"Importer", // F1 help keyword for the toolbox item.
 						resourceManager.GetString("ImporterToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.Importer.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
+						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
+						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
+						});
+					break;
+				case "Ultramarine.Generators.Language.SqlCommandToolboxItem":
+					// Add SqlCommand shape tool.
+					result = new DslDesign::ModelingToolboxItem(
+						"Ultramarine.Generators.Language.SqlCommandToolboxItem", // Unique identifier (non-localized) for the toolbox item.
+						12, // Position relative to other items in the same toolbox tab.
+						resourceManager.GetString("SqlCommandToolboxItem", resourceCulture), // Localized display name for the item.
+						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("SqlCommandToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"SqlCommand", // F1 help keyword for the toolbox item.
+						resourceManager.GetString("SqlCommandToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
+						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.SqlCommand.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
+						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
+						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
+						});
+					break;
+				case "Ultramarine.Generators.Language.StringManipulationToolboxItem":
+					// Add StringManipulation shape tool.
+					result = new DslDesign::ModelingToolboxItem(
+						"Ultramarine.Generators.Language.StringManipulationToolboxItem", // Unique identifier (non-localized) for the toolbox item.
+						13, // Position relative to other items in the same toolbox tab.
+						resourceManager.GetString("StringManipulationToolboxItem", resourceCulture), // Localized display name for the item.
+						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("StringManipulationToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"StringManipulation", // F1 help keyword for the toolbox item.
+						resourceManager.GetString("StringManipulationToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
+						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.StringManipulation.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
+						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
+						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
+						});
+					break;
+				case "Ultramarine.Generators.Language.WebDownloadToolboxItem":
+					// Add WebDownload shape tool.
+					result = new DslDesign::ModelingToolboxItem(
+						"Ultramarine.Generators.Language.WebDownloadToolboxItem", // Unique identifier (non-localized) for the toolbox item.
+						14, // Position relative to other items in the same toolbox tab.
+						resourceManager.GetString("WebDownloadToolboxItem", resourceCulture), // Localized display name for the item.
+						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("WebDownloadToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
+						"Ultramarine.Generators.Language.Generator LanguageToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
+						resourceManager.GetString("Generator LanguageToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
+						"WebDownload", // F1 help keyword for the toolbox item.
+						resourceManager.GetString("WebDownloadToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
+						CreateElementToolPrototype(store, global::Ultramarine.Generators.Language.WebDownload.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
 						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
 						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
 						});

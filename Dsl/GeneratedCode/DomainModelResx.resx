@@ -517,6 +517,198 @@
     <value>Project Name</value>
     <comment>DisplayName for DomainProperty &apos;ProjectName&apos; on DomainClass &apos;Importer&apos;</comment>
   </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand.Description" xml:space="preserve">
+    <value>Executes a SQL command or query</value>
+    <comment>Description for DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand.DisplayName" xml:space="preserve">
+    <value>SQL Command</value>
+    <comment>DisplayName for DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/ConnectionString.Description" xml:space="preserve">
+    <value>SQL connection string</value>
+    <comment>Description for DomainProperty &apos;ConnectionString&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/ConnectionString.DisplayName" xml:space="preserve">
+    <value>Connection String</value>
+    <comment>DisplayName for DomainProperty &apos;ConnectionString&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/ConnectionString.Category" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Category for DomainProperty &apos;ConnectionString&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/Statement.Description" xml:space="preserve">
+    <value>SQL statement to execute</value>
+    <comment>Description for DomainProperty &apos;Statement&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/Statement.DisplayName" xml:space="preserve">
+    <value>Statement</value>
+    <comment>DisplayName for DomainProperty &apos;Statement&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/Statement.Category" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Category for DomainProperty &apos;Statement&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/CommandType.Description" xml:space="preserve">
+    <value>Command type (Text, StoredProcedure, TableDirect)</value>
+    <comment>Description for DomainProperty &apos;CommandType&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/CommandType.DisplayName" xml:space="preserve">
+    <value>Command Type</value>
+    <comment>DisplayName for DomainProperty &apos;CommandType&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/CommandType.Category" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Category for DomainProperty &apos;CommandType&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/QueryType.Description" xml:space="preserve">
+    <value>Query type (Reader, NonQuery, Scalar)</value>
+    <comment>Description for DomainProperty &apos;QueryType&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/QueryType.DisplayName" xml:space="preserve">
+    <value>Query Type</value>
+    <comment>DisplayName for DomainProperty &apos;QueryType&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommand/QueryType.Category" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Category for DomainProperty &apos;QueryType&apos; on DomainClass &apos;SqlCommand&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation.Description" xml:space="preserve">
+    <value>Converts, formats and replaces strings</value>
+    <comment>Description for DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation.DisplayName" xml:space="preserve">
+    <value>String Manipulation</value>
+    <comment>DisplayName for DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Format.Description" xml:space="preserve">
+    <value>String format to apply</value>
+    <comment>Description for DomainProperty &apos;Format&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Format.DisplayName" xml:space="preserve">
+    <value>Format</value>
+    <comment>DisplayName for DomainProperty &apos;Format&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Format.Category" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Category for DomainProperty &apos;Format&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Type.Description" xml:space="preserve">
+    <value>Case conversion type (Upper, Lower, CamelCase, Hungarian)</value>
+    <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Type.DisplayName" xml:space="preserve">
+    <value>Case Type</value>
+    <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Type.Category" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Category for DomainProperty &apos;Type&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Pattern.Description" xml:space="preserve">
+    <value>Regex pattern to match</value>
+    <comment>Description for DomainProperty &apos;Pattern&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Pattern.DisplayName" xml:space="preserve">
+    <value>Pattern</value>
+    <comment>DisplayName for DomainProperty &apos;Pattern&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Pattern.Category" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Category for DomainProperty &apos;Pattern&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Replacement.Description" xml:space="preserve">
+    <value>Replacement string</value>
+    <comment>Description for DomainProperty &apos;Replacement&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Replacement.DisplayName" xml:space="preserve">
+    <value>Replacement</value>
+    <comment>DisplayName for DomainProperty &apos;Replacement&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulation/Replacement.Category" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Category for DomainProperty &apos;Replacement&apos; on DomainClass &apos;StringManipulation&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload.Description" xml:space="preserve">
+    <value>Downloads data from a URL</value>
+    <comment>Description for DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload.DisplayName" xml:space="preserve">
+    <value>Web Download</value>
+    <comment>DisplayName for DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Url.Description" xml:space="preserve">
+    <value>URL to download from</value>
+    <comment>Description for DomainProperty &apos;Url&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Url.DisplayName" xml:space="preserve">
+    <value>URL</value>
+    <comment>DisplayName for DomainProperty &apos;Url&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Url.Category" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Category for DomainProperty &apos;Url&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Username.Description" xml:space="preserve">
+    <value>Username for authentication</value>
+    <comment>Description for DomainProperty &apos;Username&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Username.DisplayName" xml:space="preserve">
+    <value>Username</value>
+    <comment>DisplayName for DomainProperty &apos;Username&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Username.Category" xml:space="preserve">
+    <value>Authentication</value>
+    <comment>Category for DomainProperty &apos;Username&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Password.Description" xml:space="preserve">
+    <value>Password for authentication</value>
+    <comment>Description for DomainProperty &apos;Password&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Password.DisplayName" xml:space="preserve">
+    <value>Password</value>
+    <comment>DisplayName for DomainProperty &apos;Password&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Password.Category" xml:space="preserve">
+    <value>Authentication</value>
+    <comment>Category for DomainProperty &apos;Password&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Domain.Description" xml:space="preserve">
+    <value>Domain for authentication</value>
+    <comment>Description for DomainProperty &apos;Domain&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Domain.DisplayName" xml:space="preserve">
+    <value>Domain</value>
+    <comment>DisplayName for DomainProperty &apos;Domain&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/Domain.Category" xml:space="preserve">
+    <value>Authentication</value>
+    <comment>Category for DomainProperty &apos;Domain&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/UseSSL.Description" xml:space="preserve">
+    <value>Use SSL for secure connection</value>
+    <comment>Description for DomainProperty &apos;UseSSL&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/UseSSL.DisplayName" xml:space="preserve">
+    <value>Use SSL</value>
+    <comment>DisplayName for DomainProperty &apos;UseSSL&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/UseSSL.Category" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Category for DomainProperty &apos;UseSSL&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/UserAgent.Description" xml:space="preserve">
+    <value>User-Agent header string</value>
+    <comment>Description for DomainProperty &apos;UserAgent&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/UserAgent.DisplayName" xml:space="preserve">
+    <value>User Agent</value>
+    <comment>DisplayName for DomainProperty &apos;UserAgent&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownload/UserAgent.Category" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Category for DomainProperty &apos;UserAgent&apos; on DomainClass &apos;WebDownload&apos;</comment>
+  </data>
   <data name="Ultramarine.Generators.Language.Connection.Description" xml:space="preserve">
     <value>Description for Ultramarine.Generators.Language.Connection</value>
     <comment>Description for DomainClass &apos;Connection&apos;</comment>
@@ -681,6 +873,30 @@
     <value>Importer</value>
     <comment>DisplayName for DomainClass &apos;ImporterShape&apos;</comment>
   </data>
+  <data name="Ultramarine.Generators.Language.SqlCommandShape.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.SqlCommandShape</value>
+    <comment>Description for DomainClass &apos;SqlCommandShape&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.SqlCommandShape.DisplayName" xml:space="preserve">
+    <value>SQL Command Shape</value>
+    <comment>DisplayName for DomainClass &apos;SqlCommandShape&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulationShape.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.StringManipulationShape</value>
+    <comment>Description for DomainClass &apos;StringManipulationShape&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.StringManipulationShape.DisplayName" xml:space="preserve">
+    <value>String Manipulation Shape</value>
+    <comment>DisplayName for DomainClass &apos;StringManipulationShape&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownloadShape.Description" xml:space="preserve">
+    <value>Description for Ultramarine.Generators.Language.WebDownloadShape</value>
+    <comment>Description for DomainClass &apos;WebDownloadShape&apos;</comment>
+  </data>
+  <data name="Ultramarine.Generators.Language.WebDownloadShape.DisplayName" xml:space="preserve">
+    <value>Web Download Shape</value>
+    <comment>DisplayName for DomainClass &apos;WebDownloadShape&apos;</comment>
+  </data>
   <data name="Ultramarine.Generators.Language.ConnectedWithConnector.Description" xml:space="preserve">
     <value>Connector between the ExampleShapes. Represents ExampleRelationships on the Diagram.</value>
     <comment>Description for DomainClass &apos;ConnectedWithConnector&apos;</comment>
@@ -795,6 +1011,30 @@
   </data>
   <data name="ImporterToolboxTooltip" xml:space="preserve">
     <value>Importer</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="SqlCommandToolboxItem" xml:space="preserve">
+    <value>SQL Command</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="SqlCommandToolboxTooltip" xml:space="preserve">
+    <value>Execute SQL Statement</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="StringManipulationToolboxItem" xml:space="preserve">
+    <value>String Manipulation</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="StringManipulationToolboxTooltip" xml:space="preserve">
+    <value>Manipulate Strings</value>
+    <comment>Toolbox tooltip text</comment>
+  </data>
+  <data name="WebDownloadToolboxItem" xml:space="preserve">
+    <value>Web Download</value>
+    <comment>Toolbox item name</comment>
+  </data>
+  <data name="WebDownloadToolboxTooltip" xml:space="preserve">
+    <value>Download from URL</value>
     <comment>Toolbox tooltip text</comment>
   </data>
   <data name="UnresolvedToolboxItem" xml:space="preserve">
@@ -963,6 +1203,18 @@ A DomainClass can be serialized as a moniker only if
     <comment>Toolbox item image</comment>
   </data>
   <data name="ImporterToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="SqlCommandToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="StringManipulationToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Toolbox item image</comment>
+  </data>
+  <data name="WebDownloadToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
     <value>..\Resources\ExampleShapeToolBitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Toolbox item image</comment>
   </data>

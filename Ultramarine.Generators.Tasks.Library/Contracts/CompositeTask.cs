@@ -64,7 +64,7 @@ namespace Ultramarine.Generators.Tasks.Library.Contracts
         public override void SetLogger(ILogger logger)
         {
             base.SetLogger(logger);
-            foreach(var task in Tasks)
+            foreach (var task in Tasks)
             {
                 task.SetLogger(logger);
             }

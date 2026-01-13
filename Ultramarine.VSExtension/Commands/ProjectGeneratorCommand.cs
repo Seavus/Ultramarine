@@ -76,7 +76,7 @@ namespace Ultramarine.VSExtension.Commands
             var projectItems = new List<ProjectItem>();
             foreach (var project in projects)
             {
-                for (var i = 1; i < project.ProjectItems.Count; i++)
+                for (var i = 1; i <= project.ProjectItems.Count; i++)
                 {
                     var item = project.ProjectItems.Item(i);
                     if (item.Name == configurationName)

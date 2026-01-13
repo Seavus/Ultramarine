@@ -80,6 +80,9 @@ namespace Ultramarine.Generators.Language
 				typeof(TextTransformation),
 				typeof(Iterator),
 				typeof(Importer),
+				typeof(SqlCommand),
+				typeof(StringManipulation),
+				typeof(WebDownload),
 				typeof(Connection),
 				typeof(Children),
 				typeof(GeneratorLanguageDiagram),
@@ -95,6 +98,9 @@ namespace Ultramarine.Generators.Language
 				typeof(TextTransformationShape),
 				typeof(CompositeShape),
 				typeof(ImporterShape),
+				typeof(SqlCommandShape),
+				typeof(StringManipulationShape),
+				typeof(WebDownloadShape),
 				typeof(global::Ultramarine.Generators.Language.FixUpDiagram),
 				typeof(global::Ultramarine.Generators.Language.ConnectorRolePlayerChanged),
 			};
@@ -137,6 +143,20 @@ namespace Ultramarine.Generators.Language
 				new DomainMemberInfo(typeof(TextTransformation), "Parameters", TextTransformation.ParametersDomainPropertyId, typeof(TextTransformation.ParametersPropertyHandler)),
 				new DomainMemberInfo(typeof(Importer), "Path", Importer.PathDomainPropertyId, typeof(Importer.PathPropertyHandler)),
 				new DomainMemberInfo(typeof(Importer), "ProjectName", Importer.ProjectNameDomainPropertyId, typeof(Importer.ProjectNamePropertyHandler)),
+				new DomainMemberInfo(typeof(SqlCommand), "ConnectionString", SqlCommand.ConnectionStringDomainPropertyId, typeof(SqlCommand.ConnectionStringPropertyHandler)),
+				new DomainMemberInfo(typeof(SqlCommand), "Statement", SqlCommand.StatementDomainPropertyId, typeof(SqlCommand.StatementPropertyHandler)),
+				new DomainMemberInfo(typeof(SqlCommand), "CommandType", SqlCommand.CommandTypeDomainPropertyId, typeof(SqlCommand.CommandTypePropertyHandler)),
+				new DomainMemberInfo(typeof(SqlCommand), "QueryType", SqlCommand.QueryTypeDomainPropertyId, typeof(SqlCommand.QueryTypePropertyHandler)),
+				new DomainMemberInfo(typeof(StringManipulation), "Format", StringManipulation.FormatDomainPropertyId, typeof(StringManipulation.FormatPropertyHandler)),
+				new DomainMemberInfo(typeof(StringManipulation), "Type", StringManipulation.TypeDomainPropertyId, typeof(StringManipulation.TypePropertyHandler)),
+				new DomainMemberInfo(typeof(StringManipulation), "Pattern", StringManipulation.PatternDomainPropertyId, typeof(StringManipulation.PatternPropertyHandler)),
+				new DomainMemberInfo(typeof(StringManipulation), "Replacement", StringManipulation.ReplacementDomainPropertyId, typeof(StringManipulation.ReplacementPropertyHandler)),
+				new DomainMemberInfo(typeof(WebDownload), "Url", WebDownload.UrlDomainPropertyId, typeof(WebDownload.UrlPropertyHandler)),
+				new DomainMemberInfo(typeof(WebDownload), "Username", WebDownload.UsernameDomainPropertyId, typeof(WebDownload.UsernamePropertyHandler)),
+				new DomainMemberInfo(typeof(WebDownload), "Password", WebDownload.PasswordDomainPropertyId, typeof(WebDownload.PasswordPropertyHandler)),
+				new DomainMemberInfo(typeof(WebDownload), "Domain", WebDownload.DomainDomainPropertyId, typeof(WebDownload.DomainPropertyHandler)),
+				new DomainMemberInfo(typeof(WebDownload), "UseSSL", WebDownload.UseSSLDomainPropertyId, typeof(WebDownload.UseSSLPropertyHandler)),
+				new DomainMemberInfo(typeof(WebDownload), "UserAgent", WebDownload.UserAgentDomainPropertyId, typeof(WebDownload.UserAgentPropertyHandler)),
 			};
 		}
 		/// <summary>
@@ -172,7 +192,7 @@ namespace Ultramarine.Generators.Language
 	
 			if (createElementMap == null)
 			{
-				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(26);
+				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(32);
 				createElementMap.Add(typeof(Generator), 0);
 				createElementMap.Add(typeof(LoadCodeElement), 1);
 				createElementMap.Add(typeof(BuildProject), 2);
@@ -184,18 +204,24 @@ namespace Ultramarine.Generators.Language
 				createElementMap.Add(typeof(TextTransformation), 8);
 				createElementMap.Add(typeof(Iterator), 9);
 				createElementMap.Add(typeof(Importer), 10);
-				createElementMap.Add(typeof(GeneratorLanguageDiagram), 11);
-				createElementMap.Add(typeof(ConnectedWithConnector), 12);
-				createElementMap.Add(typeof(LoadCodeElementShape), 13);
-				createElementMap.Add(typeof(BuildProjectShape), 14);
-				createElementMap.Add(typeof(CreateFolderShape), 15);
-				createElementMap.Add(typeof(CreateProjectItemShape), 16);
-				createElementMap.Add(typeof(LoadProjectItemShape), 17);
-				createElementMap.Add(typeof(ReadPropertyShape), 18);
-				createElementMap.Add(typeof(SetVariableShape), 19);
-				createElementMap.Add(typeof(TextTransformationShape), 20);
-				createElementMap.Add(typeof(CompositeShape), 21);
-				createElementMap.Add(typeof(ImporterShape), 22);
+				createElementMap.Add(typeof(SqlCommand), 11);
+				createElementMap.Add(typeof(StringManipulation), 12);
+				createElementMap.Add(typeof(WebDownload), 13);
+				createElementMap.Add(typeof(GeneratorLanguageDiagram), 14);
+				createElementMap.Add(typeof(ConnectedWithConnector), 15);
+				createElementMap.Add(typeof(LoadCodeElementShape), 16);
+				createElementMap.Add(typeof(BuildProjectShape), 17);
+				createElementMap.Add(typeof(CreateFolderShape), 18);
+				createElementMap.Add(typeof(CreateProjectItemShape), 19);
+				createElementMap.Add(typeof(LoadProjectItemShape), 20);
+				createElementMap.Add(typeof(ReadPropertyShape), 21);
+				createElementMap.Add(typeof(SetVariableShape), 22);
+				createElementMap.Add(typeof(TextTransformationShape), 23);
+				createElementMap.Add(typeof(CompositeShape), 24);
+				createElementMap.Add(typeof(ImporterShape), 25);
+				createElementMap.Add(typeof(SqlCommandShape), 26);
+				createElementMap.Add(typeof(StringManipulationShape), 27);
+				createElementMap.Add(typeof(WebDownloadShape), 28);
 			}
 			int index;
 			if (!createElementMap.TryGetValue(elementType, out index))
@@ -220,18 +246,24 @@ namespace Ultramarine.Generators.Language
 				case 8: return new TextTransformation(partition, propertyAssignments);
 				case 9: return new Iterator(partition, propertyAssignments);
 				case 10: return new Importer(partition, propertyAssignments);
-				case 11: return new GeneratorLanguageDiagram(partition, propertyAssignments);
-				case 12: return new ConnectedWithConnector(partition, propertyAssignments);
-				case 13: return new LoadCodeElementShape(partition, propertyAssignments);
-				case 14: return new BuildProjectShape(partition, propertyAssignments);
-				case 15: return new CreateFolderShape(partition, propertyAssignments);
-				case 16: return new CreateProjectItemShape(partition, propertyAssignments);
-				case 17: return new LoadProjectItemShape(partition, propertyAssignments);
-				case 18: return new ReadPropertyShape(partition, propertyAssignments);
-				case 19: return new SetVariableShape(partition, propertyAssignments);
-				case 20: return new TextTransformationShape(partition, propertyAssignments);
-				case 21: return new CompositeShape(partition, propertyAssignments);
-				case 22: return new ImporterShape(partition, propertyAssignments);
+				case 11: return new SqlCommand(partition, propertyAssignments);
+				case 12: return new StringManipulation(partition, propertyAssignments);
+				case 13: return new WebDownload(partition, propertyAssignments);
+				case 14: return new GeneratorLanguageDiagram(partition, propertyAssignments);
+				case 15: return new ConnectedWithConnector(partition, propertyAssignments);
+				case 16: return new LoadCodeElementShape(partition, propertyAssignments);
+				case 17: return new BuildProjectShape(partition, propertyAssignments);
+				case 18: return new CreateFolderShape(partition, propertyAssignments);
+				case 19: return new CreateProjectItemShape(partition, propertyAssignments);
+				case 20: return new LoadProjectItemShape(partition, propertyAssignments);
+				case 21: return new ReadPropertyShape(partition, propertyAssignments);
+				case 22: return new SetVariableShape(partition, propertyAssignments);
+				case 23: return new TextTransformationShape(partition, propertyAssignments);
+				case 24: return new CompositeShape(partition, propertyAssignments);
+				case 25: return new ImporterShape(partition, propertyAssignments);
+				case 26: return new SqlCommandShape(partition, propertyAssignments);
+				case 27: return new StringManipulationShape(partition, propertyAssignments);
+				case 28: return new WebDownloadShape(partition, propertyAssignments);
 				default: return null;
 			}
 		}
