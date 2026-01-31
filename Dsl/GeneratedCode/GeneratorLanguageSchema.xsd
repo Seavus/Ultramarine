@@ -464,6 +464,180 @@
     </xsd:complexContent>
   </xsd:complexType>
   
+  <!-- SqlCommand -->
+  <xsd:element name="sqlCommand" type="SqlCommand" substitutionGroup="task" />
+  <xsd:complexType name="SqlCommand">
+    <xsd:annotation>
+      <xsd:documentation>Executes a SQL command or query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ConnectionString -->
+        <xsd:attribute name="connectionString" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>SQL connection string</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Statement -->
+        <xsd:attribute name="statement" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>SQL statement to execute</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: CommandType -->
+        <xsd:attribute name="commandType" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Command type (Text, StoredProcedure, TableDirect)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: QueryType -->
+        <xsd:attribute name="queryType" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Query type (Reader, NonQuery, Scalar)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- SqlCommand Moniker -->
+  <xsd:element name="sqlCommandMoniker" type="SqlCommandMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="SqlCommandMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for SqlCommand instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- StringManipulation -->
+  <xsd:element name="stringManipulation" type="StringManipulation" substitutionGroup="task" />
+  <xsd:complexType name="StringManipulation">
+    <xsd:annotation>
+      <xsd:documentation>Converts, formats and replaces strings</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Format -->
+        <xsd:attribute name="format" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>String format to apply</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Type -->
+        <xsd:attribute name="type" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Case conversion type (Upper, Lower, CamelCase, Hungarian)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Pattern -->
+        <xsd:attribute name="pattern" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Regex pattern to match</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Replacement -->
+        <xsd:attribute name="replacement" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Replacement string</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- StringManipulation Moniker -->
+  <xsd:element name="stringManipulationMoniker" type="StringManipulationMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="StringManipulationMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for StringManipulation instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- WebDownload -->
+  <xsd:element name="webDownload" type="WebDownload" substitutionGroup="task" />
+  <xsd:complexType name="WebDownload">
+    <xsd:annotation>
+      <xsd:documentation>Downloads data from a URL</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="Task">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Url -->
+        <xsd:attribute name="url" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>URL to download from</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Username -->
+        <xsd:attribute name="username" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Username for authentication</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Password -->
+        <xsd:attribute name="password" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Password for authentication</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Domain -->
+        <xsd:attribute name="domain" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Domain for authentication</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: UseSSL -->
+        <xsd:attribute name="useSSL" type="xsd:boolean" >
+          <xsd:annotation>
+            <xsd:documentation>Use SSL for secure connection</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: UserAgent -->
+        <xsd:attribute name="userAgent" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>User-Agent header string</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- WebDownload Moniker -->
+  <xsd:element name="webDownloadMoniker" type="WebDownloadMoniker" substitutionGroup="taskMoniker" />
+  <xsd:complexType name="WebDownloadMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for WebDownload instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="TaskMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
   <!-- Connection -->
   <xsd:element name="connection" type="Connection" substitutionGroup="core:modelElement" />
   <xsd:complexType name="Connection">

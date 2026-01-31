@@ -244,7 +244,7 @@ namespace Ultramarine.Generators.Language
 		/// <param name="isDiagram">Indicates whether a diagram or model file is currently being serialized.</param>
 		internal virtual global::System.Xml.XmlReaderSettings CreateXmlReaderSettings(DslModeling::SerializationContext serializationContext, bool isDiagram)
 		{
-			return new global::System.Xml.XmlReaderSettings();
+			return new global::System.Xml.XmlReaderSettings() { DtdProcessing = System.Xml.DtdProcessing.Prohibit };
 		}
 	
 		/// <summary>
@@ -442,7 +442,7 @@ namespace Ultramarine.Generators.Language
 				this.InitializeSerializationContext(partition, serializationContext, true);
 				DslModeling::TransactionContext transactionContext = new DslModeling::TransactionContext();
 				transactionContext.Add(DslModeling::SerializationContext.TransactionContextKey, serializationContext);
-				using (DslModeling::Transaction t = partition.Store.TransactionManager.BeginTransaction("Load Model from " + location??"stream", true, transactionContext))
+				using (DslModeling::Transaction t = partition.Store.TransactionManager.BeginTransaction("Load Model from " + location ?? "stream", true, transactionContext))
 				{
 					// Ensure there is some content in the file.  Blank (or almost blank, to account for encoding header bytes, etc.)
 					// files will cause a new root element to be created and returned. 

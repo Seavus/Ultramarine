@@ -199,7 +199,7 @@
         <DomainClassMoniker Name="Task" />
       </BaseClass>
       <Properties>
-        <DomainProperty Id="0ec6bd04-5eab-4522-9888-e68def811753" Description="Description for Ultramarine.Generators.Language.TextTransformation.File Name" Name="FileName" DisplayName="File Name">
+        <DomainProperty Id="0ec6bd04-5eab-4522-9888-e68def811753" Description="Description for Ultramarine.Generators.Language.TextTransformation.File Name" Name="FileName" DisplayName="File Name" EditorTypeName="Ultramarine.Generators.Language.PropertyEditors.FilePickerEditor, Ultramarine.Generators.Language.DslPackage">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -232,6 +232,97 @@
           </Type>
         </DomainProperty>
         <DomainProperty Id="29bb276f-08d5-476f-aa20-6d40aa37916d" Description="Description for Ultramarine.Generators.Language.Importer.Project Name" Name="ProjectName" DisplayName="Project Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
+    <DomainClass Id="a1b2c3d4-e5f6-7890-abcd-ef1234567890" Description="Executes a SQL command or query" Name="SqlCommand" DisplayName="SQL Command" Namespace="Ultramarine.Generators.Language">
+      <BaseClass>
+        <DomainClassMoniker Name="Task" />
+      </BaseClass>
+      <Properties>
+        <DomainProperty Id="b2c3d4e5-f6a7-8901-bcde-f12345678901" Description="SQL connection string" Name="ConnectionString" DisplayName="Connection String" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="c3d4e5f6-a7b8-9012-cdef-123456789012" Description="SQL statement to execute" Name="Statement" DisplayName="Statement" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="d4e5f6a7-b8c9-0123-defa-234567890123" Description="Command type (Text, StoredProcedure, TableDirect)" Name="CommandType" DisplayName="Command Type" Category="Settings" DefaultValue="Text">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="e5f6a7b8-c9d0-1234-efab-345678901234" Description="Query type (Reader, NonQuery, Scalar)" Name="QueryType" DisplayName="Query Type" Category="Settings" DefaultValue="Reader">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
+    <DomainClass Id="f6a7b8c9-d0e1-2345-fabc-456789012345" Description="Converts, formats and replaces strings" Name="StringManipulation" DisplayName="String Manipulation" Namespace="Ultramarine.Generators.Language">
+      <BaseClass>
+        <DomainClassMoniker Name="Task" />
+      </BaseClass>
+      <Properties>
+        <DomainProperty Id="a7b8c9d0-e1f2-3456-abcd-567890123456" Description="String format to apply" Name="Format" DisplayName="Format" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="b8c9d0e1-f2a3-4567-bcde-678901234567" Description="Case conversion type (Upper, Lower, CamelCase, Hungarian)" Name="Type" DisplayName="Case Type" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="c9d0e1f2-a3b4-5678-cdef-789012345678" Description="Regex pattern to match" Name="Pattern" DisplayName="Pattern" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="d0e1f2a3-b4c5-6789-defa-890123456789" Description="Replacement string" Name="Replacement" DisplayName="Replacement" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
+    <DomainClass Id="e1f2a3b4-c5d6-7890-efab-901234567890" Description="Downloads data from a URL" Name="WebDownload" DisplayName="Web Download" Namespace="Ultramarine.Generators.Language">
+      <BaseClass>
+        <DomainClassMoniker Name="Task" />
+      </BaseClass>
+      <Properties>
+        <DomainProperty Id="f2a3b4c5-d6e7-8901-fabc-012345678901" Description="URL to download from" Name="Url" DisplayName="URL" Category="Settings">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="a3b4c5d6-e7f8-9012-abcd-123456789012" Description="Username for authentication" Name="Username" DisplayName="Username" Category="Authentication">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="b4c5d6e7-f8a9-0123-bcde-234567890123" Description="Password for authentication" Name="Password" DisplayName="Password" Category="Authentication">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="c5d6e7f8-a9b0-1234-cdef-345678901234" Description="Domain for authentication" Name="Domain" DisplayName="Domain" Category="Authentication">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="d6e7f8a9-b0c1-2345-defa-456789012345" Description="Use SSL for secure connection" Name="UseSSL" DisplayName="Use SSL" Category="Settings" DefaultValue="false">
+          <Type>
+            <ExternalTypeMoniker Name="/System/Boolean" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="e7f8a9b0-c1d2-3456-efab-567890123456" Description="User-Agent header string" Name="UserAgent" DisplayName="User Agent" Category="Settings">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -352,6 +443,21 @@
       </BaseGeometryShape>
     </GeometryShape>
     <GeometryShape Id="31e19623-0939-4511-a169-69196cb043e2" Description="Description for Ultramarine.Generators.Language.ImporterShape" Name="ImporterShape" DisplayName="Importer" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Importer" FillColor="DarkRed" OutlineColor="Gainsboro" InitialHeight="1" Geometry="Rectangle">
+      <BaseGeometryShape>
+        <GeometryShapeMoniker Name="TaskShape" />
+      </BaseGeometryShape>
+    </GeometryShape>
+    <GeometryShape Id="1a2b3c4d-5e6f-7890-1234-567890abcdef" Description="Description for Ultramarine.Generators.Language.SqlCommandShape" Name="SqlCommandShape" DisplayName="SQL Command Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="SQL Command Shape" FillColor="255, 215, 0" OutlineColor="184, 134, 11" InitialHeight="1" Geometry="Rectangle">
+      <BaseGeometryShape>
+        <GeometryShapeMoniker Name="TaskShape" />
+      </BaseGeometryShape>
+    </GeometryShape>
+    <GeometryShape Id="2b3c4d5e-6f7a-8901-2345-67890abcdef1" Description="Description for Ultramarine.Generators.Language.StringManipulationShape" Name="StringManipulationShape" DisplayName="String Manipulation Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="String Manipulation Shape" FillColor="173, 216, 230" OutlineColor="70, 130, 180" InitialHeight="1" Geometry="Rectangle">
+      <BaseGeometryShape>
+        <GeometryShapeMoniker Name="TaskShape" />
+      </BaseGeometryShape>
+    </GeometryShape>
+    <GeometryShape Id="3c4d5e6f-7a8b-9012-3456-7890abcdef12" Description="Description for Ultramarine.Generators.Language.WebDownloadShape" Name="WebDownloadShape" DisplayName="Web Download Shape" Namespace="Ultramarine.Generators.Language" FixedTooltipText="Web Download Shape" FillColor="144, 238, 144" OutlineColor="34, 139, 34" InitialHeight="1" Geometry="Rectangle">
       <BaseGeometryShape>
         <GeometryShapeMoniker Name="TaskShape" />
       </BaseGeometryShape>
@@ -560,6 +666,72 @@
       </XmlClassData>
       <XmlClassData TypeName="ImporterShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="importerShapeMoniker" ElementName="importerShape" MonikerTypeName="ImporterShapeMoniker">
         <GeometryShapeMoniker Name="ImporterShape" />
+      </XmlClassData>
+      <XmlClassData TypeName="SqlCommand" MonikerAttributeName="" SerializeId="true" MonikerElementName="sqlCommandMoniker" ElementName="sqlCommand" MonikerTypeName="SqlCommandMoniker">
+        <DomainClassMoniker Name="SqlCommand" />
+        <ElementData>
+          <XmlPropertyData XmlName="connectionString">
+            <DomainPropertyMoniker Name="SqlCommand/ConnectionString" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="statement">
+            <DomainPropertyMoniker Name="SqlCommand/Statement" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="commandType">
+            <DomainPropertyMoniker Name="SqlCommand/CommandType" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="queryType">
+            <DomainPropertyMoniker Name="SqlCommand/QueryType" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="SqlCommandShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="sqlCommandShapeMoniker" ElementName="sqlCommandShape" MonikerTypeName="SqlCommandShapeMoniker">
+        <GeometryShapeMoniker Name="SqlCommandShape" />
+      </XmlClassData>
+      <XmlClassData TypeName="StringManipulation" MonikerAttributeName="" SerializeId="true" MonikerElementName="stringManipulationMoniker" ElementName="stringManipulation" MonikerTypeName="StringManipulationMoniker">
+        <DomainClassMoniker Name="StringManipulation" />
+        <ElementData>
+          <XmlPropertyData XmlName="format">
+            <DomainPropertyMoniker Name="StringManipulation/Format" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="type">
+            <DomainPropertyMoniker Name="StringManipulation/Type" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="pattern">
+            <DomainPropertyMoniker Name="StringManipulation/Pattern" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="replacement">
+            <DomainPropertyMoniker Name="StringManipulation/Replacement" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="StringManipulationShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="stringManipulationShapeMoniker" ElementName="stringManipulationShape" MonikerTypeName="StringManipulationShapeMoniker">
+        <GeometryShapeMoniker Name="StringManipulationShape" />
+      </XmlClassData>
+      <XmlClassData TypeName="WebDownload" MonikerAttributeName="" SerializeId="true" MonikerElementName="webDownloadMoniker" ElementName="webDownload" MonikerTypeName="WebDownloadMoniker">
+        <DomainClassMoniker Name="WebDownload" />
+        <ElementData>
+          <XmlPropertyData XmlName="url">
+            <DomainPropertyMoniker Name="WebDownload/Url" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="username">
+            <DomainPropertyMoniker Name="WebDownload/Username" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="password">
+            <DomainPropertyMoniker Name="WebDownload/Password" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="domain">
+            <DomainPropertyMoniker Name="WebDownload/Domain" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="useSSL">
+            <DomainPropertyMoniker Name="WebDownload/UseSSL" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="userAgent">
+            <DomainPropertyMoniker Name="WebDownload/UserAgent" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="WebDownloadShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="webDownloadShapeMoniker" ElementName="webDownloadShape" MonikerTypeName="WebDownloadShapeMoniker">
+        <GeometryShapeMoniker Name="WebDownloadShape" />
       </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
@@ -900,6 +1072,99 @@
         </DecoratorMap>
         <GeometryShapeMoniker Name="ImporterShape" />
       </ShapeMap>
+      <ShapeMap>
+      <DomainClassMoniker Name="SqlCommand" />
+      <ParentElementPath>
+        <DomainPath>Children.Parent/!CompositeTask</DomainPath>
+      </ParentElementPath>
+      <DecoratorMap>
+        <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="Task/Name" />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </DecoratorMap>
+      <DecoratorMap>
+        <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="Task/Description" />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </DecoratorMap>
+      <DecoratorMap>
+        <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="Task/BaseType" />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </DecoratorMap>
+      <GeometryShapeMoniker Name="SqlCommandShape" />
+    </ShapeMap>
+    <ShapeMap>
+      <DomainClassMoniker Name="StringManipulation" />
+      <ParentElementPath>
+        <DomainPath>Children.Parent/!CompositeTask</DomainPath>
+      </ParentElementPath>
+      <DecoratorMap>
+        <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="Task/Name" />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </DecoratorMap>
+      <DecoratorMap>
+        <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="Task/Description" />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </DecoratorMap>
+      <DecoratorMap>
+        <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="Task/BaseType" />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </DecoratorMap>
+      <GeometryShapeMoniker Name="StringManipulationShape" />
+    </ShapeMap>
+    <ShapeMap>
+      <DomainClassMoniker Name="WebDownload" />
+      <ParentElementPath>
+        <DomainPath>Children.Parent/!CompositeTask</DomainPath>
+      </ParentElementPath>
+      <DecoratorMap>
+        <TextDecoratorMoniker Name="TaskShape/NameDecorator" />
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="Task/Name" />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </DecoratorMap>
+      <DecoratorMap>
+        <TextDecoratorMoniker Name="TaskShape/DescriptionDecorator" />
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="Task/Description" />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </DecoratorMap>
+      <DecoratorMap>
+        <TextDecoratorMoniker Name="TaskShape/TypeDecorator" />
+        <PropertyDisplayed>
+          <PropertyPath>
+            <DomainPropertyMoniker Name="Task/BaseType" />
+          </PropertyPath>
+        </PropertyDisplayed>
+      </DecoratorMap>
+      <GeometryShapeMoniker Name="WebDownloadShape" />
+    </ShapeMap>
     </ShapeMaps>
     <ConnectorMaps>
       <ConnectorMap>
@@ -948,6 +1213,15 @@
       </ElementTool>
       <ElementTool Name="Importer" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="Importer" Tooltip="Importer" HelpKeyword="Importer">
         <DomainClassMoniker Name="Importer" />
+      </ElementTool>
+      <ElementTool Name="SqlCommand" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="SQL Command" Tooltip="Execute SQL Statement" HelpKeyword="SqlCommand">
+        <DomainClassMoniker Name="SqlCommand" />
+      </ElementTool>
+      <ElementTool Name="StringManipulation" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="String Manipulation" Tooltip="Manipulate Strings" HelpKeyword="StringManipulation">
+        <DomainClassMoniker Name="StringManipulation" />
+      </ElementTool>
+      <ElementTool Name="WebDownload" ToolboxIcon="Resources\ExampleShapeToolBitmap.bmp" Caption="Web Download" Tooltip="Download from URL" HelpKeyword="WebDownload">
+        <DomainClassMoniker Name="WebDownload" />
       </ElementTool>
     </ToolboxTab>
     <Validation UsesMenu="false" UsesOpen="false" UsesSave="false" UsesLoad="false" />

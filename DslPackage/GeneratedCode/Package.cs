@@ -7,24 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Diagnostics;
+using System.Drawing.Design;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using VSShellInterop = global::Microsoft.VisualStudio.Shell.Interop;
 using VSShell = global::Microsoft.VisualStudio.Shell;
 using DslShell = global::Microsoft.VisualStudio.Modeling.Shell;
 using DslDesign = global::Microsoft.VisualStudio.Modeling.Design;
 using DslModeling = global::Microsoft.VisualStudio.Modeling;
-using System;
-using System.Diagnostics;
-using System.Drawing.Design;
-using System.Linq;
-using System.Windows.Forms;
-	
+
 namespace Ultramarine.Generators.Language
 {
 	/// <summary>
 	/// This class implements the VS package that integrates this DSL into Visual Studio.
 	/// </summary>
-	[VSShell::DefaultRegistryRoot("Software\\Microsoft\\VisualStudio\\15.0")]
-	[VSShell::PackageRegistration(RegisterUsing = VSShell::RegistrationMethod.Assembly, UseManagedResourcesOnly = true)]
+	[VSShell::PackageRegistration(RegisterUsing = VSShell::RegistrationMethod.Assembly, UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
 	[VSShell::ProvideToolWindow(typeof(GeneratorLanguageExplorerToolWindow), MultiInstances = false, Style = VSShell::VsDockStyle.Tabbed, Orientation = VSShell::ToolWindowOrientation.Right, Window = "{3AE79031-E1BC-11D0-8F78-00A0C9110057}")]
 	[VSShell::ProvideToolWindowVisibility(typeof(GeneratorLanguageExplorerToolWindow), Constants.GeneratorLanguageEditorFactoryId)]
 	[VSShell::ProvideStaticToolboxGroup("@Generator LanguageToolboxTab;Ultramarine.Generators.Language.Dsl.dll", "Ultramarine.Generators.Language.Generator LanguageToolboxTab")]
@@ -116,6 +117,30 @@ namespace Ultramarine.Generators.Language
 					"@ImporterToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
 					0xff00ff,
 					Index = 10)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.Generator LanguageToolboxTab",
+					"@SqlCommandToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.SqlCommandToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"SqlCommand", 
+					"@SqlCommandToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
+					Index = 11)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.Generator LanguageToolboxTab",
+					"@StringManipulationToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.StringManipulationToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"StringManipulation", 
+					"@StringManipulationToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
+					Index = 12)]
+	[VSShell::ProvideStaticToolboxItem("Ultramarine.Generators.Language.Generator LanguageToolboxTab",
+					"@WebDownloadToolboxItem;Ultramarine.Generators.Language.Dsl.dll", 
+					"Ultramarine.Generators.Language.WebDownloadToolboxItem", 
+					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
+					"WebDownload", 
+					"@WebDownloadToolboxBitmap;Ultramarine.Generators.Language.Dsl.dll", 
+					0xff00ff,
+					Index = 13)]
 	[VSShell::ProvideEditorFactory(typeof(GeneratorLanguageEditorFactory), 103, TrustLevel = VSShellInterop::__VSEDITORTRUSTLEVEL.ETL_AlwaysTrusted)]
 	[VSShell::ProvideEditorExtension(typeof(GeneratorLanguageEditorFactory), "." + Constants.DesignerFileExtension, 50)]
 	[VSShell::ProvideEditorLogicalView(typeof(GeneratorLanguageEditorFactory), "{7651A702-06E5-11D1-8EBD-00A0C90F26EA}")] // Designer logical view GUID i.e. VSConstants.LOGVIEWID_Designer
@@ -130,16 +155,16 @@ namespace Ultramarine.Generators.Language
 	[DslShell::ProvideBindingPath]
 	[DslShell::ProvideXmlEditorChooserBlockSxSWithXmlEditor(@"GeneratorLanguage", typeof(GeneratorLanguageEditorFactory))]
 
-	internal abstract partial class GeneratorLanguagePackageBase : DslShell::ModelingPackage
+	internal abstract partial class GeneratorLanguagePackageBase : DslShell::AsyncModelingPackage
 	{
 		protected global::Ultramarine.Generators.Language.GeneratorLanguageToolboxHelper toolboxHelper;	
 		
 		/// <summary>
 		/// Initialization method called by the package base class when this package is loaded.
 		/// </summary>
-		protected override void Initialize()
+		protected async override System.Threading.Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<VSShell.ServiceProgressData> progress)
 		{
-			base.Initialize();
+			await base.InitializeAsync(cancellationToken, progress);
 
 			// Register the editor factory used to create the DSL editor.
 			this.RegisterEditorFactory(new GeneratorLanguageEditorFactory(this));
@@ -149,21 +174,28 @@ namespace Ultramarine.Generators.Language
 
 			// Create the command set that handles menu commands provided by this package.
 			GeneratorLanguageCommandSet commandSet = new GeneratorLanguageCommandSet(this);
-			commandSet.Initialize();
+			await commandSet.InitializeAsync(cancellationToken);
 			
 			// Create the command set that handles cut/copy/paste commands provided by this package.
 			GeneratorLanguageClipboardCommandSet clipboardCommandSet = new GeneratorLanguageClipboardCommandSet(this);
-			clipboardCommandSet.Initialize();
+			await clipboardCommandSet.InitializeAsync(cancellationToken);
 			
 			// Register the model explorer tool window for this DSL.
 			this.AddToolWindow(typeof(GeneratorLanguageExplorerToolWindow));
+
+			if (cancellationToken.IsCancellationRequested)
+			{
+				return;
+			}
+
+			await JoinableTaskFactory.SwitchToMainThreadAsync();
 
 			// Initialize Extension Registars
 			// this is a partial method call
 			this.InitializeExtensions();
 
 			// Add dynamic toolbox items
-			this.SetupDynamicToolbox();
+			await this.SetupDynamicToolboxAsync(cancellationToken);
 		}
 
 		/// <summary>
@@ -182,7 +214,7 @@ namespace Ultramarine.Generators.Language
 				Debug.Assert(toolboxHelper != null, "Toolbox helper is not initialized");
 				return toolboxHelper.CreateToolboxItems();
 			}
-			catch(global::System.Exception e)
+			catch (global::System.Exception e)
 			{
 				global::System.Diagnostics.Debug.Fail("Exception thrown during toolbox item creation.  This may result in Package Load Failure:\r\n\r\n" + e);
 				throw;
@@ -203,8 +235,17 @@ namespace Ultramarine.Generators.Language
 			// Retrieve the specified ToolboxItem from the DSL
 			return toolboxHelper.GetToolboxItemData(itemId, format);
 		}
-	}
 
+		public override VSShellInterop::IVsAsyncToolWindowFactory GetAsyncToolWindowFactory(Guid toolWindowType)
+		{
+			if (toolWindowType == typeof(GeneratorLanguageExplorerToolWindow).GUID)
+			{
+				return this;
+			}
+
+			return base.GetAsyncToolWindowFactory(toolWindowType);
+		}
+	}
 }
 
 //

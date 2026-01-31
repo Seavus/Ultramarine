@@ -3206,3 +3206,1360 @@ namespace Ultramarine.Generators.Language
 		#endregion
 	}
 }
+namespace Ultramarine.Generators.Language
+{
+	/// <summary>
+	/// DomainClass SqlCommand
+	/// Executes a SQL command or query
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.SqlCommand.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.SqlCommand.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("a1b2c3d4-e5f6-7890-abcd-ef1234567890")]
+	public partial class SqlCommand : Task
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// SqlCommand domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xa1b2c3d4, 0xe5f6, 0x7890, 0xab, 0xcd, 0xef, 0x12, 0x34, 0x56, 0x78, 0x90);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public SqlCommand(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public SqlCommand(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region ConnectionString domain property code
+		
+		/// <summary>
+		/// ConnectionString domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ConnectionStringDomainPropertyId = new global::System.Guid(0xb2c3d4e5, 0xf6a7, 0x8901, 0xbc, 0xde, 0xf1, 0x23, 0x45, 0x67, 0x89, 0x01);
+		
+		/// <summary>
+		/// Storage for ConnectionString
+		/// </summary>
+		private global::System.String connectionStringPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ConnectionString domain property.
+		/// SQL connection string
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.SqlCommand/ConnectionString.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.SqlCommand/ConnectionString.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.SqlCommand/ConnectionString.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("b2c3d4e5-f6a7-8901-bcde-f12345678901")]
+		public global::System.String ConnectionString
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return connectionStringPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ConnectionStringPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the SqlCommand.ConnectionString domain property.
+		/// </summary>
+		internal sealed partial class ConnectionStringPropertyHandler : DslModeling::DomainPropertyValueHandler<SqlCommand, global::System.String>
+		{
+			private ConnectionStringPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the SqlCommand.ConnectionString domain property value handler.
+			/// </summary>
+			public static readonly ConnectionStringPropertyHandler Instance = new ConnectionStringPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the SqlCommand.ConnectionString domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ConnectionStringDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(SqlCommand element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.connectionStringPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(SqlCommand element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.connectionStringPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Statement domain property code
+		
+		/// <summary>
+		/// Statement domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid StatementDomainPropertyId = new global::System.Guid(0xc3d4e5f6, 0xa7b8, 0x9012, 0xcd, 0xef, 0x12, 0x34, 0x56, 0x78, 0x90, 0x12);
+		
+		/// <summary>
+		/// Storage for Statement
+		/// </summary>
+		private global::System.String statementPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Statement domain property.
+		/// SQL statement to execute
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.SqlCommand/Statement.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.SqlCommand/Statement.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.SqlCommand/Statement.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("c3d4e5f6-a7b8-9012-cdef-123456789012")]
+		public global::System.String Statement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return statementPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				StatementPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the SqlCommand.Statement domain property.
+		/// </summary>
+		internal sealed partial class StatementPropertyHandler : DslModeling::DomainPropertyValueHandler<SqlCommand, global::System.String>
+		{
+			private StatementPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the SqlCommand.Statement domain property value handler.
+			/// </summary>
+			public static readonly StatementPropertyHandler Instance = new StatementPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the SqlCommand.Statement domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return StatementDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(SqlCommand element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.statementPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(SqlCommand element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.statementPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region CommandType domain property code
+		
+		/// <summary>
+		/// CommandType domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid CommandTypeDomainPropertyId = new global::System.Guid(0xd4e5f6a7, 0xb8c9, 0x0123, 0xde, 0xfa, 0x23, 0x45, 0x67, 0x89, 0x01, 0x23);
+		
+		/// <summary>
+		/// Storage for CommandType
+		/// </summary>
+		private global::System.String commandTypePropertyStorage = "Text";
+		
+		/// <summary>
+		/// Gets or sets the value of CommandType domain property.
+		/// Command type (Text, StoredProcedure, TableDirect)
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.SqlCommand/CommandType.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.SqlCommand/CommandType.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.SqlCommand/CommandType.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("Text")]
+		[DslModeling::DomainObjectId("d4e5f6a7-b8c9-0123-defa-234567890123")]
+		public global::System.String CommandType
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return commandTypePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				CommandTypePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the SqlCommand.CommandType domain property.
+		/// </summary>
+		internal sealed partial class CommandTypePropertyHandler : DslModeling::DomainPropertyValueHandler<SqlCommand, global::System.String>
+		{
+			private CommandTypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the SqlCommand.CommandType domain property value handler.
+			/// </summary>
+			public static readonly CommandTypePropertyHandler Instance = new CommandTypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the SqlCommand.CommandType domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return CommandTypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(SqlCommand element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.commandTypePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(SqlCommand element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.commandTypePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region QueryType domain property code
+		
+		/// <summary>
+		/// QueryType domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid QueryTypeDomainPropertyId = new global::System.Guid(0xe5f6a7b8, 0xc9d0, 0x1234, 0xef, 0xab, 0x34, 0x56, 0x78, 0x90, 0x12, 0x34);
+		
+		/// <summary>
+		/// Storage for QueryType
+		/// </summary>
+		private global::System.String queryTypePropertyStorage = "Reader";
+		
+		/// <summary>
+		/// Gets or sets the value of QueryType domain property.
+		/// Query type (Reader, NonQuery, Scalar)
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.SqlCommand/QueryType.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.SqlCommand/QueryType.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.SqlCommand/QueryType.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("Reader")]
+		[DslModeling::DomainObjectId("e5f6a7b8-c9d0-1234-efab-345678901234")]
+		public global::System.String QueryType
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return queryTypePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				QueryTypePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the SqlCommand.QueryType domain property.
+		/// </summary>
+		internal sealed partial class QueryTypePropertyHandler : DslModeling::DomainPropertyValueHandler<SqlCommand, global::System.String>
+		{
+			private QueryTypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the SqlCommand.QueryType domain property value handler.
+			/// </summary>
+			public static readonly QueryTypePropertyHandler Instance = new QueryTypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the SqlCommand.QueryType domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return QueryTypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(SqlCommand element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.queryTypePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(SqlCommand element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.queryTypePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+	}
+}
+namespace Ultramarine.Generators.Language
+{
+	/// <summary>
+	/// DomainClass StringManipulation
+	/// Converts, formats and replaces strings
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.StringManipulation.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.StringManipulation.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("f6a7b8c9-d0e1-2345-fabc-456789012345")]
+	public partial class StringManipulation : Task
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// StringManipulation domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xf6a7b8c9, 0xd0e1, 0x2345, 0xfa, 0xbc, 0x45, 0x67, 0x89, 0x01, 0x23, 0x45);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public StringManipulation(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public StringManipulation(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Format domain property code
+		
+		/// <summary>
+		/// Format domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid FormatDomainPropertyId = new global::System.Guid(0xa7b8c9d0, 0xe1f2, 0x3456, 0xab, 0xcd, 0x56, 0x78, 0x90, 0x12, 0x34, 0x56);
+		
+		/// <summary>
+		/// Storage for Format
+		/// </summary>
+		private global::System.String formatPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Format domain property.
+		/// String format to apply
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.StringManipulation/Format.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.StringManipulation/Format.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.StringManipulation/Format.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("a7b8c9d0-e1f2-3456-abcd-567890123456")]
+		public global::System.String Format
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return formatPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				FormatPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the StringManipulation.Format domain property.
+		/// </summary>
+		internal sealed partial class FormatPropertyHandler : DslModeling::DomainPropertyValueHandler<StringManipulation, global::System.String>
+		{
+			private FormatPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the StringManipulation.Format domain property value handler.
+			/// </summary>
+			public static readonly FormatPropertyHandler Instance = new FormatPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the StringManipulation.Format domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return FormatDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(StringManipulation element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.formatPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(StringManipulation element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.formatPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Type domain property code
+		
+		/// <summary>
+		/// Type domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0xb8c9d0e1, 0xf2a3, 0x4567, 0xbc, 0xde, 0x67, 0x89, 0x01, 0x23, 0x45, 0x67);
+		
+		/// <summary>
+		/// Storage for Type
+		/// </summary>
+		private global::System.String typePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Type domain property.
+		/// Case conversion type (Upper, Lower, CamelCase, Hungarian)
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.StringManipulation/Type.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.StringManipulation/Type.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.StringManipulation/Type.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("b8c9d0e1-f2a3-4567-bcde-678901234567")]
+		public global::System.String Type
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return typePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				TypePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the StringManipulation.Type domain property.
+		/// </summary>
+		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<StringManipulation, global::System.String>
+		{
+			private TypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the StringManipulation.Type domain property value handler.
+			/// </summary>
+			public static readonly TypePropertyHandler Instance = new TypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the StringManipulation.Type domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(StringManipulation element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.typePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(StringManipulation element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.typePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Pattern domain property code
+		
+		/// <summary>
+		/// Pattern domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid PatternDomainPropertyId = new global::System.Guid(0xc9d0e1f2, 0xa3b4, 0x5678, 0xcd, 0xef, 0x78, 0x90, 0x12, 0x34, 0x56, 0x78);
+		
+		/// <summary>
+		/// Storage for Pattern
+		/// </summary>
+		private global::System.String patternPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Pattern domain property.
+		/// Regex pattern to match
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.StringManipulation/Pattern.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.StringManipulation/Pattern.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.StringManipulation/Pattern.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("c9d0e1f2-a3b4-5678-cdef-789012345678")]
+		public global::System.String Pattern
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return patternPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				PatternPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the StringManipulation.Pattern domain property.
+		/// </summary>
+		internal sealed partial class PatternPropertyHandler : DslModeling::DomainPropertyValueHandler<StringManipulation, global::System.String>
+		{
+			private PatternPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the StringManipulation.Pattern domain property value handler.
+			/// </summary>
+			public static readonly PatternPropertyHandler Instance = new PatternPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the StringManipulation.Pattern domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return PatternDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(StringManipulation element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.patternPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(StringManipulation element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.patternPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Replacement domain property code
+		
+		/// <summary>
+		/// Replacement domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ReplacementDomainPropertyId = new global::System.Guid(0xd0e1f2a3, 0xb4c5, 0x6789, 0xde, 0xfa, 0x89, 0x01, 0x23, 0x45, 0x67, 0x89);
+		
+		/// <summary>
+		/// Storage for Replacement
+		/// </summary>
+		private global::System.String replacementPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Replacement domain property.
+		/// Replacement string
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.StringManipulation/Replacement.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.StringManipulation/Replacement.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.StringManipulation/Replacement.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("d0e1f2a3-b4c5-6789-defa-890123456789")]
+		public global::System.String Replacement
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return replacementPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ReplacementPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the StringManipulation.Replacement domain property.
+		/// </summary>
+		internal sealed partial class ReplacementPropertyHandler : DslModeling::DomainPropertyValueHandler<StringManipulation, global::System.String>
+		{
+			private ReplacementPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the StringManipulation.Replacement domain property value handler.
+			/// </summary>
+			public static readonly ReplacementPropertyHandler Instance = new ReplacementPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the StringManipulation.Replacement domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ReplacementDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(StringManipulation element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.replacementPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(StringManipulation element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.replacementPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+	}
+}
+namespace Ultramarine.Generators.Language
+{
+	/// <summary>
+	/// DomainClass WebDownload
+	/// Downloads data from a URL
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.WebDownload.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ultramarine.Generators.Language.WebDownload.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("e1f2a3b4-c5d6-7890-efab-901234567890")]
+	public partial class WebDownload : Task
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// WebDownload domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xe1f2a3b4, 0xc5d6, 0x7890, 0xef, 0xab, 0x90, 0x12, 0x34, 0x56, 0x78, 0x90);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public WebDownload(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public WebDownload(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Url domain property code
+		
+		/// <summary>
+		/// Url domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid UrlDomainPropertyId = new global::System.Guid(0xf2a3b4c5, 0xd6e7, 0x8901, 0xfa, 0xbc, 0x01, 0x23, 0x45, 0x67, 0x89, 0x01);
+		
+		/// <summary>
+		/// Storage for Url
+		/// </summary>
+		private global::System.String urlPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Url domain property.
+		/// URL to download from
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.WebDownload/Url.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.WebDownload/Url.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.WebDownload/Url.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("f2a3b4c5-d6e7-8901-fabc-012345678901")]
+		public global::System.String Url
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return urlPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				UrlPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the WebDownload.Url domain property.
+		/// </summary>
+		internal sealed partial class UrlPropertyHandler : DslModeling::DomainPropertyValueHandler<WebDownload, global::System.String>
+		{
+			private UrlPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the WebDownload.Url domain property value handler.
+			/// </summary>
+			public static readonly UrlPropertyHandler Instance = new UrlPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the WebDownload.Url domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return UrlDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(WebDownload element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.urlPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(WebDownload element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.urlPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Username domain property code
+		
+		/// <summary>
+		/// Username domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid UsernameDomainPropertyId = new global::System.Guid(0xa3b4c5d6, 0xe7f8, 0x9012, 0xab, 0xcd, 0x12, 0x34, 0x56, 0x78, 0x90, 0x12);
+		
+		/// <summary>
+		/// Storage for Username
+		/// </summary>
+		private global::System.String usernamePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Username domain property.
+		/// Username for authentication
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.WebDownload/Username.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.WebDownload/Username.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.WebDownload/Username.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("a3b4c5d6-e7f8-9012-abcd-123456789012")]
+		public global::System.String Username
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return usernamePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				UsernamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the WebDownload.Username domain property.
+		/// </summary>
+		internal sealed partial class UsernamePropertyHandler : DslModeling::DomainPropertyValueHandler<WebDownload, global::System.String>
+		{
+			private UsernamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the WebDownload.Username domain property value handler.
+			/// </summary>
+			public static readonly UsernamePropertyHandler Instance = new UsernamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the WebDownload.Username domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return UsernameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(WebDownload element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.usernamePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(WebDownload element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.usernamePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Password domain property code
+		
+		/// <summary>
+		/// Password domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid PasswordDomainPropertyId = new global::System.Guid(0xb4c5d6e7, 0xf8a9, 0x0123, 0xbc, 0xde, 0x23, 0x45, 0x67, 0x89, 0x01, 0x23);
+		
+		/// <summary>
+		/// Storage for Password
+		/// </summary>
+		private global::System.String passwordPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Password domain property.
+		/// Password for authentication
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.WebDownload/Password.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.WebDownload/Password.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.WebDownload/Password.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("b4c5d6e7-f8a9-0123-bcde-234567890123")]
+		public global::System.String Password
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return passwordPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				PasswordPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the WebDownload.Password domain property.
+		/// </summary>
+		internal sealed partial class PasswordPropertyHandler : DslModeling::DomainPropertyValueHandler<WebDownload, global::System.String>
+		{
+			private PasswordPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the WebDownload.Password domain property value handler.
+			/// </summary>
+			public static readonly PasswordPropertyHandler Instance = new PasswordPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the WebDownload.Password domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return PasswordDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(WebDownload element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.passwordPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(WebDownload element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.passwordPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Domain domain property code
+		
+		/// <summary>
+		/// Domain domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid DomainDomainPropertyId = new global::System.Guid(0xc5d6e7f8, 0xa9b0, 0x1234, 0xcd, 0xef, 0x34, 0x56, 0x78, 0x90, 0x12, 0x34);
+		
+		/// <summary>
+		/// Storage for Domain
+		/// </summary>
+		private global::System.String domainPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Domain domain property.
+		/// Domain for authentication
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.WebDownload/Domain.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.WebDownload/Domain.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.WebDownload/Domain.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("c5d6e7f8-a9b0-1234-cdef-345678901234")]
+		public global::System.String Domain
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return domainPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DomainPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the WebDownload.Domain domain property.
+		/// </summary>
+		internal sealed partial class DomainPropertyHandler : DslModeling::DomainPropertyValueHandler<WebDownload, global::System.String>
+		{
+			private DomainPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the WebDownload.Domain domain property value handler.
+			/// </summary>
+			public static readonly DomainPropertyHandler Instance = new DomainPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the WebDownload.Domain domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return DomainDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(WebDownload element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.domainPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(WebDownload element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.domainPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region UseSSL domain property code
+		
+		/// <summary>
+		/// UseSSL domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid UseSSLDomainPropertyId = new global::System.Guid(0xd6e7f8a9, 0xb0c1, 0x2345, 0xde, 0xfa, 0x45, 0x67, 0x89, 0x01, 0x23, 0x45);
+		
+		/// <summary>
+		/// Storage for UseSSL
+		/// </summary>
+		private global::System.Boolean useSSLPropertyStorage;
+		
+		/// <summary>
+		/// Gets or sets the value of UseSSL domain property.
+		/// Use SSL for secure connection
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.WebDownload/UseSSL.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.WebDownload/UseSSL.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.WebDownload/UseSSL.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("d6e7f8a9-b0c1-2345-defa-456789012345")]
+		public global::System.Boolean UseSSL
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return useSSLPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				UseSSLPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the WebDownload.UseSSL domain property.
+		/// </summary>
+		internal sealed partial class UseSSLPropertyHandler : DslModeling::DomainPropertyValueHandler<WebDownload, global::System.Boolean>
+		{
+			private UseSSLPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the WebDownload.UseSSL domain property value handler.
+			/// </summary>
+			public static readonly UseSSLPropertyHandler Instance = new UseSSLPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the WebDownload.UseSSL domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return UseSSLDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.Boolean GetValue(WebDownload element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.useSSLPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(WebDownload element, global::System.Boolean newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.Boolean oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.useSSLPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region UserAgent domain property code
+		
+		/// <summary>
+		/// UserAgent domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid UserAgentDomainPropertyId = new global::System.Guid(0xe7f8a9b0, 0xc1d2, 0x3456, 0xef, 0xab, 0x56, 0x78, 0x90, 0x12, 0x34, 0x56);
+		
+		/// <summary>
+		/// Storage for UserAgent
+		/// </summary>
+		private global::System.String userAgentPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of UserAgent domain property.
+		/// User-Agent header string
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ultramarine.Generators.Language.WebDownload/UserAgent.DisplayName", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Ultramarine.Generators.Language.WebDownload/UserAgent.Category", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ultramarine.Generators.Language.WebDownload/UserAgent.Description", typeof(global::Ultramarine.Generators.Language.GeneratorLanguageDomainModel), "Ultramarine.Generators.Language.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("e7f8a9b0-c1d2-3456-efab-567890123456")]
+		public global::System.String UserAgent
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return userAgentPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				UserAgentPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the WebDownload.UserAgent domain property.
+		/// </summary>
+		internal sealed partial class UserAgentPropertyHandler : DslModeling::DomainPropertyValueHandler<WebDownload, global::System.String>
+		{
+			private UserAgentPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the WebDownload.UserAgent domain property value handler.
+			/// </summary>
+			public static readonly UserAgentPropertyHandler Instance = new UserAgentPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the WebDownload.UserAgent domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return UserAgentDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(WebDownload element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.userAgentPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(WebDownload element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.userAgentPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+	}
+}
