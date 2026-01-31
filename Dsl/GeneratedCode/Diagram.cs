@@ -251,6 +251,24 @@ namespace Ultramarine.Generators.Language
 				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
 				return newShape;
 			}
+			if(element is global::Ultramarine.Generators.Language.SqlCommand)
+			{
+				global::Ultramarine.Generators.Language.SqlCommandShape newShape = new global::Ultramarine.Generators.Language.SqlCommandShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
+			if(element is global::Ultramarine.Generators.Language.StringManipulation)
+			{
+				global::Ultramarine.Generators.Language.StringManipulationShape newShape = new global::Ultramarine.Generators.Language.StringManipulationShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
+			if(element is global::Ultramarine.Generators.Language.WebDownload)
+			{
+				global::Ultramarine.Generators.Language.WebDownloadShape newShape = new global::Ultramarine.Generators.Language.WebDownloadShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
 			if(element is global::Ultramarine.Generators.Language.Connection)
 			{
 				global::Ultramarine.Generators.Language.ConnectedWithConnector newShape = new global::Ultramarine.Generators.Language.ConnectedWithConnector(this.Partition);
@@ -277,6 +295,9 @@ namespace Ultramarine.Generators.Language
 			global::Ultramarine.Generators.Language.TextTransformationShape.DecoratorsInitialized += TextTransformationShapeDecoratorMap.OnDecoratorsInitialized;
 			global::Ultramarine.Generators.Language.CompositeShape.DecoratorsInitialized += CompositeShapeDecoratorMap.OnDecoratorsInitialized;
 			global::Ultramarine.Generators.Language.ImporterShape.DecoratorsInitialized += ImporterShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Ultramarine.Generators.Language.SqlCommandShape.DecoratorsInitialized += SqlCommandShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Ultramarine.Generators.Language.StringManipulationShape.DecoratorsInitialized += StringManipulationShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Ultramarine.Generators.Language.WebDownloadShape.DecoratorsInitialized += WebDownloadShapeDecoratorMap.OnDecoratorsInitialized;
 		}
 		
 		/// <summary>
@@ -552,6 +573,84 @@ namespace Ultramarine.Generators.Language
 			}
 		}
 		
+		/// <summary>
+		/// Class containing decorator path traversal methods for SqlCommandShape.
+		/// </summary>
+		internal static partial class SqlCommandShapeDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for SqlCommandShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				TaskShapeDecoratorMap.OnDecoratorsInitialized(sender, e);
+				
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for StringManipulationShape.
+		/// </summary>
+		internal static partial class StringManipulationShapeDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for StringManipulationShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				TaskShapeDecoratorMap.OnDecoratorsInitialized(sender, e);
+				
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for WebDownloadShape.
+		/// </summary>
+		internal static partial class WebDownloadShapeDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for WebDownloadShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				TaskShapeDecoratorMap.OnDecoratorsInitialized(sender, e);
+				
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.DescriptionDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DescriptionDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ultramarine.Generators.Language.Task.BaseTypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TypeDecorator").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
 		#endregion
 		
 		#region Connect actions
@@ -713,6 +812,9 @@ namespace Ultramarine.Generators.Language
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.TextTransformation), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.CompositeTask), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.Importer), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.SqlCommand), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.StringManipulation), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.WebDownload), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ultramarine.Generators.Language.Connection), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
 		internal sealed partial class FixUpDiagram : FixUpDiagramBase
 		{
@@ -775,6 +877,18 @@ namespace Ultramarine.Generators.Language
 				if(childElement is global::Ultramarine.Generators.Language.Importer)
 				{
 					parentElement = GetParentForImporter((global::Ultramarine.Generators.Language.Importer)childElement);
+				} else
+				if(childElement is global::Ultramarine.Generators.Language.SqlCommand)
+				{
+					parentElement = GetParentForSqlCommand((global::Ultramarine.Generators.Language.SqlCommand)childElement);
+				} else
+				if(childElement is global::Ultramarine.Generators.Language.StringManipulation)
+				{
+					parentElement = GetParentForStringManipulation((global::Ultramarine.Generators.Language.StringManipulation)childElement);
+				} else
+				if(childElement is global::Ultramarine.Generators.Language.WebDownload)
+				{
+					parentElement = GetParentForWebDownload((global::Ultramarine.Generators.Language.WebDownload)childElement);
 				} else
 				{
 					parentElement = null;
@@ -842,6 +956,27 @@ namespace Ultramarine.Generators.Language
 				return result;
 			}
 			public static global::Ultramarine.Generators.Language.CompositeTask GetParentForImporter( global::Ultramarine.Generators.Language.Task root )
+			{
+				// Segments 0 and 1
+				global::Ultramarine.Generators.Language.CompositeTask result = root.Parent;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Ultramarine.Generators.Language.CompositeTask GetParentForSqlCommand( global::Ultramarine.Generators.Language.Task root )
+			{
+				// Segments 0 and 1
+				global::Ultramarine.Generators.Language.CompositeTask result = root.Parent;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Ultramarine.Generators.Language.CompositeTask GetParentForStringManipulation( global::Ultramarine.Generators.Language.Task root )
+			{
+				// Segments 0 and 1
+				global::Ultramarine.Generators.Language.CompositeTask result = root.Parent;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Ultramarine.Generators.Language.CompositeTask GetParentForWebDownload( global::Ultramarine.Generators.Language.Task root )
 			{
 				// Segments 0 and 1
 				global::Ultramarine.Generators.Language.CompositeTask result = root.Parent;
